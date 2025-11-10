@@ -17,7 +17,15 @@
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1100px;margin:32px auto;padding:0 20px}
     header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
-    .avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid #26282e;background:#222}
+    .avatar{
+      width:100px;
+      height:auto;
+      border-radius:14px;
+      object-fit:cover;
+      border:2px solid #26282e;
+      background:#222;
+      display:block;
+    }
     h1{font-size:28px;margin:0 8px 0 0}
     .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(239,106,58,.12);
       border:1px solid rgba(239,106,58,.3); color:#ffd8c7; padding:6px 10px; border-radius:999px; font-weight:600}
@@ -47,7 +55,7 @@
   <div class="wrap">
     <div class="topbar">
       <header>
-        <img src="images/bulldog.jpeg" alt="Proof Of Mike Bulldog" />
+        <img src="images/bulldog.jpeg" alt="Proof Of Mike Bulldog" class="avatar" />
         <h1>Proof Of Mike</h1>
         <span class="pill">5% off code: <span style="background:var(--accent);color:#1b0c07;padding:3px 8px;border-radius:7px;font-weight:800">PROOFOFMIKE</span></span>
       </header>
@@ -57,7 +65,6 @@
       </div>
     </div>
 
-    <!-- Coupon / instructions -->
     <div class="panel">
       <h2>Shop TinyChipHub</h2>
       <p class="muted">Use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any product (one time per person).  
@@ -69,17 +76,13 @@
     <h2>Popular Miners</h2>
     <div class="cards">
 
-      <!-- NerdQaxe++ Remastered -->
       <article class="card">
-        <!-- Optional image later:
-        <img src="/assets/nerdqaxe-remastered.jpg" alt="NerdQaxe++ Remastered" style="width:100%;border-radius:10px;border:1px solid var(--ring)"> -->
         <h3>NerdQaxe++ Remastered</h3>
         <p>Full copper & aluminum variants, excellent craftsmanship and efficiency.</p>
         <a class="btn" target="_blank" rel="noopener"
            href="https://tinychiphub.com/products/16070478266882271945813445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
       </article>
 
-      <!-- Bitaxe Gamma 601 -->
       <article class="card">
         <h3>Bitaxe Gamma 601</h3>
         <p>Reliable home miner; great starter for solo-mining experiments.</p>
@@ -87,7 +90,6 @@
            href="https://tinychiphub.com/products/16070228615722936151843445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
       </article>
 
-      <!-- Zyber 8G / 8S -->
       <article class="card">
         <h3>Zyber 8G / 8S</h3>
         <p>Quiet, thoughtful thermals. Check stock/options for your setup.</p>
@@ -97,7 +99,6 @@
            href="https://tinychiphub.com/products/16070227869230944329773445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">Zyber 8S →</a>
       </article>
 
-      <!-- Hex / Supra Hex -->
       <article class="card">
         <h3>Bitaxe Hex & Supra Hex</h3>
         <p>Hex series options for more performance headroom.</p>
@@ -107,7 +108,6 @@
            href="https://tinychiphub.com/products/16070228599294182540643445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">Supra Hex →</a>
       </article>
 
-      <!-- Bitaxe Ultra -->
       <article class="card">
         <h3>Bitaxe Ultra</h3>
         <p>Top-end Bitaxe option if you want to tinker and push.</p>
@@ -115,7 +115,6 @@
            href="https://tinychiphub.com/products/16070232392056321327413445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
       </article>
 
-      <!-- DG Home 1 -->
       <article class="card">
         <h3>DG Home 1</h3>
         <p>Entry friendly device—good for learning and casual setups.</p>
