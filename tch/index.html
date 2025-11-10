@@ -1,63 +1,131 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proof Of Mike × TinyChipHub</title>
-  <meta name="description" content="Save 5% at TinyChipHub with promo code PROOFOFMIKE. Curated links and miners from Proof Of Mike.">
-  <link rel="stylesheet" href="../assets/style.css">
+  <meta name="description" content="Use code PROOFOFMIKE for 5% off at TinyChipHub (one time per person). Curated links to popular miners with affiliate tracking." />
+  <link rel="preload" href="/assets/proofofmike-bulldog.jpg" as="image">
+  <style>
+    :root{
+      --bg:#0f1012; --panel:#17181c; --muted:#8b8f98; --text:#e8eaee;
+      --accent:#ef6a3a; --accent-2:#ffb28f; --ring:#2a2d33; --card:#14161a;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:32px auto;padding:0 20px}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+    .avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid #26282e;background:#222}
+    h1{font-size:28px;margin:0 8px 0 0}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(239,106,58,.12);
+      border:1px solid rgba(239,106,58,.3); color:#ffd8c7; padding:6px 10px; border-radius:999px; font-weight:600}
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media(min-width:760px){ .grid{grid-template-columns:1fr 1fr} }
+    .panel{background:var(--panel);border:1px solid var(--ring);border-radius:var(--radius);padding:18px}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#1b0c07;border:none;
+      font-weight:700;padding:12px 16px;border-radius:12px;cursor:pointer}
+    .cta:hover{filter:brightness(1.04)}
+    .muted{color:var(--muted)}
+    h2{font-size:22px;margin:8px 0 14px}
+    .cards{display:grid;gap:16px}
+    @media(min-width:900px){ .cards{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+    .card h3{margin:0;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .btn{display:inline-block;margin-top:auto;background:#23262c;border:1px solid #2e3239;color:#e9ecef;padding:10px 12px;border-radius:10px;font-weight:600}
+    .btn:hover{border-color:#3b414a}
+    .foot{margin-top:24px;color:var(--muted);font-size:13px}
+    .topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .rightlinks a{padding:6px 10px;border:1px solid var(--ring);border-radius:999px;color:var(--muted)}
+    .rightlinks a:hover{color:var(--text);border-color:#3b414a}
+    .spacer{height:6px}
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <img src="../img/bulldog.jpg" alt="Proof Of Mike Bulldog">
-      <div class="hgroup">
-        <h1>Proof Of Mike <span class="badge">5% off code: <span class="code">PROOFOFMIKE</span></span></h1>
-        <p>TinyChipHub partner page • One-time use per person • Use at checkout</p>
-        <div class="nav">
-          <a class="active" href="/tch/">TinyChipHub</a>
-          <a href="/">Home</a>
-        </div>
+  <div class="wrap">
+    <div class="topbar">
+      <header>
+        <img class="avatar" src="/assets/proofofmike-bulldog.jpg" alt="Proof Of Mike bulldog">
+        <h1>Proof Of Mike</h1>
+        <span class="pill">5% off code: <span style="background:var(--accent);color:#1b0c07;padding:3px 8px;border-radius:7px;font-weight:800">PROOFOFMIKE</span></span>
+      </header>
+      <div class="rightlinks">
+        <a href="/tch/">TinyChipHub</a>
+        <a href="/">Home</a>
       </div>
-    </header>
+    </div>
 
-    <section class="hero">
-      <div class="card">
-        <h2>Shop TinyChipHub</h2>
-        <p>Use the code <span class="code">PROOFOFMIKE</span> for <strong>5% off</strong> any product at checkout. The button below uses my affiliate link.</p>
-        <p><a class="cta" href="https://tinychiphub.com/affiliate-program/sell-product?source_type=sales_plugin_af&slt=sales_plugin_af&productPage=1&referral_code=DV5E0IRIUVHM" target="_blank" rel="noopener">Open the TinyChipHub Store</a></p>
-        <p class="note">This link tracks referrals so TinyChipHub knows you came from Proof Of Mike.</p>
-      </div>
-      <div class="hero-art">
-        <img src="../img/bulldog.jpg" alt="Proof Of Mike Bulldog">
-      </div>
-    </section>
+    <!-- Coupon / instructions -->
+    <div class="panel">
+      <h2>Shop TinyChipHub</h2>
+      <p class="muted">Use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any product (one time per person).  
+      The links below include my affiliate tracking so TinyChipHub knows you came from Proof Of Mike.</p>
+    </div>
 
-    <section class="card">
-      <h2>Popular Miners</h2>
-      <div class="products">
-        <article class="product">
-          <h3>NerdQaxe++ Remastered</h3>
-          <p>Full copper and aluminum variants. Great efficiency and build quality.</p>
-          <p><a class="cta" href="https://tinychiphub.com/affiliate-program/sell-product?source_type=sales_plugin_af&slt=sales_plugin_af&productPage=1&referral_code=DV5E0IRIUVHM" target="_blank" rel="noopener">View on TinyChipHub</a></p>
-        </article>
-        <article class="product">
-          <h3>Bitaxe Gamma 601</h3>
-          <p>Compact, reliable home miner. Perfect starter for solo mining experiments.</p>
-          <p><a class="cta" href="https://tinychiphub.com/affiliate-program/sell-product?source_type=sales_plugin_af&slt=sales_plugin_af&productPage=1&referral_code=DV5E0IRIUVHM" target="_blank" rel="noopener">View on TinyChipHub</a></p>
-        </article>
-        <article class="product">
-          <h3>Zyber 8G / 8S</h3>
-          <p>Quiet performance with thoughtful thermals. Check stock and options.</p>
-          <p><a class="cta" href="https://tinychiphub.com/affiliate-program/sell-product?source_type=sales_plugin_af&slt=sales_plugin_af&productPage=1&referral_code=DV5E0IRIUVHM" target="_blank" rel="noopener">View on TinyChipHub</a></p>
-        </article>
-      </div>
-      <p class="note">Have deep links for individual SKUs? Replace the buttons’ hrefs with your product‑specific affiliate URLs.</p>
-    </section>
+    <div class="spacer"></div>
 
-    <footer class="footer">
-      <div>© PROOFOFMIKE • This page is independent and not affiliated with TinyChipHub LLC.</div>
-    </footer>
+    <h2>Popular Miners</h2>
+    <div class="cards">
+
+      <!-- NerdQaxe++ Remastered -->
+      <article class="card">
+        <!-- Optional image later:
+        <img src="/assets/nerdqaxe-remastered.jpg" alt="NerdQaxe++ Remastered" style="width:100%;border-radius:10px;border:1px solid var(--ring)"> -->
+        <h3>NerdQaxe++ Remastered</h3>
+        <p>Full copper & aluminum variants, excellent craftsmanship and efficiency.</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070478266882271945813445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
+      </article>
+
+      <!-- Bitaxe Gamma 601 -->
+      <article class="card">
+        <h3>Bitaxe Gamma 601</h3>
+        <p>Reliable home miner; great starter for solo-mining experiments.</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070228615722936151843445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
+      </article>
+
+      <!-- Zyber 8G / 8S -->
+      <article class="card">
+        <h3>Zyber 8G / 8S</h3>
+        <p>Quiet, thoughtful thermals. Check stock/options for your setup.</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070811247589476349983445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">Zyber 8G →</a>
+        <a class="btn" style="margin-top:8px" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070227869230944329773445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">Zyber 8S →</a>
+      </article>
+
+      <!-- Hex / Supra Hex -->
+      <article class="card">
+        <h3>Bitaxe Hex & Supra Hex</h3>
+        <p>Hex series options for more performance headroom.</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070228613592061558063445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">Hex →</a>
+        <a class="btn" style="margin-top:8px" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070228599294182540643445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">Supra Hex →</a>
+      </article>
+
+      <!-- Bitaxe Ultra -->
+      <article class="card">
+        <h3>Bitaxe Ultra</h3>
+        <p>Top-end Bitaxe option if you want to tinker and push.</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16070232392056321327413445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
+      </article>
+
+      <!-- DG Home 1 -->
+      <article class="card">
+        <h3>DG Home 1</h3>
+        <p>Entry friendly device—good for learning and casual setups.</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://tinychiphub.com/products/16071753553687795920443445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM">View on TinyChipHub →</a>
+      </article>
+
+    </div>
+
+    <p class="foot">Code <strong>PROOFOFMIKE</strong> is one-time use per person. Need help choosing? Ping me on X: @ProofOfMike.</p>
   </div>
 </body>
 </html>
