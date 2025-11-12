@@ -1,64 +1,63 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- Instant redirect to the main TinyChipHub page -->
-  <meta http-equiv="refresh" content="0; url=/tch/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Proof Of Mike — Redirecting to TinyChipHub Offers (5% Off)</title>
-
-  <!-- Tell crawlers: don't index this lightweight redirect page, but do follow links -->
-  <meta name="robots" content="noindex,follow">
-
-  <!-- Canonical should point to the destination we want indexed -->
-  <link rel="canonical" href="https://proofofmike.com/tch/">
-
-  <!-- Primary Meta -->
-  <meta name="description" content="Official promo partner for TinyChipHub.com — use code PROOFOFMIKE for 5% off Bitcoin miners (Bitaxe, NerdQaxe++, Zyber). Redirecting to the offers page.">
-  <meta name="keywords" content="TinyChipHub, Proof Of Mike, Bitcoin miner, Bitaxe, Bitaxe Gamma, Bitaxe Hex, Bitaxe Supra, Bitaxe Ultra, NerdQaxe++, Zyber 8G, Zyber 8S, home mining, crypto miner, ASIC miner, coupon, promo code PROOFOFMIKE">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Proof Of Mike × TinyChipHub — 5% Off Bitcoin Miners">
-  <meta property="og:description" content="Save 5% on TinyChipHub Bitcoin miners with code PROOFOFMIKE. Bitaxe, NerdQaxe++, Zyber and more.">
-  <meta property="og:url" content="https://proofofmike.com/tch/">
+  <title>Proof Of Mike — Bitaxe & NerdQaxe notes • Solo mining blog</title>
+  <meta name="description" content="Solo-mining diary focused on Bitaxe, NerdQaxe++, and home Bitcoin mining. Reviews, settings, maintenance notes, and Bruiser the bulldog.">
+  <meta name="keywords" content="Bitaxe, Bitaxe Gamma, Bitaxe Hex, NerdQaxe, NerdQaxe++, solo mining, CKPool, home bitcoin mining, review, settings, overclock">
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preload" href="/images/bulldog.jpeg" as="image">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="canonical" href="https://proofofmike.com/">
+  <meta property="og:site_name" content="Proof Of Mike">
   <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Proof Of Mike × TinyChipHub — 5% Off Bitcoin Miners">
-  <meta name="twitter:description" content="Use code PROOFOFMIKE for 5% off miners at TinyChipHub (one time per person).">
-  <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg">
   <meta name="twitter:creator" content="@ProofOfMike">
 
-  <!-- JSON-LD: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Proof Of Mike",
-    "url": "https://proofofmike.com/",
-    "sameAs": ["https://twitter.com/ProofOfMike"]
-  }
-  </script>
-
-  <!-- Minimal fallback styling if redirect doesn’t fire -->
-  <style>
-    body{display:flex;align-items:center;justify-content:center;height:100vh;
-         font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
-         background:#0f1012;color:#e8eaee;text-align:center;margin:0}
-    a.cta{color:#ef6a3a;font-weight:600;text-decoration:none}
-    a.cta:hover{text-decoration:underline}
-  </style>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"Organization","name":"Proof Of Mike","url":"https://proofofmike.com/","logo":"https://proofofmike.com/images/bulldog.jpeg","sameAs":["https://twitter.com/ProofOfMike"]},
+    {"@type":"WebSite","name":"Proof Of Mike","url":"https://proofofmike.com/","potentialAction":{"@type":"SearchAction","target":"https://proofofmike.com/search?q={query}","query-input":"required name=query"}}
+  ]
+}</script>
 </head>
 <body>
-  <div class="container">
-    <p>If you are not redirected automatically,
-      <a class="cta" href="/tch/">click here to visit the TinyChipHub page</a>.
-    </p>
+  <div class="wrap">
+    
+    <div class="topbar">
+      <header><img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar"><h1>Proof Of Mike</h1></header>
+      <div class="rightlinks">
+        <a href="/">Home</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/tch/">TCH</a>
+      </div>
+    </div>
+    
+    <div class="panel">
+      <h2>Hey, I’m Mike.</h2>
+      <p class="muted">Solo-mining diary: Bitaxe & NerdQaxe++, privacy-first takes, sports/dad/humor rants, and too many Bruiser pics.</p>
+      <p><a class="btn" href="/posts/">Read the blog →</a> <a class="btn" href="https://twitter.com/ProofOfMike" target="_blank" rel="noopener">Follow on X</a></p>
+    </div>
+    <div class="cards">
+      <section class="card">
+        <h2>Latest on X</h2>
+        <a class="twitter-timeline" data-height="550" href="https://twitter.com/ProofOfMike?ref_src=twsrc%5Etfw">Tweets by @ProofOfMike</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </section>
+      <section class="card">
+        <h2>Latest blog post</h2>
+        <div id="latest-post" class="post"></div>
+        <p><a class="btn" href="/posts/">See all posts</a></p>
+      </section>
+    </div>
+    <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
   </div>
-<script src="https://cdn.counter.dev/script.js" data-id="523ea628-7b77-4913-83d7-01cf3417b330" data-utcoffset="-5"></script>
+  <script src="/assets/blog.js"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script src="https://cdn.counter.dev/script.js" data-id="523ea628-7b77-4913-83d7-01cf3417b330" data-utcoffset="-5"></script>
 </body>
 </html>
