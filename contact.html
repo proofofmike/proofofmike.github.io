@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Contact — Proof Of Mike</title>
+  <meta name="description" content="Contact Proof Of Mike">
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preload" href="/images/bulldog.jpeg" as="image">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="canonical" href="https://proofofmike.com/">
+  <meta property="og:site_name" content="Proof Of Mike">
+  <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@ProofOfMike">
+
+</head>
+<body>
+  <div class="wrap">
+    
+    <div class="topbar">
+      <header><img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar"><h1>Proof Of Mike</h1></header>
+      <div class="rightlinks">
+        <a href="/">Home</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/tch/">TCH</a>
+      </div>
+    </div>
+    
+    <div class="panel">
+      <h2>Contact</h2>
+      <p>Questions, tips, or dog compliments? Reach me here.</p>
+      <form id="contact-form" class="contact-form" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="6" placeholder="Your message" required></textarea>
+        <button class="btn" type="submit">Send</button>
+        <p id="status" class="status" role="status"></p>
+      </form>
+      <p class="muted">Or email me: <a href="mailto:mike@proofofmike.com">mike@proofofmike.com</a></p>
+    </div>
+    <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+  </div>
+  <script>
+    const FORMSPREE_ID="";const f=document.getElementById('contact-form'),s=document.getElementById('status');
+    f.addEventListener('submit',async(e)=>{
+      e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());
+      if(FORMSPREE_ID){
+        try{const r=await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(d)});
+          if(r.ok){s.textContent='Thanks—message sent!';f.reset();}else throw 0;
+        }catch(err){
+          location.href=`mailto:mike@proofofmike.com?subject=Site%20message%20from%20${encodeURIComponent(d.name)}&body=${encodeURIComponent(d.message+'\n\nFrom: ')}{encodeURIComponent(d.email)}`;
+        }
+      } else {
+        location.href=`mailto:mike@proofofmike.com?subject=Site%20message%20from%20${encodeURIComponent(d.name)}&body=${encodeURIComponent(d.message+'\n\nFrom: ')}{encodeURIComponent(d.email)}`;
+      }
+    });
+    document.getElementById('year').textContent=new Date().getFullYear()
+  </script>
+  <script src="https://cdn.counter.dev/script.js" data-id="523ea628-7b77-4913-83d7-01cf3417b330" data-utcoffset="-5"></script>
+</body>
+</html>
