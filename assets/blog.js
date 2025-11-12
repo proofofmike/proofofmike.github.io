@@ -1,7 +1,7 @@
 
 async function fetchJSON(u){ const r = await fetch(u); return r.json(); }
 async function fetchText(u){ const r = await fetch(u); return r.text(); }
-function slugify(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+function slugify(s){ return s.toLowerCase().replace(/\+/g,'plus').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
 function mdToHtml(md){
   let h = md.replace(/^### (.*)$/gm,"<h3>$1</h3>").replace(/^## (.*)$/gm,"<h2>$1</h2>").replace(/^# (.*)$/gm,"<h1>$1</h1>").replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>").replace(/^- (.*)$/gm,"<li>$1</li>").replace(/\n{2,}/g,"</p><p>").replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2">$1</a>');
   h = h.replace(/(<li>.*<\/li>)/gs,"<ul>$1</ul>");
