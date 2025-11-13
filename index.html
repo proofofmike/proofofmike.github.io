@@ -73,16 +73,16 @@
       <section class="card">
         <h2>Latest on X</h2>
         <div class="post">
-          <a
-            class="twitter-timeline"
-            data-theme="dark"
-            data-height="550"
-            href="https://twitter.com/proofofmike?ref_src=twsrc%5Etfw"
-          >
-            Tweets by @proofofmike
-          </a>
+          <iframe
+            src="https://twitframe.com/show?url=https://twitter.com/proofofmike"
+            width="100%"
+            height="550"
+            frameborder="0"
+            scrolling="no"
+            style="border-radius: 12px; overflow: hidden; background: #000;"
+          ></iframe>
           <p class="muted" style="margin-top:0.75rem;">
-            If you don't see anything here, your browser or network may be blocking embeds from x.com.
+            If this box is empty, something on your browser or network may be blocking external iframes.
           </p>
         </div>
       </section>
@@ -103,9 +103,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-  <!-- Official X (Twitter) widgets script -->
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <!-- Counter.dev analytics -->
   <script
