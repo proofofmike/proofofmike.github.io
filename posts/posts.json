@@ -1,25 +1,25 @@
 [
   {
-    "title": "NerdQaxe++: first notes",
-    "slug": "2025-11-12-nerdqaxe-plus-plus-first-notes.html",
-    "date": "2025-11-11",
-    "source": "/posts/2025-11-12-nerdqaxe-plus-plus-first-notes.md",
-    "tags": [
-      "NerdQaxe++",
-      "solo mining",
-      "reviews"
-    ]
-  },
-  {
     "title": "What I’m Running at Home: Real Hashrates, Noise, and My Favorite Miner",
     "slug": "2025-11-12-my-home-mining-setup.html",
-    "date": "2025-11-12",
+    "date": "2025-11-12T22:10:00",
     "source": "/posts/2025-11-12-my-home-mining-setup.md",
     "tags": [
       "home mining",
       "Bitaxe",
       "NerdQaxe++",
       "setup"
+    ]
+  },
+  {
+    "title": "NerdQaxe++: first notes",
+    "slug": "2025-11-12-nerdqaxe-plus-plus-first-notes.html",
+    "date": "2025-11-11T22:00:00",
+    "source": "/posts/2025-11-12-nerdqaxe-plus-plus-first-notes.md",
+    "tags": [
+      "NerdQaxe++",
+      "solo mining",
+      "reviews"
     ]
   }
 ]
