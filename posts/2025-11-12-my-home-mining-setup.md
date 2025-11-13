@@ -20,12 +20,15 @@ This is what I use for modeling solo-mining odds and tracking long-term performa
 
 ### Miner-by-miner daily averages:
 
-| Miner | Model | 24h Average |
-|-------|--------|-------------|
-| nerd1 | NerdQaxe++ Remastered (full copper) | **≈ 6.13 TH/s** |
-| nerd2 | NerdQaxe++ Remastered (full copper) | **≈ 5.98 TH/s** |
-| hex   | Bitaxe Hex | **≈ 2.96 TH/s** |
-| gamma | Bitaxe Gamma 601 | **≈ 1.09 TH/s** |
+**NerdQaxe++ Remastered (full copper)**  
+- nerd1 — **≈ 6.13 TH/s**  
+- nerd2 — **≈ 5.98 TH/s**
+
+**Bitaxe Hex**  
+- hex — **≈ 2.96 TH/s**
+
+**Bitaxe Gamma 601**  
+- gamma — **≈ 1.09 TH/s**
 
 > Note: I see occasional hourly spikes above **17 TH/s**, but daily averages are the number that matters.
 
