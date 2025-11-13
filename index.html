@@ -15,18 +15,38 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@proofofmike">
 
-  <script type="application/ld+json">{
+  <script type="application/ld+json">
+  {
     "@context": "https://schema.org",
     "@graph": [
-      {"@type":"Organization","name":"Proof Of Mike","url":"https://proofofmike.com/","logo":"https://proofofmike.com/images/bulldog.jpeg","sameAs":["https://twitter.com/proofofmike"]},
-      {"@type":"WebSite","name":"Proof Of Mike","url":"https://proofofmike.com/","potentialAction":{"@type":"SearchAction","target":"https://proofofmike.com/search?q={query}","query-input":"required name=query"}}
+      {
+        "@type": "Organization",
+        "name": "Proof Of Mike",
+        "url": "https://proofofmike.com/",
+        "logo": "https://proofofmike.com/images/bulldog.jpeg",
+        "sameAs": ["https://x.com/proofofmike"]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Proof Of Mike",
+        "url": "https://proofofmike.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://proofofmike.com/search?q={query}",
+          "query-input": "required name=query"
+        }
+      }
     ]
-  }</script>
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
     <div class="topbar">
-      <header><img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar"><h1>Proof Of Mike</h1></header>
+      <header>
+        <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar">
+        <h1>Proof Of Mike</h1>
+      </header>
       <div class="rightlinks">
         <a href="/">Home</a>
         <a href="/posts/">Blog</a>
@@ -38,22 +58,41 @@
 
     <div class="panel">
       <h2>Hey, I’m Mike.</h2>
-      <p class="muted">Solo-mining diary: Bitaxe & NerdQaxe++, privacy-first takes, sports/dad/humor rants, and too many Bruiser pics.</p>
-      <p><a class="btn" href="/posts/">Read the blog →</a> <a class="btn" href="https://x.com/proofofmike" target="_blank" rel="noopener">Follow on X</a></p>
+      <p class="muted">
+        Solo-mining diary: Bitaxe &amp; NerdQaxe++, privacy-first takes, sports/dad/humor rants, and too many Bruiser pics.
+      </p>
+      <p>
+        <a class="btn" href="/posts/">Read the blog →</a>
+        <a class="btn" href="https://x.com/proofofmike" target="_blank" rel="noopener">Follow on X</a>
+      </p>
     </div>
 
     <div class="cards">
-      <!-- Latest on X (click-to-load embed with static fallback) -->
+      <!-- Latest on X -->
       <section class="card">
         <h2>Latest on X</h2>
         <div class="post">
-          <p id="x-privacy-text">For privacy, external embeds are off by default.</p>
+          <p id="x-privacy-text">
+            For privacy, external embeds are off by default.
+          </p>
           <p>
             <button class="btn" id="show-tweets-btn">Show tweets</button>
-            <a class="btn" target="_blank" rel="noopener" href="https://x.com/proofofmike">Open @proofofmike on X →</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://x.com/proofofmike">
+              Open @proofofmike on X →
+            </a>
           </p>
-          <!-- Container where the X timeline will be injected -->
-          <div id="x-embed-container" style="margin-top: 1rem;"></div>
+
+          <!-- Timeline is hidden until user clicks "Show tweets" -->
+          <div id="x-timeline" style="display:none; margin-top:1rem;">
+            <a
+              class="twitter-timeline"
+              data-theme="dark"
+              data-height="550"
+              href="https://x.com/proofofmike?ref_src=twsrc%5Etfw"
+            >
+              Tweets by @proofofmike
+            </a>
+          </div>
         </div>
       </section>
 
@@ -68,48 +107,39 @@
     <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
   </div>
 
+  <!-- Your blog loader -->
   <script src="/assets/blog.js"></script>
+
+  <!-- Set the year in the footer -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- X (Twitter) embed loader -->
+  <!-- X widgets script (standard embed) -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- Show/hide logic for the X timeline -->
   <script>
     (function () {
       var btn = document.getElementById('show-tweets-btn');
-      var container = document.getElementById('x-embed-container');
-      var privacyText = document.getElementById('x-privacy-text');
+      var privacy = document.getElementById('x-privacy-text');
+      var timeline = document.getElementById('x-timeline');
 
-      if (!btn || !container) return;
+      if (!btn || !timeline) return;
 
       btn.addEventListener('click', function () {
-        // Inject the timeline markup
-        container.innerHTML =
-          '<a class="twitter-timeline" ' +
-          'data-height="550" ' +
-          'data-theme="dark" ' +
-          'href="https://twitter.com/proofofmike?ref_src=twsrc%5Etfw">' +
-          'Tweets by @proofofmike</a>';
-
-        // Show container, hide privacy text + button
-        container.style.display = 'block';
-        if (privacyText) privacyText.style.display = 'none';
+        // Reveal the already-initialized timeline
+        timeline.style.display = 'block';
+        if (privacy) privacy.style.display = 'none';
         btn.style.display = 'none';
-
-        // Load X widgets.js if not loaded; otherwise, re-run it on this container
-        if (!window.twttr || !window.twttr.widgets) {
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://platform.twitter.com/widgets.js';
-          s.charset = 'utf-8';
-          document.body.appendChild(s);
-        } else {
-          window.twttr.widgets.load(container);
-        }
       });
     })();
   </script>
 
-  <script src="https://cdn.counter.dev/script.js" data-id="523ea628-7b77-4913-83d7-01cf3417b330" data-utcoffset="-5"></script>
+  <!-- Counter.dev analytics -->
+  <script src="https://cdn.counter.dev/script.js"
+          data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+          data-utcoffset="-5">
+  </script>
 </body>
 </html>
