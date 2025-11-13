@@ -1,494 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup | Proof of Mike</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Real-world home Bitcoin solo mining review of the NerdQaxe++ Remastered Full Copper from TinyChipHub — hashrate, tuning, temps, noise, and everyday setup from Proof of Mike."
-    />
-    <meta
-      name="keywords"
-      content="NerdQaxe, NerdQaxe++, Bitaxe, Bitaxe Hex, TinyChipHub, proof of mike, ProofOfMike, home bitcoin mining, solo mining, ckpool, desk miner, copper nerdqaxe, quiet bitcoin miner"
-    />
-    <link rel="icon" type="image/png" href="/favicon.ico" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup | Proof of Mike</title>
 
-    <!-- Assume your main site stylesheet is at /styles.css; if it’s different, keep whatever your other pages use -->
-    <link rel="stylesheet" href="/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Real-world home Bitcoin solo mining review of the NerdQaxe++ Remastered Full Copper from TinyChipHub. Actual hashrate, temps, noise, and setup from Proof of Mike’s desk." />
+  <meta name="keywords" content="NerdQaxe, NerdQaxe++, Bitaxe, TinyChipHub, ProofOfMike, Bitcoin mining, home mining, solo mining, CKPool, desk miner" />
 
-    <!-- counter.dev analytics -->
-    <script
-      src="https://cdn.counter.dev/script.js"
-      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
-      data-utcoffset="-5"
-      defer
-    ></script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup" />
+  <meta property="og:description" content="Real-world home Bitcoin solo mining review of the NerdQaxe++ Remastered Full Copper from TinyChipHub, by Proof of Mike." />
+  <meta property="og:url" content="https://proofofmike.com/nerdqaxe-copper/" />
+  <meta property="og:image" content="https://proofofmike.com/nerdqaxe-copper/images/nerdqaxe-desk-rig.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup" />
+  <meta name="twitter:description" content="Real-world home Bitcoin solo mining review of the NerdQaxe++ Remastered Full Copper from TinyChipHub, by Proof of Mike." />
+  <meta name="twitter:image" content="https://proofofmike.com/nerdqaxe-copper/images/nerdqaxe-desk-rig.jpg" />
+  <meta name="twitter:site" content="@proofofmike" />
 
-    <style>
-      /* Tiny page-specific tweaks so it feels like the rest of your site but still works if classes differ slightly */
+  <link rel="icon" href="/favicon.ico" />
 
-      .pom-container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2.5rem 1.5rem 4rem;
+  <style>
+    :root {
+      --bg: #050910;
+      --bg-alt: #0b111c;
+      --card: #121826;
+      --card-alt: #161d2b;
+      --text: #f7fafc;
+      --muted: #a0aec0;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.16);
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --shadow-soft: 0 22px 50px rgba(15, 23, 42, 0.7);
+      --radius-lg: 24px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #111827 0, #020617 52%, #000 100%);
+      color: var(--text);
+      font-family: var(--font-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: #bfdbfe;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-shell {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    @media (min-width: 960px) {
+      .page-shell {
+        padding: 40px 12px 96px;
       }
+    }
 
-      .pom-hero-title {
-        font-size: clamp(2.25rem, 3vw + 1rem, 3.25rem);
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
-        margin-bottom: 1.25rem;
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      display: inline-flex;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(248, 250, 252, 0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-eyebrow {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-title {
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 52%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px 26px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 960px) {
+      .hero-card {
+        padding: 32px 30px 30px;
       }
+    }
 
-      .pom-hero-subtitle {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        max-width: 46rem;
-        color: #cbd5f5;
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 16px 35px rgba(249, 115, 22, 0.45);
+      transition: transform 0.07s ease, box-shadow 0.07s ease, filter 0.07s ease;
+      white-space: nowrap;
+    }
+
+    .primary-button:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 20px 45px rgba(249, 115, 22, 0.55);
+      filter: brightness(1.03);
+    }
+
+    .primary-button:active {
+      transform: translateY(0);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .primary-button span {
+      margin-left: 6px;
+    }
+
+    .hero-cta-row {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-footnote {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .pill-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(148, 163, 184, 0.16);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .content-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
+    }
 
-      .pom-pill {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: #9ca3af;
-        margin-bottom: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
+    .card {
+      background: linear-gradient(145deg, var(--card), var(--card-alt));
+      border-radius: var(--radius-lg);
+      padding: 20px 18px 22px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+    }
 
-      .pom-pill span.dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 999px;
-        background: #f97316;
-      }
+    .card + .card {
+      margin-top: 18px;
+    }
 
-      .pom-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.85rem 1.7rem;
-        margin-top: 1.75rem;
-        border-radius: 999px;
-        border: none;
-        background: linear-gradient(135deg, #f97316, #ea580c);
-        color: #0b1020;
-        font-weight: 600;
-        font-size: 0.98rem;
-        text-decoration: none;
-        box-shadow: 0 18px 40px rgba(248, 113, 113, 0.25);
-        cursor: pointer;
-      }
+    .card h2, .card h3 {
+      margin: 0;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+    }
 
-      .pom-cta:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 24px 60px rgba(248, 113, 113, 0.35);
-      }
+    .card p {
+      margin: 10px 0 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
 
-      .pom-cta span.icon {
-        font-size: 1.05rem;
-      }
+    .card p strong {
+      color: #e5e7eb;
+    }
 
-      .pom-note {
-        margin-top: 0.6rem;
-        font-size: 0.82rem;
-        color: #9ca3af;
-        max-width: 40rem;
-      }
+    .list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      font-size: 15px;
+      color: var(--muted);
+    }
 
-      .pom-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-        gap: 2.5rem;
-        margin-top: 3rem;
-        align-items: flex-start;
-      }
+    .list li {
+      margin-bottom: 4px;
+    }
 
-      @media (max-width: 840px) {
-        .pom-layout {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
 
-      .pom-card {
-        border-radius: 1.25rem;
-        background: radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 52%),
-          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.12), transparent 55%),
-          #020617;
-        border: 1px solid rgba(148, 163, 255, 0.35);
-        padding: 1.75rem 1.6rem 1.8rem;
-      }
+    .badge {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
 
-      .pom-card h2 {
-        font-size: 1.1rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #9ca3af;
-        margin-bottom: 0.85rem;
-      }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
 
-      .pom-card h3 {
-        font-size: 1.05rem;
-        font-weight: 600;
-        margin-top: 0.9rem;
-        margin-bottom: 0.25rem;
-      }
+    .stat {
+      padding: 10px 11px;
+      border-radius: var(--radius-md);
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 65%);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
 
-      .pom-card p,
-      .pom-card li {
-        font-size: 0.95rem;
-        line-height: 1.65;
-        color: #e5e7eb;
-      }
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
 
-      .pom-card ul {
-        margin: 0.4rem 0 0.4rem 1.1rem;
-        padding: 0;
-      }
+    .stat-value {
+      font-size: 17px;
+      font-weight: 600;
+    }
 
-      .pom-card li {
-        margin-bottom: 0.15rem;
-      }
+    .stat-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
 
-      .pom-img-frame {
-        border-radius: 1.1rem;
-        overflow: hidden;
-        border: 1px solid rgba(148, 163, 255, 0.35);
-        background: radial-gradient(circle at top, rgba(148, 163, 255, 0.22), transparent 60%), #020617;
-        margin-bottom: 1.3rem;
-      }
+    .image-card {
+      background: radial-gradient(circle at top, #111827 0, #020617 75%);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    }
 
-      .pom-img-frame img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
+    .image-card img {
+      display: block;
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+    }
 
-      .pom-caption {
-        font-size: 0.82rem;
-        color: #9ca3af;
-        margin-top: 0.35rem;
-      }
+    .image-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
 
-      .pom-metrics {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 0.75rem;
-        margin-top: 0.9rem;
-      }
+    .image-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
 
-      .pom-metric-pill {
-        border-radius: 999px;
-        padding: 0.5rem 0.9rem;
-        font-size: 0.85rem;
-        background: rgba(15, 23, 42, 0.85);
-        border: 1px solid rgba(148, 163, 255, 0.35);
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 0.75rem;
-      }
+    .muted-small {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 9px;
+    }
 
-      .pom-metric-label {
-        color: #9ca3af;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        font-size: 0.68rem;
-      }
+    hr.divider {
+      margin: 32px 0 24px;
+      border: 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+    }
 
-      .pom-metric-value {
-        font-weight: 600;
-        color: #e5e7eb;
-      }
+    .footer-links a {
+      color: #cbd5f5;
+    }
 
-      .pom-footer-box {
-        margin-top: 3rem;
-        padding: 1.5rem 1.6rem 1.7rem;
-        border-radius: 1.2rem;
-        border: 1px dashed rgba(148, 163, 255, 0.5);
-        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%), #020617;
-        font-size: 0.9rem;
-        color: #e5e7eb;
-      }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="header-row">
+      <div class="avatar">
+        <img src="images/bulldog.jpeg" alt="Proof of Mike bulldog avatar" />
+      </div>
+      <div class="header-meta">
+        <div class="meta-eyebrow">PROOFOFMIKE · HOME BITCOIN SOLO MINING</div>
+        <div class="meta-title">Real desk, real miners, no marketing department.</div>
+      </div>
+    </header>
 
-      .pom-footer-box strong {
-        font-weight: 600;
-      }
-
-      .pom-footer-links {
-        margin-top: 0.55rem;
-        font-size: 0.88rem;
-      }
-
-      .pom-footer-links a {
-        color: #38bdf8;
-        text-decoration: none;
-      }
-
-      .pom-footer-links a:hover {
-        text-decoration: underline;
-      }
-
-      body {
-        background: radial-gradient(circle at top left, #020617 0, #020617 45%, #020617 100%);
-        color: #e5e7eb;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      }
-    </style>
-  </head>
-
-  <body>
     <main>
-      <div class="pom-container">
-        <!-- Simple top line with avatar + breadcrumb -->
-        <header style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
-          <img
-            src="images/bulldog.jpeg"
-            alt="Proof of Mike bulldog avatar"
-            style="width:40px;height:40px;border-radius:999px;object-fit:cover;border:1px solid rgba(148,163,255,0.6);"
-          />
-          <div>
-            <div class="pom-pill">
-              <span class="dot"></span>
-              <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
-            </div>
-            <div style="font-size:0.8rem;color:#6b7280;">
-              Running Bitaxe &amp; NerdQaxe gear on a quiet home desk setup.
-            </div>
-          </div>
-        </header>
+      <section class="hero-card">
+        <h1>Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup</h1>
+        <p class="hero-subtitle">
+          I’m Mike (“Proof of Mike”), running a small home Bitcoin mining corner with open-source
+          Bitaxe and NerdQaxe gear. This is my real-world review of the
+          <strong>NerdQaxe++ Remastered Full Copper</strong> from TinyChipHub — the actual hashrate, noise,
+          temps, and what it’s like to solo mine with it on a desk.
+        </p>
 
-        <!-- HERO -->
-        <section>
-          <h1 class="pom-hero-title">
-            Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup
-          </h1>
-
-          <p class="pom-hero-subtitle">
-            I’m Mike (“Proof of Mike”), running a small home Bitcoin mining corner with open-source Bitaxe and NerdQaxe
-            gear. This is my real-world review of the
-            <strong>NerdQaxe++ Remastered Full Copper</strong> from TinyChipHub — the actual hashrate, noise, temps,
-            and what it’s like to solo mine with it on a desk.
-          </p>
-
+        <div class="hero-cta-row">
           <a
-            class="pom-cta"
             href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
-            target="_blank"
-            rel="noopener noreferrer"
+            class="primary-button"
           >
-            <span class="icon">⚡</span>
-            <span>View NerdQaxe++ Remastered Full Copper at TinyChipHub</span>
+            ⚡️ <span>View NerdQaxe++ Remastered Full Copper at TinyChipHub</span>
           </a>
 
-          <p class="pom-note">
-            I bought my TinyChipHub miners myself. If you use this link or my code, they kick back a small affiliate
-            share that helps me keep hacking on home mining experiments.
-          </p>
-        </section>
-
-        <!-- MAIN LAYOUT -->
-        <section class="pom-layout">
-          <!-- LEFT: TEXT / REVIEW -->
-          <article class="pom-card">
-            <h2>Real-world setup</h2>
-
-            <h3>My home mining corner</h3>
-            <p>
-              I’m running <strong>two NerdQaxe++ Remastered Full Copper units</strong> plus a Bitaxe Hex and a Bitaxe
-              Gamma 601, all on a desk in my home office. Room temp is about <strong>71°F</strong> (heat in the winter,
-              AC at 70°F in the summer).
-            </p>
-
-            <p>
-              Noise and heat matter a lot to me — I like a quiet house, and I don’t want my office to feel like a tiny
-              datacenter. That’s a big reason I went with the <strong>full copper remaster</strong> instead of plastic
-              or open-frame builds.
-            </p>
-
-            <h3>How I’m running the NerdQaxe++</h3>
-            <p>For this write-up, here’s how my main unit is configured:</p>
-
-            <div class="pom-metrics">
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Frequency</span>
-                <span class="pom-metric-value">750&nbsp;MHz</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Core voltage</span>
-                <span class="pom-metric-value">1.225&nbsp;V (set)</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Fan mode</span>
-                <span class="pom-metric-value">Experimental PID · ~40–48%</span>
-              </div>
+          <div class="hero-footnote">
+            I bought my TinyChipHub miners myself. If you use this link or my code,
+            they kick back a small affiliate share that helps me keep hacking on home mining experiments.
+            <div class="pill-note">
+              <span class="pill-dot"></span>
+              <span>Review written by an actual owner, not a store.</span>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <p style="margin-top:0.9rem;">
-              This is all on the <strong>included 12&nbsp;V brick</strong>, no fancy external PSU, no extra fans, no
-              mods. Just stock hardware, tuned a bit in firmware.
-            </p>
-
-            <h2 style="margin-top:1.8rem;">Hashrate, efficiency &amp; stability</h2>
-
-            <h3>What I actually see day-to-day</h3>
+      <section class="content-grid">
+        <!-- Left column: text -->
+        <div>
+          <article class="card">
+            <h2>What I’m actually running at home</h2>
             <p>
-              With those settings, I’m getting right around
-              <strong>~6.2&nbsp;TH/s sustained over time</strong> on my main NerdQaxe++ Remastered Copper.
+              This isn’t a lab bench or a sponsored setup — it’s my real home rig. On the desk in my office I’ve got:
             </p>
-
+            <ul class="list">
+              <li>2× <strong>NerdQaxe++ Remastered Full Copper</strong> from TinyChipHub</li>
+              <li>1× Bitaxe Hex</li>
+              <li>1× Bitaxe Gamma 601</li>
+            </ul>
             <p>
-              The short-term readings bounce higher (you’ll see the LCD showing 6.4–6.8&nbsp;TH/s at times), but when
-              you zoom out and look at the local 10-minute and 1-hour averages, it settles in the low 6&nbsp;TH/s range
-              with a <strong>very flat, stable graph</strong>.
+              Both NerdQaxe++ units point at <strong>solo.ckpool.org</strong> for solo mining. Everything lives in
+              a normal home office at about <strong>71ºF</strong>, with the usual mix of dog fur, kid dust, and real life.
             </p>
+            <p>
+              For this write-up, here’s how the first NerdQaxe++ Remastered Copper
+              I’ve been running for about six months is configured:
+            </p>
+            <ul class="list">
+              <li><strong>Frequency:</strong> 750&nbsp;MHz</li>
+              <li><strong>Core voltage (set in firmware):</strong> 1.225&nbsp;V</li>
+              <li><strong>Fan mode:</strong> Experimental PID</li>
+              <li><strong>Hashrate target:</strong> ~6.2&nbsp;TH/s effective at the pool</li>
+            </ul>
 
-            <h3>Thermals, fan, and comfort</h3>
-            <p>At these settings, my local dashboard usually shows roughly:</p>
-
-            <div class="pom-metrics">
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">ASIC temp</span>
-                <span class="pom-metric-value">~58&nbsp;°C</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">VR temp</span>
-                <span class="pom-metric-value">~53&nbsp;°C</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Fan</span>
-                <span class="pom-metric-value">~46% (≈2,600 RPM)</span>
-              </div>
+            <div class="badge-row">
+              <span class="badge">Bitcoin solo mining</span>
+              <span class="badge">Home mining</span>
+              <span class="badge">NerdQaxe++</span>
+              <span class="badge">TinyChipHub</span>
+              <span class="badge">Bitaxe ecosystem</span>
             </div>
+          </article>
 
-            <p style="margin-top:0.9rem;">
-              In plain English: <strong>it runs cool and quiet</strong>. I can’t really hear it unless I’m standing
-              right next to the rig. I’ve got four miners on the desk and the NerdQaxe++ Copper is not the noisy one.
-            </p>
-
-            <h3>Maintenance / dust / real life</h3>
+          <article class="card">
+            <h2>Why this thing stands out</h2>
             <p>
-              Real house, real dust, real life: I’ve got a bulldog that sheds and a tween kid that does what tween kids
-              do. Every few months I shut the miners down, carry them outside, let them cool for 10–15 minutes, and hit
-              them with quick blasts of compressed air. Five minutes later they’re back online. It’s been smooth so far.
+              Let’s get the obvious out of the way: <strong>the look is ridiculous (in a good way)</strong>.
+              The deep red PCB, bright orange fan, and copper everywhere make it the first thing people notice
+              when they walk into my office. Even people who don’t care about Bitcoin stop and ask,
+              “What is that thing?”
             </p>
-
-            <h2 style="margin-top:1.8rem;">Why I picked the full copper remaster</h2>
-
-            <h3>The look (yes, it matters)</h3>
             <p>
-              I’m not going to pretend the aesthetics didn’t matter. The
-              <strong>red PCB, orange fan, and deep burgundy shroud</strong> on top of the exposed copper just looks
-              badass on a desk.
+              Underneath the glow, it feels <strong>overbuilt in the right ways</strong>.
+              You can tell as soon as you pick it up — it’s heavier, more solid, and clearly engineered
+              with a lot of copper and decent components. This doesn’t feel like a race-to-the-bottom bare-minimum board.
             </p>
-
             <p>
-              I don’t have a ton of people walking through my office, but when someone does, the first thing they notice
-              is the copper NerdQaxe++. It’s a legitimate conversation starter.
+              I’ve got four miners on the desk and the <strong>NerdQaxe++ units are the quietest ones</strong>.
+              The Bitaxe Gamma is easily the loudest of the bunch; the Hex spins up for a second and then settles down.
+              The NerdQaxe++ Coppers just sit there, fans hovering in the mid-40% range, doing their job without trying
+              to sound like a leaf blower.
             </p>
-
-            <h3>Build quality &amp; TinyChipHub support</h3>
             <p>
-              From the moment you pick it up, it’s obvious this thing is
-              <strong>built from better materials</strong>. It feels heavier, more solid, and clearly engineered around
-              that copper for heat dissipation.
-            </p>
-
-            <p>
-              On the support side, TinyChipHub has been great to deal with. I’ve had
-              <strong>responses within 24 hours</strong> on anything I’ve emailed about, and even with overseas
-              shipping, every unit I’ve ordered so far has landed <strong>within 7 days door-to-door</strong>.
+              Support-wise, TinyChipHub has been solid for me so far. Every time I’ve emailed,
+              I’ve had a response within about 24 hours, and shipping to the U.S. has been
+              <strong>about seven days door to door</strong> for each unit — not bad for something coming from overseas.
             </p>
           </article>
 
-          <!-- RIGHT: IMAGES & METRICS PANELS -->
-          <aside>
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-desk-rig.jpg"
-                alt="Two NerdQaxe++ Remastered Full Copper miners, Bitaxe Hex, and Bitaxe Gamma 601 on Mike's home mining desk."
-              />
+          <article class="card">
+            <h2>Real numbers from my desk</h2>
+            <p>
+              Here’s what my first NerdQaxe++ Copper is doing right now at 750&nbsp;MHz / 1.225&nbsp;V,
+              with Experimental PID fan control:
+            </p>
+
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-label">Hashrate (10m / 1h)</div>
+                <div class="stat-value">≈ 6.2&nbsp;TH/s</div>
+                <div class="stat-meta">
+                  10-minute and 1-hour averages hover right around the 6.1–6.3&nbsp;TH/s range on the local dashboard.
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Temps</div>
+                <div class="stat-value">~58ºC ASIC</div>
+                <div class="stat-meta">
+                  VRM temps hanging in the low-to-mid 50s at these settings.
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Fan speed</div>
+                <div class="stat-value">~45%</div>
+                <div class="stat-meta">
+                  Experimental PID keeps it between about 40–48%. You barely hear it at normal room noise.
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Power at the wall</div>
+                <div class="stat-value">~115–120&nbsp;W</div>
+                <div class="stat-meta">
+                  Measured with a smart plug. Enough to matter on your power bill, not enough to heat the whole house.
+                </div>
+              </div>
             </div>
-            <div class="pom-caption">
-              My current desk setup: two NerdQaxe++ Remastered Full Coppers, a Bitaxe Hex, and a Bitaxe Gamma 601,
-              all solo mining.
+
+            <p class="muted-small">
+              I’m slightly overclocked compared to stock, but there are no wild fan curves, aftermarket coolers,
+              or custom enclosures. This is still a very “normal” home-desk setup, just tuned where I like it.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Living with it day-to-day</h3>
+            <p>
+              Noise and heat are the two big things that kill most home-mining dreams.
+              With this box, both are manageable for me:
+            </p>
+            <ul class="list">
+              <li><strong>Noise:</strong> sits in the background hum category, not “data center in your bedroom.”</li>
+              <li><strong>Heat:</strong> noticeable if you’re in a small room, but not a space heater.
+                  In New England winters, I don’t mind it at all.</li>
+              <li><strong>Maintenance:</strong> every couple of months I power down, let it cool,
+                  and hit it with some compressed air outside. Five-minute job.</li>
+            </ul>
+            <p>
+              If you’re trying to keep a home office livable while still scratching the solo-mining itch,
+              this form factor and noise profile make a lot more sense than a full-size ASIC screaming in a closet.
+            </p>
+          </article>
+        </div>
+
+        <!-- Right column: images / dashboards -->
+        <aside>
+          <div class="image-card">
+            <img src="images/nerdqaxe-desk-rig.jpg" alt="Two NerdQaxe++ Remastered Copper units with Bitaxe Hex and Bitaxe Gamma on the desk" />
+            <div class="image-caption">
+              Two NerdQaxe++ Remastered Full Copper units, a Bitaxe Hex, and a Bitaxe Gamma 601 —
+              my current solo-mining corner.
             </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-close-648-ghs.jpg"
-                alt="Close-up of NerdQaxe++ LCD showing around 6.48 TH/s with temps and voltage."
-              />
-            </div>
-            <div class="pom-caption">
-              Close-up of the NerdQaxe++ copper LCD while warmed up. Short-term hashrate floats higher, long-term average
-              sits around the low 6&nbsp;TH/s range at 750&nbsp;MHz / 1.225&nbsp;V.
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-hashrate-chart-750-1225.png"
-                alt="Local hashrate chart at 750 MHz and 1.225 V showing a stable line around 6 TH/s."
-              />
-            </div>
-            <div class="pom-caption">
-              Local 10-minute and 1-hour hashrate chart at 750&nbsp;MHz / 1.225&nbsp;V — nice and flat, right around
-              6&nbsp;TH/s over time.
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-power-heat-performance-750-1225.png"
-                alt="Power, heat, and performance gauges for the NerdQaxe++ Remastered Full Copper at 750 MHz."
-              />
-            </div>
-            <div class="pom-caption">
-              Power, heat, and performance snapshot from the local dashboard at these settings — cool silicon, reasonable
-              power draw, and a fan that doesn’t scream.
-            </div>
-          </aside>
-        </section>
-
-        <!-- FOOTER / LINKS -->
-        <section class="pom-footer-box">
-          <p>
-            <strong>Thinking about picking one up?</strong> If you like this kind of honest, real-setup review and want
-            to try a NerdQaxe++ Remastered Full Copper yourself, you can grab one from TinyChipHub here:
-          </p>
-
-          <p style="margin-top:0.7rem;">
-            <a
-              href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
-              target="_blank"
-              rel="noopener noreferrer"
-              style="color:#f97316;text-decoration:none;font-weight:600;"
-              >NerdQaxe++ Remastered Full Copper at TinyChipHub</a
-            >
-          </p>
-
-          <p style="margin-top:0.5rem;">
-            You can use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> anything on their
-            site. Same price for you, and it helps me keep tinkering with home mining rigs and posting more real stats.
-          </p>
-
-          <div class="pom-footer-links">
-            More from me:
-            <a href="https://proofofmike.com/">ProofOfMike.com</a>
-            ·
-            <a href="https://proofofmike.com/tch/">TinyChipHub rigs overview</a>
           </div>
-        </section>
-      </div>
+
+          <div class="image-stack">
+            <div class="image-card">
+              <img src="images/nerdqaxe-close-648-ghs.jpg" alt="Close-up of NerdQaxe++ Copper LCD showing ~6.48 TH/s" />
+              <div class="image-caption">
+                Close-up of one of the NerdQaxe++ Coppers sitting around 6.48&nbsp;TH/s on the local LCD while warmed up.
+              </div>
+            </div>
+
+            <div class="image-card">
+              <img src="images/nerdqaxe-hashrate-chart-750-1225.png" alt="NerdQaxe++ local dashboard hashrate chart around 6.2 TH/s at 750 MHz and 1.225 V" />
+              <div class="image-caption">
+                Local hashrate chart at 750&nbsp;MHz / 1.225&nbsp;V — you can see it cruising right around 6.2&nbsp;TH/s
+                with a pretty calm line.
+              </div>
+            </div>
+
+            <div class="image-card">
+              <img src="images/nerdqaxe-power-heat-performance-750-1225.png" alt="NerdQaxe++ power, heat, and performance dashboard showing temps, fan speed, and voltage" />
+              <div class="image-caption">
+                Power, heat, and performance panel for the same run — around 58ºC on the ASIC, low-50s VRM,
+                fan in the mid-40% range.
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <hr class="divider" />
+
+      <section>
+        <h3>Thinking about picking one up?</h3>
+        <p class="muted-small" style="margin-top:0.9rem;">
+          If you’re into honest, real-setup reviews and want to try a NerdQaxe++ Remastered Full Copper yourself,
+          you can grab one directly from TinyChipHub here:
+        </p>
+
+        <p style="margin-top:1.1rem;">
+          <a
+            href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
+            class="primary-button"
+          >
+            ⚡️ <span>NerdQaxe++ Remastered Full Copper at TinyChipHub</span>
+          </a>
+        </p>
+
+        <p class="muted-small" style="margin-top:1.2rem;">
+          You can use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> anything they sell.
+          Same price for you — and it helps me keep tinkering with home mining rigs and posting more real stats
+          instead of “perfect” screenshots.
+        </p>
+
+        <div class="footer-links">
+          <p class="muted-small" style="margin-top:1.6rem;">
+            More from me:
+            <a href="https://proofofmike.com">ProofOfMike.com</a> ·
+            <a href="/tch/">TinyChipHub rigs overview</a>
+          </p>
+
+          <p class="muted-small" style="margin-top:1.2rem;">
+            More reviews coming soon. If you want bad dad jokes, Bitcoin talk, too many photos of my bulldog Bruiser,
+            and real-world solo mining data — come hang on X:
+            <a href="https://x.com/proofofmike">@proofofmike</a>.
+          </p>
+        </div>
+      </section>
     </main>
-  </body>
+  </div>
+
+  <!-- counter.dev analytics -->
+  <script src="https://cdn.counter.dev/script.js"
+          data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+          data-utcoffset="-5"></script>
+</body>
 </html>
