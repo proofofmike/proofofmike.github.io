@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Move into the repo root (folder containing _tools and posts)
+cd "$(dirname "$0")/.."
+
+echo "🔄 Generating posts.json…"
+python3 _tools/generate_posts_json.py
+
+echo "📦 Staging changes…"
+git add posts/posts.json
+
+echo "📝 Committing…"
+git commit -m "Update posts.json via build_posts script" || {
+    echo "No changes to commit."
+    exit 0
+}
+
+echo "⬆️  Pushing…"
+git push
+
+echo "✅ Done. posts.json updated and pushed."
