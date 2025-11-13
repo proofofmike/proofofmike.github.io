@@ -22,13 +22,14 @@ STATIC_PATHS = [
 
 def slugify(s: str) -> str:
     """
-    Match the JS slugify used for tags:
-    - lowercase
+    Match the JS slugify used for tags on the site:
     - replace '+' with 'plus'
-    - non-alphanumeric -> '-'
+    - lowercase
+    - convert non-alphanumerics into '-'
     - trim leading/trailing '-'
     """
-    s = s.lower().replace("+", "plus")
+    s = s.replace("+", "plus")
+    s = s.lower()
     s = re.sub(r"[^a-z0-9]+", "-", s)
     return s.strip("-")
 
@@ -79,8 +80,8 @@ def to_full_url(path: str) -> str:
 
 def generate_sitemap(urls):
     lines = [
-        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
-        "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">",
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
 
     for path in urls:
