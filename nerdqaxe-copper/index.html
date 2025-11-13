@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NerdQaxe++ Remastered Full Copper Review – ProofOfMike Home Bitcoin Solo Mining Setup</title>
+
+  <!-- Canonical & basic SEO -->
+  <link rel="canonical" href="https://proofofmike.com/nerdqaxe-copper">
+  <meta name="description" content="Real-world review of the TinyChipHub NerdQaxe++ Remastered Full Copper by ProofOfMike. Home Bitcoin mining and solo mining with Bitaxe and NerdQaxe open-source miners on a desk-friendly setup.">
+  <meta name="keywords" content="NerdQaxe, NerdQaxe++, NerdQaxe Remastered, Bitaxe, Bitaxe Hex, Bitaxe Gamma, TinyChipHub, ProofOfMike, home mining, home bitcoin mining, bitcoin solo mining, solo mining, open-source miner">
+
+  <!-- Open Graph / X (Twitter) -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Running the NerdQaxe++ Remastered Full Copper – Real Feedback from a Home Solo Miner">
+  <meta property="og:description" content="ProofOfMike’s real home-mining results with TinyChipHub’s NerdQaxe++ Remastered Full Copper: hashrate, noise, temps, and setup with Bitaxe and other open-source miners.">
+  <meta property="og:url" content="https://proofofmike.com/nerdqaxe-remastered-full-copper.html">
+  <meta property="og:image" content="https://proofofmike.com/images/bulldog,jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NerdQaxe++ Remastered Full Copper – ProofOfMike Home Solo Mining Review">
+  <meta name="twitter:description" content="Desk-friendly home Bitcoin solo mining with the NerdQaxe++ Remastered Full Copper from TinyChipHub. Real-world stats from ProofOfMike.">
+  <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- If you want it to use YOUR site colors, you can delete this whole <style> block.
+       If you like this dark theme, leave it in. -->
+  <style>
+    :root {
+      --bg: #050718;
+      --bg-alt: #0c1024;
+      --card: #111528;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.25);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --link: #38bdf8;
+      --link-hover: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); }
+
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    header.hero {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 24px 0 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .avatar-wrap {
+      flex: 0 0 72px;
+      display: flex;
+      justify-content: center;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+      background:#000;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-text { flex: 1 1 auto; }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 0 0 8px;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 640px;
+      font-size: 0.98rem;
+    }
+
+    .hero-cta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #020617;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+    .btn-primary span.icon { font-size: 1.1rem; }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    section {
+      margin-bottom: 32px;
+      padding: 18px 18px 20px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(8,16,32,0.96));
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    section p { margin: 4px 0 8px; font-size: 0.95rem; }
+
+    .muted { color: var(--muted); font-size: 0.9rem; }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .spec-card {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top left, var(--accent-soft), #020617);
+      border: 1px solid rgba(15,23,42,0.9);
+    }
+    .spec-label {
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .spec-value { font-weight: 600; font-size: 0.95rem; }
+    .spec-note { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+    .image-frame {
+      margin: 12px 0 6px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #020617;
+    }
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .image-caption {
+      padding: 6px 10px 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617, #020617);
+    }
+
+    ul { padding-left: 18px; margin: 6px 0 10px; font-size: 0.95rem; }
+    li { margin-bottom: 4px; }
+
+    .pill-row { margin-top: 6px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-soft);
+    }
+
+    .callout {
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin: 10px 0 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .promo-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(248,250,252,0.25);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.08), #020617);
+      font-size: 0.9rem;
+    }
+    .promo-code {
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      font-size: 0.85rem;
+      padding: 3px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.8);
+      display: inline-block;
+      margin: 2px 0;
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: left;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    code {
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 0.82rem;
+      background: rgba(15,23,42,0.7);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 640px) {
+      header.hero { flex-direction: row; }
+      .avatar-wrap { flex-basis: 56px; }
+    }
+  </style>
+
+  <!-- JSON-LD Article schema with keywords -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "NerdQaxe++ Remastered Full Copper Review – ProofOfMike Home Bitcoin Solo Mining Setup",
+    "author": {
+      "@type": "Person",
+      "name": "ProofOfMike"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ProofOfMike",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://proofofmike.com/images/bulldog.jpeg"
+      }
+    },
+    "image": [
+      "https://proofofmike.com/images/bulldog.jpeg",
+      "https://proofofmike.com/images/nerdqaxe-desk-rig.jpg"
+    ],
+    "description": "Real-world Bitcoin home mining and solo mining review of the TinyChipHub NerdQaxe++ Remastered Full Copper from ProofOfMike, including hashrate, noise, temps, and setup with Bitaxe miners.",
+    "keywords": [
+      "NerdQaxe",
+      "NerdQaxe++",
+      "NerdQaxe Remastered",
+      "TinyChipHub",
+      "ProofOfMike",
+      "Bitaxe",
+      "home mining",
+      "bitcoin mining",
+      "solo mining",
+      "bitcoin solo mining"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <header class="hero">
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <!-- Bruiser avatar -->
+          <img src="/images/bulldog.jpeg" alt="Bruiser the bulldog – ProofOfMike avatar">
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <div class="eyebrow">ProofOfMike · Home Bitcoin Solo Mining</div>
+        <h1>Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup</h1>
+        <p class="hero-sub">
+          I’m Mike (“Proof of Mike”), running a small home Bitcoin mining corner with open-source Bitaxe and NerdQaxe gear.
+          This is my real-world review of the
+          <strong>NerdQaxe++ Remastered Full Copper</strong> from TinyChipHub — the actual hashrate, noise, temps,
+          and what it’s like to solo mine with it on a desk.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn-primary"
+             href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
+             target="_blank" rel="noopener noreferrer">
+            <span class="icon">⚡</span>
+            <span>View NerdQaxe++ Remastered Full Copper at TinyChipHub</span>
+          </a>
+          <div class="hero-note">
+            I bought my TinyChipHub miners myself. If you use this link or my code,
+            they kick back a small affiliate share that helps me keep hacking on home mining experiments.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- The rest of the page content stays exactly as in the previous answer -->
+    <!-- (Quick setup / specs, hashrate charts, thermals, who it's for, links, promo code, footer, counter.dev script) -->
+    <!-- You can paste that content here unchanged; only the head + header needed SEO + avatar tweaks. -->
+
+    <!-- counter.dev analytics -->
+    <script src="https://cdn.counter.dev/script.js"
+            data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+            data-utcoffset="-5"></script>
+  </div>
+</body>
+</html>
