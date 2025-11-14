@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Solo Bitcoin Mining Odds Calculator | Proof Of Mike</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Solo Bitcoin mining odds calculator — plug in your hashrate to estimate average time-to-block, probability over time, and expected value at current network difficulty."
+    />
+    <meta
+      name="keywords"
+      content="solo mining calculator, Bitcoin solo mining odds, CKPool, Ocean, ViaBTC solo, Bitcoin mining probability, Proof Of Mike"
+    />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="canonical" href="https://proofofmike.com/solo-calc/" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5"
+      defer
+    ></script>
+
+    <style>
+      :root {
+        --pom-bg: #020617;
+        --pom-panel: #020617;
+        --pom-border: rgba(148, 163, 255, 0.4);
+        --pom-muted: #9ca3af;
+        --pom-text: #e5e7eb;
+        --pom-accent: #f97316;
+        --pom-accent-soft: rgba(248, 113, 113, 0.2);
+        --pom-radius-lg: 1.2rem;
+      }
+
+      body {
+        margin: 0;
+        background: radial-gradient(circle at top left, #020617 0, #020617 45%, #020617 100%);
+        color: var(--pom-text);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .pom-shell {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.75rem 1.25rem 3rem;
+      }
+
+      .pom-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .pom-topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      .pom-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid rgba(148, 163, 255, 0.7);
+      }
+
+      .pom-brand-title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .pom-topbar-pill {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--pom-muted);
+      }
+
+      .pom-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .pom-nav a {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.4);
+        color: var(--pom-muted);
+      }
+
+      .pom-nav a.pom-nav-active {
+        border-color: var(--pom-accent);
+        color: var(--pom-text);
+        background: radial-gradient(circle at top left, rgba(248, 113, 113, 0.16), transparent 60%);
+      }
+
+      .pom-main-panel {
+        border-radius: var(--pom-radius-lg);
+        border: 1px solid var(--pom-border);
+        padding: 1.8rem 1.6rem 2rem;
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.18), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.14), transparent 60%),
+          #020617;
+      }
+
+      .pom-hero-title {
+        font-size: clamp(1.9rem, 2.6vw + 0.4rem, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.65rem;
+      }
+
+      .pom-hero-subtitle {
+        font-size: 0.95rem;
+        color: var(--pom-muted);
+        max-width: 40rem;
+        margin-bottom: 1.4rem;
+      }
+
+      .pom-hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-size: 0.8rem;
+        color: var(--pom-muted);
+      }
+
+      .pom-hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.4);
+        background: rgba(15, 23, 42, 0.75);
+      }
+
+      .pom-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+        gap: 1.8rem;
+        margin-top: 1.75rem;
+      }
+
+      @media (max-width: 900px) {
+        .pom-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .pom-card {
+        border-radius: 1rem;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        background: rgba(15, 23, 42, 0.85);
+        padding: 1.3rem 1.2rem 1.4rem;
+      }
+
+      .pom-card h2 {
+        font-size: 0.9rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pom-muted);
+        margin: 0 0 0.85rem;
+      }
+
+      .pom-card h3 {
+        font-size: 1.05rem;
+        margin: 0.5rem 0 0.4rem;
+      }
+
+      .pom-field-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.9rem;
+        margin-top: 0.6rem;
+      }
+
+      .pom-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 0.86rem;
+      }
+
+      .pom-field label {
+        color: var(--pom-muted);
+      }
+
+      .pom-field input,
+      .pom-field select {
+        border-radius: 0.6rem;
+        border: 1px solid rgba(148, 163, 255, 0.6);
+        background: #020617;
+        color: var(--pom-text);
+        padding: 0.45rem 0.6rem;
+        font-size: 0.9rem;
+      }
+
+      .pom-field input:focus,
+      .pom-field select:focus {
+        outline: none;
+        border-color: var(--pom-accent);
+        box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.4);
+      }
+
+      .pom-helper {
+        font-size: 0.75rem;
+        color: var(--pom-muted);
+      }
+
+      .pom-results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 0.75rem;
+        margin-top: 0.85rem;
+      }
+
+      .pom-result-pill {
+        border-radius: 0.9rem;
+        border: 1px solid rgba(148, 163, 255, 0.4);
+        background: rgba(15, 23, 42, 0.9);
+        padding: 0.7rem 0.8rem;
+        font-size: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .pom-result-label {
+        color: var(--pom-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.68rem;
+      }
+
+      .pom-result-value {
+        font-weight: 600;
+        font-size: 0.96rem;
+      }
+
+      .pom-small {
+        font-size: 0.78rem;
+        color: var(--pom-muted);
+        margin-top: 0.8rem;
+      }
+
+      .pom-note-box {
+        margin-top: 1.4rem;
+        font-size: 0.8rem;
+        color: var(--pom-muted);
+        border-radius: 0.9rem;
+        border: 1px dashed rgba(148, 163, 255, 0.45);
+        padding: 0.8rem 0.9rem;
+        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%), #020617;
+      }
+
+      .pom-footer {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+        color: var(--pom-muted);
+      }
+
+      .pom-highlight {
+        color: var(--pom-accent);
+        font-weight: 600;
+      }
+
+      .pom-badge-live {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        color: var(--pom-muted);
+      }
+
+      .pom-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pom-shell">
+      <!-- Top bar / nav (keep this in sync with main site) -->
+      <div class="pom-topbar">
+        <div class="pom-topbar-left">
+          <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog avatar" class="pom-avatar" />
+          <div>
+            <div class="pom-brand-title">Proof Of Mike</div>
+            <div class="pom-topbar-pill">Home Bitcoin Solo Mining · Tools & Notes</div>
+          </div>
+        </div>
+        <nav class="pom-nav">
+          <a href="/">Home</a>
+          <a href="/posts/">Blog</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/tch/">TCH</a>
+          <a href="/solo-calc/" class="pom-nav-active">Solo Calc</a>
+        </nav>
+      </div>
+
+      <section class="pom-main-panel">
+        <h1 class="pom-hero-title">Solo Bitcoin Mining Odds Calculator</h1>
+        <p class="pom-hero-subtitle">
+          Plug in your hashrate and pool choice to get rough estimates for how long it might take to find a block solo
+          — plus the probability of finding at least one block over different time windows. This is just math on top of
+          the current network snapshot, not a guarantee of anything.
+        </p>
+
+        <div class="pom-hero-meta">
+          <span><span class="pom-dot"></span>Uses live network data where available</span>
+          <span>Assumes constant difficulty and block reward</span>
+          <span>Solo pools only (no PPS, no merged mining)</span>
+        </div>
+
+        <div class="pom-layout">
+          <!-- LEFT: Inputs -->
+          <article class="pom-card">
+            <h2>Inputs</h2>
+
+            <div class="pom-field-grid">
+              <div class="pom-field">
+                <label for="hashrate">Your hashrate</label>
+                <input
+                  id="hashrate"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="e.g. 16"
+                />
+                <div class="pom-helper">In TH/s (terahashes per second).</div>
+              </div>
+
+              <div class="pom-field">
+                <label for="pool">Solo pool / fee</label>
+                <select id="pool">
+                  <option value="0.02">Solo CKPool · 2% fee</option>
+                  <option value="0.02">Ocean · 2% fee</option>
+                  <option value="0.01">Ocean + Datum · 1% fee</option>
+                  <option value="0.01">ViaBTC Solo · 1% fee</option>
+                  <option value="0">I'm running my own node · 0% fee</option>
+                  <option value="custom">Custom fee…</option>
+                </select>
+                <div class="pom-helper">Fee only affects expected value, not the underlying odds.</div>
+              </div>
+
+              <div class="pom-field" id="custom-fee-wrap" style="display:none;">
+                <label for="customFee">Custom pool fee</label>
+                <input
+                  id="customFee"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  placeholder="e.g. 1.5"
+                />
+                <div class="pom-helper">Percentage of block reward taken as fee (0–100).</div>
+              </div>
+            </div>
+
+            <div class="pom-note-box">
+              <strong>Tip:</strong> Leave hashrate empty to just see the live network stats on the right. Once you add
+              your TH/s, the calculator will fill in your odds and estimated timelines.
+            </div>
+          </article>
+
+          <!-- RIGHT: Results + live data -->
+          <article class="pom-card">
+            <h2>Network snapshot &amp; odds</h2>
+
+            <div class="pom-badge-live" id="liveStatus">
+              <span class="pom-dot"></span>
+              <span>Fetching latest network data…</span>
+            </div>
+
+            <div class="pom-results-grid" style="margin-top:0.9rem;">
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Network hashrate</div>
+                <div class="pom-result-value" id="networkHashrate">–</div>
+              </div>
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Block reward (subsidy)</div>
+                <div class="pom-result-value" id="blockReward">–</div>
+              </div>
+              <div class="pom-result-pill">
+                <div class="pom-result-label">BTC price (USD)</div>
+                <div class="pom-result-value" id="btcPrice">–</div>
+              </div>
+            </div>
+
+            <h3 style="margin-top:1.4rem;">Your solo odds (if hashrate set)</h3>
+            <div class="pom-results-grid">
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Chance / day</div>
+                <div class="pom-result-value" id="probDay">–</div>
+              </div>
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Chance / year</div>
+                <div class="pom-result-value" id="probYear">–</div>
+              </div>
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Avg time to block</div>
+                <div class="pom-result-value" id="timeToBlock">–</div>
+              </div>
+            </div>
+
+            <h3 style="margin-top:1.3rem;">Expected block value (after pool fee)</h3>
+            <div class="pom-results-grid">
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Net reward (BTC)</div>
+                <div class="pom-result-value" id="netRewardBtc">–</div>
+              </div>
+              <div class="pom-result-pill">
+                <div class="pom-result-label">Net reward (USD)</div>
+                <div class="pom-result-value" id="netRewardUsd">–</div>
+              </div>
+            </div>
+
+            <div class="pom-small">
+              This calculator assumes:
+              <ul style="padding-left:1.1rem;margin:0.4rem 0 0;">
+                <li>Constant difficulty and block reward.</li>
+                <li>Standard ~10-minute average block time.</li>
+                <li>No transaction fees included (those are too volatile).</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="pom-footer">
+          This is a toy model for estimating solo-mining odds — not financial advice, not a guarantee, and not a
+          promise that your luck will behave. Bitcoin doesn’t care about our spreadsheets.
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Simple helpers
+      function formatNumber(num, decimals) {
+        if (num === null || num === undefined || isNaN(num)) return "–";
+        return Number(num).toLocaleString(undefined, {
+          maximumFractionDigits: decimals,
+          minimumFractionDigits: 0
+        });
+      }
+
+      function formatPercent(p, decimals) {
+        if (p === null || p === undefined || isNaN(p)) return "–";
+        return (p * 100).toFixed(decimals) + "%";
+      }
+
+      function formatDuration(days) {
+        if (!isFinite(days) || days <= 0) return "–";
+        if (days < 1) {
+          const hours = days * 24;
+          if (hours < 1) {
+            const mins = hours * 60;
+            return mins.toFixed(1) + " minutes";
+          }
+          return hours.toFixed(1) + " hours";
+        }
+        if (days < 365) {
+          return days.toFixed(1) + " days";
+        }
+        const years = days / 365;
+        return years.toFixed(2) + " years";
+      }
+
+      // State for network snapshot
+      let networkHashrateTH = null; // TH/s
+      let blockRewardBtc = 3.125; // default; will be overwritten if API gives it
+      let btcPriceUsd = null;
+
+      const networkHashrateEl = document.getElementById("networkHashrate");
+      const blockRewardEl = document.getElementById("blockReward");
+      const btcPriceEl = document.getElementById("btcPrice");
+      const probDayEl = document.getElementById("probDay");
+      const probYearEl = document.getElementById("probYear");
+      const timeToBlockEl = document.getElementById("timeToBlock");
+      const netRewardBtcEl = document.getElementById("netRewardBtc");
+      const netRewardUsdEl = document.getElementById("netRewardUsd");
+      const liveStatusEl = document.getElementById("liveStatus");
+
+      const hashrateInput = document.getElementById("hashrate");
+      const poolSelect = document.getElementById("pool");
+      const customFeeWrap = document.getElementById("custom-fee-wrap");
+      const customFeeInput = document.getElementById("customFee");
+
+      // Fetch network hashrate & block reward (difficulty-based approximation)
+      async function fetchNetworkData() {
+        try {
+          // Difficulty from Blockchain.com API
+          const diffRes = await fetch("https://blockchain.info/q/getdifficulty?cors=true");
+          const difficulty = parseFloat(await diffRes.text());
+
+          // Difficulty to network hashrate:
+          // H = difficulty * 2^32 / 600  (hashes per second)
+          const two32 = Math.pow(2, 32);
+          const hashesPerSec = (difficulty * two32) / 600;
+          networkHashrateTH = hashesPerSec / 1e12;
+
+          // Block reward via mempool API (subsidy only)
+          // If this fails, we keep the default 3.125 BTC.
+          try {
+            const rewardRes = await fetch("https://mempool.space/api/v1/blockchain/reward-stats");
+            if (rewardRes.ok) {
+              const rewardJson = await rewardRes.json();
+              if (rewardJson && typeof rewardJson.blockReward === "number") {
+                // blockReward is in sats
+                blockRewardBtc = rewardJson.blockReward / 1e8;
+              }
+            }
+          } catch (e) {
+            // Ignore and keep default
+          }
+
+          // BTC price (CoinGecko simple API)
+          try {
+            const priceRes = await fetch(
+              "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+            );
+            if (priceRes.ok) {
+              const priceJson = await priceRes.json();
+              if (priceJson.bitcoin && typeof priceJson.bitcoin.usd === "number") {
+                btcPriceUsd = priceJson.bitcoin.usd;
+              }
+            }
+          } catch (e) {
+            // ignore
+          }
+
+          // Update UI
+          networkHashrateEl.textContent = formatNumber(networkHashrateTH, 2) + " TH/s";
+          blockRewardEl.textContent = blockRewardBtc.toFixed(3) + " BTC";
+          btcPriceEl.textContent =
+            btcPriceUsd != null ? "$" + formatNumber(btcPriceUsd, 0) + " / BTC" : "–";
+
+          liveStatusEl.innerHTML = '<span class="pom-dot"></span><span>Live data loaded</span>';
+
+          recompute();
+        } catch (err) {
+          liveStatusEl.innerHTML =
+            '<span class="pom-dot" style="background:#f97316;box-shadow:0 0 0 4px rgba(248,113,113,0.35);"></span>' +
+            "<span>Could not fetch live data. Using defaults.</span>";
+          // Keep defaults and still allow manual calc
+          recompute();
+        }
+      }
+
+      function getEffectiveFee() {
+        const poolValue = poolSelect.value;
+        if (poolValue === "custom") {
+          const v = parseFloat(customFeeInput.value);
+          if (!isNaN(v) && v >= 0 && v <= 100) {
+            return v / 100;
+          }
+          return 0;
+        }
+        const f = parseFloat(poolValue);
+        return isNaN(f) ? 0 : f;
+      }
+
+      function recompute() {
+        const userTH = parseFloat(hashrateInput.value);
+        if (isNaN(userTH) || userTH <= 0 || !networkHashrateTH || !isFinite(networkHashrateTH)) {
+          probDayEl.textContent = "–";
+          probYearEl.textContent = "–";
+          timeToBlockEl.textContent = "–";
+          const fee = getEffectiveFee();
+          const netBtc = blockRewardBtc * (1 - fee);
+          netRewardBtcEl.textContent = netBtc.toFixed(3) + " BTC";
+          if (btcPriceUsd != null) {
+            netRewardUsdEl.textContent =
+              "$" + formatNumber(netBtc * btcPriceUsd, 0);
+          } else {
+            netRewardUsdEl.textContent = "–";
+          }
+          return;
+        }
+
+        // Per-block success probability p
+        const p = userTH / networkHashrateTH;
+        // Expected blocks per day: 144
+        const blocksPerDay = 144;
+        const lambdaDay = p * blocksPerDay;
+        const lambdaYear = p * blocksPerDay * 365;
+
+        const probAtLeastOneDay = 1 - Math.exp(-lambdaDay);
+        const probAtLeastOneYear = 1 - Math.exp(-lambdaYear);
+
+        const expectedBlocksPerDay = lambdaDay;
+        const expectedDaysPerBlock =
+          expectedBlocksPerDay > 0 ? 1 / expectedBlocksPerDay : Infinity;
+
+        probDayEl.textContent = formatPercent(probAtLeastOneDay, 4);
+        probYearEl.textContent = formatPercent(probAtLeastOneYear, 2);
+        timeToBlockEl.textContent = formatDuration(expectedDaysPerBlock);
+
+        const fee = getEffectiveFee();
+        const netBtc = blockRewardBtc * (1 - fee);
+        netRewardBtcEl.textContent = netBtc.toFixed(3) + " BTC";
+        if (btcPriceUsd != null) {
+          netRewardUsdEl.textContent =
+            "$" + formatNumber(netBtc * btcPriceUsd, 0);
+        } else {
+          netRewardUsdEl.textContent = "–";
+        }
+      }
+
+      hashrateInput.addEventListener("input", recompute);
+      poolSelect.addEventListener("change", () => {
+        if (poolSelect.value === "custom") {
+          customFeeWrap.style.display = "flex";
+        } else {
+          customFeeWrap.style.display = "none";
+        }
+        recompute();
+      });
+      customFeeInput.addEventListener("input", recompute);
+
+      fetchNetworkData();
+    </script>
+  </body>
+</html>
