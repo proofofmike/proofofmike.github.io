@@ -1,31 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Proof Of Mike — Home Bitcoin Solo Mining, Bitaxe & NerdQaxe Notes</title>
+  <title>Proof Of Mike — Bitaxe & NerdQaxe notes • Solo mining blog</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="description" content="Home Bitcoin solo-mining diary focused on Bitaxe, NerdQaxe++, and quiet desk rigs. Real hashrates, tuning notes, reviews, and occasional Bruiser the bulldog pics.">
-  <meta name="keywords" content="Bitaxe, Bitaxe Gamma, Bitaxe Hex, NerdQaxe, NerdQaxe++, solo mining, CKPool, home bitcoin mining, review, settings, overclock, solo mining calculator, bitcoin solo mining odds">
+  <!-- Slightly expanded description + keywords to mention the calc -->
+  <meta name="description" content="Solo-mining diary focused on Bitaxe, NerdQaxe++, and home Bitcoin mining. Reviews, settings, maintenance notes, a simple solo-mining odds calculator, and too many Bruiser pics.">
+  <meta name="keywords" content="Bitaxe, Bitaxe Gamma, Bitaxe Hex, NerdQaxe, NerdQaxe++, solo mining, CKPool, home bitcoin mining, review, settings, overclock, solo mining calculator">
 
-  <link rel="canonical" href="https://proofofmike.com/">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="preload" href="/images/bulldog.jpeg" as="image">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="canonical" href="https://proofofmike.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Proof Of Mike">
-  <meta property="og:title" content="Proof Of Mike — Home Bitcoin Solo Mining, Bitaxe & NerdQaxe Notes">
-  <meta property="og:description" content="Bitaxe & NerdQaxe solo-mining diary with real hashrates, tuning notes, and home desk rig experiments.">
+  <meta property="og:title" content="Proof Of Mike — Bitaxe & NerdQaxe solo-mining notes">
+  <meta property="og:description" content="Home Bitcoin solo-mining blog with Bitaxe & NerdQaxe rigs, real hashrates, tuning notes, and a simple solo-mining odds calculator.">
   <meta property="og:url" content="https://proofofmike.com/">
   <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@proofofmike">
-  <meta name="twitter:title" content="Proof Of Mike — Home Bitcoin Solo Mining">
-  <meta name="twitter:description" content="Solo-mining diary with Bitaxe & NerdQaxe rigs, tuning notes, and real-world stats.">
+  <meta name="twitter:title" content="Proof Of Mike — Bitaxe & NerdQaxe solo-mining blog">
+  <meta name="twitter:description" content="Real-world solo-mining notes with Bitaxe & NerdQaxe, plus a simple Bitcoin solo odds calculator.">
   <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg">
 
   <!-- JSON-LD -->
@@ -53,172 +53,6 @@
     ]
   }
   </script>
-
-  <!-- Page theme overrides (match Solo Calc / NerdQaxe pages) -->
-  <style>
-    :root{
-      --bg:#050712;
-      --bg-gradient:radial-gradient(circle at 0% 0%, #18213a 0, transparent 55%),
-                     radial-gradient(circle at 100% 0%, #1d2340 0, transparent 55%),
-                     radial-gradient(circle at 50% 100%, #181d32 0, #050712 60%);
-      --panel:#101320;
-      --card:#131627;
-      --ring:#23273a;
-      --muted:#8b8f98;
-      --text:#e7e9f2;
-      --accent:#f57b3a;
-      --accent-soft:rgba(245,123,58,.16);
-      --radius:18px;
-    }
-
-    *{box-sizing:border-box;}
-
-    body{
-      margin:0;
-      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      background-image:var(--bg-gradient);
-      min-height:100vh;
-    }
-
-    a{color:inherit;text-decoration:none;}
-
-    .wrap{
-      max-width:1100px;
-      margin:32px auto 40px;
-      padding:0 20px 40px;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:18px;
-    }
-
-    header{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .avatar{
-      width:64px;
-      height:64px;
-      border-radius:14px;
-      object-fit:cover;
-      border:2px solid rgba(255,255,255,.06);
-      box-shadow:0 0 0 1px rgba(255,255,255,.03),0 12px 40px rgba(0,0,0,.65);
-    }
-
-    .logo-text{
-      font-weight:700;
-      font-size:20px;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-
-    .rightlinks{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    .rightlinks a{
-      padding:7px 13px;
-      border-radius:999px;
-      border:1px solid rgba(146,155,189,.45);
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,.06),transparent 55%);
-      font-size:13px;
-      color:var(--muted);
-      backdrop-filter:blur(10px);
-    }
-
-    .rightlinks a:hover{
-      border-color:rgba(255,255,255,.6);
-      color:var(--text);
-    }
-
-    .rightlinks a[href="/"]{
-      background:var(--accent-soft);
-      border-color:var(--accent);
-      color:#ffe1cf;
-      font-weight:600;
-    }
-
-    .panel{
-      background:linear-gradient(145deg,#151a30,#101320);
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.06);
-      padding:22px 22px 20px;
-      box-shadow:0 18px 60px rgba(0,0,0,.8);
-      margin-bottom:18px;
-    }
-
-    h1{
-      margin:0 0 6px;
-      font-size:28px;
-    }
-
-    .muted{color:var(--muted);}
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:#1b2136;
-      color:var(--text);
-      font-size:14px;
-      font-weight:600;
-      margin-right:8px;
-    }
-
-    .btn:hover{
-      border-color:rgba(255,255,255,.3);
-      background:#222844;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:16px;
-      margin-top:14px;
-    }
-
-    @media (min-width: 820px){
-      .cards{grid-template-columns:1.1fr 1.1fr;}
-    }
-
-    .card{
-      background:radial-gradient(circle at 0 0,rgba(57,86,186,.25),transparent 55%),
-                 radial-gradient(circle at 100% 100%,rgba(179,97,255,.14),transparent 55%),
-                 var(--card);
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.06);
-      padding:18px 18px 16px;
-      box-shadow:0 14px 40px rgba(0,0,0,.7);
-    }
-
-    .card h2{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-
-    .post p{margin-top:0;}
-
-    .foot{
-      margin-top:24px;
-      font-size:13px;
-      color:var(--muted);
-      text-align:left;
-    }
-  </style>
 </head>
 <body>
   <div class="wrap">
