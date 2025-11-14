@@ -22,19 +22,16 @@
 
   <style>
     :root {
-      --bg: #050814;
-      --bg-elevated: #0b1021;
-      --bg-elevated-soft: #101629;
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --text-main: #f7fafc;
+      --bg: #020617;
+      --bg-elevated: #050816;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --border-soft: rgba(148, 163, 184, 0.16);
+      --text-main: #f9fafb;
       --text-muted: #9ca3af;
       --accent: #f97316;
-      --accent-soft: rgba(249, 115, 22, 0.15);
       --accent-strong: #fb923c;
-      --pill-bg: rgba(148, 163, 184, 0.12);
-      --pill-border: rgba(148, 163, 184, 0.35);
       --card-radius: 18px;
-      --shadow-soft: 0 22px 40px rgba(0, 0, 0, 0.65);
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.65);
     }
 
     * {
@@ -44,8 +41,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
@@ -60,13 +56,12 @@
       text-decoration: underline;
     }
 
-    .page {
-      max-width: 1120px;
+    main.page {
+      max-width: 960px;
       margin: 0 auto;
       padding: 32px 16px 40px;
     }
 
-    /* Top breadcrumb */
     .breadcrumb {
       display: flex;
       align-items: center;
@@ -85,8 +80,7 @@
       background: rgba(148, 163, 184, 0.6);
     }
 
-    /* Hero */
-    .hero-title {
+    h1.hero-title {
       font-size: clamp(30px, 4vw, 36px);
       line-height: 1.15;
       font-weight: 700;
@@ -140,8 +134,8 @@
     .cta-pill {
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid var(--pill-border);
-      background: var(--pill-bg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(148, 163, 184, 0.12);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -159,17 +153,13 @@
       color: #e5e7eb;
     }
 
-    /* Cards / layout */
     .card {
-      background: radial-gradient(circle at top left, #111827 0, #020617 70%);
+      background: radial-gradient(circle at top left, #111827 0, #020617 80%);
       border-radius: var(--card-radius);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-soft);
       padding: 18px 18px 16px;
       box-shadow: var(--shadow-soft);
-    }
-
-    .card + .card {
-      margin-top: 16px;
+      margin-bottom: 18px;
     }
 
     .section-label {
@@ -199,7 +189,7 @@
     }
 
     .rig-list {
-      margin: 10px 0 8px;
+      margin: 8px 0 8px;
       padding-left: 18px;
       font-size: 13px;
       color: #e5e7eb;
@@ -214,19 +204,47 @@
       font-weight: 600;
     }
 
-    .muted {
+    .bullet-list {
+      padding-left: 18px;
+      margin: 6px 0 8px;
+      font-size: 13px;
       color: var(--text-muted);
     }
 
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 16px;
-      margin-top: 16px;
-      align-items: flex-start;
+    .bullet-list li {
+      margin-bottom: 4px;
     }
 
-    .image-card img {
+    /* Simple image gallery */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .gallery-main {
+      text-align: center;
+    }
+
+    .gallery-main img {
+      max-width: 100%;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .gallery-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .gallery-item img {
       width: 100%;
       border-radius: 14px;
       display: block;
@@ -235,66 +253,20 @@
     .image-caption {
       font-size: 11px;
       color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    /* Desk rig image (4 miners) */
-    .media-row {
-      margin-top: 18px;
-    }
-
-    .image-wide {
-      text-align: center;
-    }
-
-    .image-wide img {
-      max-width: 78%;
-      width: 100%;
-      margin: 0 auto;
-      border-radius: 16px;
-      display: block;
-    }
-
-    .image-wide .image-caption {
-      margin-top: 8px;
-      text-align: center;
-    }
-
-    .media-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .media-stack img {
-      width: 100%;
-      border-radius: 14px;
-      display: block;
-    }
-
-    .media-stack .image-caption {
-      font-size: 11px;
       margin-top: 4px;
     }
 
-    .stat-section {
-      margin-top: 18px;
-    }
-
-    .stat-section h2 {
-      margin-bottom: 6px;
-    }
-
     .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-top: 10px;
     }
 
     .stat-card {
-      background: radial-gradient(circle at top left, #111827 0, #020617 80%);
+      flex: 1 1 0;
+      min-width: 0;
+      background: radial-gradient(circle at top left, #111827 0, #020617 85%);
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
       padding: 10px 11px 9px;
@@ -325,17 +297,6 @@
       margin: 0 0 8px;
     }
 
-    .bullet-list {
-      padding-left: 18px;
-      margin: 6px 0 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .bullet-list li {
-      margin-bottom: 4px;
-    }
-
     .footer-links {
       margin-top: 10px;
       font-size: 12px;
@@ -349,30 +310,27 @@
     }
 
     .bottom-note a {
-      color: #f97316;
+      color: var(--accent-strong);
     }
 
-    @media (max-width: 860px) {
-      .two-column {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .image-wide img {
+    @media (max-width: 700px) {
+      .gallery-main img {
         max-width: 100%;
       }
+      .gallery-row {
+        flex-direction: column;
+      }
     }
 
-    @media (max-width: 640px) {
-      .page {
+    @media (max-width: 600px) {
+      main.page {
         padding-inline: 14px;
       }
-
-      .stat-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
       .card {
         padding-inline: 14px;
+      }
+      .stat-card {
+        flex: 1 1 100%;
       }
     }
   </style>
@@ -415,7 +373,7 @@
       not a store.
     </p>
 
-    <!-- Real hardware card -->
+    <!-- Real hardware -->
     <section class="card">
       <div class="section-label">Real hardware, real stats, one home office desk.</div>
       <p>
@@ -441,61 +399,79 @@
       </p>
     </section>
 
-    <!-- Why copper + close-up / charts / panel -->
-    <section class="two-column">
-      <article class="card">
-        <h2>Why I went with the Full Copper version</h2>
-        <p>
-          Before I bought anything from TinyChipHub, I spent way too many nights reading Reddit
-          threads and watching people argue about stands, fuses, connectors, and which board is
-          “the one.”
-        </p>
-        <p>For me it came down to three things:</p>
-        <ul class="bullet-list">
-          <li>
-            <strong>Noise.</strong> I needed something I could run in my house without it sounding
-            like a rack in a data center.
-          </li>
-          <li>
-            <strong>Thermals.</strong> I wanted copper and better contact so I could push it a bit
-            without cooking the room.
-          </li>
-          <li>
-            <strong>Build quality &amp; look.</strong> I wanted this thing to feel solid and
-            actually look good sitting on my desk.
-          </li>
-        </ul>
-        <p>
-          The Full Copper checks all three. You can tell as soon as you pick it up that it’s built
-          from heavier, better materials. And I’m not going to pretend the look didn’t matter —
-          the red PCB, orange fan, and deep burgundy shroud with the copper peeking through just
-          <span class="inline-accent">pops</span>. When someone walks into my home office, it’s the
-          first thing they notice.
-        </p>
-      </article>
+    <!-- Why copper -->
+    <section class="card">
+      <h2>Why I went with the Full Copper version</h2>
+      <p>
+        Before I bought anything from TinyChipHub, I spent way too many nights reading Reddit
+        threads and watching people argue about stands, fuses, connectors, and which board is
+        “the one.”
+      </p>
+      <p>For me it came down to three things:</p>
+      <ul class="bullet-list">
+        <li>
+          <strong>Noise.</strong> I needed something I could run in my house without it sounding
+          like a rack in a data center.
+        </li>
+        <li>
+          <strong>Thermals.</strong> I wanted copper and better contact so I could push it a bit
+          without cooking the room.
+        </li>
+        <li>
+          <strong>Build quality &amp; look.</strong> I wanted this thing to feel solid and
+          actually look good sitting on my desk.
+        </li>
+      </ul>
+      <p>
+        The Full Copper checks all three. You can tell as soon as you pick it up that it’s built
+        from heavier, better materials. And I’m not going to pretend the look didn’t matter —
+        the red PCB, orange fan, and deep burgundy shroud with the copper peeking through just
+        <span class="inline-accent">pops</span>. When someone walks into my home office, it’s the
+        first thing they notice.
+      </p>
+    </section>
 
-      <aside class="image-card card">
-        <img
-          src="images/nerdqaxe-close-648-ghs.jpg"
-          alt="Close-up of the NerdQaxe++ Full Copper showing 6.48 TH/s on the local LCD screen."
-        />
-        <p class="image-caption">
-          Close-up of one of the NerdQaxe++ Coppers sitting around 6.48 TH/s on the local LCD while
-          warmed up.
-        </p>
+    <!-- Image gallery: close-up + charts + 4-rig -->
+    <section class="card">
+      <h2 class="section-title">How it actually looks on the desk</h2>
 
-        <div class="media-stack">
-          <div>
+      <div class="gallery">
+        <!-- 4-miner shot -->
+        <div class="gallery-main">
+          <img
+            src="images/nerdqaxe-desk-rig.jpg"
+            alt="Desk rig with two NerdQaxe++ Full Coppers, a Bitaxe Hex, and a Bitaxe Gamma 601 on a mat in front of a window."
+          />
+          <p class="image-caption">
+            My current desk rig: two NerdQaxe++ Remastered Full Coppers, one Bitaxe Hex, and one
+            Bitaxe Gamma 601 all quietly doing their thing.
+          </p>
+        </div>
+
+        <!-- Close-up + two dashboard shots -->
+        <div class="gallery-row">
+          <div class="gallery-item">
+            <img
+              src="images/nerdqaxe-close-648-ghs.jpg"
+              alt="Close-up of the NerdQaxe++ Full Copper showing 6.48 TH/s on the local LCD screen."
+            />
+            <p class="image-caption">
+              Close-up of one of the NerdQaxe++ Coppers sitting around 6.48 TH/s on the local LCD while
+              warmed up.
+            </p>
+          </div>
+
+          <div class="gallery-item">
             <img
               src="images/nerdqaxe-hashrate-chart-750-1225.png"
               alt="Local hashrate chart at 750 MHz / 1.225 V showing a roughly 6.2 TH/s line."
             />
             <p class="image-caption">
-              Local hashrate chart at 750 MHz / 1.225 V — cruising right around ~6.2 TH/s with a
-              pretty calm line.
+              Local hashrate chart at 750 MHz / 1.225 V — cruising right around ~6.2 TH/s with a calm line.
             </p>
           </div>
-          <div>
+
+          <div class="gallery-item">
             <img
               src="images/nerdqaxe-power-heat-performance-750-1225.png"
               alt="Power, heat, and performance gauges for the NerdQaxe++ Copper showing ASIC temps in the high 50s and mid-40% fan speed."
@@ -506,25 +482,11 @@
             </p>
           </div>
         </div>
-      </aside>
-    </section>
-
-    <!-- Desk rig image (4 miners) -->
-    <section class="media-row">
-      <div class="image-wide card">
-        <img
-          src="images/nerdqaxe-desk-rig.jpg"
-          alt="Desk rig with two NerdQaxe++ Full Coppers, a Bitaxe Hex, and a Bitaxe Gamma 601 on a mat in front of a window."
-        />
-        <p class="image-caption">
-          My current desk rig: two NerdQaxe++ Remastered Full Coppers, one Bitaxe Hex, and one
-          Bitaxe Gamma 601 all quietly doing their thing.
-        </p>
       </div>
     </section>
 
-    <!-- Real numbers / stats -->
-    <section class="card stat-section">
+    <!-- Stats -->
+    <section class="card">
       <h2 class="section-title">Real numbers from my desk</h2>
       <p>
         Here’s what my first NerdQaxe++ Copper is doing right now at
@@ -569,7 +531,7 @@
     </section>
 
     <!-- Day to day -->
-    <section class="card" style="margin-top: 16px;">
+    <section class="card">
       <h2 class="section-title">Living with it day-to-day</h2>
       <p>
         Noise and heat are the two big things that kill most home-mining dreams. With this box,
@@ -597,7 +559,7 @@
     </section>
 
     <!-- Bottom CTA -->
-    <section class="card" style="margin-top: 16px;">
+    <section class="card">
       <h2 class="section-title">Should you grab one?</h2>
       <p>
         If you’re looking for a quiet-enough, good-looking home miner that doesn’t feel like it’s
@@ -618,8 +580,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="inline-accent"
-          >NerdQaxe++ Remastered Full Copper at TinyChipHub</a
-        >
+        >NerdQaxe++ Remastered Full Copper at TinyChipHub</a>
       </p>
 
       <p>
@@ -630,21 +591,15 @@
 
       <p class="footer-links">
         More from me:
-        <a href="https://proofofmike.com" target="_blank" rel="noopener noreferrer"
-          >ProofOfMike.com</a
-        >
+        <a href="https://proofofmike.com" target="_blank" rel="noopener noreferrer">ProofOfMike.com</a>
         ·
-        <a href="https://proofofmike.com/tch/" target="_blank" rel="noopener noreferrer"
-          >TinyChipHub rigs overview</a
-        >
+        <a href="https://proofofmike.com/tch/" target="_blank" rel="noopener noreferrer">TinyChipHub rigs overview</a>
       </p>
 
       <p class="bottom-note">
         More reviews coming soon. If you want bad dad jokes, Bitcoin talk, too many photos of my
         bulldog Bruiser, and real-world solo mining data — come hang on X:
-        <a href="https://x.com/proofofmike" target="_blank" rel="noopener noreferrer"
-          >@proofofmike</a
-        >.
+        <a href="https://x.com/proofofmike" target="_blank" rel="noopener noreferrer">@proofofmike</a>.
       </p>
     </section>
   </main>
