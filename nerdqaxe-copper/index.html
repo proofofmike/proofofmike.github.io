@@ -238,12 +238,9 @@
       margin-top: 6px;
     }
 
+    /* Desk rig image (4 miners) */
     .media-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 16px;
-      margin-top: 16px;
-      align-items: flex-start;
+      margin-top: 18px;
     }
 
     .image-wide {
@@ -251,7 +248,7 @@
     }
 
     .image-wide img {
-      max-width: 72%;
+      max-width: 78%;
       width: 100%;
       margin: 0 auto;
       border-radius: 16px;
@@ -267,6 +264,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-top: 12px;
     }
 
     .media-stack img {
@@ -355,13 +353,8 @@
     }
 
     @media (max-width: 860px) {
-      .two-column,
-      .media-row {
+      .two-column {
         grid-template-columns: minmax(0, 1fr);
-      }
-
-      .media-stack {
-        flex-direction: column;
       }
 
       .image-wide img {
@@ -491,7 +484,7 @@
           warmed up.
         </p>
 
-        <div class="media-stack" style="margin-top: 12px;">
+        <div class="media-stack">
           <div>
             <img
               src="images/nerdqaxe-hashrate-chart-750-1225.png"
@@ -516,8 +509,8 @@
       </aside>
     </section>
 
-    <!-- Desk rig image moved lower -->
-    <section class="media-row" style="margin-top: 18px;">
+    <!-- Desk rig image (4 miners) -->
+    <section class="media-row">
       <div class="image-wide card">
         <img
           src="images/nerdqaxe-desk-rig.jpg"
