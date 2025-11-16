@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Zyber 8G — Chasing 10 TH/s at Home | Proof Of Mike</title>
+  <meta name="description" content="My notes on the Zyber 8G — a 10+ TH/s home Bitcoin miner from TinyChipHub. Multiple ASIC design, serious cooling options, and AxeOS familiarity for Bitaxe/NerdQaxe users." />
+
+  <link rel="canonical" href="https://proofofmike.com/zyber-8g/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Zyber 8G — Chasing 10 TH/s at Home" />
+  <meta property="og:description" content="Deep dive on the Zyber 8G from TinyChipHub — 10+ TH/s, ~180 W, multiple cooling options, and a very home-friendly form factor." />
+  <meta property="og:url" content="https://proofofmike.com/zyber-8g/" />
+  <!-- update the path if you name the hero image differently -->
+  <meta property="og:image" content="https://proofofmike.com/zyber-8g/images/zyber_both.webp" />
+  <meta property="og:site_name" content="Proof Of Mike" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zyber 8G — Chasing 10 TH/s at Home" />
+  <meta name="twitter:description" content="Real-world desk-rig thoughts on the Zyber 8G: hashrate, thermals, noise, and why I think it’s one of the most interesting 10 TH/s home miners right now." />
+  <meta name="twitter:image" content="https://proofofmike.com/zyber-8g/images/zyber_both.webp" />
+  <meta name="twitter:creator" content="@proofofmike" />
+
+  <!-- You can reuse whatever stylesheet you use on nerdqaxe-copper here instead of this block.
+       This inline style is just to keep it looking close. -->
+  <style>
+    :root {
+      --bg: #05060a;
+      --panel: #151822;
+      --panel-soft: #1a1d27;
+      --text: #f3f5ff;
+      --muted: #9aa0b3;
+      --accent: #ff7a2f;
+      --accent-soft: rgba(255, 122, 47, 0.12);
+      --border: #262b39;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left,#151827 0,#05060a 60%);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+            "Segoe UI", Roboto, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap {
+      max-width: 980px;
+      margin: 32px auto 64px;
+      padding: 0 20px 40px;
+    }
+    .topline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .topline img {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid #333949;
+    }
+    .crumb-sep { opacity: .4; }
+    h1 {
+      font-size: clamp(26px, 3.1vw, 32px);
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    .lede {
+      max-width: 640px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
+      gap: 24px;
+      margin-top: 24px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 840px) {
+      .hero { grid-template-columns: minmax(0,1fr); }
+    }
+    .hero-text {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 18px 20px 20px;
+    }
+    .hero-text p { margin: 0 0 10px; }
+    .cta-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #1e0b03;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
+    .cta-btn span.icon {
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.25);
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+    .cta-note {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-img {
+      background: var(--panel-soft);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-img img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid #292f3f;
+    }
+
+    .section {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 20px 20px 18px;
+      margin-bottom: 18px;
+    }
+    .section h2 {
+      font-size: 18px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: #d7dcf7;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin: 12px 0 6px;
+    }
+    .section p { margin: 6px 0 10px; color: var(--muted); }
+    .section strong { color: #f6f3ff; }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 4px;
+    }
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #11141f;
+      border: 1px solid #2a3040;
+      font-size: 13px;
+      color: #d7dcf7;
+    }
+    .pill span {
+      color: var(--muted);
+      margin-left: 4px;
+    }
+    ul {
+      padding-left: 18px;
+      margin: 6px 0 10px;
+      color: var(--muted);
+    }
+    li + li { margin-top: 4px; }
+    .dual-img {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (max-width: 840px) {
+      .dual-img { grid-template-columns: minmax(0,1fr); }
+    }
+    .dual-img img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #292f3f;
+      object-fit: cover;
+    }
+    .footnote {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .home-link {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .home-link a { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topline">
+      <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog logo">
+      <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
+    </div>
+
+    <h1>Zyber 8G — Chasing 10 TH/s at Home Without Going Full Datacenter</h1>
+
+    <p class="lede">
+      I’ve been wanting to bump my desk-rig hashrate for a while. An extra 10 TH/s would push my little home setup
+      into a different tier — but I didn’t want a screamer on the floor or a science project in the closet.
+      That’s what made the <strong>Zyber 8G</strong> from TinyChipHub interesting enough to dig into properly.
+    </p>
+
+    <div class="hero">
+      <div class="hero-text">
+        <p>
+          This page is where I keep my running notes on the Zyber 8G: what it is, how it’s built, the cooling options,
+          and why I think it’s one of the most thoughtful “10 TH/s-ish” home miners on the market right now.
+        </p>
+        <div class="pill-row">
+          <div class="pill">≈10–11 TH/s<span>@ ~180 W (spec)</span></div>
+          <div class="pill">AxeOS UI<span>same feel as Bitaxe / NerdQaxe</span></div>
+          <div class="pill">Zyber 8G series<span>standard + premium cooling options</span></div>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta-btn"
+             href="https://tinychiphub.com/products/16070811247589476349983445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
+             target="_blank" rel="noopener sponsored">
+            <span class="icon">⚡</span>
+            <span>View Zyber 8G lineup at TinyChipHub</span>
+          </a>
+        </div>
+        <p class="cta-note">
+          I’m a TinyChipHub customer myself. If you use that link or my code <strong>PROOFOFMIKE</strong>,
+          they’ll knock <strong>5% off</strong> once per person and kick back a small affiliate share that
+          helps fund more ridiculous solo-mining experiments.
+        </p>
+        <p class="home-link">
+          Want the rest of my rigs and notes? <a href="/">Back to the main site →</a>
+        </p>
+      </div>
+
+      <div class="hero-img">
+        <!-- hero image: both versions together -->
+        <img src="/zyber-8g/images/zyber_both.webp"
+             alt="Zyber 8G standard and premium cooling side-by-side">
+      </div>
+    </div>
+
+    <section class="section">
+      <h2>Why Zyber 8G caught my eye</h2>
+      <p>
+        I’ve been inching my way up with Bitaxe and NerdQaxe boards, but there’s a gap between “cute little desk miner”
+        and “sounds like a shop vac in the hallway.” Zyber 8G sits right in that middle lane:
+        it’s built like a serious piece of hardware, but still clearly designed for a home office.
+      </p>
+      <p>
+        On paper, Zyber 8G is a <strong>multi-ASIC design targeting 10+ TH/s at around 180 W</strong>,
+        built on a reinforced, multi-layer PCB with a lot of love put into power delivery and thermals.
+        AxeOS on top means anyone who’s touched a Bitaxe or NerdQaxe feels at home in the UI.
+      </p>
+      <p>
+        Price wise, it’s not pretending to be a budget toy — think <strong>“starting around $789”</strong> depending on
+        the cooling configuration — but the whole pitch is about getting
+        <strong>serious hashrate per watt</strong> in a form factor that doesn’t dominate your house.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Zyber 8G at a glance</h2>
+      <h3>Core idea</h3>
+      <p>
+        Zyber 8G is basically TinyChipHub’s answer to “what if we pushed the Bitaxe/NerdQaxe philosophy up into
+        10 TH/s territory?”, but with enough headroom in the design that it doesn’t feel like it’s permanently on the edge.
+      </p>
+      <ul>
+        <li><strong>Multiple BM13xx ASICs</strong> on a compact board designed specifically for home use.</li>
+        <li><strong>~10–11+ TH/s</strong> hash rate targets with aggressive, but sensible, power tuning.</li>
+        <li><strong>Dual-phase power supply</strong> and a 6-layer PCB aimed at signal stability and cleaner power.</li>
+        <li><strong>AxeOS-based firmware</strong> with a color LCD for live temps, hashrate, and power data.</li>
+        <li><strong>Designed by TCH</strong> with open-source firmware and docs for people who like to tinker.</li>
+      </ul>
+
+      <div class="dual-img">
+        <img src="/zyber-8g/images/zyber_lcd.webp"
+             alt="Close-up of Zyber 8G LCD showing hashrate and temps">
+        <img src="/zyber-8g/images/zyber8g_prem.webp"
+             alt="Zyber 8G premium cooling configuration on acrylic stand">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Cooling options — standard vs premium</h2>
+      <p>
+        The part that really separates Zyber 8G from “slap a fan on it and hope” builds is the thermal story.
+        TCH ships it in two main flavors built on the same underlying board:
+      </p>
+
+      <h3>Standard cooling</h3>
+      <ul>
+        <li>
+          Hybrid cooler with dual-fan airflow tuned for the Zyber frame, using a copper–aluminum heatsink.
+        </li>
+        <li>
+          The board uses a <strong>thick copper layer under the ASICs</strong> with direct-contact cutouts
+          so heat dumps straight into that copper plane.
+        </li>
+        <li>
+          Spec notes from TCH have it holding comfortable ASIC temps in OC with reasonable room temps
+          and fan speeds — very “desk-rig acceptable” territory.
+        </li>
+      </ul>
+
+      <h3>Premium cooling</h3>
+      <ul>
+        <li>
+          Big tower-style heatsink with <strong>multi-heatpipe design</strong> and dual FDB fans for extra airflow.
+        </li>
+        <li>
+          Tuned for people who want to lean into overclocking while keeping noise and temps sane.
+        </li>
+        <li>
+          TCH’s own numbers show OC ASIC temps in the mid-40s to low-50s °C range with fans nowhere near maxed out.
+        </li>
+      </ul>
+
+      <p>
+        The important bit: <strong>same board, same ASICs, same 8G platform</strong>. You’re really just choosing
+        how much cooling overhead you want and how you want it to look on the desk.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>What I’m expecting in a 10 TH/s desk miner</h2>
+      <p>
+        When I eventually pull the trigger on a 10+ TH/s box, I care way more about
+        <strong>long-term comfort and stability</strong> than squeezing out the last few hundred GH/s.
+        Zyber 8G checks a lot of boxes for that:
+      </p>
+      <ul>
+        <li>
+          <strong>Power draw that makes sense</strong> — ~180 W is still a “normal” plug-and-play number for a home office
+          on a single circuit.
+        </li>
+        <li>
+          <strong>Noise profile tuned for humans</strong> — the cooling stack is clearly designed for a room, not a rack.
+        </li>
+        <li>
+          <strong>UI I already know</strong> — running AxeOS across Bitaxe, NerdQaxe, and Zyber keeps the mental load down.
+        </li>
+        <li>
+          <strong>Hardware that looks like it’ll last</strong> — reinforced PCB, thought-out power pathing,
+          and real heatsinking instead of hope and prayers.
+        </li>
+      </ul>
+      <p>
+        This page is where I’ll drop actual hashrate, temps, and noise notes if and when I add a Zyber 8G to my own stack.
+        For now, it’s the front-runner on my “big jump” list for a home-friendly 10 TH/s class miner.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>If you’re considering one</h2>
+      <p>
+        If you’re already comfortable with Bitaxe/NerdQaxe and you’re looking for the next tier up without jumping
+        to full-size ASICs, Zyber 8G is worth a very serious look. It’s not the cheapest thing on the menu,
+        but it’s one of the few options that seems engineered from day one for
+        <strong>power-efficient, quiet-ish home mining</strong> instead of “small datacenter in a box.”
+      </p>
+      <p>
+        You can read all the marketing copy on TinyChipHub’s page —
+        this write-up is just meant to give you a miner-to-miner view and keep all the essentials in one place.
+      </p>
+
+      <div class="cta-row" style="margin-top:16px;">
+        <a class="cta-btn"
+           href="https://tinychiphub.com/products/16070811247589476349983445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
+           target="_blank" rel="noopener sponsored">
+          <span class="icon">🧊</span>
+          <span>Check current Zyber 8G options →</span>
+        </a>
+      </div>
+      <p class="cta-note">
+        Use code <strong>PROOFOFMIKE</strong> at checkout for 5% off once per person. Same code works across the
+        other Bitaxe / NerdQaxe / Zyber gear too.
+      </p>
+    </section>
+
+    <p class="footnote">
+      Got questions about fitting Zyber 8G into a home setup? Easiest way to reach me is on X:
+      <a href="https://x.com/proofofmike" target="_blank" rel="noopener">@proofofmike</a>.
+    </p>
+  </div>
+</body>
+</html>
