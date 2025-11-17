@@ -1,73 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
   <url>
     <loc>https://proofofmike.com/</loc>
+    <lastmod>2025-11-15</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/about.html</loc>
+    <lastmod>2025-11-14</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/contact.html</loc>
+    <lastmod>2025-11-14</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/posts/</loc>
+    <lastmod>2025-11-14</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/tch/</loc>
+    <lastmod>2025-11-16</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/solo-calc/</loc>
+    <lastmod>2025-11-14</lastmod>
   </url>
+
+  <url>
+    <loc>https://proofofmike.com/nerdqaxe-copper/</loc>
+    <lastmod>2025-11-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/zyber-8g/</loc>
+    <lastmod>2025-11-17</lastmod>
+  </url>
+
+  <!-- Individual posts -->
   <url>
     <loc>https://proofofmike.com/posts/2025-11-14-friday-rig-update.html</loc>
     <lastmod>2025-11-14</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/posts/2025-11-13-tch-experience.html</loc>
     <lastmod>2025-11-13</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/posts/2025-11-12-my-home-mining-setup.html</loc>
     <lastmod>2025-11-12</lastmod>
   </url>
+
   <url>
     <loc>https://proofofmike.com/posts/2025-11-12-nerdqaxe-plus-plus-first-notes.html</loc>
     <lastmod>2025-11-11</lastmod>
   </url>
+
+  <!-- Tag pages that actually exist -->
   <url>
     <loc>https://proofofmike.com/tags/bitaxe.html</loc>
+    <lastmod>2025-11-12</lastmod>
   </url>
-  <url>
-    <loc>https://proofofmike.com/tags/desk-rig.html</loc>
-  </url>
-  <url>
-    <loc>https://proofofmike.com/tags/home-mining.html</loc>
-  </url>
+
   <url>
     <loc>https://proofofmike.com/tags/nerdqaxeplusplus.html</loc>
+    <lastmod>2025-11-12</lastmod>
   </url>
-  <url>
-    <loc>https://proofofmike.com/tags/review.html</loc>
-  </url>
+
   <url>
     <loc>https://proofofmike.com/tags/reviews.html</loc>
+    <lastmod>2025-11-12</lastmod>
   </url>
-  <url>
-    <loc>https://proofofmike.com/tags/setup.html</loc>
-  </url>
-  <url>
-    <loc>https://proofofmike.com/tags/shipping.html</loc>
-  </url>
+
   <url>
     <loc>https://proofofmike.com/tags/solo-mining.html</loc>
+    <lastmod>2025-11-12</lastmod>
   </url>
-  <url>
-    <loc>https://proofofmike.com/tags/support.html</loc>
-  </url>
-  <url>
-    <loc>https://proofofmike.com/tags/tinychiphub.html</loc>
-  </url>
-  <url>
-    <loc>https://proofofmike.com/tags/updates.html</loc>
-  </url>
+
 </urlset>
