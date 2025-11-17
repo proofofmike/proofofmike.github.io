@@ -5,19 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Zyber 8G — Chasing 10 TH/s at Home | Proof Of Mike</title>
-  <meta name="description"
-        content="My notes on the Zyber 8G — a 10+ TH/s home Bitcoin miner from TinyChipHub. Multiple ASIC design, serious cooling options, and AxeOS familiarity for Bitaxe/NerdQaxe users." />
-  <meta name="keywords"
-        content="Zyber 8G, Zyber 8G review, Zyber miner, TinyChipHub Zyber, 10 TH/s home bitcoin miner, home Bitcoin mining, Bitaxe, NerdQaxe, Proof Of Mike, solo mining" />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="My notes on the Zyber 8G — a 10+ TH/s home Bitcoin miner from TinyChipHub. Multiple ASIC design, serious cooling options, and AxeOS familiarity for Bitaxe/NerdQaxe users." />
 
   <link rel="canonical" href="https://proofofmike.com/zyber-8g/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Zyber 8G — Chasing 10 TH/s at Home" />
-  <meta property="og:description"
-        content="Deep dive on the Zyber 8G from TinyChipHub — 10+ TH/s, ~180 W, multiple cooling options, and a very home-friendly form factor." />
+  <meta property="og:description" content="Deep dive on the Zyber 8G from TinyChipHub — 10+ TH/s, ~180 W, multiple cooling options, and a very home-friendly form factor." />
   <meta property="og:url" content="https://proofofmike.com/zyber-8g/" />
   <meta property="og:image" content="https://proofofmike.com/zyber-8g/images/zyber_both.webp" />
   <meta property="og:site_name" content="Proof Of Mike" />
@@ -25,29 +20,9 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Zyber 8G — Chasing 10 TH/s at Home" />
-  <meta name="twitter:description"
-        content="Real-world desk-rig thoughts on the Zyber 8G: hashrate, thermals, noise, and why I think it’s one of the most interesting 10 TH/s home miners right now." />
+  <meta name="twitter:description" content="Real-world desk-rig thoughts on the Zyber 8G: hashrate, thermals, noise, and why I think it’s one of the most interesting 10 TH/s home miners right now." />
   <meta name="twitter:image" content="https://proofofmike.com/zyber-8g/images/zyber_both.webp" />
   <meta name="twitter:creator" content="@proofofmike" />
-
-  <!-- JSON-LD Article markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Zyber 8G — Chasing 10 TH/s at Home Without Going Full Datacenter",
-    "description": "My notes on the Zyber 8G — a 10+ TH/s home Bitcoin miner from TinyChipHub. Multiple ASIC design, serious cooling options, and AxeOS familiarity for Bitaxe/NerdQaxe users.",
-    "author": {
-      "@type": "Person",
-      "name": "Proof Of Mike"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://proofofmike.com/zyber-8g/"
-    },
-    "image": "https://proofofmike.com/zyber-8g/images/zyber_both.webp"
-  }
-  </script>
 
   <style>
     :root {
@@ -61,9 +36,7 @@
       --border: #262b39;
       --radius: 18px;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       background: radial-gradient(circle at top left,#151827 0,#05060a 60%);
@@ -71,10 +44,8 @@
       font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
             "Segoe UI", Roboto, sans-serif;
     }
-
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .wrap {
       max-width: 980px;
       margin: 32px auto 64px;
@@ -91,7 +62,6 @@
       color: var(--muted);
       margin-bottom: 14px;
     }
-
     .topline img {
       width: 28px;
       height: 28px;
@@ -99,19 +69,23 @@
       object-fit: cover;
       border: 1px solid #333949;
     }
-
     .crumb-sep { opacity: .4; }
+
+    /* NEW: intro block to line up h1 + lede with the rest of the page */
+    .intro-block {
+      padding-left: 6px; /* tiny nudge so it visually matches the sections/hero */
+      margin-bottom: 8px;
+    }
 
     h1 {
       font-size: clamp(26px, 3.1vw, 32px);
       line-height: 1.2;
       margin: 0 0 12px;
     }
-
     .lede {
       max-width: 640px;
       color: var(--muted);
-      margin-bottom: 20px;
+      margin: 0 0 20px;
     }
 
     .hero {
@@ -121,20 +95,17 @@
       margin-top: 24px;
       margin-bottom: 28px;
     }
-
     @media (max-width: 840px) {
       .hero { grid-template-columns: minmax(0,1fr); }
+      .intro-block { padding-left: 0; } /* mobile: keep it simple */
     }
-
     .hero-text {
       background: var(--panel);
       border-radius: var(--radius);
       border: 1px solid var(--border);
       padding: 18px 20px 20px;
     }
-
     .hero-text p { margin: 0 0 10px; }
-
     .cta-row {
       margin-top: 14px;
       display: flex;
@@ -142,7 +113,6 @@
       gap: 10px;
       align-items: center;
     }
-
     .cta-btn {
       display: inline-flex;
       align-items: center;
@@ -159,7 +129,6 @@
       text-decoration: none;
       box-shadow: 0 10px 30px rgba(0,0,0,.6);
     }
-
     .cta-btn span.icon {
       display: inline-flex;
       width: 18px;
@@ -170,14 +139,10 @@
       justify-content: center;
       font-size: 11px;
     }
-
     .cta-note {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 8px;
-      max-width: 480px;
     }
-
     .hero-img {
       background: var(--panel-soft);
       border-radius: var(--radius);
@@ -187,7 +152,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .hero-img img {
       width: 100%;
       border-radius: 14px;
@@ -202,7 +166,6 @@
       padding: 20px 20px 18px;
       margin-bottom: 18px;
     }
-
     .section h2 {
       font-size: 18px;
       letter-spacing: .08em;
@@ -210,12 +173,10 @@
       margin: 0 0 10px;
       color: #d7dcf7;
     }
-
     .section h3 {
       font-size: 16px;
       margin: 12px 0 6px;
     }
-
     .section p { margin: 6px 0 10px; color: var(--muted); }
     .section strong { color: #f6f3ff; }
 
@@ -225,7 +186,6 @@
       gap: 10px;
       margin: 10px 0 4px;
     }
-
     .pill {
       padding: 6px 10px;
       border-radius: 999px;
@@ -234,18 +194,15 @@
       font-size: 13px;
       color: #d7dcf7;
     }
-
     .pill span {
       color: var(--muted);
       margin-left: 4px;
     }
-
     ul {
       padding-left: 18px;
       margin: 6px 0 10px;
       color: var(--muted);
     }
-
     li + li { margin-top: 4px; }
 
     .dual-img {
@@ -253,17 +210,24 @@
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 14px;
       margin-top: 10px;
+      align-items: start;
     }
-
     @media (max-width: 840px) {
       .dual-img { grid-template-columns: minmax(0,1fr); }
     }
-
     .dual-img img {
       width: 100%;
       border-radius: 12px;
       border: 1px solid #292f3f;
       object-fit: cover;
+    }
+    .dual-img figure {
+      margin: 0;
+    }
+    .dual-caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     .footnote {
@@ -271,43 +235,6 @@
       font-size: 13px;
       color: var(--muted);
       text-align: center;
-    }
-
-    .home-link {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .home-link a { text-decoration: underline; }
-
-    /* Footer callout + links (matched to NerdQaxe page) */
-    .pom-footer-box {
-      margin-top: 24px;
-      padding: 20px 20px 18px;
-      border-radius: var(--radius);
-      border: 1px dashed var(--border);
-      background: var(--panel);
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .pom-footer-box strong {
-      font-weight: 600;
-    }
-
-    .pom-footer-links {
-      margin-top: 0.55rem;
-      font-size: 0.88rem;
-    }
-
-    .pom-footer-links a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    .pom-footer-links a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -319,13 +246,16 @@
       <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
     </div>
 
-    <h1>Zyber 8G — Chasing 10 TH/s at Home Without Going Full Datacenter</h1>
+    <!-- NEW: intro block for aligned heading + lede -->
+    <div class="intro-block">
+      <h1>Zyber 8G — Chasing 10 TH/s at Home Without Going Full Datacenter</h1>
 
-    <p class="lede">
-      I’ve been wanting to bump my desk-rig hashrate for a while. An extra 10 TH/s would push my little home setup
-      into a different tier — but I didn’t want a screamer on the floor or a science project in the closet.
-      That’s what made the <strong>Zyber 8G</strong> from TinyChipHub interesting enough to dig into properly.
-    </p>
+      <p class="lede">
+        I’ve been wanting to bump my desk-rig hashrate for a while. An extra 10 TH/s would push my little home setup
+        into a different tier — but I didn’t want a screamer on the floor or a science project in the closet.
+        That’s what made the <strong>Zyber 8G</strong> from TinyChipHub interesting enough to dig into properly.
+      </p>
+    </div>
 
     <div class="hero">
       <div class="hero-text">
@@ -352,7 +282,7 @@
           they’ll knock <strong>5% off</strong> once per person and kick back a small affiliate share that
           helps fund more ridiculous solo-mining experiments.
         </p>
-        <p class="home-link">
+        <p class="cta-note">
           Want the rest of my rigs and notes? <a href="/">Back to the main site →</a>
         </p>
       </div>
@@ -397,23 +327,20 @@
         <li><strong>Designed by TCH</strong> with open-source firmware and docs for people who like to tinker.</li>
       </ul>
 
+      <!-- NEW: caption lives under the left image only -->
       <div class="dual-img">
-        <img src="/zyber-8g/images/zyber_lcd.webp"
-             alt="Close-up of Zyber 8G LCD showing hashrate and temps">
+        <figure>
+          <img src="/zyber-8g/images/zyber_lcd.webp"
+               alt="Close-up of Zyber 8G LCD showing hashrate and temps">
+          <figcaption class="dual-caption">
+            As the images show, the Zyber class has next-level craftsmanship — reinforced PCB layers,
+            thick copper power planes, and a cooling stack built more like a small workstation than a hobby miner.
+          </figcaption>
+        </figure>
+
         <img src="/zyber-8g/images/zyber8g_prem.webp"
              alt="Zyber 8G premium cooling configuration on acrylic stand">
       </div>
-      <p style="
-          margin-top: -12px;
-          margin-bottom: 18px;
-          font-size: 14px;
-          color: var(--muted);
-          text-align: center;
-          padding: 8px 10px;
-          ">
-        As the images show, the Zyber class has next-level craftsmanship — reinforced PCB layers,
-        thick copper power planes, and a cooling stack built more like a small workstation than a hobby miner.
-      </p>
     </section>
 
     <section class="section">
@@ -425,9 +352,7 @@
 
       <h3>Standard cooling</h3>
       <ul>
-        <li>
-          Hybrid cooler with dual-fan airflow tuned for the Zyber frame, using a copper–aluminum heatsink.
-        </li>
+        <li>Hybrid cooler with dual-fan airflow tuned for the Zyber frame, using a copper–aluminum heatsink.</li>
         <li>
           The board uses a <strong>thick copper layer under the ASICs</strong> with direct-contact cutouts
           so heat dumps straight into that copper plane.
@@ -440,12 +365,8 @@
 
       <h3>Premium cooling</h3>
       <ul>
-        <li>
-          Big tower-style heatsink with <strong>multi-heatpipe design</strong> and dual FDB fans for extra airflow.
-        </li>
-        <li>
-          Tuned for people who want to lean into overclocking while keeping noise and temps sane.
-        </li>
+        <li>Big tower-style heatsink with <strong>multi-heatpipe design</strong> and dual FDB fans for extra airflow.</li>
+        <li>Tuned for people who want to lean into overclocking while keeping noise and temps sane.</li>
         <li>
           TCH’s own numbers show OC ASIC temps in the mid-40s to low-50s °C range with fans nowhere near maxed out.
         </li>
@@ -486,41 +407,31 @@
       </p>
     </section>
 
-    <!-- Footer-style callout, matched to NerdQaxe page -->
-    <section class="pom-footer-box">
+    <section class="section">
+      <h2>If you’re considering one</h2>
       <p>
-        <strong>If you’re considering one</strong> and you’re already comfortable with Bitaxe/NerdQaxe,
-        Zyber 8G is worth a very serious look. It’s not the cheapest thing on the menu, but it’s one of the options
-        that feels engineered from day one for
+        If you’re already comfortable with Bitaxe/NerdQaxe and you’re looking for the next tier up without jumping
+        to full-size ASICs, Zyber 8G is worth a very serious look. It’s not the cheapest thing on the menu,
+        but it’s one of the few options that seems engineered from day one for
         <strong>power-efficient, quiet-ish home mining</strong> instead of “small datacenter in a box.”
       </p>
-
-      <p style="margin-top:0.7rem;">
-        You can read all the marketing copy on TinyChipHub’s page — this write-up is just meant to give you a
-        miner-to-miner view and keep all the essentials in one place.
+      <p>
+        You can read all the marketing copy on TinyChipHub’s page —
+        this write-up is just meant to give you a miner-to-miner view and keep all the essentials in one place.
       </p>
 
-      <p style="margin-top:0.7rem;">
+      <div class="cta-row" style="margin-top:16px;">
         <a class="cta-btn"
            href="https://tinychiphub.com/products/16070811247589476349983445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
-           target="_blank" rel="noopener sponsored"
-           style="text-decoration:none;">
+           target="_blank" rel="noopener sponsored">
           <span class="icon">🧊</span>
           <span>Check current Zyber 8G options →</span>
         </a>
-      </p>
-
-      <p class="cta-note" style="margin-top:0.6rem;">
+      </div>
+      <p class="cta-note">
         Use code <strong>PROOFOFMIKE</strong> at checkout for 5% off once per person. Same code works across the
         other Bitaxe / NerdQaxe / Zyber gear too.
       </p>
-
-      <div class="pom-footer-links">
-        More from me:
-        <a href="https://proofofmike.com/">ProofOfMike.com</a>
-        ·
-        <a href="https://proofofmike.com/tch/">TinyChipHub rigs overview</a>
-      </div>
     </section>
 
     <p class="footnote">
