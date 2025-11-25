@@ -2,21 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Bitaxe & NerdQaxe Gear — Mean Well PSUs, Fans & Accessories | Proof Of Mike</title>
+    <title>Bitaxe &amp; NerdQaxe / NerdQaxe++ miner gear &amp; accessories | Proof Of Mike</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta
       name="description"
-      content="Bitaxe and NerdQaxe miner accessories I actually use or trust: Noctua fans, AC Infinity cabinet fans, Mean Well PSUs, Kasa smart plugs, fuses, tools, and more for quiet, stable home Bitcoin mining."
+      content="Bitaxe & NerdQaxe / NerdQaxe++ miner gear and accessories I use or that have been strongly recommended: Noctua & AC Infinity fans, Mean Well PSUs, Kasa smart plugs, fuses, cables, tools, temp sensors, and more for quiet home Bitcoin mining."
     />
     <meta
       name="keywords"
-      content="bitaxe meanwell, nerdqaxe meanwell, bitaxe accessories, nerdqaxe accessories, bitcoin miner accessories, Bitaxe NerdQaxe power supply, Mean Well LRS-600-12, Mean Well LRS-350-12"
+      content="Bitaxe, Bitaxe Hex, Bitaxe Gamma, NerdQaxe, NerdQaxe++, NerdQaxe copper, Mean Well LRS-600-12, Mean Well LRS-350-12, Mean Well LRS-200-12, Noctua fan, AC Infinity MULTIFAN, Bitaxe Mean Well, NerdQaxe Mean Well, Bitaxe accessories, home bitcoin mining gear"
     />
     <link rel="icon" type="image/png" href="/favicon.ico" />
-    <link rel="canonical" href="https://proofofmike.com/gear/">
+    <link rel="canonical" href="https://proofofmike.com/gear/" />
 
-    <!-- Main site stylesheet -->
-    <link rel="stylesheet" href="/assets/styles.css" />
+    <!-- Main site stylesheet (same pattern as other landing pages) -->
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="Bitaxe &amp; NerdQaxe gear I use — plus parts recommended to me that check out" />
+    <meta
+      property="og:description"
+      content="A simple, opinionated parts list for Bitaxe & NerdQaxe / NerdQaxe++ home miners: fans, Mean Well PSUs, cables, fuses, smart plugs, tools, and a few extras that keep a solo-mining corner quiet and stable."
+    />
+    <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg" />
+    <meta property="og:url" content="https://proofofmike.com/gear/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bitaxe &amp; NerdQaxe miner gear I use (and trust)" />
+    <meta
+      name="twitter:description"
+      content="Fans, PSUs, cables, fuses, tools, temp sensors & more for Bitaxe and NerdQaxe / NerdQaxe++ solo-mining rigs."
+    />
+    <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg" />
+    <meta name="twitter:creator" content="@proofofmike" />
 
     <!-- counter.dev analytics -->
     <script
@@ -26,20 +47,6 @@
       defer
     ></script>
 
-    <!-- Open Graph / Social Preview -->
-    <meta property="og:title" content="Bitaxe & NerdQaxe Gear — Mean Well PSUs, Fans & Accessories | Proof Of Mike">
-    <meta property="og:description" content="Quiet fans, reliable Mean Well power supplies, smart plugs and tools I use or trust with my Bitaxe and NerdQaxe home Bitcoin mining rigs.">
-    <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg">
-    <meta property="og:url" content="https://proofofmike.com/gear/">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bitaxe & NerdQaxe Gear — Mean Well PSUs, Fans & Accessories | Proof Of Mike">
-    <meta name="twitter:description" content="Bitaxe & NerdQaxe miner accessories: Noctua fans, AC Infinity, Mean Well PSUs, Kasa smart plugs, fuses and tools for a quiet desk setup.">
-    <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg">
-    <meta name="twitter:creator" content="@proofofmike">
-
     <style>
       body {
         background: radial-gradient(circle at top left, #020617 0, #020617 45%, #020617 100%);
@@ -47,27 +54,33 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       }
 
-      a {
-        color: #38bdf8;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .pom-container {
-        max-width: 960px;
+      .pom-gear-wrap {
+        max-width: 1080px;
         margin: 0 auto;
         padding: 2.5rem 1.5rem 4rem;
       }
 
-      .pom-pill {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: #9ca3af;
-        margin-bottom: 0.4rem;
+      .pom-gear-header {
         display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .pom-gear-header img {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid rgba(148, 163, 255, 0.6);
+      }
+
+      .pom-pill {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #9ca3af;
+        display: inline-flex;
         align-items: center;
         gap: 0.35rem;
       }
@@ -79,150 +92,134 @@
         background: #f97316;
       }
 
-      .pom-hero-title {
-        font-size: clamp(2.1rem, 3vw + 1rem, 3.1rem);
+      h1.pom-gear-title {
+        font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -0.03em;
-        margin-bottom: 0.9rem;
+        margin: 0 0 0.65rem;
       }
 
-      .pom-hero-subtitle {
-        font-size: 1.02rem;
-        line-height: 1.6;
-        max-width: 46rem;
+      .pom-gear-sub {
+        font-size: 0.98rem;
+        line-height: 1.7;
         color: #cbd5f5;
+        max-width: 48rem;
       }
 
-      .pom-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1.9fr) minmax(0, 1.3fr);
-        gap: 2rem;
+      .pom-grid {
         margin-top: 2.4rem;
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+        gap: 1.75rem;
         align-items: flex-start;
       }
 
       @media (max-width: 880px) {
-        .pom-layout {
+        .pom-grid {
           grid-template-columns: minmax(0, 1fr);
         }
       }
 
       .pom-card {
         border-radius: 1.25rem;
-        background: radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 52%),
-          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.12), transparent 55%),
-          #020617;
+        background: radial-gradient(circle at top left, rgba(148, 163, 255, 0.18), transparent 60%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.15), transparent 60%), #020617;
         border: 1px solid rgba(148, 163, 255, 0.35);
         padding: 1.6rem 1.5rem 1.7rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.2rem;
       }
 
       .pom-card h2 {
         font-size: 0.98rem;
-        letter-spacing: 0.12em;
         text-transform: uppercase;
+        letter-spacing: 0.16em;
         color: #9ca3af;
-        margin-bottom: 0.4rem;
+        margin: 0 0 0.6rem;
       }
 
       .pom-card h3 {
-        font-size: 1.02rem;
+        font-size: 0.98rem;
         font-weight: 600;
-        margin: 0.75rem 0 0.25rem;
+        margin: 0.85rem 0 0.15rem;
       }
 
       .pom-card p,
       .pom-card li {
-        font-size: 0.94rem;
+        font-size: 0.9rem;
         line-height: 1.6;
         color: #e5e7eb;
       }
 
       .pom-card ul {
-        margin: 0.2rem 0 0.8rem 1.2rem;
+        margin: 0.15rem 0 0.4rem 1.1rem;
         padding: 0;
       }
 
       .pom-card li {
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.15rem;
       }
 
-      .pom-side-card {
-        border-radius: 1.1rem;
-        border: 1px dashed rgba(148, 163, 255, 0.6);
-        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%), #020617;
-        padding: 1.4rem 1.4rem 1.5rem;
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
+      .pom-card a {
+        color: #38bdf8;
+        text-decoration: none;
       }
 
-      .pom-side-card h2 {
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #9ca3af;
+      .pom-card a:hover {
+        text-decoration: underline;
       }
 
-      .pom-side-card ul {
-        margin: 0.25rem 0 0.25rem 1.2rem;
-      }
-
-      .pom-side-card li {
-        margin-bottom: 0.25rem;
-      }
-
-      .pom-footer {
-        margin-top: 2.2rem;
+      .pom-note {
         font-size: 0.82rem;
-        color: #6b7280;
+        color: #9ca3af;
+        margin-top: 0.4rem;
       }
 
-      .pom-footer-note {
-        margin-top: 0.8rem;
-        font-size: 0.84rem;
+      .pom-footnote {
+        font-size: 0.82rem;
         color: #9ca3af;
+        margin-top: 2rem;
+      }
+
+      .pom-footnote a {
+        color: #38bdf8;
       }
     </style>
   </head>
 
   <body>
     <main>
-      <div class="pom-container">
-        <!-- Simple top line with avatar + breadcrumb -->
-        <header style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
-          <img
-            src="/images/bulldog.jpeg"
-            alt="Proof of Mike bulldog avatar"
-            style="width:40px;height:40px;border-radius:999px;object-fit:cover;border:1px solid rgba(148,163,255,0.6);"
-          />
+      <div class="pom-gear-wrap">
+        <header class="pom-gear-header">
+          <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog avatar" />
           <div>
             <div class="pom-pill">
               <span class="dot"></span>
-              <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
+              <span>Proof Of Mike · home bitcoin solo-mining</span>
             </div>
-            <div style="font-size:0.8rem;color:#6b7280;">
+            <div style="font-size:0.8rem;color:#6b7280;margin-top:0.1rem;">
               Bitaxe &amp; NerdQaxe rigs on a quiet home desk.
             </div>
           </div>
         </header>
 
-        <!-- HERO -->
         <section>
-          <h1 class="pom-hero-title">Bitaxe &amp; NerdQaxe gear I use — plus parts recommended to me that check out</h1>
-          <p class="pom-hero-subtitle">
-            These are Bitaxe / NerdQaxe miner accessories I either use myself or that have been strongly recommended and
-            vetted as solid options: Noctua and AC Infinity fans, <strong>Mean Well power supplies</strong>, Kasa smart
-            plugs (for stock bricks), fuses, tools, and a few extras that keep a small solo-mining corner quiet and stable.
+          <h1 class="pom-gear-title">
+            Bitaxe &amp; NerdQaxe gear I use — plus parts recommended to me that check out
+          </h1>
+          <p class="pom-gear-sub">
+            These are Bitaxe / NerdQaxe miner accessories I either use myself or that have been strongly
+            recommended and vetted as solid options: Noctua and AC Infinity fans, Mean Well 12&nbsp;V power supplies,
+            Kasa smart plugs (for stock bricks), fuses, cables, tools, and a few extras that keep a small solo-mining
+            corner quiet and stable.
           </p>
         </section>
 
-        <!-- MAIN LAYOUT -->
-        <section class="pom-layout">
-          <!-- LEFT: GEAR LISTS -->
-          <article>
-            <div class="pom-card">
+        <section class="pom-grid">
+          <!-- LEFT COLUMN -->
+          <div>
+            <!-- COOLING & AIRFLOW -->
+            <article class="pom-card">
               <h2>Cooling &amp; airflow</h2>
 
               <h3>Noctua fans (quiet case fans)</h3>
@@ -231,7 +228,8 @@
                   <a href="https://amzn.to/4olDoYZ" target="_blank" rel="nofollow noopener">
                     Noctua NF-A14 PWM (140mm)
                   </a>
-                  – great 140&nbsp;mm option when you want strong airflow on a Bitaxe or NerdQaxe setup without a jet engine.
+                  – great 140&nbsp;mm option when you want serious airflow on a Bitaxe or NerdQaxe++ setup without a jet
+                  engine.
                 </li>
                 <li>
                   <a href="https://amzn.to/3KiNICW" target="_blank" rel="nofollow noopener">
@@ -253,7 +251,7 @@
                   <a href="https://amzn.to/4ppYAOj" target="_blank" rel="nofollow noopener">
                     AC Infinity MULTIFAN S3 (120mm USB)
                   </a>
-                  – simple 120&nbsp;mm fan for shelves or open racks near miners.
+                  – simple 120&nbsp;mm USB fan for shelves or open rack miner areas.
                 </li>
                 <li>
                   <a href="https://amzn.to/3XLWE6W" target="_blank" rel="nofollow noopener">
@@ -268,9 +266,10 @@
                   – dual 120&nbsp;mm for cabinets or behind multiple Bitaxe / NerdQaxe miners.
                 </li>
               </ul>
-            </div>
+            </article>
 
-            <div class="pom-card">
+            <!-- THERMAL PASTE, PADS & HEATSINKS -->
+            <article class="pom-card">
               <h2>Thermal paste, pads &amp; heatsinks</h2>
 
               <h3>Paste</h3>
@@ -285,7 +284,7 @@
                   <a href="https://amzn.to/4abV1XI" target="_blank" rel="nofollow noopener">
                     Thermal Grizzly Kryonaut
                   </a>
-                  – higher-end paste if you’re chasing a couple of extra °C margin.
+                  – higher-end paste if you’re chasing a couple of extra °C of margin.
                 </li>
               </ul>
 
@@ -295,7 +294,7 @@
                   <a href="https://amzn.to/4pn9qEW" target="_blank" rel="nofollow noopener">
                     ARCTIC TP-3 100×100×1.0&nbsp;mm pad
                   </a>
-                  – big sheet you can cut down; stackable up to 2&nbsp;mm to bridge gaps.
+                  – big sheet you can cut down, stackable up to 2&nbsp;mm to bridge gaps.
                 </li>
                 <li>
                   <a href="https://amzn.to/3JQWuIs" target="_blank" rel="nofollow noopener">
@@ -322,15 +321,17 @@
                   upgrading after the fact, this type of kit is what you’d use.
                 </li>
               </ul>
-            </div>
+            </article>
 
-            <div class="pom-card">
+            <!-- POWER & SMART CONTROL -->
+            <article class="pom-card">
               <h2>Power &amp; smart control</h2>
 
               <h3>Mean Well PSUs (Bitaxe &amp; NerdQaxe power)</h3>
-              <p style="margin-bottom:0.4rem;">
-                I use Mean Well PSUs at home; below are three common 12&nbsp;V models that come up a lot for Bitaxe /
-                NerdQaxe-style miners. You don’t need all of them — pick what matches your power budget and number of rigs.
+              <p>
+                I use Mean Well PSUs at home; below are three common 12&nbsp;V models that come up a lot for
+                Bitaxe / NerdQaxe-style miners. You don’t need all of them — pick what matches your power budget and
+                number of rigs.
               </p>
               <ul>
                 <li>
@@ -352,35 +353,34 @@
                   – lighter-duty option when you don’t need a huge shared PSU yet.
                 </li>
               </ul>
-              <p style="margin-top:0.6rem;font-size:0.85rem;color:#f97316;">
-                <strong>Important:</strong> Mean Well LRS supplies have a high inrush current at startup. Do
-                <strong>not</strong> plug them into Kasa or other consumer smart strips/plugs. Keep them on a regular
-                outlet or properly rated switch instead.
+              <p class="pom-note">
+                Note: Mean Well LRS supplies have a high inrush current at startup. Don’t plug them into Kasa or other
+                consumer smart strips. Keep them on a regular outlet or properly rated switch instead.
               </p>
 
               <h3>Smart power options (for standard power bricks)</h3>
-              <p style="margin-bottom:0.4rem;">
-                These smart options are for miners running their standard / stock power bricks — not the Mean Well PSUs above.
-                Great for monitoring power and remotely power-cycling a couple of rigs.
+              <p>
+                These smart options are for miners running their standard / stock power bricks — not the Mean Well PSUs
+                above. Great for monitoring power and remotely power-cycling a couple of rigs.
               </p>
               <ul>
                 <li>
                   <a href="https://amzn.to/4p4HTIA" target="_blank" rel="nofollow noopener">
-                    Kasa HS300 smart power strip (6 outlets + 3 USB)
+                    Kasa HS300 smart power strip
                   </a>
-                  – six individually switchable outlets; perfect for a small Bitaxe / NerdQaxe “farm” on stock bricks.
+                  – six individually switchable outlets, perfect for a small Bitaxe / NerdQaxe “farm” on stock bricks.
                 </li>
                 <li>
                   <a href="https://amzn.to/3KdxbAm" target="_blank" rel="nofollow noopener">
                     Kasa KP115 smart plug (with energy monitoring)
                   </a>
-                  – single-outlet plug I use to watch draw on individual miners.
+                  – single-outlet plug I like to use to watch draw on individual miners.
                 </li>
                 <li>
                   <a href="https://amzn.to/4oStyii" target="_blank" rel="nofollow noopener">
                     Kasa KP125M (Matter, 2-pack)
                   </a>
-                  – newer Matter-compatible plugs if you’re in that ecosystem.
+                  – newer Matter-compatible plugs if you’re all-in on that ecosystem.
                 </li>
               </ul>
 
@@ -405,28 +405,70 @@
                   – basic IEC C13 cable for powering your Mean Well or other PSUs.
                 </li>
               </ul>
-            </div>
+            </article>
 
-            <div class="pom-card">
+            <!-- FUSES & PROTECTION -->
+            <article class="pom-card">
               <h2>Fuses &amp; protection</h2>
+              <p>
+                Many NerdQaxe++ boards use 5×20&nbsp;mm fast-blow fuses in the 8&nbsp;A range. Always check your own
+                board / PSU labeling first, but this is the common replacement size I keep around:
+              </p>
               <ul>
                 <li>
-                  <a href="https://amzn.to/3K77662" target="_blank" rel="nofollow noopener">
-                    BOJACK 5×20&nbsp;mm 5&nbsp;A fast-blow fuses (pack of 10)
-                  </a>
-                  – what I keep around for boards that use 5&nbsp;A 5×20&nbsp;mm fuses (some NerdQaxe++ variants).
-                </li>
-                <li>
-                  <a href="https://amzn.to/4iiJQ1r" target="_blank" rel="nofollow noopener">
+                  <a href="https://amzn.to/4ihFAPE" target="_blank" rel="nofollow noopener">
                     BOJACK 5×20&nbsp;mm 8&nbsp;A fast-blow fuses (pack of 10)
                   </a>
-                  – 8&nbsp;A version if your specific board / PSU fuse is rated higher.
+                  – what I keep on hand for boards that use 5×20&nbsp;mm 8&nbsp;A fuses.
                 </li>
               </ul>
-            </div>
+              <p class="pom-note">
+                Important: Overclock at your own risk. A beefier fuse doesn’t change the limits of the other components
+                on the board.
+              </p>
+            </article>
+          </div>
 
-            <div class="pom-card">
+          <!-- RIGHT COLUMN -->
+          <div>
+            <!-- QUICK STARTER / NOISE / POWER / CONTROL -->
+            <article class="pom-card">
+              <h2>Quick starter notes</h2>
+
+              <h3>Noise</h3>
+              <p>
+                If your miner is still running a loud stock fan, upgrading to a Noctua is the biggest quality-of-life
+                improvement you can make. It dramatically cuts noise while keeping temps stable. In my opinion, it’s
+                absolutely worth it.
+              </p>
+
+              <h3>Power</h3>
+              <p>
+                For one or two devices, the stock power bricks are usually fine. If you’re pushing heavy overclocks or
+                running multiple Bitaxe / NerdQaxe++ rigs, that’s when a Mean Well PSU becomes the right move. Once this
+                hobby grabs you and you start adding rigs, switching to a shared PSU setup just makes everything cleaner
+                and more efficient.
+              </p>
+
+              <h3>Control &amp; monitoring</h3>
+              <p>
+                Using smart strips and plugs with stock bricks lets you monitor power at the wall, schedule on/off
+                times, and remotely power-cycle rigs if something freezes. Just keep that industrial Mean Well supply on
+                normal outlets — don’t run those through consumer smart hardware.
+              </p>
+
+              <h3>Maintenance</h3>
+              <p>
+                This page gets updated whenever I add new miners, test new accessories, or find better gear. If something
+                here ever turns out to be trash, I’ll pull it — no fluff, no bag-holding.
+              </p>
+            </article>
+
+            <!-- CLEANING, TOOLS & MISC -->
+            <article class="pom-card">
               <h2>Cleaning, tools &amp; misc.</h2>
+
+              <h3>Dust &amp; board cleanup</h3>
               <ul>
                 <li>
                   <a href="https://amzn.to/4862swQ" target="_blank" rel="nofollow noopener">
@@ -440,6 +482,10 @@
                   </a>
                   – for gently cleaning boards and fans without static drama.
                 </li>
+              </ul>
+
+              <h3>Power &amp; paste tools</h3>
+              <ul>
                 <li>
                   <a href="https://amzn.to/3JW0OGl" target="_blank" rel="nofollow noopener">
                     Plug-in watt / power meter
@@ -452,6 +498,10 @@
                   </a>
                   – makes spreading thermal paste way less annoying and more consistent.
                 </li>
+              </ul>
+
+              <h3>Repair &amp; cabling</h3>
+              <ul>
                 <li>
                   <a href="https://amzn.to/48fQlh4" target="_blank" rel="nofollow noopener">
                     iFixit Essential Electronics Toolkit
@@ -464,72 +514,48 @@
                   </a>
                   – easy C-to-A cable for flashing or connecting to miners and dev boards.
                 </li>
+              </ul>
+
+              <h3>Temp monitoring “canary”</h3>
+              <ul>
                 <li>
                   <a href="https://amzn.to/3LWfgid" target="_blank" rel="nofollow noopener">
                     HT1 smart temperature &amp; humidity sensor
                   </a>
                   – easy little “canary” sensor to sit near your rigs. If the ambient temperature around them suddenly
-                  spikes, you want to know immediately — it usually means a fan stalled, airflow changed, or a PSU is
+                  spikes, you want to know immediately — it usually means a fan has failed, airflow changed, or a PSU is
                   getting warmer than it should.
                 </li>
               </ul>
-            </div>
-          </article>
+            </article>
 
-          <!-- RIGHT: SIDE NOTES / QUICK START -->
-          <aside>
-            <div class="pom-side-card">
-              <h2>Quick starter kits</h2>
-
-              <p><strong>Noise:</strong><br>
-                If your miner is still running a loud stock fan, upgrading to a Noctua is the biggest quality-of-life
-                improvement you can make. It dramatically cuts noise while keeping temps stable. In my opinion,
-                absolutely worth it.
-              </p>
-
-              <p><strong>Power:</strong><br>
-                For one or two devices, the stock power bricks are usually fine. If you’re pushing heavy overclocks
-                or running multiple Bitaxe / NerdQaxe units, that’s when a Mean Well PSU becomes the right move. Once this
-                hobby grabs you and you start adding rigs, switching to a shared PSU setup just makes everything cleaner
-                and more efficient.
-              </p>
-
-              <p><strong>Control &amp; monitoring:</strong><br>
-                Using smart strips and plugs with stock bricks lets you monitor power at the wall, schedule on/off times,
-                and remotely power cycle rigs if something freezes. Just keep the industrial Mean Well supplies on normal
-                outlets — don’t run those through consumer smart hardware.
-              </p>
-
-              <p><strong>Maintenance:</strong><br>
-                This page gets updated whenever I add new miners, test new accessories, or find better gear. If something
-                here ever turns out to be trash, I’ll pull it — no fluff, no bag-holding.
-              </p>
-            </div>
-
-            <div class="pom-side-card">
+            <!-- HEADS UP / NOT ADVICE -->
+            <article class="pom-card">
               <h2>Heads up (not advice)</h2>
               <p>
-                Double-check voltage, amperage and fuse ratings for your exact hardware. Don’t blindly copy my setup if
+                Double-check wattage, amperage, and fuse ratings for your exact hardware. Don’t blindly copy my setup if
                 your miner expects something different. When in doubt, check the Bitaxe / NerdQaxe docs or ask the
                 community before wiring up a new PSU or fuse.
               </p>
-            </div>
-          </aside>
+            </article>
+
+            <!-- SEARCH-LANDING NOTE MOVED TO BOTTOM -->
+            <article class="pom-card">
+              <h2>For folks landing here from search</h2>
+              <p>
+                If you landed here from a search like “Bitaxe Mean Well”, “NerdQaxe Mean Well”, or “Bitaxe accessories”,
+                this page is meant to be a simple, honest parts list you can copy from without spending hours digging
+                through forums.
+              </p>
+            </article>
+          </div>
         </section>
 
-        <p class="pom-footer">
-          © <span id="year"></span> Proof Of Mike · <a href="/">Back to home</a>
-        </p>
-
-        <p class="pom-footer-note">
-          If you landed here from a search like “Bitaxe Mean Well” or “NerdQaxe accessories,” this page is meant to be a
-          simple, honest parts list you can copy from without spending hours digging through forums.
+        <p class="pom-footnote">
+          Spot something I missed that you think belongs here? Feel free to ping me on X at
+          <a href="https://x.com/proofofmike" target="_blank" rel="noopener">@ProofOfMike</a>.
         </p>
       </div>
     </main>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>
