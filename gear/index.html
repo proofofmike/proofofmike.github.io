@@ -214,7 +214,7 @@
           <p class="pom-hero-subtitle">
             These are Bitaxe / NerdQaxe miner accessories I either use myself or that have been strongly recommended and
             vetted as solid options: Noctua and AC Infinity fans, <strong>Mean Well power supplies</strong>, Kasa smart
-            plugs, fuses, tools, and a few extras that keep a small solo-mining corner quiet and stable.
+            plugs (for stock bricks), fuses, tools, and a few extras that keep a small solo-mining corner quiet and stable.
           </p>
         </section>
 
@@ -352,14 +352,23 @@
                   – lighter-duty option when you don’t need a huge shared PSU yet.
                 </li>
               </ul>
+              <p style="margin-top:0.6rem;font-size:0.85rem;color:#f97316;">
+                <strong>Important:</strong> Mean Well LRS supplies have a high inrush current at startup. Do
+                <strong>not</strong> plug them into Kasa or other consumer smart strips/plugs. Keep them on a regular
+                outlet or properly rated switch instead.
+              </p>
 
-              <h3>Kasa smart plugs &amp; strips</h3>
+              <h3>Smart power options (for standard power bricks)</h3>
+              <p style="margin-bottom:0.4rem;">
+                These smart options are for miners running their standard / stock power bricks — not the Mean Well PSUs above.
+                Great for monitoring power and remotely power-cycling a couple of rigs.
+              </p>
               <ul>
                 <li>
                   <a href="https://amzn.to/4p4HTIA" target="_blank" rel="nofollow noopener">
                     Kasa HS300 smart power strip (6 outlets + 3 USB)
                   </a>
-                  – six individually switchable outlets; perfect for a small Bitaxe / NerdQaxe “farm”.
+                  – six individually switchable outlets; perfect for a small Bitaxe / NerdQaxe “farm” on stock bricks.
                 </li>
                 <li>
                   <a href="https://amzn.to/3KdxbAm" target="_blank" rel="nofollow noopener">
@@ -459,9 +468,9 @@
                   <a href="https://amzn.to/3LWfgid" target="_blank" rel="nofollow noopener">
                     HT1 smart temperature &amp; humidity sensor
                   </a>
-                  – easy little temp sensor to sit near your rigs. If the ambient temperature around them spikes, you
-                  want to know. I’m actively exploring automations to pair this with Kasa smart strips so I can trigger
-                  alerts and, eventually, automatic shutoffs if things get too hot.
+                  – easy little “canary” sensor to sit near your rigs. If the ambient temperature around them suddenly
+                  spikes, you want to know immediately — it usually means a fan stalled, airflow changed, or a PSU is
+                  getting warmer than it should.
                 </li>
               </ul>
             </div>
@@ -486,9 +495,9 @@
               </p>
 
               <p><strong>Control &amp; monitoring:</strong><br>
-                Using a smart strip lets you monitor power at the wall, schedule on/off times, and remotely power cycle
-                rigs if something freezes. Super convenient, especially when you’re away from home and want to bounce
-                a miner without touching the PSU.
+                Using smart strips and plugs with stock bricks lets you monitor power at the wall, schedule on/off times,
+                and remotely power cycle rigs if something freezes. Just keep the industrial Mean Well supplies on normal
+                outlets — don’t run those through consumer smart hardware.
               </p>
 
               <p><strong>Maintenance:</strong><br>
