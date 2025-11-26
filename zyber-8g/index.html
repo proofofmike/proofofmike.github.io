@@ -8,6 +8,7 @@
   <meta name="description" content="My notes on the Zyber 8G — a 10+ TH/s home Bitcoin miner from TinyChipHub. Multiple ASIC design, serious cooling options, and AxeOS familiarity for Bitaxe/NerdQaxe users." />
 
   <link rel="canonical" href="https://proofofmike.com/zyber-8g/">
+  <link rel="stylesheet" href="/styles.css" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
@@ -24,71 +25,74 @@
   <meta name="twitter:image" content="https://proofofmike.com/zyber-8g/images/zyber_both.webp" />
   <meta name="twitter:creator" content="@proofofmike" />
 
+  <!-- Page-specific styles (namespaced so they don't clash with core styles.css) -->
   <style>
     :root {
-      --bg: #05060a;
-      --panel: #151822;
-      --panel-soft: #1a1d27;
-      --text: #f3f5ff;
-      --muted: #9aa0b3;
-      --accent: #ff7a2f;
-      --accent-soft: rgba(255, 122, 47, 0.12);
-      --border: #262b39;
-      --radius: 18px;
+      --zy-bg: #05060a;
+      --zy-panel: #151822;
+      --zy-panel-soft: #1a1d27;
+      --zy-text: #f3f5ff;
+      --zy-muted: #9aa0b3;
+      --zy-accent: #ff7a2f;
+      --zy-border: #262b39;
+      --zy-radius: 18px;
     }
+
     * { box-sizing: border-box; }
-    body {
+
+    body.zy-page {
       margin: 0;
       background: radial-gradient(circle at top left,#151827 0,#05060a 60%);
-      color: var(--text);
+      color: var(--zy-text);
       font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
             "Segoe UI", Roboto, sans-serif;
     }
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap {
+
+    .zy-page a { color: inherit; text-decoration: none; }
+    .zy-page a:hover { text-decoration: underline; }
+
+    .zy-wrap {
       max-width: 980px;
       margin: 32px auto 64px;
       padding: 0 20px 40px;
     }
 
-    .topline {
+    .zy-topline {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 13px;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--zy-muted);
       margin-bottom: 14px;
     }
-    .topline img {
+    .zy-topline img {
       width: 28px;
       height: 28px;
       border-radius: 999px;
       object-fit: cover;
       border: 1px solid #333949;
     }
-    .crumb-sep { opacity: .4; }
 
-    /* NEW: intro block to line up h1 + lede with the rest of the page */
-    .intro-block {
-      padding-left: 6px; /* tiny nudge so it visually matches the sections/hero */
+    .zy-intro-block {
+      padding-left: 6px;
       margin-bottom: 8px;
     }
 
-    h1 {
+    .zy-intro-block h1 {
       font-size: clamp(26px, 3.1vw, 32px);
       line-height: 1.2;
       margin: 0 0 12px;
     }
-    .lede {
+
+    .zy-lede {
       max-width: 640px;
-      color: var(--muted);
+      color: var(--zy-muted);
       margin: 0 0 20px;
     }
 
-    .hero {
+    .zy-hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
       gap: 24px;
@@ -96,29 +100,50 @@
       margin-bottom: 28px;
     }
     @media (max-width: 840px) {
-      .hero { grid-template-columns: minmax(0,1fr); }
-      .intro-block { padding-left: 0; } /* mobile: keep it simple */
+      .zy-hero { grid-template-columns: minmax(0,1fr); }
+      .zy-intro-block { padding-left: 0; }
     }
-    .hero-text {
-      background: var(--panel);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+
+    .zy-hero-text {
+      background: var(--zy-panel);
+      border-radius: var(--zy-radius);
+      border: 1px solid var(--zy-border);
       padding: 18px 20px 20px;
     }
-    .hero-text p { margin: 0 0 10px; }
-    .cta-row {
+    .zy-hero-text p { margin: 0 0 10px; }
+
+    .zy-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 4px;
+    }
+    .zy-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #11141f;
+      border: 1px solid #2a3040;
+      font-size: 13px;
+      color: #d7dcf7;
+    }
+    .zy-pill span {
+      color: var(--zy-muted);
+      margin-left: 4px;
+    }
+
+    .zy-cta-row {
       margin-top: 14px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
     }
-    .cta-btn {
+    .zy-cta-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: var(--accent);
+      background: var(--zy-accent);
       color: #1e0b03;
       padding: 11px 18px;
       border-radius: 999px;
@@ -129,7 +154,7 @@
       text-decoration: none;
       box-shadow: 0 10px 30px rgba(0,0,0,.6);
     }
-    .cta-btn span.icon {
+    .zy-cta-btn span.icon {
       display: inline-flex;
       width: 18px;
       height: 18px;
@@ -139,73 +164,59 @@
       justify-content: center;
       font-size: 11px;
     }
-    .cta-note {
+    .zy-cta-note {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--zy-muted);
     }
-    .hero-img {
-      background: var(--panel-soft);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+
+    .zy-hero-img {
+      background: var(--zy-panel-soft);
+      border-radius: var(--zy-radius);
+      border: 1px solid var(--zy-border);
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .hero-img img {
+    .zy-hero-img img {
       width: 100%;
       border-radius: 14px;
       object-fit: cover;
       border: 1px solid #292f3f;
     }
 
-    .section {
-      background: var(--panel);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+    .zy-section {
+      background: var(--zy-panel);
+      border-radius: var(--zy-radius);
+      border: 1px solid var(--zy-border);
       padding: 20px 20px 18px;
       margin-bottom: 18px;
     }
-    .section h2 {
+    .zy-section h2 {
       font-size: 18px;
       letter-spacing: .08em;
       text-transform: uppercase;
       margin: 0 0 10px;
       color: #d7dcf7;
     }
-    .section h3 {
+    .zy-section h3 {
       font-size: 16px;
       margin: 12px 0 6px;
     }
-    .section p { margin: 6px 0 10px; color: var(--muted); }
-    .section strong { color: #f6f3ff; }
+    .zy-section p {
+      margin: 6px 0 10px;
+      color: var(--zy-muted);
+    }
+    .zy-section strong { color: #f6f3ff; }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 10px 0 4px;
-    }
-    .pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #11141f;
-      border: 1px solid #2a3040;
-      font-size: 13px;
-      color: #d7dcf7;
-    }
-    .pill span {
-      color: var(--muted);
-      margin-left: 4px;
-    }
-    ul {
+    .zy-section ul {
       padding-left: 18px;
       margin: 6px 0 10px;
-      color: var(--muted);
+      color: var(--zy-muted);
     }
-    li + li { margin-top: 4px; }
+    .zy-section li + li { margin-top: 4px; }
 
-    .dual-img {
+    .zy-dual-img {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 14px;
@@ -213,87 +224,87 @@
       align-items: start;
     }
     @media (max-width: 840px) {
-      .dual-img { grid-template-columns: minmax(0,1fr); }
+      .zy-dual-img { grid-template-columns: minmax(0,1fr); }
     }
-    .dual-img img {
+    .zy-dual-img img {
       width: 100%;
       border-radius: 12px;
       border: 1px solid #292f3f;
       object-fit: cover;
     }
-    .dual-img figure {
-      margin: 0;
-    }
-    .dual-caption {
+    .zy-dual-img figure { margin: 0; }
+
+    .zy-dual-caption {
       margin-top: 8px;
       font-size: 14px;
-      color: var(--muted);
+      color: var(--zy-muted);
     }
 
-    .footnote {
+    .zy-footnote {
       margin-top: 18px;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--zy-muted);
       text-align: center;
     }
   </style>
 </head>
 
-<body>
-  <div class="wrap">
-    <div class="topline">
+<body class="zy-page">
+  <div class="zy-wrap">
+    <div class="zy-topline">
       <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog logo">
       <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
     </div>
 
-    <!-- NEW: intro block for aligned heading + lede -->
-    <div class="intro-block">
+    <div class="zy-intro-block">
       <h1>Zyber 8G — Chasing 10 TH/s at Home Without Going Full Datacenter</h1>
 
-      <p class="lede">
+      <p class="zy-lede">
         I’ve been wanting to bump my desk-rig hashrate for a while. An extra 10 TH/s would push my little home setup
         into a different tier — but I didn’t want a screamer on the floor or a science project in the closet.
         That’s what made the <strong>Zyber 8G</strong> from TinyChipHub interesting enough to dig into properly.
       </p>
     </div>
 
-    <div class="hero">
-      <div class="hero-text">
+    <div class="zy-hero">
+      <div class="zy-hero-text">
         <p>
           This page is where I keep my running notes on the Zyber 8G: what it is, how it’s built, the cooling options,
           and why I think it’s one of the most thoughtful “10 TH/s-ish” home miners on the market right now.
         </p>
-        <div class="pill-row">
-          <div class="pill">≈10–11 TH/s<span>@ ~180 W (spec)</span></div>
-          <div class="pill">AxeOS UI<span>same feel as Bitaxe / NerdQaxe</span></div>
-          <div class="pill">Zyber 8G series<span>standard + premium cooling options</span></div>
+
+        <div class="zy-pill-row">
+          <div class="zy-pill">≈10–11 TH/s<span>@ ~180 W (spec)</span></div>
+          <div class="zy-pill">AxeOS UI<span>same feel as Bitaxe / NerdQaxe</span></div>
+          <div class="zy-pill">Zyber 8G series<span>standard + premium cooling options</span></div>
         </div>
 
-        <div class="cta-row">
-          <a class="cta-btn"
+        <div class="zy-cta-row">
+          <a class="zy-cta-btn"
              href="https://tinychiphub.com/products/16070811247589476349983445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
              target="_blank" rel="noopener sponsored">
             <span class="icon">⚡</span>
             <span>View Zyber 8G lineup at TinyChipHub</span>
           </a>
         </div>
-        <p class="cta-note">
+
+        <p class="zy-cta-note">
           I’m a TinyChipHub customer myself. If you use that link or my code <strong>PROOFOFMIKE</strong>,
           they’ll knock <strong>5% off</strong> once per person and kick back a small affiliate share that
           helps fund more ridiculous solo-mining experiments.
         </p>
-        <p class="cta-note">
+        <p class="zy-cta-note">
           Want the rest of my rigs and notes? <a href="/">Back to the main site →</a>
         </p>
       </div>
 
-      <div class="hero-img">
+      <div class="zy-hero-img">
         <img src="/zyber-8g/images/zyber_both.webp"
              alt="Zyber 8G standard and premium cooling side-by-side">
       </div>
     </div>
 
-    <section class="section">
+    <section class="zy-section">
       <h2>Why Zyber 8G caught my eye</h2>
       <p>
         I’ve been inching my way up with Bitaxe and NerdQaxe boards, but there’s a gap between “cute little desk miner”
@@ -312,7 +323,7 @@
       </p>
     </section>
 
-    <section class="section">
+    <section class="zy-section">
       <h2>Zyber 8G at a glance</h2>
       <h3>Core idea</h3>
       <p>
@@ -327,12 +338,11 @@
         <li><strong>Designed by TCH</strong> with open-source firmware and docs for people who like to tinker.</li>
       </ul>
 
-      <!-- NEW: caption lives under the left image only -->
-      <div class="dual-img">
+      <div class="zy-dual-img">
         <figure>
           <img src="/zyber-8g/images/zyber_lcd.webp"
                alt="Close-up of Zyber 8G LCD showing hashrate and temps">
-          <figcaption class="dual-caption">
+          <figcaption class="zy-dual-caption">
             As the images show, the Zyber class has next-level craftsmanship — reinforced PCB layers,
             thick copper power planes, and a cooling stack built more like a small workstation than a hobby miner.
           </figcaption>
@@ -343,7 +353,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="zy-section">
       <h2>Cooling options — standard vs premium</h2>
       <p>
         The part that really separates Zyber 8G from “slap a fan on it and hope” builds is the thermal story.
@@ -378,7 +388,7 @@
       </p>
     </section>
 
-    <section class="section">
+    <section class="zy-section">
       <h2>What I’m expecting in a 10 TH/s desk miner</h2>
       <p>
         When I eventually pull the trigger on a 10+ TH/s box, I care way more about
@@ -407,7 +417,7 @@
       </p>
     </section>
 
-    <section class="section">
+    <section class="zy-section">
       <h2>If you’re considering one</h2>
       <p>
         If you’re already comfortable with Bitaxe/NerdQaxe and you’re looking for the next tier up without jumping
@@ -420,31 +430,39 @@
         this write-up is just meant to give you a miner-to-miner view and keep all the essentials in one place.
       </p>
 
-      <div class="cta-row" style="margin-top:16px;">
-        <a class="cta-btn"
+      <div class="zy-cta-row" style="margin-top:16px;">
+        <a class="zy-cta-btn"
            href="https://tinychiphub.com/products/16070811247589476349983445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
            target="_blank" rel="noopener sponsored">
           <span class="icon">🧊</span>
           <span>Check current Zyber 8G options →</span>
         </a>
       </div>
-      <p class="cta-note">
+      <p class="zy-cta-note">
         Use code <strong>PROOFOFMIKE</strong> at checkout for 5% off once per person. Same code works across the
         other Bitaxe / NerdQaxe / Zyber gear too.
       </p>
     </section>
 
-    <p class="footnote">
+    <p class="zy-footnote">
       Got questions about fitting Zyber 8G into a home setup? Easiest way to reach me is on X:
       <a href="https://x.com/proofofmike" target="_blank" rel="noopener">@proofofmike</a>.
     </p>
+
+    <!-- Simple footer / more-from-me -->
+    <section class="pom-footer-box">
+      <div class="pom-footer-links">
+        More from me:
+        <a href="https://proofofmike.com/">ProofOfMike.com</a>
+      </div>
+    </section>
   </div>
+
   <!-- Counter.dev analytics -->
   <script
     src="https://cdn.counter.dev/script.js"
     data-id="523ea628-7b77-4913-83d7-01cf3417b330"
-    data-utcoffset="-5"> 
+    data-utcoffset="-5">
   </script>
-
 </body>
 </html>
