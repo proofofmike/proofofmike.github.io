@@ -27,8 +27,7 @@
 
   <style>
     :root {
-      /* Zyber-tuned accents */
-      --zy-panel: #151822;
+      --zy-panel: #151822;        /* blue-ish card */
       --zy-panel-soft: #1a1d27;
       --zy-text: #f3f5ff;
       --zy-muted: #9aa0b3;
@@ -39,11 +38,10 @@
 
     * { box-sizing: border-box; }
 
+    /* KEY FIX: background is now basically black, cards stay blue */
     body.zy-page {
       margin: 0;
-      /* match the other landing-page gradient */
-      background:
-        radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+      background: #020617;
       color: var(--zy-text);
       font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
             "Segoe UI", Roboto, sans-serif;
@@ -77,7 +75,6 @@
       border: 1px solid #333949;
     }
 
-    /* Intro block to align heading + lede with hero */
     .zy-intro-block {
       padding-left: 6px;
       margin-bottom: 8px;
