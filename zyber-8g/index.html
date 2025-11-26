@@ -26,15 +26,10 @@
 
   <style>
     :root {
-      /* Darker global background, lighter panels – closer to NerdQaxe page */
-      --bg: #03040a;
-      --panel: #151827;
-      --panel-soft: #181b2a;
       --text: #f3f5ff;
       --muted: #9aa0b3;
       --accent: #ff7a2f;
-      --accent-soft: rgba(255, 122, 47, 0.12);
-      --border: #262b39;
+      --border: rgba(148, 163, 255, 0.25);
       --radius: 18px;
     }
 
@@ -42,12 +37,12 @@
 
     body {
       margin: 0;
-      /* Almost-black background with a very subtle top glow */
+      /* Match the other landing pages: dark navy background, slight glow up top */
       background: radial-gradient(
         circle at top,
-        #050616 0,
-        #020308 55%,
-        #010104 100%
+        #050816 0,
+        #020617 40%,
+        #020308 100%
       );
       color: var(--text);
       font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont,
@@ -82,7 +77,6 @@
       border: 1px solid #333949;
     }
 
-    /* Intro block keeps heading + lede aligned like the NerdQaxe hero */
     .intro-block {
       padding-left: 6px;
       margin-bottom: 8px;
@@ -113,10 +107,17 @@
       .intro-block { padding-left: 0; }
     }
 
-    .hero-text {
-      background: var(--panel);
+    /* CARD LOOK – same idea as nerdqaxe-copper/tch: bluish panel on dark bg */
+    .hero-text,
+    .hero-img,
+    .section {
+      background: radial-gradient(circle at top left, #111827 0, #020617 80%);
       border-radius: var(--radius);
       border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
+    }
+
+    .hero-text {
       padding: 18px 20px 20px;
     }
 
@@ -164,9 +165,6 @@
     }
 
     .hero-img {
-      background: var(--panel-soft);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
       padding: 10px;
       display: flex;
       align-items: center;
@@ -177,13 +175,10 @@
       width: 100%;
       border-radius: 14px;
       object-fit: cover;
-      border: 1px solid #292f3f;
+      border: 1px solid rgba(148, 163, 255, 0.35);
     }
 
     .section {
-      background: var(--panel);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
       padding: 20px 20px 18px;
       margin-bottom: 18px;
     }
@@ -218,10 +213,10 @@
     .pill {
       padding: 6px 10px;
       border-radius: 999px;
-      background: #11141f;
-      border: 1px solid #2a3040;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 255, 0.45);
       font-size: 13px;
-      color: #d7dcf7;
+      color: #e5e7eb;
     }
 
     .pill span {
@@ -252,7 +247,7 @@
     .dual-img img {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid #292f3f;
+      border: 1px solid rgba(148, 163, 255, 0.35);
       object-fit: cover;
     }
 
