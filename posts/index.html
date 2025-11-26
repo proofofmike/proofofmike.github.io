@@ -17,18 +17,8 @@
 </head>
 <body>
   <div class="wrap">
-    
-    <div class="topbar">
-      <header><img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar"><h1>Proof Of Mike</h1></header>
-      <div class="rightlinks">
-        <a href="/">Home</a>
-        <a href="/posts/">Blog</a>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/tch/">TCH</a>
-        <a href="/solo-calc/">Solo Calc</a>
-      </div>
-    </div>
+    <div id="site-nav"></div>
+  <!-- keep the rest of the page content that used to come after .topbar -->
     
     <div class="panel post-list" id="post-list"></div>
     <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
@@ -36,5 +26,6 @@
   <script src="/assets/blog.js"></script>
   <script>renderPostList();document.getElementById('year').textContent=new Date().getFullYear()</script>
   <script src="https://cdn.counter.dev/script.js" data-id="523ea628-7b77-4913-83d7-01cf3417b330" data-utcoffset="-5"></script>
+  <script src="/assets/nav.js"></script>
 </body>
 </html>
