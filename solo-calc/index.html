@@ -206,22 +206,8 @@
 
   <body>
     <div class="wrap">
-      <!-- Top bar / nav (same pattern as main site, with Solo Calc added) -->
-      <div class="topbar">
-        <header>
-          <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar" />
-          <div class="logo-text">Proof Of Mike</div>
-        </header>
-        <div class="rightlinks">
-          <a href="/">Home</a>
-          <a href="/posts/">Blog</a>
-          <a href="/about.html">About</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/tch/">TCH</a>
-          <a href="/solo-calc/">Solo Calc</a>
-        </div>
-      </div>
-
+      <div id="site-nav"></div>
+  <!-- keep the rest of the page content that used to come after .topbar -->
       <main class="panel">
         <h1 class="calc-hero-title">Solo Bitcoin Mining Odds Calculator</h1>
         <p class="muted calc-hero-subtitle">
@@ -554,5 +540,6 @@
 
       fetchNetworkData();
     </script>
+   <script src="/assets/nav.js"></script>
   </body>
 </html>
