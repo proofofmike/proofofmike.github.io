@@ -27,7 +27,7 @@
 
   <style>
     :root {
-      /* Local Zyber-tuned accents but still playing nice with global palette */
+      /* Zyber-tuned accents */
       --zy-panel: #151822;
       --zy-panel-soft: #1a1d27;
       --zy-text: #f3f5ff;
@@ -41,7 +41,9 @@
 
     body.zy-page {
       margin: 0;
-      /* background comes from global /styles.css body rule */
+      /* match the other landing-page gradient */
+      background:
+        radial-gradient(circle at top left, #1f2937 0, #020617 60%);
       color: var(--zy-text);
       font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
             "Segoe UI", Roboto, sans-serif;
