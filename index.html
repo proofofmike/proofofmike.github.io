@@ -5,12 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Slightly expanded description + keywords to mention the calc -->
   <meta name="description" content="Solo-mining diary focused on Bitaxe, NerdQaxe++, and home Bitcoin mining. Reviews, settings, maintenance notes, a simple solo-mining odds calculator, and too many Bruiser pics.">
   <meta name="keywords" content="Bitaxe, Bitaxe Gamma, Bitaxe Hex, NerdQaxe, NerdQaxe++, solo mining, CKPool, home bitcoin mining, review, settings, overclock, solo mining calculator">
 
   <link rel="preload" href="/images/bulldog.jpeg" as="image">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/styles.css">
   <link rel="canonical" href="https://proofofmike.com/">
 
   <!-- Open Graph -->
@@ -55,73 +54,231 @@
   </script>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <header>
-        <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar">
-        <div class="logo-text">Proof Of Mike</div>
-      </header>
-      <div class="rightlinks">
-        <a href="/">Home</a>
-        <a href="/posts/">Blog</a>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/tch/">TCH</a>
-        <a href="/solo-calc/">Solo Calc</a>
+  <!-- Top nav -->
+  <header class="pom-header">
+    <div class="pom-logo">
+      <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="pom-logo-img">
+      <span>Proof Of Mike</span>
+    </div>
+    <nav class="pom-nav">
+      <a href="/">Home</a>
+      <a href="#miners">Miners</a>
+      <a href="#wallets">Wallets</a>
+      <a href="#tools">Tools</a>
+      <a href="/posts/">Blog</a>
+      <a href="/tch/">TCH</a>
+      <a href="/solo-calc/">Solo Calc</a>
+    </nav>
+  </header>
+
+  <main class="pom-main">
+    <!-- Hero -->
+    <section class="pom-hero">
+      <div class="pom-hero-main">
+        <h1>Hey, I’m Mike.</h1>
+        <p>
+          Home Bitcoin solo miner. Bitaxe & NerdQaxe++ rigs on a quiet desk, a bulldog named Bruiser,
+          and way too many hours thinking about odds, hash rate, and bad sports bets.
+        </p>
+        <div class="pom-hero-actions">
+          <a class="pom-button" href="/posts/">Read the blog</a>
+          <a class="pom-button pom-button--ghost" href="https://x.com/proofofmike" target="_blank" rel="noopener">
+            Follow @ProofOfMike on X
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="panel">
-      <h1>Hey, I’m Mike.</h1>
-      <p class="muted">
-        Solo-mining diary: Bitaxe &amp; NerdQaxe++, privacy-first takes, sports/dad/humor rants, and too many Bruiser pics.
-      </p>
-      <p>
-        <a class="btn" href="/posts/">Read the blog →</a>
-        <a class="btn" href="https://x.com/proofofmike" target="_blank" rel="noopener">Follow on X</a>
-      </p>
-    </div>
-
-    <div class="cards">
-      <!-- Latest on X (simple link card) -->
-      <section class="card">
-        <h2>Latest on X</h2>
-        <div class="post">
-          <p class="muted">
+      <div>
+        <div class="pom-card">
+          <h3 style="margin-top:0;margin-bottom:0.5rem;">Latest on X</h3>
+          <p style="font-size:0.95rem;color:#9ca3af;margin-top:0.2rem;">
             I post live solo-mining stats, rig pics, Bruiser nonsense, and sports/rant stuff over on X.
           </p>
-          <p>
-            <a class="btn" href="https://x.com/proofofmike" target="_blank" rel="noopener">
-              Open @proofofmike on X →
-            </a>
-          </p>
+          <a class="pom-button pom-button-small pom-button--ghost" href="https://x.com/proofofmike" target="_blank" rel="noopener">
+            Open @ProofOfMike on X
+          </a>
         </div>
-      </section>
 
-      <!-- Latest blog post -->
-      <section class="card">
-        <h2>Latest blog post</h2>
-        <div id="latest-post" class="post"></div>
-        <p><a class="btn" href="/posts/">See all posts</a></p>
-      </section>
-    </div>
+        <div style="height:1rem;"></div>
 
-<section class="card">
-  <h2>TinyChipHub 5% Off Code</h2>
-  <p class="muted">
-    Looking for the TinyChipHub coupon page? This is where I keep the details
-    on the 5% off code PROOFOFMIKE, which miners it works on, plus clear
-    descriptions and comparisons of the Bitaxe, NerdQaxe++, and Zyber models.
-  </p>
-  <p>
-    <a class="btn" href="/tch/">
-      TinyChipHub coupon & model descriptions →
-    </a>
-  </p>
-</section>
+        <div class="pom-card">
+          <h3 style="margin-top:0;margin-bottom:0.6rem;">Latest blog post</h3>
+          <div id="latest-post" class="post">
+            <!-- blog.js will inject latest post here -->
+          </div>
+          <a class="pom-link" href="/posts/">See all posts →</a>
+        </div>
+      </div>
+    </section>
 
-    <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
-  </div>
+    <!-- Miners section -->
+    <section id="miners" class="pom-section">
+      <div class="pom-section-header">
+        <h2>Miners & solo-mining</h2>
+        <p>Real-world hash rates, noise, temps, and solo odds from my little desk farm.</p>
+      </div>
+      <div class="pom-grid">
+        <article class="pom-card">
+          <h3>NerdQaxe++ Remastered Full Copper review</h3>
+          <p>
+            How I’m running the full copper NerdQaxe++ units from TinyChipHub — settings, hashrate,
+            temps, noise, and why I like this form factor on a home desk.
+          </p>
+          <a class="pom-link" href="/nerdqaxe-copper/">Read the full review →</a>
+        </article>
+
+        <article class="pom-card">
+          <h3>Bitaxe Hex notes</h3>
+          <p>
+            My notes on the Bitaxe Hex: how it fits next to the NerdQaxe++ units, how I’d tune it,
+            and what kind of solo odds you’re really looking at.
+          </p>
+          <a class="pom-link" href="/hex/">Open the Hex page →</a>
+        </article>
+
+        <article class="pom-card">
+          <h3>Zyber 8G – should I buy this thing?</h3>
+          <p>
+            A running page on why I’m considering the Zyber 8G, what worries me, and what would
+            make it a no-brainer for my setup.
+          </p>
+          <a class="pom-link" href="/zyber-8g/">See my Zyber notes →</a>
+        </article>
+
+        <article class="pom-card">
+          <h3>TinyChipHub models & coupon</h3>
+          <p>
+            Overview of the Bitaxe / NerdQaxe / Zyber models TinyChipHub sells, how the PROOFOFMIKE
+            code works, and what I’d start with.
+          </p>
+          <a class="pom-link" href="/tch/">TinyChipHub rigs overview →</a>
+        </article>
+
+        <article class="pom-card">
+          <h3>How my buddy Matty ruined my weekends</h3>
+          <p>
+            The story of how one friend turned our sports-betting group chat into a Bitcoin
+            mining support desk, and how most of them ended up buying miners.
+          </p>
+          <!-- Update href when you create this page -->
+          <span class="pom-tag">Coming soon</span>
+        </article>
+
+        <article class="pom-card">
+          <h3>Bitaxe / NerdQaxe gear list</h3>
+          <p>
+            Fans, PSUs, XT30 cables, thermal paste, and misc tools I actually use on my desk farm.
+          </p>
+          <a class="pom-link" href="/gear/">Open the gear page →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Wallets section -->
+    <section id="wallets" class="pom-section">
+      <div class="pom-section-header">
+        <h2>Wallets & cold storage</h2>
+        <p>
+          Hardware wallets I actually use, and where Trezor, Ledger, and Tangem fit into a miner’s stack.
+        </p>
+      </div>
+      <div class="pom-grid">
+        <article class="pom-card">
+          <h3>Trezor vs Ledger vs Tangem</h3>
+          <p>
+            How I think about using a classic hardware wallet (Trezor), multi-coin support (Ledger),
+            and a tap-to-use card wallet (Tangem) together.
+          </p>
+          <!-- Update when comparison page exists -->
+          <span class="pom-tag">Coming soon</span>
+        </article>
+
+        <article class="pom-card">
+          <h3>Trezor – cold storage for BTC</h3>
+          <p>
+            I use Trezor as my go-to for long-term Bitcoin cold storage. Once the affiliate
+            page is live, this will be the deep dive.
+          </p>
+          <span class="pom-tag">Coming soon</span>
+        </article>
+
+        <article class="pom-card">
+          <h3>Ledger – if you hold other coins</h3>
+          <p>
+            Ledger is popular with people who want a more app-like experience and support for
+            a lot of different coins alongside Bitcoin.
+          </p>
+          <span class="pom-tag">Coming soon</span>
+        </article>
+
+        <article class="pom-card">
+          <h3>Tangem – “hotter” wallet card</h3>
+          <p>
+            Tangem is the NFC card I like for smaller, more active balances — the one that can
+            live in a pocket or bag when I’m moving around.
+          </p>
+          <span class="pom-tag">Coming soon</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tools section -->
+    <section id="tools" class="pom-section">
+      <div class="pom-section-header">
+        <h2>Tools & odds</h2>
+        <p>
+          Utilities and calculators I use (or built) to keep some sanity around solo-mining odds and rig behavior.
+        </p>
+      </div>
+      <div class="pom-grid">
+        <article class="pom-card">
+          <h3>Solo-mining odds calculator</h3>
+          <p>
+            Simple odds calculator to give you a feel for your chances of hitting a block at
+            different hash rates and timeframes.
+          </p>
+          <a class="pom-link" href="/solo-calc/">Try the calculator →</a>
+        </article>
+
+        <article class="pom-card">
+          <h3>Gear & setup notes</h3>
+          <p>
+            Not just a list of parts — how I actually wired my desk, power, cooling, and what
+            I’d change if I were starting today.
+          </p>
+          <a class="pom-link" href="/gear/">Open the gear page →</a>
+        </article>
+
+        <article class="pom-card">
+          <h3>Where I buy miners (TinyChipHub)</h3>
+          <p>
+            My experience ordering from TinyChipHub, what shipped from where, and why I’m
+            comfortable pointing new people there.
+          </p>
+          <a class="pom-link" href="/tch/">See TinyChipHub page →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- TinyChipHub card (equivalent to old home card) -->
+    <section class="pom-section">
+      <div class="pom-card">
+        <h3 style="margin-top:0;">TinyChipHub 5% Off Code</h3>
+        <p style="font-size:0.95rem;color:#9ca3af;">
+          Looking for the TinyChipHub coupon page? This is where I keep the details on the
+          5% off code <strong>PROOFOFMIKE</strong>, which miners it works on, plus clear
+          descriptions and comparisons of the Bitaxe, NerdQaxe++, and Zyber models.
+        </p>
+        <a class="pom-button pom-button-small" href="/tch/">
+          TinyChipHub coupon &amp; model descriptions →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pom-site-footer">
+    © <span id="year"></span> Proof Of Mike. Solo-mining diary, hardware reviews, and Bruiser cameos.
+  </footer>
 
   <!-- Load latest blog post -->
   <script src="/assets/blog.js"></script>
