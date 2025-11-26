@@ -5,190 +5,135 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="description" content="Solo-mining diary focused on Bitaxe, NerdQaxe++, and home Bitcoin mining. Reviews, real-world data, tuning notes, gear lists, and a simple solo-mining odds calculator.">
-  <meta name="keywords" content="Bitaxe, NerdQaxe, NerdQaxe++, solo mining, CKPool, home bitcoin mining, review, overclocking, mining calculator">
+  <!-- Slightly expanded description + keywords to mention the calc -->
+  <meta name="description" content="Solo-mining diary focused on Bitaxe, NerdQaxe++, and home Bitcoin mining. Reviews, settings, maintenance notes, a simple solo-mining odds calculator, and too many Bruiser pics.">
+  <meta name="keywords" content="Bitaxe, Bitaxe Gamma, Bitaxe Hex, NerdQaxe, NerdQaxe++, solo mining, CKPool, home bitcoin mining, review, settings, overclock, solo mining calculator">
 
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/images/bulldog.jpeg" as="image">
+  <link rel="stylesheet" href="/assets/styles.css">
   <link rel="canonical" href="https://proofofmike.com/">
 
-  <!-- Social -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Proof Of Mike">
-  <meta property="og:title" content="Proof Of Mike — Bitaxe & NerdQaxe solo mining notes">
-  <meta property="og:description" content="Real-world solo-mining notes, rig builds, hashrates, and tools.">
+  <meta property="og:title" content="Proof Of Mike — Bitaxe & NerdQaxe solo-mining notes">
+  <meta property="og:description" content="Home Bitcoin solo-mining blog with Bitaxe & NerdQaxe rigs, real hashrates, tuning notes, and a simple solo-mining odds calculator.">
+  <meta property="og:url" content="https://proofofmike.com/">
   <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg">
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:creator" content="@ProofOfMike">
-  <meta name="twitter:title" content="Proof Of Mike — Bitaxe & NerdQaxe solo mining">
-  <meta name="twitter:description" content="Solo-mining reviews, real hashrate data, tuning notes, and tools.">
+  <meta name="twitter:creator" content="@proofofmike">
+  <meta name="twitter:title" content="Proof Of Mike — Bitaxe & NerdQaxe solo-mining blog">
+  <meta name="twitter:description" content="Real-world solo-mining notes with Bitaxe & NerdQaxe, plus a simple Bitcoin solo odds calculator.">
   <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Proof Of Mike",
+        "url": "https://proofofmike.com/",
+        "logo": "https://proofofmike.com/images/bulldog.jpeg",
+        "sameAs": ["https://x.com/proofofmike"]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Proof Of Mike",
+        "url": "https://proofofmike.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://proofofmike.com/search?q={query}",
+          "query-input": "required name=query"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
-
 <body>
-
-  <nav class="pom-nav">
-    <div class="pom-nav-inner">
-      <a href="/" class="pom-nav-logo">
-        <img src="/images/bulldog.jpeg" alt="Proof Of Mike" />
-        <span>Proof Of Mike</span>
-      </a>
-      <div class="pom-nav-links">
+  <div class="wrap">
+    <div class="topbar">
+      <header>
+        <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar">
+        <div class="logo-text">Proof Of Mike</div>
+      </header>
+      <div class="rightlinks">
         <a href="/">Home</a>
-        <a href="#miners">Miners</a>
-        <a href="#wallets">Wallets</a>
-        <a href="#tools">Tools</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
         <a href="/tch/">TCH</a>
-        <a href="/solo-calc/">Calc</a>
+        <a href="/solo-calc/">Solo Calc</a>
       </div>
     </div>
-  </nav>
 
-  <main class="pom-main">
-    <div class="pom-container">
-
-      <!-- HERO -->
-      <section class="pom-hero">
-        <div>
-          <h1 class="pom-hero-title">Hey, I'm Mike.</h1>
-          <p class="pom-hero-subtitle">
-            Home Bitcoin solo-miner. Bitaxe & NerdQaxe rigs on a quiet desk.  
-            Building little data farms, and losing way too many hours thinking about odds,
-            heat, VR temps, and sports bets.
-          </p>
-          <a href="/posts/" class="pom-cta">Read the blog</a>
-          <a href="https://x.com/ProofOfMike" target="_blank" class="pom-cta" style="margin-left:0.5rem;">Follow @ProofOfMike on X</a>
-        </div>
-
-        <div class="pom-littlecard-col">
-          <div class="pom-littlecard">
-            <h3>Latest on X</h3>
-            <p>I post live solo-mining stats, rig pics, Bruiser nonsense, and sports stuff over on X.</p>
-            <a class="pom-mini-btn" href="https://x.com/ProofOfMike" target="_blank">Open @ProofOfMike →</a>
-          </div>
-
-          <div class="pom-littlecard">
-            <h3>Latest blog post</h3>
-            <div id="latest-post"></div>
-            <a class="pom-mini-btn" href="/posts/">See all posts →</a>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- MINERS -->
-      <section id="miners" class="pom-section">
-        <h2 class="pom-sec-title">Miners & solo-mining</h2>
-        <div class="pom-grid">
-
-          <a class="pom-card" href="/nerdqaxe-copper/">
-            <h3>NerdQaxe++ Remastered Full Copper review</h3>
-            <p>Real hashrate, temps, tuning, and why this is my favorite desk-miner setup.</p>
-          </a>
-
-          <a class="pom-card" href="/hex/">
-            <h3>Bitaxe Hex notes</h3>
-            <p>Settings, local dashboard numbers, stability, temps, and what to expect.</p>
-          </a>
-
-          <a class="pom-card" href="/zyber-8g/">
-            <h3>Zyber 8G — should you buy this?</h3>
-            <p>A running page as I research the Zyber 8G, pros/cons, and where it fits.</p>
-          </a>
-
-          <a class="pom-card" href="/tch/">
-            <h3>TinyChipHub models & coupon</h3>
-            <p>Bitaxe / NerdQaxe lineup, buying experience, 5% code, and model differences.</p>
-          </a>
-
-          <a class="pom-card" href="/gear/">
-            <h3>Bitaxe & NerdQaxe gear list</h3>
-            <p>Fans, PSUs, XT30 cables, thermal paste, and dust tools I actually use.</p>
-          </a>
-
-          <a class="pom-card" href="#">
-            <h3>How my buddy Matty ruined my weekends</h3>
-            <p>Story coming soon — how sports group chat → Bitcoin mining support desk.</p>
-          </a>
-
-        </div>
-      </section>
-
-
-      <!-- WALLETS -->
-      <section id="wallets" class="pom-section">
-        <h2 class="pom-sec-title">Wallets & cold storage</h2>
-        <div class="pom-grid">
-
-          <a class="pom-card" href="#">
-            <h3>Ledger vs Trezor vs Tangem</h3>
-            <p>Hands-on comparison of the hardware wallets I actually own and use.</p>
-          </a>
-
-          <a class="pom-card" href="#">
-            <h3>Trezor — cold storage for BTC</h3>
-            <p>My long-term storage setup using Trezor. Full write-up coming soon.</p>
-          </a>
-
-          <a class="pom-card" href="#">
-            <h3>Ledger — if you hold other coins</h3>
-            <p>Wide asset support, polished UI, and mobile app. Review coming.</p>
-          </a>
-
-          <a class="pom-card" href="#">
-            <h3>Tangem — “hotter” wallet card</h3>
-            <p>NFC wallet card perfect for quick access or mobile BTC spending.</p>
-          </a>
-
-        </div>
-      </section>
-
-
-      <!-- TOOLS -->
-      <section id="tools" class="pom-section">
-        <h2 class="pom-sec-title">Tools & odds</h2>
-        <div class="pom-grid">
-
-          <a class="pom-card" href="/solo-calc/">
-            <h3>Solo mining odds calculator</h3>
-            <p>Estimate your odds of hitting a block at different TH/s and timeframes.</p>
-          </a>
-
-          <a class="pom-card" href="/gear/">
-            <h3>Gear & setup notes</h3>
-            <p>Fans, PSUs, XT30 cables, thermal paste, cleaning tools, and more.</p>
-          </a>
-
-          <a class="pom-card" href="/tch/">
-            <h3>Where I buy miners</h3>
-            <p>My TCH buying experience, shipping times, returns, and support notes.</p>
-          </a>
-
-        </div>
-      </section>
-
-
-      <!-- TinyChipHub PROMO -->
-      <section class="pom-section">
-        <div class="pom-promo">
-          <h3>TinyChipHub 5% Off Code</h3>
-          <p>Use code <strong>PROOFOFMIKE</strong> for 5% off Bitaxe / NerdQaxe models.</p>
-          <a href="/tch/" class="pom-mini-btn">View models →</a>
-        </div>
-      </section>
-
+    <div class="panel">
+      <h1>Hey, I’m Mike.</h1>
+      <p class="muted">
+        Solo-mining diary: Bitaxe &amp; NerdQaxe++, privacy-first takes, sports/dad/humor rants, and too many Bruiser pics.
+      </p>
+      <p>
+        <a class="btn" href="/posts/">Read the blog →</a>
+        <a class="btn" href="https://x.com/proofofmike" target="_blank" rel="noopener">Follow on X</a>
+      </p>
     </div>
-  </main>
 
-  <footer class="pom-footer">
-    © <span id="year"></span> Proof Of Mike.
-  </footer>
+    <div class="cards">
+      <!-- Latest on X (simple link card) -->
+      <section class="card">
+        <h2>Latest on X</h2>
+        <div class="post">
+          <p class="muted">
+            I post live solo-mining stats, rig pics, Bruiser nonsense, and sports/rant stuff over on X.
+          </p>
+          <p>
+            <a class="btn" href="https://x.com/proofofmike" target="_blank" rel="noopener">
+              Open @proofofmike on X →
+            </a>
+          </p>
+        </div>
+      </section>
 
+      <!-- Latest blog post -->
+      <section class="card">
+        <h2>Latest blog post</h2>
+        <div id="latest-post" class="post"></div>
+        <p><a class="btn" href="/posts/">See all posts</a></p>
+      </section>
+    </div>
 
+<section class="card">
+  <h2>TinyChipHub 5% Off Code</h2>
+  <p class="muted">
+    Looking for the TinyChipHub coupon page? This is where I keep the details
+    on the 5% off code PROOFOFMIKE, which miners it works on, plus clear
+    descriptions and comparisons of the Bitaxe, NerdQaxe++, and Zyber models.
+  </p>
+  <p>
+    <a class="btn" href="/tch/">
+      TinyChipHub coupon & model descriptions →
+    </a>
+  </p>
+</section>
+
+    <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+  </div>
+
+  <!-- Load latest blog post -->
   <script src="/assets/blog.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
+  <!-- Counter.dev analytics -->
+  <script
+    src="https://cdn.counter.dev/script.js"
+    data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+    data-utcoffset="-5">
+  </script>
 </body>
 </html>
