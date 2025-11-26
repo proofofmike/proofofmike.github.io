@@ -1,166 +1,226 @@
-:root{
-  --bg:#0f1012;
-  --panel:#17181c;
-  --muted:#8b8f98;
-  --text:#e8eaee;
-  --accent:#ef6a3a;
-  --ring:#2a2d33;
-  --card:#14161a;
-  --radius:14px;
+:root {
+  /* Global palette – aligned with NerdQaxe copper pages */
+  --bg: #020617;
+  --panel: #020617;
+  --card: #020617;
+  --muted: #9ca3af;
+  --text: #e5e7eb;
+  --accent: #f97316;
+  --ring: rgba(148, 163, 255, 0.35);
+  --radius: 18px;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+/* Reset / base */
+* {
+  box-sizing: border-box;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.12), transparent 60%),
+    #020617;
+  color: var(--text);
+  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
 }
 
-.wrap{
-  max-width:1100px;
-  margin:32px auto;
-  padding:0 20px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.topbar{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:8px;
+/* Layout wrapper */
+.wrap {
+  max-width: 1120px;
+  margin: 32px auto 40px;
+  padding: 0 20px 24px;
 }
 
-header{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  margin-bottom:18px;
+/* Top bar / logo / nav */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
-.avatar{
-  width:100px;
-  border-radius:14px;
-  border:2px solid #26282e;
-  background:#222;
+header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 0;
 }
 
-h1{
-  font-size:28px;
-  margin:0 8px 0 0;
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 255, 0.6);
+  background: #020617;
+  object-fit: cover;
 }
 
-.rightlinks a{
-  padding:6px 10px;
-  border:1px solid var(--ring);
-  border-radius:999px;
-  color:var(--muted);
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.rightlinks a:hover{
-  color:#fff;
-  border-color:#3b414a;
+h1 {
+  font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
+  margin: 0 8px 0 0;
 }
 
-.panel{
-  background:var(--panel);
-  border:1px solid var(--ring);
-  border-radius:var(--radius);
-  padding:18px;
+/* Nav pills */
+.rightlinks a {
+  padding: 6px 11px;
+  border: 1px solid var(--ring);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.cards{
-  display:grid;
-  gap:16px;
+.rightlinks a:hover {
+  color: #f9fafb;
+  border-color: rgba(248, 113, 113, 0.7);
 }
 
-@media (min-width:900px){
-  .cards{
-    grid-template-columns:repeat(2,1fr);
+/* Main intro panel */
+.panel {
+  background:
+    radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.10), transparent 60%),
+    var(--panel);
+  border: 1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: 22px 20px 20px;
+  margin-bottom: 18px;
+}
+
+.panel p {
+  margin-top: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+/* Card grid (Latest on X + Latest blog) */
+.cards {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--ring);
-  border-radius:12px;
-  padding:16px;
+/* Generic card block */
+.card {
+  background:
+    radial-gradient(circle at top left, rgba(148, 163, 255, 0.12), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.85), transparent 60%),
+    var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 16px;
+  padding: 16px 16px 18px;
 }
 
-.btn{
-  display:inline-block;
-  background:#23262c;
-  border:1px solid #2e3239;
-  color:#e9ecef;
-  padding:10px 12px;
-  border-radius:10px;
-  font-weight:600;
+.card h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin: 0 0 8px;
 }
 
-.btn:hover{
-  border-color:#3b414a;
+/* Button style – match CTA from NerdQaxe page */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #0b1020;
+  padding: 9px 13px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 14px 30px rgba(248, 113, 113, 0.25);
 }
 
-.muted{
-  color:var(--muted);
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 45px rgba(248, 113, 113, 0.35);
 }
 
-.post{
-  background:var(--panel);
-  border:1px solid var(--ring);
-  border-radius:var(--radius);
-  padding:16px;
+/* Muted text + post block */
+.muted {
+  color: var(--muted);
+}
+
+.post {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: 14px 14px 16px;
 }
 
 .post h1,
 .post h2,
-.post h3{
-  margin-top:1.1em;
+.post h3 {
+  margin-top: 1.1em;
 }
 
-.tag{
-  display:inline-block;
-  font-size:12px;
-  color:#ffd8c7;
-  background:rgba(239,106,58,.12);
-  border:1px solid rgba(239,106,58,.3);
-  border-radius:999px;
-  padding:2px 8px;
-  margin-right:6px;
+/* Tag / post-list (used on /posts) */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  color: #ffd8c7;
+  background: rgba(239, 106, 58, 0.12);
+  border: 1px solid rgba(239, 106, 58, 0.3);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 6px;
 }
 
-.post-list .item{
-  padding:12px 0;
-  border-bottom:1px solid var(--ring);
+.post-list .item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ring);
 }
 
-.post-list .item:last-child{
-  border-bottom:none;
+.post-list .item:last-child {
+  border-bottom: none;
 }
 
-.foot{
-  margin-top:24px;
-  color:var(--muted);
-  font-size:13px;
+/* Footer */
+.foot {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: left;
 }
 
-.contact-form{
-  display:grid;
-  gap:10px;
+/* Contact form (used on old pages – kept so nothing breaks) */
+.contact-form {
+  display: grid;
+  gap: 10px;
 }
 
 .contact-form input,
-.contact-form textarea{
-  background:#0c1117;
-  border:1px solid var(--ring);
-  color:#e6e9ef;
-  border-radius:10px;
-  padding:10px;
+.contact-form textarea {
+  background: #020617;
+  border: 1px solid var(--ring);
+  color: #e6e9ef;
+  border-radius: 10px;
+  padding: 10px;
 }
