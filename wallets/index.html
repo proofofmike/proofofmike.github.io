@@ -68,17 +68,19 @@
         max-width: 640px;
       }
 
-      .wallet-tldr {
-        margin-top: 0.8rem;
-        padding: 10px 12px;
-        border-radius: var(--radius);
-        border: 1px dashed var(--ring);
-        background: rgba(15, 23, 42, 0.85);
-        font-size: 0.9rem;
       }
 
-      .wallet-tldr strong {
-        color: #fbbf24;
+      .wallet-tldr {
+        margin: 1.2rem auto 0;                  /* centers the TL;DR block */
+        padding: 14px 18px;
+        border-radius: var(--radius);
+        border: 1px dashed rgba(251, 191, 36, 0.7); /* yellow-ish dash to match “quick picks” theme */
+        background: rgba(24, 24, 16, 0.88);     /* subtle warm-dark background */
+        font-size: 0.95rem;
+        max-width: 880px;                       /* fixes the huge empty space by expanding horizontally */
+      }
+       .wallet-tldr strong {
+         color: #fbbf24;                          /* same yellow highlight */
       }
 
       .wallet-table-wrapper {
@@ -225,7 +227,7 @@
       <!-- Intro / TL;DR panel -->
       <section class="panel">
         <div class="wallet-intro-body">
-          <div class="wallet-intro-eyebrow">TL;DR — Which one should you get?</div>
+        <div class="wallet-intro-eyebrow">TL;DR — WHICH ONE SHOULD YOU GET?</div>
           <p>
             I’ve been around Bitcoin since 2013 and I want simple wallets that actually work and don’t
             feel like a full-time job to maintain. No degen yield farms, no 40-step rituals you forget the
