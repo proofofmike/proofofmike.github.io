@@ -1,237 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Best Bitcoin Wallets for Real People | Proof of Mike</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Real-world comparison of Trezor Safe 7, Ledger Flex, and Tangem card wallets. No hype, just what works best for actual humans who want to hold Bitcoin and crypto safely.">
-  <link rel="stylesheet" href="/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Best Bitcoin Wallets for Real People (Not Crypto Degens) | Proof of Mike</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Best Bitcoin Wallets for Real People | Proof of Mike">
-  <meta property="og:description" content="Trezor Safe 7 vs Ledger Flex vs Tangem card — which wallet actually fits your life?">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://proofofmike.com/wallets">
-  <meta property="og:image" content="https://proofofmike.com/images/wallet-trezor-safe7.png">
-</head>
-<body>
-  <main class="page">
-    <header class="page-header">
-      <p class="eyebrow">PROOFOFMIKE · BITCOIN & COLD STORAGE</p>
-      <h1>Best Bitcoin Wallets for Real People (Not Crypto Degens)</h1>
-      <p class="page-intro">
-        I’m Mike (“Proof of Mike”). I’ve been around Bitcoin since 2015 and I like simple setups that actually
-        work in real life — not 15-step rituals you forget the second you need to move coins.
-      </p>
-      <p class="page-intro">
-        On this page I break down three wallets I’m comfortable recommending:
-        <strong>Trezor Safe 7</strong>, <strong>Ledger Flex</strong>, and the <strong>Tangem card</strong>.
-        Each has a different “sweet spot” depending on how you use Bitcoin and crypto.
-      </p>
-      <p class="disclaimer">
-        ⚠️ Quick note: links on this page are affiliate links. You pay the same price,
-        I get a small kickback that I mostly recycle into hardware and experiments.
-      </p>
-    </header>
+    <meta
+      name="description"
+      content="Simple, honest comparison of three Bitcoin wallets I actually like: Trezor Safe 7, Ledger Flex, and Tangem card. Which one you should use depends on how deep you are into crypto."
+    />
+    <meta
+      name="keywords"
+      content="bitcoin wallet, hardware wallet, Trezor Safe 7, Ledger Flex, Tangem, ProofOfMike, cold storage, self custody"
+    />
 
-    <section class="section">
-      <h2>TL;DR – Which one should you get?</h2>
-      <ul class="callouts">
-        <li><strong>“I just want a simple, secure hardware wallet for long-term Bitcoin + big caps.”</strong><br>
-          Go with <strong>Trezor Safe 7</strong>.
-        </li>
-        <li><strong>“I want a sleek hardware wallet that plays nice with lots of coins & apps.”</strong><br>
-          Go with <strong>Ledger Flex</strong>.
-        </li>
-        <li><strong>“I want a card in my actual wallet for day-to-day spending and small stacks.”</strong><br>
-          Go with <strong>Tangem</strong>.
-        </li>
-      </ul>
-    </section>
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="canonical" href="https://proofofmike.com/wallets/" />
 
-    <section class="section">
-      <h2>Side-by-side comparison</h2>
-      <div class="table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Wallet</th>
-              <th>Trezor Safe 7</th>
-              <th>Ledger Flex</th>
-              <th>Tangem Card</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Type</td>
-              <td>Dedicated hardware wallet with screen & buttons</td>
-              <td>Premium hardware wallet with e-ink display</td>
-              <td>Smartcard wallet (credit-card style)</td>
-            </tr>
-            <tr>
-              <td>Best for</td>
-              <td>Long-term Bitcoin + major coins, self-custody “vault”</td>
-              <td>Multi-coin users, people deep in crypto ecosystems</td>
-              <td>Everyday carry, quick access, smaller balances</td>
-            </tr>
-            <tr>
-              <td>Security model</td>
-              <td>Offline hardware, PIN + optional passphrase</td>
-              <td>Offline hardware, PIN, Ledger security chip</td>
-              <td>Secure chip in the card, backed up by multiple cards</td>
-            </tr>
-            <tr>
-              <td>Seed phrase / backup</td>
-              <td>Standard 12/24-word recovery phrase</td>
-              <td>Standard 12/24-word recovery phrase</td>
-              <td>By default, no visible seed phrase; you back up by activating multiple cards to the same wallet. (There is an optional seed mode, but Tangem is designed so most people never touch it.)</td>
-            </tr>
-            <tr>
-              <td>Coin support (high-level)</td>
-              <td>Bitcoin, Ethereum, popular L1s and tokens (BTC is king here)</td>
-              <td>Very broad coin & token support (DeFi, NFTs, etc.)</td>
-              <td>Bitcoin + a wide list of major coins via the Tangem app</td>
-            </tr>
-            <tr>
-              <td>How you use it</td>
-              <td>USB-C to your computer / mobile app</td>
-              <td>USB-C and app integrations</td>
-              <td>Tap card to your phone (NFC) using Tangem app</td>
-            </tr>
-            <tr>
-              <td>Vibe</td>
-              <td>Old-school self-custody pro, open-source mindset</td>
-              <td>Modern, polished, feature-rich “do everything” device</td>
-              <td>Throw it in your actual wallet and go live life</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Global site styles -->
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5"
+      defer
+    ></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Best Bitcoin Wallets for Real People (Not Crypto Degens) | Proof of Mike" />
+    <meta
+      property="og:description"
+      content="Real, opinionated comparison of Trezor Safe 7, Ledger Flex, and Tangem card — which wallet fits your life."
+    />
+    <meta property="og:url" content="https://proofofmike.com/wallets/" />
+    <meta property="og:type" content="article" />
+    <!-- Swap this to an actual image later if you want -->
+    <meta property="og:image" content="https://proofofmike.com/images/og_wallets_placeholder.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Best Bitcoin Wallets for Real People (Not Crypto Degens)" />
+    <meta
+      name="twitter:description"
+      content="Trezor Safe 7 vs Ledger Flex vs Tangem card — which Bitcoin wallet should you actually buy?"
+    />
+    <meta name="twitter:creator" content="@ProofOfMike" />
+
+    <style>
+      /* Wallet-page specific layout that sits on top of /styles.css */
+
+      .wallet-intro-eyebrow {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+
+      .wallet-intro-title {
+        margin: 0;
+      }
+
+      .wallet-intro-body {
+        margin-top: 0.4rem;
+        max-width: 640px;
+      }
+
+      .wallet-tldr {
+        margin-top: 0.8rem;
+        padding: 10px 12px;
+        border-radius: var(--radius);
+        border: 1px dashed var(--ring);
+        background: rgba(15, 23, 42, 0.85);
+        font-size: 0.9rem;
+      }
+
+      .wallet-tldr strong {
+        color: #fbbf24;
+      }
+
+      .wallet-table-wrapper {
+        overflow-x: auto;
+        margin: 1.4rem 0 1.8rem;
+      }
+
+      .wallet-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        min-width: 640px;
+      }
+
+      .wallet-table th,
+      .wallet-table td {
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--ring);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .wallet-table th {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .wallet-table thead tr:first-child th {
+        border-bottom: 2px solid var(--ring);
+      }
+
+      .wallet-pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 999px;
+        border: 1px solid var(--ring);
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .wallet-grid {
+        display: grid;
+        gap: 18px;
+        margin-top: 1.5rem;
+      }
+
+      @media (min-width: 960px) {
+        .wallet-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .wallet-card {
+        background: rgba(15, 23, 42, 0.95);
+        border-radius: var(--radius);
+        border: 1px solid var(--ring);
+        padding: 14px 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .wallet-card img {
+        display: block;
+        max-width: 210px;
+        width: 100%;
+        margin: 4px auto 10px;
+        height: auto;
+      }
+
+      .wallet-card h2 {
+        font-size: 1rem;
+        margin: 0 0 2px;
+      }
+
+      .wallet-card h3 {
+        font-size: 0.86rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        margin: 0 0 4px;
+      }
+
+      .wallet-card p {
+        font-size: 0.9rem;
+        margin: 0 0 4px;
+      }
+
+      .wallet-card ul {
+        margin: 4px 0 0 1.1rem;
+        padding: 0;
+        font-size: 0.88rem;
+      }
+
+      .wallet-card li {
+        margin-bottom: 3px;
+      }
+
+      .wallet-cta {
+        margin-top: 8px;
+      }
+
+      .wallet-cta .btn {
+        font-size: 0.9rem;
+        padding-inline: 14px;
+      }
+
+      .wallet-footnote {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.75rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <!-- Top bar with avatar + simple nav -->
+      <div class="topbar">
+        <header>
+          <img
+            src="/images/bulldog.jpeg"
+            alt="Proof of Mike bulldog avatar"
+            class="avatar"
+          />
+          <div>
+            <div class="logo-text">ProofOfMike · Bitcoin · Mining · Wallets</div>
+            <h1 class="wallet-intro-title">Best Bitcoin Wallets for Real People (Not Crypto Degens)</h1>
+          </div>
+        </header>
+
+        <div class="rightlinks">
+          <a href="/">Home</a>
+          <a href="/nerdqaxe-copper/">NerdQaxe Copper Review</a>
+          <a href="/tch/">TinyChipHub Rigs</a>
+        </div>
       </div>
-    </section>
 
-    <!-- Trezor Safe 7 -->
-    <section class="section wallet-section">
-      <div class="wallet-layout">
-        <div class="wallet-image">
-          <img src="images/wallet-trezor-safe7.png" alt="Trezor Safe 7 hardware wallet">
-        </div>
-        <div class="wallet-copy">
-          <h2>Trezor Safe 7 – The “grown-up” cold storage pick</h2>
+      <!-- Intro / TL;DR panel -->
+      <section class="panel">
+        <div class="wallet-intro-body">
+          <div class="wallet-intro-eyebrow">TL;DR — Which one should you get?</div>
           <p>
-            If you want a wallet that feels like a proper vault for your Bitcoin and main coins,
-            <strong>Trezor Safe 7</strong> is the one I’d lean toward.
+            I’ve been around Bitcoin since 2013 and I want simple wallets that actually work and don’t
+            feel like a full-time job to maintain. No degen yield farms, no 40-step rituals you forget the
+            second you need to move coins.
           </p>
-          <p>
-            Trezor’s whole thing is transparency: open-source firmware, simple interface, and a long track record.
-            It’s not trying to be flashy — it’s trying to be boring and reliable, which is exactly what you want
-            for a device that holds real money.
-          </p>
-          <ul>
-            <li>✅ Great for long-term BTC and major coins</li>
-            <li>✅ Standard recovery phrase backup (easy to store offline)</li>
-            <li>✅ Trezor Suite app is clean and not overloaded with casino-style nonsense</li>
-          </ul>
-          <p>
-            <a href="https://affil.trezor.io/SHxI" target="_blank" rel="noopener" class="cta-button">
-              Check Trezor Safe 7 at Trezor
-            </a>
-          </p>
-          <p class="small-note">
-            If you only ever end up holding Bitcoin and a couple large caps, Safe 7 can realistically be your
-            “one and done” hardware wallet.
+          <p class="wallet-tldr">
+            <strong>My quick picks:</strong><br />
+            • <strong>Trezor Safe 7</strong> – “Grown-up” cold storage with a nice screen if you’re serious about long-term
+            Bitcoin or multi-coin holdings.<br />
+            • <strong>Ledger Flex</strong> – For people already deep in crypto ecosystems who want a slick touchscreen device.<br />
+            • <strong>Tangem card</strong> – For everyday people who want something as simple as tapping a credit card.
           </p>
         </div>
+      </section>
+
+      <!-- Main comparison + detailed breakdown -->
+      <main class="post">
+        <h2>Side-by-side comparison</h2>
+
+        <div class="wallet-table-wrapper">
+          <table class="wallet-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Trezor Safe 7</th>
+                <th>Ledger Flex</th>
+                <th>Tangem Card</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Best for</td>
+                <td>Long-term Bitcoin + serious multi-coin holders</td>
+                <td>Active crypto users with lots of tokens, DeFi, NFTs</td>
+                <td>Normal humans who just want “a Bitcoin card”</td>
+              </tr>
+              <tr>
+                <td>Screen & UI</td>
+                <td>Nice bright touchscreen, easy to read & navigate</td>
+                <td>Full touchscreen device, polished Ledger UI</td>
+                <td>No screen — you approve via phone app & NFC tap</td>
+              </tr>
+              <tr>
+                <td>Seed phrase</td>
+                <td>Standard BIP-39 seed phrase you write down</td>
+                <td>Standard recovery phrase with optional advanced flows</td>
+                <td>Can be used seedless by default, or with optional backup phrase</td>
+              </tr>
+              <tr>
+                <td>Coin support</td>
+                <td>Great for BTC and most majors (see trezor.com for full list)</td>
+                <td>Huge list of chains, DeFi, NFTs (Ledger specialty)</td>
+                <td>Most people will use it for BTC & a few majors</td>
+              </tr>
+              <tr>
+                <td>How you sign</td>
+                <td>USB-C, confirm on device screen</td>
+                <td>USB-C / Bluetooth (depending on device), confirm on screen</td>
+                <td>Tap card to phone via NFC and approve in app</td>
+              </tr>
+              <tr>
+                <td>Who should not use it</td>
+                <td>If you hate managing a written seed at all</td>
+                <td>If you’ll never touch anything beyond simple BTC buys</td>
+                <td>Ultra-paranoid users who want pure air-gapped flow only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>My actual recommendations</h2>
+
+        <div class="wallet-grid">
+          <!-- Trezor Safe 7 -->
+          <article class="wallet-card">
+            <h3>Cold storage pick</h3>
+            <h2>Trezor Safe 7 – “Grown-up” cold storage</h2>
+            <img
+              src="images/trezor-safe7.png"
+              alt="Trezor Safe 7 hardware wallet"
+            />
+            <p>
+              If you want a real hardware wallet that feels mature and boring-in-a-good-way, Safe 7 is it. I like it as
+              the “park it and forget it” device for savings you actually care about.
+            </p>
+            <ul>
+              <li>Touchscreen, easy to see what you’re signing.</li>
+              <li>Full seed phrase backup — the classic cold storage pattern.</li>
+              <li>Strong Bitcoin support plus solid multi-coin support.</li>
+              <li>Good fit if you’re the “I’ll still have this 5–10 years from now” type.</li>
+            </ul>
+            <div class="wallet-cta">
+              <a
+                href="https://affil.trezor.io/SHxI"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+              >
+                ⚡ Check Trezor Safe 7
+              </a>
+            </div>
+            <div class="wallet-footnote">
+              Trezor links are affiliate links — if you buy through them, they kick me a small percentage at no extra
+              cost to you.
+            </div>
+          </article>
+
+          <!-- Ledger Flex -->
+          <article class="wallet-card">
+            <h3>Power-user pick</h3>
+            <h2>Ledger Flex – For people deep in crypto</h2>
+            <img
+              src="images/ledger-flex.png"
+              alt="Ledger Flex hardware wallet"
+            />
+            <p>
+              If you’re juggling a bunch of chains, staking, DeFi, NFTs, and random tokens you can barely keep track of,
+              Ledger’s ecosystem is built for that life.
+            </p>
+            <ul>
+              <li>Touchscreen device with Ledger’s usual app integrations.</li>
+              <li>Great when you’re constantly doing on-chain things, not just parking BTC.</li>
+              <li>Big ecosystem: lots of wallets, services, and apps know Ledger.</li>
+              <li>More moving parts than Trezor if you just want dead-simple cold storage.</li>
+            </ul>
+            <div class="wallet-cta">
+              <a
+                href="https://shop.ledger.com/products/ledger-flex/graphite?r=4f559554053f"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+              >
+                ⚡ Check Ledger Flex
+              </a>
+            </div>
+            <div class="wallet-footnote">
+              Ledger link uses my affiliate ID — again, same price for you, tiny kickback to fund my mining and gear
+              experiments.
+            </div>
+          </article>
+
+          <!-- Tangem card -->
+          <article class="wallet-card">
+            <h3>Simplest pick</h3>
+            <h2>Tangem Card – The “just tap it” wallet</h2>
+            <img
+              src="images/tangem-card.png"
+              alt="Tangem hardware wallet card"
+            />
+            <p>
+              Tangem is basically “a crypto card you tap with your phone.” It’s the one I recommend to normal people
+              who don’t want to become hardware-wallet nerds.
+            </p>
+            <ul>
+              <li>Lives in your physical wallet like a credit card.</li>
+              <li>Use the Tangem app, tap to sign — no cables, no screens.</li>
+              <li>You can choose to use a seed phrase or go seedless depending on comfort level.</li>
+              <li>Perfect for day-to-day and medium-term holdings, not max-paranoia cold storage guy.</li>
+            </ul>
+            <div class="wallet-cta">
+              <a
+                href="https://tangem.com/invite/26T37H"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+              >
+                ⚡ Check Tangem Card
+              </a>
+            </div>
+            <div class="wallet-footnote">
+              Use code <strong>26T37H</strong> on Tangem for my referral — sometimes they run promos or discounts
+              through that.
+            </div>
+          </article>
+        </div>
+
+        <h2 style="margin-top:2rem;">Which one should you actually buy?</h2>
+        <p>
+          If you’re the kind of person who will happily sit down, write a seed phrase carefully, and store it in a safe
+          place, <strong>Trezor Safe 7</strong> is your best “grown-up” option.
+        </p>
+        <p>
+          If you’re already running a small zoo of tokens, chains, and weird on-chain experiments,
+          <strong>Ledger Flex</strong> plugs into more of that world and will feel more natural.
+        </p>
+        <p>
+          If you just want to own some Bitcoin without becoming “that crypto guy” in your friend group,
+          <strong>Tangem card</strong> is usually what I’d hand you first.
+        </p>
+
+        <p class="wallet-footnote">
+          None of this is financial advice. It’s just what I’d tell a friend over coffee who asked, “Okay, which wallet
+          should I buy and why?”
+        </p>
+      </main>
+
+      <div class="foot">
+        Made by Mike (@ProofOfMike) between mining shares, football games, and bulldog snoring sessions.
       </div>
-    </section>
-
-    <!-- Ledger Flex -->
-    <section class="section wallet-section">
-      <div class="wallet-layout">
-        <div class="wallet-image">
-          <img src="images/wallet-ledger-flex.png" alt="Ledger Flex hardware wallet">
-        </div>
-        <div class="wallet-copy">
-          <h2>Ledger Flex – For people deep in crypto ecosystems</h2>
-          <p>
-            <strong>Ledger Flex</strong> is the “I live in crypto” option. If you’re the type bouncing between
-            chains, tokens, DeFi, NFTs, and whatever the flavor of the month is, this is where Ledger really shines.
-          </p>
-          <p>
-            The Flex combines Ledger’s security chip with a thin, flexible form factor and an e-ink display that’s
-            actually pleasant to read. It plays well with a ton of wallets and apps.
-          </p>
-          <ul>
-            <li>✅ Huge coin and token support</li>
-            <li>✅ Clean e-ink screen and modern feel</li>
-            <li>✅ Good choice if you’re not “Bitcoin-only”</li>
-          </ul>
-          <p>
-            <a href="https://shop.ledger.com/products/ledger-flex/graphite?r=4f559554053f"
-               target="_blank" rel="noopener" class="cta-button">
-              Check Ledger Flex at Ledger
-            </a>
-          </p>
-          <p class="small-note">
-            If you’re already using Ledger Live or see yourself jumping into lots of altcoins, Flex is the most
-            convenient long-term choice.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tangem -->
-    <section class="section wallet-section">
-      <div class="wallet-layout">
-        <div class="wallet-image">
-          <img src="images/wallet-tangem-card.png" alt="Tangem card Bitcoin wallet">
-        </div>
-        <div class="wallet-copy">
-          <h2>Tangem Card – Your “everyday carry” crypto wallet</h2>
-          <p>
-            <strong>Tangem</strong> is totally different from Trezor and Ledger. It’s a physical card — more like a
-            debit card than a USB device. You tap it to your phone (NFC), use the Tangem app, and that’s it.
-          </p>
-          <p>
-            By default, you never see a recovery phrase. Instead, you activate multiple cards into the same wallet,
-            and those extra cards are your backup. Lose one card? The others still work.
-          </p>
-          <ul>
-            <li>✅ Feels familiar — like a bank card, not a gadget</li>
-            <li>✅ Great for people who will <em>actually</em> lose a paper seed phrase</li>
-            <li>✅ Perfect for smaller stacks, spending money, or travel backup</li>
-          </ul>
-          <p>
-            <a href="https://tangem.com/invite/26T37H" target="_blank" rel="noopener" class="cta-button">
-              Check Tangem Cards (invite link)
-            </a>
-          </p>
-          <p class="small-note">
-            You can turn on a more traditional seed-phrase mode if you really want it, but Tangem is designed so
-            normal people don’t have to think about 24 words at all.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>So… which one am I personally using?</h2>
-      <p>
-        I’m a big believer in matching the tool to the job:
-      </p>
-      <ul>
-        <li><strong>Cold storage / “do not touch” stack:</strong> Trezor-style device (Safe 7 lane).</li>
-        <li><strong>Experiment / DeFi / “I’m clicking on weird links” sandbox:</strong> Ledger lane.</li>
-        <li><strong>Everyday carry:</strong> Tangem card in the physical wallet, for small balances only.</li>
-      </ul>
-      <p>
-        The important thing is not which brand you pick — it’s that you actually
-        <strong>get coins off exchanges</strong> and into something you control.
-      </p>
-      <p>
-        If you end up grabbing one of these using my links, thank you. It genuinely helps me keep testing hardware,
-        mining, and sharing honest numbers instead of influencer fluff.
-      </p>
-    </section>
-  </main>
-</body>
+    </div>
+  </body>
 </html>
