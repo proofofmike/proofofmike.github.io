@@ -4,27 +4,17 @@
   <!-- Core pages -->
   <url>
     <loc>https://proofofmike.com/</loc>
-    <lastmod>2025-11-15</lastmod>
-  </url>
-
-  <url>
-    <loc>https://proofofmike.com/about.html</loc>
-    <lastmod>2025-11-14</lastmod>
-  </url>
-
-  <url>
-    <loc>https://proofofmike.com/contact.html</loc>
-    <lastmod>2025-11-14</lastmod>
+    <lastmod>2025-11-28</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/posts/</loc>
-    <lastmod>2025-11-14</lastmod>
+    <lastmod>2025-11-28</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/tch/</loc>
-    <lastmod>2025-11-16</lastmod>
+    <lastmod>2025-11-28</lastmod>
   </url>
 
   <url>
@@ -49,7 +39,12 @@
 
   <url>
     <loc>https://proofofmike.com/gear/</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2025-11-28</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/wallets/</loc>
+    <lastmod>2025-11-28</lastmod>
   </url>
 
   <!-- Individual posts -->
@@ -78,7 +73,7 @@
     <lastmod>2025-11-11</lastmod>
   </url>
 
-  <!-- Tag pages that actually exist -->
+  <!-- Tag pages that exist -->
   <url>
     <loc>https://proofofmike.com/tags/bitaxe.html</loc>
     <lastmod>2025-11-12</lastmod>
