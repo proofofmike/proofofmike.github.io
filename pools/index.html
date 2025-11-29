@@ -102,6 +102,7 @@
 
       .pools-card {
         margin-bottom: 1.1rem;
+        padding: 1.1rem 1.1rem 1.3rem;
       }
 
       .pools-card h2 {
@@ -175,6 +176,31 @@
       .pools-section li {
         margin-bottom: 0.15rem;
       }
+
+      /* Make pool URLs bigger / clearly clickable */
+      .pools-link {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .pools-link a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .pools-link a::after {
+        content: " ↗";
+        font-size: 0.8em;
+      }
+
+      .pools-link a:hover {
+        text-decoration: underline;
+      }
+
+      .pools-footer-card {
+        margin-top: 1.4rem;
+      }
     </style>
   </head>
 
@@ -213,7 +239,7 @@
             <!-- CKPool -->
             <section id="ckpool" class="card pools-card pools-section">
               <h2>1. CKPool — The OG Solo Pool</h2>
-              <p>
+              <p class="pools-link">
                 <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer"
                   >solo.ckpool.org</a
                 >
@@ -253,8 +279,9 @@
             <!-- Ocean + DACTUM -->
             <section id="ocean-dactum" class="card pools-card pools-section">
               <h2>2. Ocean + DACTUM — Modern, Transparent, High-Performance</h2>
-              <p>
-                <a href="https://ocean.xyz/" target="_blank" rel="noopener noreferrer">ocean.xyz</a> ·
+              <p class="pools-link">
+                <a href="https://ocean.xyz/" target="_blank" rel="noopener noreferrer">ocean.xyz</a>
+                &nbsp;·&nbsp;
                 <a href="https://dactum.io/" target="_blank" rel="noopener noreferrer">dactum.io</a>
               </p>
               <ul>
@@ -296,7 +323,7 @@
             <!-- Umbrel -->
             <section id="umbrel" class="card pools-card pools-section">
               <h2>3. Umbrel Solo Mining App — Zero-Fee, Point-and-Click</h2>
-              <p>
+              <p class="pools-link">
                 <a href="https://umbrel.com/" target="_blank" rel="noopener noreferrer">umbrel.com</a>
               </p>
               <ul>
@@ -375,7 +402,7 @@
             </section>
           </article>
 
-          <!-- Right column: summary / table -->
+          <!-- Right column: summary / table / others / next steps -->
           <aside>
             <section id="summary" class="card pools-card">
               <h2>Quick Comparison</h2>
@@ -458,6 +485,21 @@
               </p>
             </section>
           </aside>
+        </section>
+
+        <!-- More from me / X card -->
+        <section class="card pools-card pools-footer-card">
+          <h2>More from me</h2>
+          <p class="muted">
+            I’m Mike (<strong>Proof Of Mike</strong>), running a small home Bitcoin mining setup and sharing the
+            real numbers — not datacenter marketing slides.
+          </p>
+          <p class="muted" style="margin-top:0.4rem;">
+            You can find more write-ups and tools at
+            <a href="https://proofofmike.com/">ProofOfMike.com</a>,
+            or come say hi on X:
+            <a href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer">@ProofOfMike</a>.
+          </p>
         </section>
       </main>
 
