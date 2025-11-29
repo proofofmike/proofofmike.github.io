@@ -1,13 +1,39 @@
 <div class="topbar">
   <header>
-    <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar">
+    <img
+      src="/images/bulldog.jpeg"
+      alt="Proof Of Mike bulldog mascot"
+      class="avatar"
+    />
     <div class="logo-text">Proof Of Mike</div>
   </header>
-  <div class="rightlinks">
+
+  <nav class="rightlinks">
     <a href="/">Home</a>
     <a href="/posts/">Blog</a>
-    <!-- future: <a href="/miners/">Miners</a> -->
-    <!-- future: <a href="/wallets/">Wallets</a> -->
+
+    <!-- Mining dropdown -->
+    <div class="nav-dropdown">
+      <button
+        class="nav-link nav-dropdown-toggle"
+        type="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Mining <span class="nav-caret">▾</span>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/nerdqaxe-copper/">NerdQaxe++ Copper</a>
+        <a href="/hex/">Bitaxe Hex</a>
+        <a href="/zyber-8g/">Zyber 8G</a>
+        <a href="/tch/">TinyChipHub Rigs</a>
+        <a href="/gear/">Gear & accessories</a>
+      </div>
+    </div>
+
+    <!-- Wallets (simple link for now) -->
+    <a href="/wallets/">Wallets</a>
+
     <a href="/solo-calc/">Solo Calc</a>
-  </div>
+  </nav>
 </div>
