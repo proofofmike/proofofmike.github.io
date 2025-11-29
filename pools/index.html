@@ -100,9 +100,15 @@
         }
       }
 
+      /* Equal top padding on both columns, so first cards align */
+      .pools-layout > article,
+      .pools-layout > aside {
+        padding-top: 1rem;
+      }
+
       .pools-card {
-       margin: 1rem 0 1.1rem;   /* same top margin for ALL cards, both columns */
-       padding: 1.1rem 1.1rem 1.3rem;
+        margin: 0 0 1.1rem; /* no top margin; columns handle spacing */
+        padding: 1.1rem 1.1rem 1.3rem;
       }
 
       .pools-card h2 {
