@@ -2,26 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Best Bitcoin Solo Mining Pools Compared — CKPool, Ocean, Umbrel & Self-Hosted | Proof Of Mike</title>
+    <title>Best Bitcoin Solo Mining Pools Compared | Proof Of Mike</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Honest solo mining pool comparison for Bitcoin miners. CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted node setups — explained from real-world use, not marketing."
+      content="Straight-up solo Bitcoin mining pool comparison — CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted node setups, based on real-world use."
     />
     <meta
       name="keywords"
-      content="Bitcoin, solo mining, CKPool, Ocean pool, DACTUM, Umbrel, Bitcoin Core, Bitcoin Knots, Bitaxe, NerdQaxe, Proof Of Mike"
+      content="solo mining pools, Bitcoin solo mining, CKPool, Ocean, DACTUM, Umbrel, Bitcoin Core, Bitcoin Knots, Proof Of Mike"
     />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="canonical" href="https://proofofmike.com/pools/" />
 
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website" />
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5"
+      defer
+    ></script>
+
+    <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="Best Bitcoin Solo Mining Pools Compared — Proof Of Mike" />
     <meta
       property="og:description"
-      content="Straight-up comparison of CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted Bitcoin solo mining setups — from an actual solo miner."
+      content="Honest comparison of CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted solo mining setups — from an actual solo miner."
     />
-    <meta property="og:url" content="https://proofofmike.com/pools/" />
     <meta property="og:image" content="https://proofofmike.com/images/bulldog.jpeg" />
+    <meta property="og:url" content="https://proofofmike.com/pools/" />
+    <meta property="og:type" content="article" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -31,292 +44,429 @@
       content="Solo mining Bitcoin? Here’s how CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted setups compare."
     />
     <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg" />
+    <meta name="twitter:creator" content="@ProofOfMike" />
 
-    <link rel="icon" href="/images/bulldog.jpeg" />
-    <link rel="stylesheet" href="/assets/styles.css" />
+    <!-- Page-specific light styling -->
+    <style>
+      .pools-hero-title {
+        font-size: clamp(1.9rem, 2.6vw + 0.4rem, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.65rem;
+      }
 
-    <!-- counter.dev analytics (replace data-id with your real ID) -->
-    <script
-      src="https://counter.dev/script.js"
-      data-id="YOUR-COUNTERDEV-ID"
-      data-utcoffset="-5"
-      defer
-    ></script>
+      .pools-hero-subtitle {
+        font-size: 0.95rem;
+        max-width: 40rem;
+        margin-bottom: 1.4rem;
+      }
+
+      .pools-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+      }
+
+      .pools-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        font-size: 0.78rem;
+      }
+
+      .pools-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+      }
+
+      .pools-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+        gap: 1.5rem;
+        margin-top: 1.4rem;
+      }
+
+      @media (max-width: 900px) {
+        .pools-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .pools-card {
+        margin-bottom: 1.1rem;
+      }
+
+      .pools-card h2 {
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+
+      .pools-card h3 {
+        font-size: 1rem;
+        margin: 0.9rem 0 0.3rem;
+      }
+
+      .pools-toc {
+        margin-top: 0.75rem;
+        margin-bottom: 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .pools-toc h2 {
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+      }
+
+      .pools-toc ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .pools-toc a {
+        text-decoration: none;
+      }
+
+      .pools-toc a:hover {
+        text-decoration: underline;
+      }
+
+      .pools-compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        margin-top: 0.6rem;
+      }
+
+      .pools-compare-table th,
+      .pools-compare-table td {
+        border-bottom: 1px solid rgba(148, 163, 255, 0.25);
+        padding: 0.45rem 0.5rem;
+        text-align: left;
+      }
+
+      .pools-compare-table th {
+        font-size: 0.75rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9ca3af;
+      }
+
+      .pools-section {
+        margin-top: 1rem;
+      }
+
+      .pools-section ul {
+        padding-left: 1.1rem;
+        margin: 0.35rem 0 0.6rem;
+      }
+
+      .pools-section li {
+        margin-bottom: 0.15rem;
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Top Navigation (inline version matching your existing nav.html) -->
-    <div class="topbar">
-      <header>
-        <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog mascot" class="avatar" />
-        <div class="logo-text">Proof Of Mike</div>
-      </header>
-      <div class="rightlinks">
-        <a href="/">Home</a>
-        <a href="/posts/">Blog</a>
-        <!-- you can swap this out later for your dynamic Mining dropdown -->
-        <a href="/solo-calc/">Solo Calc</a>
-        <!-- future: <a href="/mining/">Mining</a> -->
-        <!-- future: <a href="/wallets/">Wallets</a> -->
-      </div>
-    </div>
+    <div class="wrap">
+      <div id="site-nav"></div>
 
-    <main class="content">
-      <article class="page">
-        <h1>Solo Mining Pools: A Straight-Up Comparison</h1>
-        <p class="lead">
-          Solo mining is a lottery. One honest block can change your life — and the pool or setup you
-          choose actually matters.
-        </p>
-        <p>
-          This is a practical comparison of real solo-mining options that people actually use today:
-          no marketing fluff, just how they work in the real world.
+      <main class="panel">
+        <h1 class="pools-hero-title">Solo Bitcoin Mining Pools &amp; Setups Compared</h1>
+        <p class="muted pools-hero-subtitle">
+          Solo mining is a lottery. One honest block can change your life — and the pool or setup you pick
+          actually matters. This is my straight-up comparison of the solo options that real hobby miners are
+          using today, based on firsthand experience instead of marketing.
         </p>
 
-        <nav class="toc">
+        <div class="pools-meta muted">
+          <span><span class="pools-dot"></span> Focused on Bitcoin solo mining</span>
+          <span>Address-in-template transparency noted where relevant</span>
+          <span>No cloud mining, no sketchy “lifetime contracts”</span>
+        </div>
+
+        <div class="pools-toc">
           <h2>On this page</h2>
           <ul>
             <li><a href="#ckpool">CKPool — The OG Solo Pool</a></li>
             <li><a href="#ocean-dactum">Ocean + DACTUM — Modern &amp; Transparent</a></li>
-            <li><a href="#umbrel">Umbrel Solo Mining App — Zero-Fee, Click-and-Go</a></li>
+            <li><a href="#umbrel">Umbrel Solo Mining App — Zero-Fee, Point-and-Click</a></li>
             <li><a href="#self-hosted">Fully Self-Hosted Solo Mining (DIY)</a></li>
             <li><a href="#others">Other Pools &amp; Why I Don’t Recommend Them</a></li>
             <li><a href="#summary">Quick Comparison &amp; Summary</a></li>
           </ul>
-        </nav>
+        </div>
 
-        <section id="ckpool">
-          <h2>1. CKPool — The OG Solo Pool</h2>
-          <p>
-            <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer"
-              >solo.ckpool.org</a
-            >
-          </p>
-          <ul>
-            <li><strong>Status:</strong> Longest-running dedicated solo pool</li>
-            <li><strong>Fee:</strong> 2%</li>
-            <li><strong>Address in Block Template:</strong> ❌ No</li>
-            <li><strong>Setup Difficulty:</strong> Very easy</li>
-            <li><strong>Operator:</strong> “Con” — running this since the early days</li>
-          </ul>
-          <p>
-            I’ve used CKPool off and on since around 2015. I even hit <strong>two blocks</strong> on
-            CKPool back when they were worth peanuts — and to be clear so nobody imagines I’m
-            secretly sitting on millions:
-            <strong>I no longer have those coins</strong>. Life was messy; they’re gone.
-          </p>
-          <p>Pool-wise, though, CKPool has always been rock solid and very easy to use.</p>
+        <section class="pools-layout">
+          <article>
+            <!-- CKPool -->
+            <section id="ckpool" class="card pools-card pools-section">
+              <h2>1. CKPool — The OG Solo Pool</h2>
+              <p>
+                <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer"
+                  >solo.ckpool.org</a
+                >
+              </p>
+              <ul>
+                <li><strong>Status:</strong> Longest-running dedicated solo pool</li>
+                <li><strong>Fee:</strong> 2%</li>
+                <li><strong>Address in block template:</strong> ❌ No</li>
+                <li><strong>Setup difficulty:</strong> Very easy</li>
+                <li><strong>Operator:</strong> “Con”, running this since the early days</li>
+              </ul>
 
-          <h3>Pros</h3>
-          <ul>
-            <li>Dead-simple configuration for miners</li>
-            <li>Longest-running solo pool with a real history</li>
-            <li>Solid uptime and reliability</li>
-            <li>Great “first solo pool” for beginners</li>
-          </ul>
+              <p>
+                I’ve used CKPool off and on since around 2015. I even hit <strong>two blocks</strong> on CKPool
+                back when they were worth peanuts — and just to be clear so nobody imagines I’m quietly sitting
+                on millions, <strong>I don’t still have those coins</strong>. Life was messy; they’re gone.
+              </p>
+              <p>Pool-wise, CKPool has always been rock solid and extremely simple to use.</p>
 
-          <h3>Cons</h3>
-          <ul>
-            <li>Your payout address is <strong>not</strong> in the block template (you trust the operator)</li>
-            <li>Single-person operation</li>
-            <li>2% fee</li>
-            <li>Limited advanced features</li>
-          </ul>
+              <h3>Pros</h3>
+              <ul>
+                <li>Dead-simple configuration for miners</li>
+                <li>Longest-running solo pool with real history</li>
+                <li>Solid uptime and reliability</li>
+                <li>Great “first solo pool” for beginners</li>
+              </ul>
+
+              <h3>Cons</h3>
+              <ul>
+                <li>Your payout address is <strong>not</strong> in the block template (you trust the operator)</li>
+                <li>Single-person operation</li>
+                <li>2% fee</li>
+                <li>Limited advanced features</li>
+              </ul>
+            </section>
+
+            <!-- Ocean + DACTUM -->
+            <section id="ocean-dactum" class="card pools-card pools-section">
+              <h2>2. Ocean + DACTUM — Modern, Transparent, High-Performance</h2>
+              <p>
+                <a href="https://ocean.xyz/" target="_blank" rel="noopener noreferrer">ocean.xyz</a> ·
+                <a href="https://dactum.io/" target="_blank" rel="noopener noreferrer">dactum.io</a>
+              </p>
+              <ul>
+                <li><strong>Status:</strong> Newer, cutting-edge tech stack</li>
+                <li><strong>Fee:</strong> 1%</li>
+                <li><strong>Address in block template:</strong> ✔️ Yes</li>
+                <li><strong>Setup difficulty:</strong> Medium</li>
+                <li>
+                  <strong>Best for:</strong> People who care about decentralization, template transparency, and
+                  propagation speed
+                </li>
+              </ul>
+
+              <p>
+                Ocean handles block building and propagation. DACTUM gives you the dashboard, miner UI, and node
+                integrations. You typically pair this with a full node:
+                <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
+                or
+                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a>.
+                I personally like Knots for the extra policy transparency and features, but both work great.
+              </p>
+
+              <h3>Pros</h3>
+              <ul>
+                <li>Your address is in the block template → trust-minimized payouts</li>
+                <li>Excellent propagation for solo mining</li>
+                <li>Actively developed by people who care about decentralization</li>
+                <li>Clean dashboard and good metrics</li>
+                <li>Supports split-mining setups</li>
+              </ul>
+
+              <h3>Cons</h3>
+              <ul>
+                <li>Requires a node and some Linux comfort</li>
+                <li>More moving parts than a simple hosted pool</li>
+              </ul>
+            </section>
+
+            <!-- Umbrel -->
+            <section id="umbrel" class="card pools-card pools-section">
+              <h2>3. Umbrel Solo Mining App — Zero-Fee, Point-and-Click</h2>
+              <p>
+                <a href="https://umbrel.com/" target="_blank" rel="noopener noreferrer">umbrel.com</a>
+              </p>
+              <ul>
+                <li><strong>Status:</strong> Node-in-a-box with a friendly UI</li>
+                <li><strong>Fee:</strong> 0%</li>
+                <li><strong>Address in block template:</strong> ✔️ Yes</li>
+                <li><strong>Setup difficulty:</strong> Easy</li>
+                <li>
+                  <strong>Best for:</strong> Zero-fee, self-sovereign solo mining without touching the command line
+                </li>
+              </ul>
+
+              <p>
+                Umbrel wraps a Bitcoin node and solo-mining stack into a point-and-click environment. You still run
+                your own full node — again either
+                <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
+                or
+                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a> —
+                but Umbrel takes care of most of the plumbing so you don’t have to wire everything together by hand.
+              </p>
+
+              <h3>Pros</h3>
+              <ul>
+                <li>Zero pool fee — you keep 100% of a block if you hit one</li>
+                <li>You control the node and the block template</li>
+                <li>Much easier to install and manage than a raw Linux stack</li>
+                <li>Nice UI for monitoring and managing your node</li>
+              </ul>
+
+              <h3>Cons</h3>
+              <ul>
+                <li>Requires an Umbrel device or compatible server</li>
+                <li>Containerized approach is a bit less flexible than “roll your own”</li>
+                <li>You still need to care about node health and uptime</li>
+              </ul>
+            </section>
+
+            <!-- Self-hosted -->
+            <section id="self-hosted" class="card pools-card pools-section">
+              <h2>4. Fully Self-Hosted Solo Mining (DIY)</h2>
+              <ul>
+                <li><strong>Status:</strong> The purest, most sovereign option</li>
+                <li><strong>Fee:</strong> 0%</li>
+                <li><strong>Address in block template:</strong> ✔️ Yes</li>
+                <li><strong>Setup difficulty:</strong> Advanced</li>
+                <li>
+                  <strong>Best for:</strong> Purists, hackers, and anyone comfortable with Linux and networking
+                </li>
+              </ul>
+
+              <p>
+                Fully self-hosted solo mining means you run <em>everything</em> yourself: a full node
+                (<a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer"
+                  >Bitcoin Core</a
+                >
+                or
+                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer"
+                  >Bitcoin Knots</a
+                >), your mempool, your block templates, your own stratum proxy, and all miner connections.
+              </p>
+
+              <h3>Pros</h3>
+              <ul>
+                <li>Fully trustless and private</li>
+                <li>0% fee — nobody taking a cut of your block</li>
+                <li>Maximum control over policies and templates</li>
+                <li>Perfect if you want full sovereignty over your mining setup</li>
+              </ul>
+
+              <h3>Cons</h3>
+              <ul>
+                <li>Requires real Linux/server and networking skills</li>
+                <li>You own all uptime, propagation, and configuration risk</li>
+                <li>Easy to misconfigure if you rush it or copy/paste blindly</li>
+              </ul>
+            </section>
+          </article>
+
+          <!-- Right column: summary / table -->
+          <aside>
+            <section id="summary" class="card pools-card">
+              <h2>Quick Comparison</h2>
+              <table class="pools-compare-table">
+                <thead>
+                  <tr>
+                    <th>Setup / Pool</th>
+                    <th>Fee</th>
+                    <th>Address in template</th>
+                    <th>Difficulty</th>
+                    <th>Best for</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>CKPool</td>
+                    <td>2%</td>
+                    <td>❌ No</td>
+                    <td>⭐ (very easy)</td>
+                    <td>Quick “set it and forget it” solo mining</td>
+                  </tr>
+                  <tr>
+                    <td>Ocean + DACTUM</td>
+                    <td>1%</td>
+                    <td>✔️ Yes</td>
+                    <td>⭐⭐⭐ (intermediate)</td>
+                    <td>Best tech + propagation running off a node</td>
+                  </tr>
+                  <tr>
+                    <td>Umbrel Solo App</td>
+                    <td>0%</td>
+                    <td>✔️ Yes</td>
+                    <td>⭐⭐ (easy)</td>
+                    <td>Zero-fee, node-backed solo mining with a UI</td>
+                  </tr>
+                  <tr>
+                    <td>Fully self-hosted DIY</td>
+                    <td>0%</td>
+                    <td>✔️ Yes</td>
+                    <td>⭐⭐⭐⭐ (advanced)</td>
+                    <td>Maximum sovereignty and control</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="muted" style="margin-top:0.8rem;">
+                If you want simple, start with <strong>CKPool</strong>.<br />
+                If you want the best tech and template transparency, go with
+                <strong>Ocean + DACTUM</strong>.<br />
+                If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
+                If you want full sovereignty, build a <strong>fully self-hosted</strong> stack.
+              </p>
+            </section>
+
+            <section id="others" class="card pools-card pools-section">
+              <h2>Other Pools &amp; Large Centralized Options</h2>
+              <p>
+                There are big mining pools with “solo modes” (ViaBTC and others), plus gated or closed pools and small
+                regional setups.
+              </p>
+              <p>
+                I’m not listing or reviewing them here for a simple reason:
+                <strong
+                  >I don’t mine on them, and I don’t suggest solo miners point hash at centralized pools where the
+                  block template isn’t really theirs.</strong
+                >
+              </p>
+              <p>
+                They may work fine in practice, but they don’t line up with the spirit — or the security model — of
+                true solo mining.
+              </p>
+            </section>
+
+            <section class="card pools-card pools-section">
+              <h2>Next steps</h2>
+              <p class="muted">
+                If you’re running any of these setups (or thinking about it), you might also like my
+                <a href="/solo-calc/">Solo Mining Odds Calculator</a> and
+                <a href="/tch/">TinyChipHub miner guide</a> where I track the Bitaxe, NerdQaxe, and Zyber rigs I’m
+                running at home.
+              </p>
+            </section>
+          </aside>
         </section>
+      </main>
 
-        <section id="ocean-dactum">
-          <h2>2. Ocean + DACTUM — Modern, Transparent, High-Performance</h2>
-          <p>
-            <a href="https://ocean.xyz/" target="_blank" rel="noopener noreferrer">ocean.xyz</a> ·
-            <a href="https://dactum.io/" target="_blank" rel="noopener noreferrer">dactum.io</a>
-          </p>
-          <ul>
-            <li><strong>Status:</strong> Newer, cutting-edge tech stack</li>
-            <li><strong>Fee:</strong> 1%</li>
-            <li><strong>Address in Block Template:</strong> ✔️ Yes</li>
-            <li><strong>Setup Difficulty:</strong> Medium</li>
-            <li><strong>Best For:</strong> People who care about decentralization and propagation speed</li>
-          </ul>
-          <p>
-            Ocean handles block building and propagation. DACTUM gives you the dashboard, miner UI,
-            and node integrations. You typically pair this with a full node:
-            <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer"
-              >Bitcoin Core</a
-            >
-            or
-            <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer"
-              >Bitcoin Knots</a
-            >.
-          </p>
-          <p>
-            I personally like Knots for the extra policy transparency and features, but both Core and
-            Knots work fine with this stack.
-          </p>
+      <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+    </div>
 
-          <h3>Pros</h3>
-          <ul>
-            <li>Your address is included in the block template → trust-minimized payouts</li>
-            <li>Excellent propagation for solo mining</li>
-            <li>Actively developed by people who care about decentralization</li>
-            <li>Clean dashboard and good metrics</li>
-            <li>Supports split mining setups</li>
-          </ul>
-
-          <h3>Cons</h3>
-          <ul>
-            <li>Requires a node and some Linux comfort</li>
-            <li>More moving parts than a simple hosted pool</li>
-          </ul>
-        </section>
-
-        <section id="umbrel">
-          <h2>3. Umbrel Solo Mining App — Zero-Fee, Point-and-Click</h2>
-          <p>
-            <a href="https://umbrel.com/" target="_blank" rel="noopener noreferrer">umbrel.com</a>
-          </p>
-          <ul>
-            <li><strong>Status:</strong> Node-in-a-box with a friendly UI</li>
-            <li><strong>Fee:</strong> 0%</li>
-            <li><strong>Address in Block Template:</strong> ✔️ Yes</li>
-            <li><strong>Setup Difficulty:</strong> Easy</li>
-            <li><strong>Best For:</strong> Zero-fee, self-sovereign solo mining without touching CLI</li>
-          </ul>
-          <p>
-            Umbrel wraps a Bitcoin node and solo-mining stack into a point-and-click environment. You
-            still run your own full node — again, either
-            <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer"
-              >Bitcoin Core</a
-            >
-            or
-            <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer"
-              >Bitcoin Knots</a
-            > — but Umbrel handles most of the plumbing.
-          </p>
-
-          <h3>Pros</h3>
-          <ul>
-            <li>Zero pool fee — you keep 100% of a block if you hit one</li>
-            <li>You control the node and the block template</li>
-            <li>Very easy to install and manage compared to raw Linux setups</li>
-            <li>Nice UI for monitoring</li>
-          </ul>
-
-          <h3>Cons</h3>
-          <ul>
-            <li>Requires an Umbrel device or server</li>
-            <li>Containerized approach is slightly less flexible than “roll your own”</li>
-            <li>You still have to care about node health and uptime</li>
-          </ul>
-        </section>
-
-        <section id="self-hosted">
-          <h2>4. Fully Self-Hosted Solo Mining (DIY)</h2>
-          <ul>
-            <li><strong>Status:</strong> The purest, most sovereign option</li>
-            <li><strong>Fee:</strong> 0%</li>
-            <li><strong>Address in Block Template:</strong> ✔️ Yes</li>
-            <li><strong>Setup Difficulty:</strong> Advanced</li>
-            <li>
-              <strong>Best For:</strong> Purists, hackers, and anyone comfortable with Linux and networking
-            </li>
-          </ul>
-          <p>
-            Fully self-hosted solo mining means you run <em>everything</em> yourself: a full node
-            (<a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer"
-              >Bitcoin Core</a
-            >
-            or
-            <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer"
-              >Bitcoin Knots</a
-            >), your mempool, your block templates, your own stratum proxy, and the miner connections.
-          </p>
-
-          <h3>Pros</h3>
-          <ul>
-            <li>Fully trustless and private</li>
-            <li>0% fee — no one taking a cut</li>
-            <li>Maximum control over policies and templates</li>
-            <li>Perfect for people who want full sovereignty</li>
-          </ul>
-
-          <h3>Cons</h3>
-          <ul>
-            <li>Requires real Linux/server and networking skills</li>
-            <li>You own all uptime, propagation, and configuration risk</li>
-            <li>Easy to misconfigure if you rush it</li>
-          </ul>
-        </section>
-
-        <section id="others">
-          <h2>Other Pools &amp; Large Centralized Options</h2>
-          <p>
-            There are large mining pools with “solo modes” (ViaBTC and others), plus gated/closed
-            pools and small regional operations.
-          </p>
-          <p>
-            I’m not listing or reviewing them here for a simple reason:
-            <strong>I don’t mine on them, and I don’t suggest solo miners point hash at centralized
-            pools where the block template isn’t really theirs.</strong>
-          </p>
-          <p>
-            They may work fine, but they don’t match the spirit — or the security model — of true
-            solo mining.
-          </p>
-        </section>
-
-        <section id="summary">
-          <h2>Quick Comparison &amp; Summary</h2>
-
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th>Setup / Pool</th>
-                <th>Fee</th>
-                <th>Address in Template</th>
-                <th>Difficulty</th>
-                <th>Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CKPool</td>
-                <td>2%</td>
-                <td>❌ No</td>
-                <td>⭐ (very easy)</td>
-                <td>Quick “set it and forget it” solo mining</td>
-              </tr>
-              <tr>
-                <td>Ocean + DACTUM</td>
-                <td>1%</td>
-                <td>✔️ Yes</td>
-                <td>⭐⭐⭐ (intermediate)</td>
-                <td>Best tech + propagation with a node</td>
-              </tr>
-              <tr>
-                <td>Umbrel Solo Mining App</td>
-                <td>0%</td>
-                <td>✔️ Yes</td>
-                <td>⭐⭐ (easy)</td>
-                <td>Zero-fee, node-backed solo mining with a UI</td>
-              </tr>
-              <tr>
-                <td>Fully Self-Hosted DIY</td>
-                <td>0%</td>
-                <td>✔️ Yes</td>
-                <td>⭐⭐⭐⭐ (advanced)</td>
-                <td>Maximum sovereignty and control</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p>
-            If you want simple, start with <strong>CKPool</strong>.<br />
-            If you want the best tech and transparency, go with <strong>Ocean + DACTUM</strong>.<br />
-            If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
-            If you want full sovereignty, build a <strong>fully self-hosted</strong> setup.
-          </p>
-        </section>
-      </article>
-    </main>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/assets/nav.js"></script>
   </body>
 </html>
