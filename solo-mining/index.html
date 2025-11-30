@@ -372,14 +372,16 @@
               </ul>
 
               <p>
-                Ocean handles the pool coordination and block relay. DATUM, together with your own full node,
-                builds the actual block template, inserts your payout address, and serves work to your miners.
-                When you hit a block, the reward is paid directly to you in the coinbase transaction — there are
-                no pool-managed payouts. You pair this setup with a full node:
-                <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
-                or
-                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a>.
-                I personally like Knots for the extra policy transparency and features, but both work great.
+                Ocean handles the pool coordination and block relay. DATUM Gateway, together with your
+                own full node, builds the actual block template locally, inserts your payout address,
+                and serves work to your miners. When you hit a block, payouts are non-custodial:
+                your share (minus the 1% OCEAN fee when you’re mining on OCEAN with DATUM) is paid
+                directly in the coinbase transaction instead of sitting in a pool wallet. You pair
+                this setup with a full node — <a href="https://bitcoincore.org/" target="_blank"
+                rel="noopener noreferrer">Bitcoin Core</a> or
+                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">
+                Bitcoin Knots</a>. I personally like Knots for the extra policy transparency and
+                features, but both work great.
               </p>
 
               <h3>Pros</h3>
