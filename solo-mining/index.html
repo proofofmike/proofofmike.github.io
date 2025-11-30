@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Straight-up solo Bitcoin mining setups and pool comparison — CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted node stacks, based on real-world use."
+      content="Straight-up solo Bitcoin mining setups and pool comparison — CKPool, Ocean + DATUM, Umbrel, and fully self-hosted node stacks, based on real-world use."
     />
     <meta
       name="keywords"
-      content="solo mining setups, solo mining pools, Bitcoin solo mining, CKPool, Ocean, DACTUM, Umbrel, Bitcoin Core, Bitcoin Knots, Proof Of Mike"
+      content="solo mining setups, solo mining pools, Bitcoin solo mining, CKPool, Ocean, DATUM, Umbrel, Bitcoin Core, Bitcoin Knots, Proof Of Mike"
     />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/solo-mining/" />
@@ -30,7 +30,7 @@
     <meta property="og:title" content="Solo Bitcoin Mining Setups Compared — Proof Of Mike" />
     <meta
       property="og:description"
-      content="Honest comparison of CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted solo mining setups — from an actual solo miner."
+      content="Honest comparison of CKPool, Ocean + DATUM, Umbrel, and fully self-hosted solo mining setups — from an actual solo miner."
     />
     <!-- OG image can live wherever; keeping existing pools path so you don’t have to move assets -->
     <meta property="og:image" content="https://proofofmike.com/solo-mining/images/soloog.png" />
@@ -47,7 +47,7 @@
     />
     <meta
       name="twitter:description"
-      content="Solo mining Bitcoin? Here’s how CKPool, Ocean + DACTUM, Umbrel, and fully self-hosted setups compare."
+      content="Solo mining Bitcoin? Here’s how CKPool, Ocean + DATUM, Umbrel, and fully self-hosted setups compare."
     />
     <meta name="twitter:image" content="https://proofofmike.com/solo-mining/images/soloog.png" />
     <meta name="twitter:creator" content="@ProofOfMike" />
@@ -257,7 +257,7 @@
           <h2>On this page</h2>
           <ul>
             <li><a href="#ckpool">CKPool — The OG Solo Pool</a></li>
-            <li><a href="#ocean-dactum">Ocean + DACTUM — Modern &amp; Transparent</a></li>
+            <li><a href="#ocean-datum">Ocean + DATUM — Modern &amp; Transparent</a></li>
             <li><a href="#umbrel">Umbrel Solo Mining App — Zero-Fee, Point-and-Click</a></li>
             <li><a href="#self-hosted">Fully Self-Hosted Solo Mining (DIY)</a></li>
             <li><a href="#others">Other Pools &amp; Why I Don’t Recommend Most</a></li>
@@ -281,7 +281,7 @@
             </li>
             <li>
               <strong>Node-built template:</strong> Your own full node produces the template locally via
-              <code>getblocktemplate</code>. Some setups (like Ocean+DACTUM, Umbrel, and fully DIY stacks) rely on
+              <code>getblocktemplate</code>. Some setups (like Ocean+DATUM, Umbrel, and fully DIY stacks) rely on
               software running next to your node to manage mining logic, but they still use <em>your</em> node’s view
               of the chain and mempool instead of a remote pool’s template.
             </li>
@@ -291,7 +291,7 @@
             For context: miners iterate through a <strong>nonce</strong> (a 32-bit field in the block header), while an
             <strong>extraNonce</strong>-style value lives inside the coinbase transaction and is set by whoever builds
             the block template. With pool-built templates, the pool controls that coinbase/extraNonce space on their
-            servers. With node-built setups, your local software (Ocean+DACTUM, Umbrel app stack, or DIY code) manages
+            servers. With node-built setups, your local software (Ocean+DATUM, Umbrel app stack, or DIY code) manages
             it on top of your node’s <code>getblocktemplate</code> results.
           </p>
 
@@ -350,9 +350,9 @@
               </ul>
             </section>
 
-            <!-- Ocean + DACTUM -->
-            <section id="ocean-dactum" class="card pools-card pools-section">
-              <h2>2. Ocean + DACTUM — Modern, Transparent, High-Performance</h2>
+            <!-- Ocean + DATUM -->
+            <section id="ocean-datum" class="card pools-card pools-section">
+              <h2>2. Ocean + DATUM — Modern, Transparent, High-Performance</h2>
               <p class="pools-link">
                 <a href="https://ocean.xyz/" target="_blank" rel="noopener noreferrer">ocean.xyz</a>
                 &nbsp;·&nbsp;
@@ -360,7 +360,7 @@
               </p>
               <ul>
                 <li><strong>Status:</strong> Newer, cutting-edge tech stack</li>
-                <li><strong>Fee:</strong> 1%</li>
+                <li><strong>Fee:</strong> 1% with DATUM</li>
                 <li><strong>Template control:</strong> Built from your own full node</li>
                 <li><strong>Setup difficulty:</strong> Medium</li>
                 <li>
@@ -370,7 +370,7 @@
               </ul>
 
               <p>
-                Ocean handles the pool coordination and block relay. DACTUM, together with your own full node,
+                Ocean handles the pool coordination and block relay. DATUM, together with your own full node,
                 builds the actual block template, inserts your payout address, and serves work to your miners.
                 When you hit a block, the reward is paid directly to you in the coinbase transaction — there are
                 no pool-managed payouts. You pair this setup with a full node:
@@ -505,8 +505,8 @@
                       <td>Quick “set it and forget it” solo mining</td>
                     </tr>
                     <tr>
-                      <td>Ocean + DACTUM</td>
-                      <td>1%</td>
+                      <td>Ocean + DATUM</td>
+                      <td>1% with DATUM</td>
                       <td>Your full node builds templates</td>
                       <td>⭐⭐⭐ (intermediate)</td>
                       <td>Best tech + template transparency with a node</td>
@@ -531,7 +531,7 @@
               <p class="muted" style="margin-top:0.8rem;">
                 If you want simple, start with <strong>CKPool</strong>.<br />
                 If you want the best tech and template transparency, go with
-                <strong>Ocean + DACTUM</strong>.<br />
+                <strong>Ocean + DATUM</strong>.<br />
                 If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
                 If you want full sovereignty, build a <strong>self-hosted</strong> stack.
               </p>
