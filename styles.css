@@ -343,3 +343,8 @@ h1 {
   border-radius: 10px;
   padding: 10px;
 }
+
+/* Force some space between nav and the first main card */
+.wrap > .panel:first-of-type {
+  margin-top: 24px; /* adjust 16/24/32 until it looks right */
+}
