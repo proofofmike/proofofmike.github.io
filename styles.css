@@ -36,7 +36,9 @@ a {
   padding: 0 20px 24px;
 }
 
-/* ---------- TOP BAR / LOGO / NAV ---------- */
+/* --------------------------------------- */
+/*           TOP BAR / LOGO / NAV          */
+/* --------------------------------------- */
 
 .topbar {
   display: flex;
@@ -44,7 +46,7 @@ a {
   gap: 12px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 28px; /* extra breathing room above hero card */
 }
 
 /* Left side (avatar + brand) */
@@ -79,10 +81,8 @@ header,
   color: var(--muted);
 }
 
-/* Right side nav container */
-.topbar-right,
-.topbar-nav,
-.rightlinks {
+/* Right side nav container (Home / Blog / Mining / Wallets) */
+.topbar-right {
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -91,8 +91,6 @@ header,
 
 /* Shared pill style (anchors + Mining button) */
 .topbar-right .nav-link,
-.topbar-nav .nav-link,
-.rightlinks a,
 .nav-dropdown-toggle {
   padding: 6px 11px;
   border: 1px solid var(--ring);
@@ -107,13 +105,11 @@ header,
   justify-content: center;
   gap: 0.18rem;
   cursor: pointer;
-  min-width: 120px;   /* makes all pills visually the same width */
+  min-width: 120px;   /* visually consistent pill width */
   text-align: center;
 }
 
 .topbar-right .nav-link:hover,
-.topbar-nav .nav-link:hover,
-.rightlinks a:hover,
 .nav-dropdown-toggle:hover {
   color: #f9fafb;
   border-color: rgba(248, 113, 113, 0.7);
@@ -136,7 +132,7 @@ header,
   position: relative;
 }
 
-/* Dropdown menu (desktop default) */
+/* Dropdown menu – desktop baseline */
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 0.4rem);
@@ -166,41 +162,40 @@ header,
   background: rgba(148, 163, 184, 0.16);
 }
 
-/* ---------- MOBILE NAV LAYOUT ---------- */
-/* Handle both alignment & dropdown position without touching desktop */
+/* --------------------------------------- */
+/*              MOBILE NAV FIX             */
+/* --------------------------------------- */
 
 @media (max-width: 768px) {
-  /* Stack avatar + nav vertically a bit tighter */
+  /* Stack logo and nav vertically on small screens */
   .topbar {
-    align-items: flex-start;
     flex-direction: column;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  /* Let nav span full width and center the pills */
-  .topbar-right,
-  .topbar-nav {
+  /* Nav takes full width and centers pills */
+  .topbar-right {
     width: 100%;
     justify-content: center;
   }
 
-  /* Each top-level nav item (Home, Blog, Mining, Wallets) = 1/2 row */
-  .topbar-nav > .nav-link,
-  .topbar-nav > .nav-dropdown {
+  /* Each top-level item (Home, Blog, Mining, Wallets) = half a row */
+  .topbar-right > .nav-link,
+  .topbar-right > .nav-dropdown {
     flex: 0 0 calc(50% - 0.75rem);
   }
 
-  /* Make the pills fill their flex slots */
-  .topbar-nav .nav-link,
-  .topbar-nav .nav-dropdown-toggle {
+  /* Make the pill itself fill its slot */
+  .topbar-right .nav-link,
+  .nav-dropdown-toggle {
     width: 100%;
     min-width: 0;
     padding: 8px 12px;
     font-size: 0.85rem;
-    text-align: center;
   }
 
-  /* Keep dropdown menu under the Mining pill and on-screen */
+  /* Center dropdown under Mining button & keep it on-screen */
   .nav-dropdown-menu {
     left: 50%;
     right: auto;
@@ -209,16 +204,19 @@ header,
   }
 }
 
-/* ---------- HEADINGS ---------- */
+/* --------------------------------------- */
+/*                HEADINGS                 */
+/* --------------------------------------- */
 
 h1 {
   font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
   margin: 0 8px 0 0;
 }
 
-/* ---------- MAIN PANELS / CARDS ---------- */
+/* --------------------------------------- */
+/*               MAIN PANELS               */
+/* --------------------------------------- */
 
-/* Main intro panel */
 .panel {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 55%),
@@ -335,7 +333,7 @@ h1 {
   text-align: left;
 }
 
-/* Contact form (used on old pages – kept so nothing breaks) */
+/* Contact form (legacy) */
 .contact-form {
   display: grid;
   gap: 10px;
