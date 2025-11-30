@@ -36,7 +36,8 @@ a {
   padding: 0 20px 24px;
 }
 
-/* Top bar / logo / nav */
+/* ---------- TOP BAR / LOGO / NAV ---------- */
+
 .topbar {
   display: flex;
   flex-wrap: wrap;
@@ -46,11 +47,18 @@ a {
   margin-bottom: 16px;
 }
 
-header {
+/* Left side: avatar + brand */
+.topbar-left {
   display: flex;
   gap: 14px;
   align-items: center;
   margin-bottom: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .avatar {
@@ -70,21 +78,35 @@ header {
   color: var(--muted);
 }
 
-h1 {
-  font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
-  margin: 0 8px 0 0;
-}
-
-/* ---------- NAV / PILLS ---------- */
-
-.rightlinks {
+/* Right side: nav pills */
+.topbar-right,
+.rightlinks { /* keep .rightlinks for backward compatibility */
   display: flex;
   align-items: center;
   gap: 0.9rem;
   flex-wrap: wrap;
 }
 
-/* Link + button share same pill style */
+/* Generic nav pill */
+.nav-link {
+  padding: 6px 11px;
+  border: 1px solid var(--ring);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
+  cursor: pointer;
+  min-width: 110px; /* keeps buttons visually consistent */
+  text-align: center;
+}
+
+/* Legacy selector so older navs still look right */
 .rightlinks a,
 .nav-dropdown-toggle {
   padding: 6px 11px;
@@ -101,6 +123,7 @@ h1 {
   cursor: pointer;
 }
 
+.topbar-right .nav-link:hover,
 .rightlinks a:hover,
 .nav-dropdown-toggle:hover {
   color: #f9fafb;
@@ -109,16 +132,11 @@ h1 {
 
 /* Remove default button chrome */
 .nav-dropdown-toggle {
-  border-radius: 999px;
-  border-style: solid;
   font: inherit;
+  background: transparent;
 }
 
-.nav-dropdown-toggle:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-
+/* Caret */
 .nav-caret {
   font-size: 0.75em;
 }
@@ -164,9 +182,17 @@ h1 {
     align-items: flex-start;
   }
 
+  .topbar-right,
   .rightlinks {
     justify-content: flex-start;
   }
+}
+
+/* ---------- HEADINGS ---------- */
+
+h1 {
+  font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
+  margin: 0 8px 0 0;
 }
 
 /* ---------- MAIN PANELS / CARDS ---------- */
