@@ -36,7 +36,9 @@ a {
   padding: 0 20px 24px;
 }
 
-/* ---------- TOP BAR / LOGO / NAV ---------- */
+/* --------------------------------------- */
+/*           TOP BAR / LOGO / NAV          */
+/* --------------------------------------- */
 
 .topbar {
   display: flex;
@@ -47,7 +49,6 @@ a {
   margin-bottom: 16px;
 }
 
-/* Left side (avatar + brand) */
 header,
 .topbar-left {
   display: flex;
@@ -79,18 +80,18 @@ header,
   color: var(--muted);
 }
 
-/* Right side nav container */
+/* Right side nav (Home / Blog / Mining / Wallets) */
 .topbar-right,
-.rightlinks {
+.topbar-nav {
   display: flex;
   align-items: center;
   gap: 0.9rem;
   flex-wrap: wrap;
 }
 
-/* Shared pill style (anchors + Mining button) */
+/* Shared pill style */
 .topbar-right .nav-link,
-.rightlinks a,
+.topbar-nav .nav-link,
 .nav-dropdown-toggle {
   padding: 6px 11px;
   border: 1px solid var(--ring);
@@ -105,18 +106,17 @@ header,
   justify-content: center;
   gap: 0.18rem;
   cursor: pointer;
-  min-width: 120px;   /* <<< makes all pills visually the same width */
+  min-width: 120px;
   text-align: center;
 }
 
 .topbar-right .nav-link:hover,
-.rightlinks a:hover,
+.topbar-nav .nav-link:hover,
 .nav-dropdown-toggle:hover {
   color: #f9fafb;
   border-color: rgba(248, 113, 113, 0.7);
 }
 
-/* Remove default button chrome for dropdown toggle */
 .nav-dropdown-toggle {
   font: inherit;
   background: transparent;
@@ -163,28 +163,51 @@ header,
   background: rgba(148, 163, 184, 0.16);
 }
 
-/* Stack nav a bit nicer on small screens */
-@media (max-width: 640px) {
-  .topbar {
-    align-items: flex-start;
+/* --------------------------------------------------------- */
+/*                MOBILE NAV — BIG FIXES                     */
+/* --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  /* Center the nav and allow 2×2 pill layout */
+  .topbar-nav {
+    justify-content: center;
+    width: 100%;
   }
 
-  .topbar-right,
-  .rightlinks {
-    justify-content: flex-start;
+  .topbar-nav .nav-link,
+  .nav-dropdown-toggle {
+    flex: 1 1 calc(50% - 1rem);
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    min-width: unset;   /* let pills shrink naturally */
+  }
+
+  /* Ensure Mining dropdown does NOT fall off the screen */
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 2rem);
   }
 }
 
-/* ---------- HEADINGS ---------- */
+/* --------------------------------------- */
+/*                HEADINGS                 */
+/* --------------------------------------- */
 
 h1 {
   font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
   margin: 0 8px 0 0;
 }
 
-/* ---------- MAIN PANELS / CARDS ---------- */
+/* --------------------------------------- */
+/*               MAIN PANELS               */
+/* --------------------------------------- */
 
-/* Main intro panel */
 .panel {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 55%),
@@ -201,7 +224,7 @@ h1 {
   margin-bottom: 0.9rem;
 }
 
-/* Card grid (Latest on X + Latest blog) */
+/* Cards */
 .cards {
   display: grid;
   gap: 16px;
@@ -215,7 +238,6 @@ h1 {
   }
 }
 
-/* Generic card block */
 .card {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 255, 0.12), transparent 55%),
@@ -234,7 +256,7 @@ h1 {
   margin: 0 0 8px;
 }
 
-/* Button style – match CTA from NerdQaxe page */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -254,7 +276,7 @@ h1 {
   box-shadow: 0 20px 45px rgba(248, 113, 113, 0.35);
 }
 
-/* Muted text + post block */
+/* Posts */
 .muted {
   color: var(--muted);
 }
@@ -272,7 +294,7 @@ h1 {
   margin-top: 1.1em;
 }
 
-/* Tag / post-list (used on /posts) */
+/* Tags */
 .tag {
   display: inline-block;
   font-size: 12px;
@@ -301,7 +323,7 @@ h1 {
   text-align: left;
 }
 
-/* Contact form (used on old pages – kept so nothing breaks) */
+/* Contact form (legacy) */
 .contact-form {
   display: grid;
   gap: 10px;
