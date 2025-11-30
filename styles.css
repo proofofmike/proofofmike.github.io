@@ -105,7 +105,8 @@ header,
   justify-content: center;
   gap: 0.18rem;
   cursor: pointer;
-  /* IMPORTANT: no fixed/min width – lets each pill size to its text */
+  min-width: 120px;   /* <<< makes all pills visually the same width */
+  text-align: center;
 }
 
 .topbar-right .nav-link:hover,
