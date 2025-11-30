@@ -75,7 +75,7 @@
         gap: 0.35rem;
         padding: 0.2rem 0.55rem;
         border-radius: 999px;
-        border: 1px solid var(--ring);
+        border: 1px solid rgba(148, 163, 255, 0.35);
         font-size: 0.78rem;
       }
 
@@ -87,29 +87,14 @@
         box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
       }
 
-      /* Top row: CKPool + Quick Comparison share a dedicated 2-col grid */
-      .pools-top-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
-        gap: 1.5rem;
-        margin-top: 1.4rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .pools-top-row .pools-card {
-        margin-top: 0; /* kill extra top margin so the two cards align perfectly */
-      }
-
-      /* Remaining layout: Ocean/Umbrel/DIY vs Other Pools/Next steps */
       .pools-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
         gap: 1.5rem;
-        margin-top: 1.0rem;
+        margin-top: 1.4rem;
       }
 
       @media (max-width: 900px) {
-        .pools-top-row,
         .pools-layout {
           grid-template-columns: minmax(0, 1fr);
         }
@@ -158,27 +143,6 @@
         text-decoration: underline;
       }
 
-      .pools-compare-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.85rem;
-        margin-top: 0.6rem;
-      }
-
-      .pools-compare-table th,
-      .pools-compare-table td {
-        border-bottom: 1px solid rgba(148, 163, 255, 0.25);
-        padding: 0.45rem 0.5rem;
-        text-align: left;
-      }
-
-      .pools-compare-table th {
-        font-size: 0.75rem;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #9ca3af;
-      }
-
       .pools-section {
         margin-top: 0;
       }
@@ -216,6 +180,66 @@
       .pools-footer-card {
         margin-top: 1.4rem;
       }
+
+      /* ---- QUICK COMPARISON TABLE ---- */
+
+      /* Wrapper keeps the table inside the card and scrolls if needed */
+      .pools-compare-wrap {
+        max-width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      /* Table layout so it behaves nicely inside the card */
+      .pools-compare-table {
+        width: 100%;
+        min-width: 520px; /* prevents absurdly tiny columns on narrow screens */
+        border-collapse: collapse;
+        table-layout: fixed; /* columns must share the available width */
+        font-size: 0.82rem;
+      }
+
+      /* Column width hints */
+      .pools-compare-table th:nth-child(1),
+      .pools-compare-table td:nth-child(1) {
+        width: 20%;
+      }
+
+      .pools-compare-table th:nth-child(2),
+      .pools-compare-table td:nth-child(2) {
+        width: 10%;
+      }
+
+      .pools-compare-table th:nth-child(3),
+      .pools-compare-table td:nth-child(3) {
+        width: 18%;
+      }
+
+      .pools-compare-table th:nth-child(4),
+      .pools-compare-table td:nth-child(4) {
+        width: 17%;
+      }
+
+      .pools-compare-table th:nth-child(5),
+      .pools-compare-table td:nth-child(5) {
+        width: 35%;
+      }
+
+      .pools-compare-table th,
+      .pools-compare-table td {
+        border-bottom: 1px solid rgba(148, 163, 255, 0.25);
+        padding: 0.45rem 0.5rem;
+        text-align: left;
+        word-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .pools-compare-table th {
+        font-size: 0.75rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9ca3af;
+      }
     </style>
   </head>
 
@@ -249,105 +273,48 @@
           </ul>
         </div>
 
-        <!-- TOP ROW: CKPOOL + QUICK COMPARISON -->
-        <div class="pools-top-row">
-          <!-- CKPool -->
-          <section id="ckpool" class="card pools-card pools-section">
-            <h2>1. CKPool — The OG Solo Pool</h2>
-            <p class="pools-link">
-              <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer"
-                >solo.ckpool.org</a
-              >
-            </p>
-            <ul>
-              <li><strong>Status:</strong> Longest-running dedicated solo pool</li>
-              <li><strong>Fee:</strong> 2%</li>
-              <li><strong>Address in block template:</strong> ❌ No</li>
-              <li><strong>Setup difficulty:</strong> Very easy</li>
-              <li><strong>Operator:</strong> “Con”, running this since the early days</li>
-            </ul>
-
-            <p>
-              I’ve used CKPool off and on since around 2015. I even hit <strong>two blocks</strong> on CKPool
-              back when they were worth peanuts — and just to be clear so nobody imagines I’m quietly sitting
-              on millions, <strong>I don’t still have those coins</strong>. Life was messy; they’re gone.
-            </p>
-            <p>Pool-wise, CKPool has always been rock solid and extremely simple to use.</p>
-
-            <h3>Pros</h3>
-            <ul>
-              <li>Dead-simple configuration for miners</li>
-              <li>Longest-running solo pool with real history</li>
-              <li>Solid uptime and reliability</li>
-              <li>Great “first solo pool” for beginners</li>
-            </ul>
-
-            <h3>Cons</h3>
-            <ul>
-              <li>Your payout address is <strong>not</strong> in the block template (you trust the operator)</li>
-              <li>Single-person operation</li>
-              <li>2% fee</li>
-              <li>Limited advanced features</li>
-            </ul>
-          </section>
-
-          <!-- Quick Comparison table -->
-          <section id="summary" class="card pools-card pools-section">
-            <h2>Quick Comparison</h2>
-            <table class="pools-compare-table">
-              <thead>
-                <tr>
-                  <th>Setup / Pool</th>
-                  <th>Fee</th>
-                  <th>Address in template</th>
-                  <th>Difficulty</th>
-                  <th>Best for</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>CKPool</td>
-                  <td>2%</td>
-                  <td>❌ No</td>
-                  <td>⭐ (very easy)</td>
-                  <td>Quick “set it and forget it” solo mining</td>
-                </tr>
-                <tr>
-                  <td>Ocean + DACTUM</td>
-                  <td>1%</td>
-                  <td>✔️ Yes</td>
-                  <td>⭐⭐⭐ (intermediate)</td>
-                  <td>Best tech + propagation running off a node</td>
-                </tr>
-                <tr>
-                  <td>Umbrel Solo App</td>
-                  <td>0%</td>
-                  <td>✔️ Yes</td>
-                  <td>⭐⭐ (easy)</td>
-                  <td>Zero-fee, node-backed solo mining with a UI</td>
-                </tr>
-                <tr>
-                  <td>Fully self-hosted DIY</td>
-                  <td>0%</td>
-                  <td>✔️ Yes</td>
-                  <td>⭐⭐⭐⭐ (advanced)</td>
-                  <td>Maximum sovereignty and control</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="muted" style="margin-top:0.8rem;">
-              If you want simple, start with <strong>CKPool</strong>.<br />
-              If you want the best tech and template transparency, go with
-              <strong> Ocean + DACTUM</strong>.<br />
-              If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
-              If you want full sovereignty, build a <strong>fully self-hosted</strong> stack.
-            </p>
-          </section>
-        </div>
-
-        <!-- REST OF PAGE: OCEAN / UMBREL / DIY vs OTHER POOLS / NEXT STEPS -->
         <section class="pools-layout">
           <article>
+            <!-- CKPool -->
+            <section id="ckpool" class="card pools-card pools-section">
+              <h2>1. CKPool — The OG Solo Pool</h2>
+              <p class="pools-link">
+                <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer"
+                  >solo.ckpool.org</a
+                >
+              </p>
+              <ul>
+                <li><strong>Status:</strong> Longest-running dedicated solo pool</li>
+                <li><strong>Fee:</strong> 2%</li>
+                <li><strong>Address in block template:</strong> ❌ No</li>
+                <li><strong>Setup difficulty:</strong> Very easy</li>
+                <li><strong>Operator:</strong> “Con”, running this since the early days</li>
+              </ul>
+
+              <p>
+                I’ve used CKPool off and on since around 2015. I even hit <strong>two blocks</strong> on CKPool
+                back when they were worth peanuts — and just to be clear so nobody imagines I’m quietly sitting
+                on millions, <strong>I don’t still have those coins</strong>. Life was messy; they’re gone.
+              </p>
+              <p>Pool-wise, CKPool has always been rock solid and extremely simple to use.</p>
+
+              <h3>Pros</h3>
+              <ul>
+                <li>Dead-simple configuration for miners</li>
+                <li>Longest-running solo pool with real history</li>
+                <li>Solid uptime and reliability</li>
+                <li>Great “first solo pool” for beginners</li>
+              </ul>
+
+              <h3>Cons</h3>
+              <ul>
+                <li>Your payout address is <strong>not</strong> in the block template (you trust the operator)</li>
+                <li>Single-person operation</li>
+                <li>2% fee</li>
+                <li>Limited advanced features</li>
+              </ul>
+            </section>
+
             <!-- Ocean + DACTUM -->
             <section id="ocean-dactum" class="card pools-card pools-section">
               <h2>2. Ocean + DACTUM — Modern, Transparent, High-Performance</h2>
@@ -474,8 +441,64 @@
             </section>
           </article>
 
-          <!-- Right column: other pools + next steps -->
+          <!-- Right column: summary / table / others / next steps -->
           <aside>
+            <section id="summary" class="card pools-card pools-section">
+              <h2>Quick Comparison</h2>
+
+              <div class="pools-compare-wrap">
+                <table class="pools-compare-table">
+                  <thead>
+                    <tr>
+                      <th>Setup / Pool</th>
+                      <th>Fee</th>
+                      <th>Address in template</th>
+                      <th>Difficulty</th>
+                      <th>Best for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>CKPool</td>
+                      <td>2%</td>
+                      <td>❌ No</td>
+                      <td>⭐ (very easy)</td>
+                      <td>Quick “set it and forget it” solo mining</td>
+                    </tr>
+                    <tr>
+                      <td>Ocean + DACTUM</td>
+                      <td>1%</td>
+                      <td>✔️ Yes</td>
+                      <td>⭐⭐⭐ (intermediate)</td>
+                      <td>Best tech + propagation running off a node</td>
+                    </tr>
+                    <tr>
+                      <td>Umbrel Solo App</td>
+                      <td>0%</td>
+                      <td>✔️ Yes</td>
+                      <td>⭐⭐ (easy)</td>
+                      <td>Zero-fee, node-backed solo mining with a UI</td>
+                    </tr>
+                    <tr>
+                      <td>Fully self-hosted DIY</td>
+                      <td>0%</td>
+                      <td>✔️ Yes</td>
+                      <td>⭐⭐⭐⭐ (advanced)</td>
+                      <td>Maximum sovereignty and control</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="muted" style="margin-top:0.8rem;">
+                If you want simple, start with <strong>CKPool</strong>.<br />
+                If you want the best tech and template transparency, go with
+                <strong>Ocean + DACTUM</strong>.<br />
+                If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
+                If you want full sovereignty, build a <strong>fully self-hosted</strong> stack.
+              </p>
+            </section>
+
             <section id="others" class="card pools-card pools-section">
               <h2>Other Pools &amp; Large Centralized Options</h2>
               <p>
