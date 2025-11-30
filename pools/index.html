@@ -245,7 +245,7 @@
 
         <div class="pools-meta muted">
           <span><span class="pools-dot"></span> Focused on Bitcoin solo mining</span>
-          <span>Address-in-template transparency noted where relevant</span>
+          <span>Template / trust model called out where it matters</span>
           <span>No cloud mining, no sketchy “lifetime contracts”</span>
         </div>
 
@@ -272,9 +272,9 @@
                 >
               </p>
               <ul>
-                <li><strong>Status:</strong> Longest-running dedicated solo pool</li>
+                <li><strong>Status:</strong> One of the longest-running dedicated solo pools</li>
                 <li><strong>Fee:</strong> 2%</li>
-                <li><strong>Address in block template:</strong> ❌ No</li>
+                <li><strong>Template control:</strong> Pool builds templates server-side</li>
                 <li><strong>Setup difficulty:</strong> Very easy</li>
                 <li><strong>Operator:</strong> “Con”, running this since the early days</li>
               </ul>
@@ -284,22 +284,29 @@
                 back when they were worth peanuts — and just to be clear so nobody imagines I’m quietly sitting
                 on millions, <strong>I don’t still have those coins</strong>. Life was messy; they’re gone.
               </p>
-              <p>Pool-wise, CKPool has always been rock solid and extremely simple to use.</p>
+              <p>
+                Pool-wise, CKPool has always been rock solid and extremely simple to use: you point your miner(s)
+                at the pool, set your payout address, and if you win the lottery, the block pays directly to that
+                address (minus the 2% fee) without a separate payout system.
+              </p>
 
               <h3>Pros</h3>
               <ul>
                 <li>Dead-simple configuration for miners</li>
-                <li>Longest-running solo pool with real history</li>
+                <li>One of the longest-running solo pools with real history</li>
                 <li>Solid uptime and reliability</li>
                 <li>Great beginner solo pool</li>
+                <li>Direct payouts to your address if you hit a block</li>
               </ul>
 
               <h3>Cons</h3>
               <ul>
-                <li>Your payout address is <strong>not</strong> in the block template (you trust the operator)</li>
+                <li>
+                  You don’t build or verify the block template yourself — CKPool handles it entirely on their side
+                </li>
                 <li>Single-person operation</li>
                 <li>2% fee</li>
-                <li>Limited advanced features</li>
+                <li>Limited advanced features compared to node-backed setups</li>
               </ul>
             </section>
 
@@ -314,7 +321,7 @@
               <ul>
                 <li><strong>Status:</strong> Newer, cutting-edge tech stack</li>
                 <li><strong>Fee:</strong> 1%</li>
-                <li><strong>Address in block template:</strong> ✅ Yes</li>
+                <li><strong>Template control:</strong> Built from your own full node</li>
                 <li><strong>Setup difficulty:</strong> Medium</li>
                 <li>
                   <strong>Best for:</strong> People who care about decentralization, template transparency, and
@@ -323,8 +330,9 @@
               </ul>
 
               <p>
-                Ocean handles block building and propagation. DACTUM gives you the dashboard, miner UI, and node
-                integrations. You pair this with a full node:
+                Ocean handles the pool infrastructure, payouts, and block propagation. DACTUM (together with your
+                own full node) handles block templates, the dashboard, miner UI, and node integrations. You pair
+                this with a full node:
                 <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
                 or
                 <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a>.
@@ -333,16 +341,16 @@
 
               <h3>Pros</h3>
               <ul>
-                <li>Your address is in the block template → trust-minimized payouts</li>
+                <li>Your node builds the block template → trust-minimized payouts</li>
                 <li>Excellent propagation for solo mining</li>
                 <li>Actively developed by people who care about decentralization</li>
                 <li>Clean dashboard and good metrics</li>
-                <li>Supports split-mining setups</li>
+                <li>Can support more advanced setups if you’re comfortable with custom configs</li>
               </ul>
 
               <h3>Cons</h3>
               <ul>
-                <li>Requires a node and some Linux comfort</li>
+                <li>Requires a full node and some Linux comfort</li>
                 <li>More moving parts than a simple hosted pool</li>
               </ul>
             </section>
@@ -356,7 +364,7 @@
               <ul>
                 <li><strong>Status:</strong> Node-in-a-box with a friendly UI</li>
                 <li><strong>Fee:</strong> 0%</li>
-                <li><strong>Address in block template:</strong> ✅ Yes</li>
+                <li><strong>Template control:</strong> Block templates come from your node</li>
                 <li><strong>Setup difficulty:</strong> Easy</li>
                 <li>
                   <strong>Best for:</strong> Zero-fee, self-sovereign solo mining without touching the command line
@@ -364,8 +372,9 @@
               </ul>
 
               <p>
-                Umbrel wraps a Bitcoin node and solo-mining stack into a point-and-click environment. You still run
-                your own full node — again either
+                Umbrel wraps a Bitcoin node and solo-mining stack into a point-and-click environment. A typical
+                setup is running their Bitcoin node app (Core or Knots) plus a solo mining / pool app on top. You
+                still run your own full node — again either
                 <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
                 or
                 <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a> —
@@ -374,8 +383,8 @@
 
               <h3>Pros</h3>
               <ul>
-                <li>Zero pool fee — you keep 100% of a block if you hit one</li>
-                <li>You control the node and the block template</li>
+                <li>Zero pool fee — you keep 100% of a block if you hit one (minus network fee)</li>
+                <li>Your node and stack build the block template, not a remote pool</li>
                 <li>Much easier to install and manage than a raw Linux stack</li>
                 <li>Nice UI for monitoring and managing your node</li>
               </ul>
@@ -394,7 +403,7 @@
               <ul>
                 <li><strong>Status:</strong> The purest, most sovereign option</li>
                 <li><strong>Fee:</strong> 0%</li>
-                <li><strong>Address in block template:</strong> ✅ Yes</li>
+                <li><strong>Template control:</strong> Full — you build everything yourself</li>
                 <li><strong>Setup difficulty:</strong> Advanced</li>
                 <li>
                   <strong>Best for:</strong> Purists, hackers, and anyone comfortable with Linux and networking
@@ -439,7 +448,7 @@
                     <tr>
                       <th>Setup / Pool</th>
                       <th>Fee</th>
-                      <th>Addr in Temp</th>
+                      <th>Template control</th>
                       <th>Difficulty</th>
                       <th>Best for</th>
                     </tr>
@@ -448,28 +457,28 @@
                     <tr>
                       <td>CKPool</td>
                       <td>2%</td>
-                      <td>❌ No</td>
+                      <td>Pool builds templates</td>
                       <td>⭐ (very easy)</td>
                       <td>Quick “set it and forget it” solo mining</td>
                     </tr>
                     <tr>
                       <td>Ocean + DACTUM</td>
                       <td>1%</td>
-                      <td>✅ Yes</td>
+                      <td>Your full node builds templates</td>
                       <td>⭐⭐⭐ (intermediate)</td>
-                      <td>Best tech + propagation w/ node</td>
+                      <td>Best tech + template transparency with a node</td>
                     </tr>
                     <tr>
                       <td>Umbrel Solo App</td>
                       <td>0%</td>
-                      <td>✅ Yes</td>
+                      <td>Templates from your node stack</td>
                       <td>⭐⭐ (easy)</td>
                       <td>Zero-fee node-backed solo mining</td>
                     </tr>
                     <tr>
                       <td>Fully self-hosted DIY</td>
                       <td>0%</td>
-                      <td>✅ Yes</td>
+                      <td>Full control over templates</td>
                       <td>⭐⭐⭐⭐ (advanced)</td>
                       <td>Maximum sovereignty and control</td>
                     </tr>
@@ -498,8 +507,8 @@
               </p>
               <p>
                 The one exception I personally make is <strong>CKPool</strong> — I’ve used it off and on for roughly a
-                decade and I’m comfortable trusting Con with payouts. If that ever changed, I’d move everything behind
-                my own node.
+                decade and I’m comfortable trusting Con’s setup and history. If that ever changed, I’d move everything
+                behind my own node.
               </p>
             </section>
 
