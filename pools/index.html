@@ -266,7 +266,8 @@
           <h2>Glossary: What “Template Control” Means</h2>
           <p class="muted" style="margin-top:0.4rem;">
             When you solo mine, someone has to create the <strong>block template</strong> your miner is hashing on.
-            That template includes your payout address, the mempool selection, and the exact block structure.
+            That template includes your payout address, the chosen transactions (mempool selection), and the exact
+            block structure.
           </p>
 
           <ul style="margin-top:0.6rem;">
@@ -275,15 +276,24 @@
               You provide a payout address, but the pool constructs the actual block your miner works on.
             </li>
             <li>
-              <strong>Miner/node-built template:</strong> Your own full node (Ocean+DACTUM, Umbrel, or DIY setups)
-              builds the template locally. This is more trust-minimized because you can verify and influence what
-              your miner is hashing on.
+              <strong>Node-built template:</strong> Your own full node produces the template locally via
+              <code>getblocktemplate</code>. Some setups (like Ocean+DACTUM, Umbrel, and fully DIY stacks) rely on
+              software running next to your node to manage mining logic, but they still use <em>your</em> node’s view
+              of the chain and mempool instead of a remote pool’s template.
             </li>
           </ul>
 
           <p class="muted" style="margin-top:0.6rem;">
-            Both approaches pay your reward directly if you find a block — the difference is who builds the
-            template itself.
+            For context: miners iterate through a <strong>nonce</strong> (a 32-bit field in the block header), while an
+            <strong>extraNonce</strong>-style value lives inside the coinbase transaction and is set by whoever builds
+            the block template. With pool-built templates, the pool controls that coinbase/extraNonce space on their
+            servers. With node-built setups, your local software (Ocean+DACTUM, Umbrel app stack, or DIY code) manages
+            it on top of your node’s <code>getblocktemplate</code> results.
+          </p>
+
+          <p class="muted" style="margin-top:0.6rem;">
+            Both approaches can pay your reward directly if you find a block — the key difference is who builds and
+            controls the template itself.
           </p>
         </section>
 
@@ -390,7 +400,9 @@
               <ul>
                 <li><strong>Status:</strong> Node-in-a-box with a friendly UI</li>
                 <li><strong>Fee:</strong> 0%</li>
-                <li><strong>Template control:</strong> Block templates come from your node</li>
+                <li>
+                  <strong>Template control:</strong> Node-built (your node), but app-managed rather than hand-edited
+                </li>
                 <li><strong>Setup difficulty:</strong> Easy</li>
                 <li>
                   <strong>Best for:</strong> Zero-fee, self-sovereign solo mining without touching the command line
@@ -399,18 +411,15 @@
 
               <p>
                 Umbrel wraps a Bitcoin node and solo-mining stack into a point-and-click environment. A typical
-                setup is running their Bitcoin node app (Core or Knots) plus a solo mining / pool app on top. You
-                still run your own full node — again either
-                <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
-                or
-                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a> —
-                but Umbrel takes care of most of the plumbing so you don’t have to wire everything together by hand.
+                setup is running their Bitcoin node app (Core or Knots) plus a solo mining / pool app on top. Your
+                Umbrel app stack talks to <em>your</em> full node via <code>getblocktemplate</code> instead of a
+                remote pool, but it does not give you a GUI to hand-edit the template itself.
               </p>
 
               <h3>Pros</h3>
               <ul>
                 <li>Zero pool fee — you keep 100% of a block if you hit one (minus network fee)</li>
-                <li>Your node and stack build the block template, not a remote pool</li>
+                <li>Your node’s view of the chain and mempool drive the block template</li>
                 <li>Much easier to install and manage than a raw Linux stack</li>
                 <li>Nice UI for monitoring and managing your node</li>
               </ul>
@@ -418,7 +427,10 @@
               <h3>Cons</h3>
               <ul>
                 <li>Requires an Umbrel device or compatible server</li>
-                <li>Containerized approach is a bit less flexible than “roll your own”</li>
+                <li>
+                  Template logic is managed by the Umbrel app stack — you don’t get fine-grained,
+                  hand-editable control like a fully DIY setup
+                </li>
                 <li>You still need to care about node health and uptime</li>
               </ul>
             </section>
@@ -483,7 +495,7 @@
                     <tr>
                       <td>CKPool</td>
                       <td>2%</td>
-                      <td>Pool builds templates</td>
+                      <td>Pool builds templates remotely</td>
                       <td>⭐ (very easy)</td>
                       <td>Quick “set it and forget it” solo mining</td>
                     </tr>
@@ -497,14 +509,14 @@
                     <tr>
                       <td>Umbrel Solo App</td>
                       <td>0%</td>
-                      <td>Templates from your node stack</td>
+                      <td>Your node builds templates, app-managed</td>
                       <td>⭐⭐ (easy)</td>
                       <td>Zero-fee node-backed solo mining</td>
                     </tr>
                     <tr>
                       <td>Fully self-hosted DIY</td>
                       <td>0%</td>
-                      <td>Full control over templates</td>
+                      <td>You fully control templates</td>
                       <td>⭐⭐⭐⭐ (advanced)</td>
                       <td>Maximum sovereignty and control</td>
                     </tr>
@@ -529,7 +541,7 @@
               <p>
                 I’m not listing or reviewing them here for a simple reason: I don’t currently mine on them, and I’m not
                 comfortable pointing new solo miners at setups where the block template isn’t clearly under their own
-                control.
+                influence or node.
               </p>
               <p>
                 The one exception I personally make is <strong>CKPool</strong> — I’ve used it off and on for roughly a
