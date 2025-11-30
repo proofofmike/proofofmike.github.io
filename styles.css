@@ -348,3 +348,8 @@ h1 {
 .wrap > .panel:first-of-type {
   margin-top: 24px; /* adjust 16/24/32 until it looks right */
 }
+
+/* Extra breathing room between nav and the first main panel */
+.topbar + .panel {
+  margin-top: 24px;  /* bump this to 32px if you want more gap */
+}
