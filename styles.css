@@ -44,7 +44,12 @@ a {
   gap: 12px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 32px; /* was 16px — more space above first card */
+  margin-bottom: 16px;
+}
+
+/* The injected nav container at the top of the page */
+#site-nav {
+  margin-bottom: 24px; /* <<< NEW: space between nav and "Hey, I'm Mike" card */
 }
 
 /* Left side (avatar + brand) */
@@ -105,7 +110,7 @@ header,
   justify-content: center;
   gap: 0.18rem;
   cursor: pointer;
-  min-width: 120px;   /* keeps pills consistent on desktop */
+  min-width: 120px;   /* makes all pills visually similar on desktop */
   text-align: center;
 }
 
@@ -163,14 +168,12 @@ header,
   background: rgba(148, 163, 184, 0.16);
 }
 
-/* ---------- MOBILE NAV FIXES ---------- */
-/* 2×2 grid + centered dropdown, Mining/Wallets same size */
+/* ---------- MOBILE NAV (REPLACES OLD 640px BLOCK) ---------- */
+/* 2×2 grid, Mining/Wallets same width, dropdown centered */
 
 @media (max-width: 768px) {
   .topbar {
     align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
   }
 
   .topbar-right,
@@ -179,13 +182,13 @@ header,
     justify-content: center;
   }
 
-  /* Home, Blog, Mining (dropdown), Wallets = 2 per row */
+  /* Home, Blog, Mining (dropdown), Wallets = two per row */
   .topbar-right > .nav-link,
   .topbar-right > .nav-dropdown {
     flex: 0 0 calc(50% - 0.75rem);
   }
 
-  /* Make the pills fill their slot and ignore the desktop min-width */
+  /* Pills fill their slot; ignore desktop min-width */
   .topbar-right .nav-link,
   .nav-dropdown-toggle {
     width: 100%;
@@ -194,7 +197,7 @@ header,
     font-size: 0.85rem;
   }
 
-  /* Center dropdown under Mining button and keep it on-screen */
+  /* Center dropdown under Mining and keep it on-screen */
   .nav-dropdown-menu {
     left: 50%;
     right: auto;
@@ -342,14 +345,4 @@ h1 {
   color: #e6e9ef;
   border-radius: 10px;
   padding: 10px;
-}
-
-/* Force some space between nav and the first main card */
-.wrap > .panel:first-of-type {
-  margin-top: 24px; /* adjust 16/24/32 until it looks right */
-}
-
-/* Extra breathing room between nav and the first main panel */
-.topbar + .panel {
-  margin-top: 24px;  /* bump this to 32px if you want more gap */
 }
