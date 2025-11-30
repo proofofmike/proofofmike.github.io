@@ -246,7 +246,7 @@
         <div class="pools-meta muted">
           <span><span class="pools-dot"></span> Focused on Bitcoin solo mining</span>
           <span>Template / trust model called out where it matters</span>
-          <span>No cloud mining, no sketchy “lifetime contracts”</span>
+          <span>Based on my own solo-mining experience since 2015.</span>
         </div>
 
         <div class="pools-toc">
@@ -260,6 +260,32 @@
             <li><a href="#summary">Quick Comparison &amp; Summary</a></li>
           </ul>
         </div>
+
+        <!-- Glossary card -->
+        <section class="card pools-card pools-section" style="margin-top:1.4rem;">
+          <h2>Glossary: What “Template Control” Means</h2>
+          <p class="muted" style="margin-top:0.4rem;">
+            When you solo mine, someone has to create the <strong>block template</strong> your miner is hashing on.
+            That template includes your payout address, the mempool selection, and the exact block structure.
+          </p>
+
+          <ul style="margin-top:0.6rem;">
+            <li>
+              <strong>Pool-built template:</strong> A remote pool (like CKPool) generates the template on its servers.
+              You provide a payout address, but the pool constructs the actual block your miner works on.
+            </li>
+            <li>
+              <strong>Miner/node-built template:</strong> Your own full node (Ocean+DACTUM, Umbrel, or DIY setups)
+              builds the template locally. This is more trust-minimized because you can verify and influence what
+              your miner is hashing on.
+            </li>
+          </ul>
+
+          <p class="muted" style="margin-top:0.6rem;">
+            Both approaches pay your reward directly if you find a block — the difference is who builds the
+            template itself.
+          </p>
+        </section>
 
         <section class="pools-layout">
           <article>
