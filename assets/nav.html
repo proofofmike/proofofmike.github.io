@@ -1,16 +1,18 @@
 <div class="topbar">
-  <header>
-    <img
-      src="/images/bulldog.jpeg"
-      alt="Proof Of Mike bulldog mascot"
-      class="avatar"
-    />
-    <div class="logo-text">Proof Of Mike</div>
+  <header class="topbar-left">
+    <a href="/" class="brand">
+      <img
+        src="/images/bulldog.jpeg"
+        alt="Proof Of Mike bulldog mascot"
+        class="avatar"
+      />
+      <span class="logo-text">PROOF OF MIKE</span>
+    </a>
   </header>
 
-  <nav class="rightlinks">
-    <a href="/">Home</a>
-    <a href="/posts/">Blog</a>
+  <nav class="topbar-right" aria-label="Main navigation">
+    <a class="nav-link" href="/">Home</a>
+    <a class="nav-link" href="/posts/">Blog</a>
 
     <!-- Mining dropdown -->
     <div class="nav-dropdown">
@@ -20,20 +22,22 @@
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Mining <span class="nav-caret">▾</span>
+        <span class="nav-label">Mining</span>
+        <span class="nav-caret">▾</span>
       </button>
-      <div class="nav-dropdown-menu">
-        <a href="/nerdqaxe-copper/">NerdQaxe++ Copper</a>
-        <a href="/hex/">Bitaxe Hex</a>
-        <a href="/zyber-8g/">Zyber 8G</a>
-        <a href="/tch/">TinyChipHub Rigs</a>
-        <a href="/gear/">Gear & accessories</a>
-        <a href="/pools/">Solo Pools</a>
-        <a href="/solo-calc/">Solo Calc</a>
+
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="/nerdqaxe-copper/" role="menuitem">NerdQaxe++ Copper</a>
+        <a href="/hex/" role="menuitem">Bitaxe Hex</a>
+        <a href="/zyber-8g/" role="menuitem">Zyber 8G</a>
+        <a href="/tch/" role="menuitem">TinyChipHub Rigs</a>
+        <a href="/gear/" role="menuitem">Gear &amp; accessories</a>
+        <a href="/pools/" role="menuitem">Solo Pools</a>
+        <a href="/solo-calc/" role="menuitem">Solo Calc</a>
       </div>
     </div>
 
-    <!-- Wallets (simple link for now) -->
-    <a href="/wallets/">Wallets</a>
+    <!-- Wallets -->
+    <a class="nav-link" href="/wallets/">Wallets</a>
   </nav>
 </div>
