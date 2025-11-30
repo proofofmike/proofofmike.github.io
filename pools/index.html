@@ -143,6 +143,10 @@
         text-decoration: underline;
       }
 
+      .pools-section {
+        margin-top: 0;
+      }
+
       .pools-section ul {
         padding-left: 1.1rem;
         margin: 0.35rem 0 0.6rem;
@@ -152,7 +156,7 @@
         margin-bottom: 0.15rem;
       }
 
-      /* Make pool URLs bigger / clearly clickable */
+      /* Pool URLs more visible */
       .pools-link {
         font-size: 0.9rem;
         margin-bottom: 0.4rem;
@@ -173,18 +177,17 @@
         text-decoration: underline;
       }
 
-      /* Comparison table + scroll container */
+      /* Quick comparison table */
       .pools-compare-scroll {
-        margin-top: 0.6rem;
         overflow-x: auto;
-        max-width: 100%;
       }
 
       .pools-compare-table {
         width: 100%;
-        min-width: 640px; /* wider than card so it scrolls instead of overflowing */
+        min-width: 540px;
         border-collapse: collapse;
         font-size: 0.85rem;
+        margin-top: 0.6rem;
       }
 
       .pools-compare-table th,
@@ -192,7 +195,7 @@
         border-bottom: 1px solid rgba(148, 163, 255, 0.25);
         padding: 0.45rem 0.5rem;
         text-align: left;
-        vertical-align: middle;
+        white-space: nowrap;
       }
 
       .pools-compare-table th {
@@ -200,11 +203,28 @@
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: #9ca3af;
-        white-space: nowrap;
       }
 
       .pools-footer-card {
         margin-top: 1.4rem;
+      }
+
+      .pools-footer-card a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      .pools-footer-card a:hover {
+        text-decoration: underline;
+      }
+
+      .nextsteps-card a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      .nextsteps-card a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -240,7 +260,6 @@
         </div>
 
         <section class="pools-layout">
-          <!-- LEFT COLUMN -->
           <article>
             <!-- CKPool -->
             <section id="ckpool" class="card pools-card pools-section">
@@ -408,18 +427,17 @@
             </section>
           </article>
 
-          <!-- RIGHT COLUMN -->
+          <!-- Right column: summary / table / others / next steps -->
           <aside>
             <section id="summary" class="card pools-card pools-section">
-              <h2>Quick Comparison</h2>
-
+              <h2>Quick comparison</h2>
               <div class="pools-compare-scroll">
                 <table class="pools-compare-table">
                   <thead>
                     <tr>
                       <th>Setup / Pool</th>
                       <th>Fee</th>
-                      <th>Address in template</th>
+                      <th>Addr in Temp</th>
                       <th>Difficulty</th>
                       <th>Best for</th>
                     </tr>
@@ -430,21 +448,21 @@
                       <td>2%</td>
                       <td>❌ No</td>
                       <td>⭐ (very easy)</td>
-                      <td>Quick “set it &amp; forget it” solo mining</td>
+                      <td>Quick “set it and forget it” solo mining</td>
                     </tr>
                     <tr>
                       <td>Ocean + DACTUM</td>
                       <td>1%</td>
                       <td>✅ Yes</td>
                       <td>⭐⭐⭐ (intermediate)</td>
-                      <td>Best tech + propagation running off a node</td>
+                      <td>Best tech + propagation w/ node</td>
                     </tr>
                     <tr>
                       <td>Umbrel Solo App</td>
                       <td>0%</td>
                       <td>✅ Yes</td>
                       <td>⭐⭐ (easy)</td>
-                      <td>Zero-fee, node-backed solo mining with a UI</td>
+                      <td>Zero-fee node-backed solo mining</td>
                     </tr>
                     <tr>
                       <td>Fully self-hosted DIY</td>
@@ -456,44 +474,46 @@
                   </tbody>
                 </table>
               </div>
-
               <p class="muted" style="margin-top:0.8rem;">
                 If you want simple, start with <strong>CKPool</strong>.<br />
                 If you want the best tech and template transparency, go with
                 <strong>Ocean + DACTUM</strong>.<br />
                 If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
-                If you want full sovereignty, build a <strong>fully self-hosted</strong> stack.
+                If you want full sovereignty, build a <strong>self-hosted</strong> stack.
               </p>
             </section>
 
             <section id="others" class="card pools-card pools-section">
-              <h2>Other Pools &amp; Large Centralized Options</h2>
+              <h2>Other pools &amp; large centralized options</h2>
               <p>
                 There are big mining pools with “solo modes” (ViaBTC and others), plus gated or closed pools and small
                 regional setups.
               </p>
               <p>
-                I’m not listing or reviewing them here for a simple reason:
-                <strong>
-                  I don’t mine on them, and I generally don’t suggest solo miners point hash at centralized pools where
-                  the block template isn’t really theirs.
-                </strong>
-                CKPool is the one exception I personally use, because I’ve known and trusted the operator for years and
-                I’m comfortable with that tradeoff.
+                I’m not listing or reviewing them here for a simple reason: I don’t currently mine on them, and I’m not
+                comfortable pointing new solo miners at setups where the block template isn’t clearly under their own
+                control.
               </p>
               <p>
-                Those other setups may work fine in practice, but they don’t really line up with the spirit — or the
-                security model — of true solo mining.
+                The one exception I personally make is <strong>CKPool</strong> — I’ve used it off and on for roughly a
+                decade and I’m comfortable trusting Con with payouts. If that ever changed, I’d move everything behind
+                my own node.
               </p>
             </section>
 
-            <section class="card pools-card pools-section">
+            <section class="card pools-card pools-section nextsteps-card">
               <h2>Next steps</h2>
               <p class="muted">
-                If you’re running any of these setups (or thinking about it), you might also like my other content. I
-                share solo-mining rig write-ups, hardware wallet thoughts, and keep a working
-                <a href="/solo-calc/">Solo Mining Odds Calculator</a> plus a bunch of other nerdy Bitcoin stuff at
-                <a href="https://proofofmike.com/" style="color:#38bdf8;">ProofOfMike.com</a>.
+                If you’re running any of these setups (or thinking about it), you might also like my other solo-mining
+                content on <a href="https://proofofmike.com/" target="_blank" rel="noopener noreferrer"
+                  >ProofOfMike.com</a
+                >.
+              </p>
+              <p class="muted">
+                I post real-world solo rig write-ups, hardware wallet notes, and keep a live Solo Mining Odds Calculator
+                updated for hobby miners.
+                Start with the
+                <a href="/solo-calc/">Solo Mining Odds Calculator</a> and then bounce around from there.
               </p>
             </section>
           </aside>
@@ -508,7 +528,7 @@
           </p>
           <p class="muted" style="margin-top:0.4rem;">
             You can find more write-ups and tools at
-            <a href="https://proofofmike.com/" style="color:#38bdf8;">ProofOfMike.com</a>,
+            <a href="https://proofofmike.com/" target="_blank" rel="noopener noreferrer">ProofOfMike.com</a>,
             or come say hi on X:
             <a href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer">@ProofOfMike</a>.
           </p>
