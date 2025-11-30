@@ -375,7 +375,7 @@
                 Ocean handles the pool coordination and block relay. DATUM Gateway, together with your
                 own full node, builds the actual block template locally, inserts your payout address,
                 and serves work to your miners. When you hit a block, payouts are non-custodial:
-                your share (minus the 1% OCEAN fee when you’re mining on OCEAN with DATUM) is paid
+                your reward (minus the 1% OCEAN fee when you’re mining on OCEAN with DATUM) is paid
                 directly in the coinbase transaction instead of sitting in a pool wallet. You pair
                 this setup with a full node — <a href="https://bitcoincore.org/" target="_blank"
                 rel="noopener noreferrer">Bitcoin Core</a> or
@@ -437,8 +437,8 @@
               <ul>
                 <li>Requires an Umbrel device or compatible server</li>
                 <li>
-                  Template logic is managed by the Umbrel app stack — you don’t get fine-grained,
-                  hand-editable control like a fully DIY setup
+                  Umbrel builds templates using your node’s getblocktemplate, but the selection 
+                  logic is handled automatically by the app in most cases.
                 </li>
                 <li>You still need to care about node health and uptime</li>
               </ul>
