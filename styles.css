@@ -84,6 +84,14 @@ header,
   color: var(--muted);
 }
 
+.logo-subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+
 /* Right side nav container */
 .topbar-right,
 .rightlinks {
