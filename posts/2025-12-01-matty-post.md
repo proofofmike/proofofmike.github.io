@@ -1,8 +1,3 @@
----
-title: "How My Sports-Betting Buddy Jumped Into Bitcoin Mining"
-date: 2025-12-01T09:00:00
----
-
 # How My Sports-Betting Buddy Jumped Into Bitcoin Mining
 
 I originally wrote a short, funny post on my personal Facebook about how one of my longtime sports-betting friends — Matty — somehow turned the corner from sweating parlays to sweating block finds. The post blew up with comments, so I turned it into a proper page on my site.
