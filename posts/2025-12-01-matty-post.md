@@ -1,22 +1,16 @@
-# How My High School Sports-Betting Buddy Became My Bitcoin Mining Tech Support
-
-I originally wrote a quick story on my personal Facebook about how my high-school sports-betting crew somehow ended up in Bitcoin mining. It blew up with comments, laughs, and “this is too real” messages.
-
-So I cleaned it up, expanded it, and turned it into a proper page that fits the style of this site.
-
-👉 **Read the full story here:**  
-https://proofofmike.com/matty
-
-It covers twenty years of bad beats, miracle covers, emotional damage from parlays, and now somehow… Bitcoin miners on the kitchen counter.
-
-And at the center of the chaos is Matty — my long-time betting partner, degenerate extraordinaire, and full-time Sunday headache.
-
-**Matty, if you’re reading this:**  
-You might be a pain in the ass…  
-but you’re *my* pain in the ass. 🤣
-
-If you’ve ever sweated a parlay, screamed at a TV, or believed “just one more leg will hit,” you’ll feel right at home.
-
+---
+title: "How My Sports-Betting Buddy Jumped Into Bitcoin Mining"
+date: 2025-12-01T09:00:00
 ---
 
-Thanks for reading — and if you got here from the story, welcome to the ProofOfMike universe. More mining, more madness, and more questionable life decisions coming soon.
+# How My Sports-Betting Buddy Jumped Into Bitcoin Mining
+
+I originally wrote a short, funny post on my personal Facebook about how one of my longtime sports-betting friends — Matty — somehow turned the corner from sweating parlays to sweating block finds. The post blew up with comments, so I turned it into a proper page on my site.
+
+If you want to read the full version, it’s here:
+
+**https://proofofmike.com/matty**
+
+It’s a quick look at how someone who’s been betting games with me since high school suddenly fell headfirst into Bitcoin solo mining — and how similar the “sweat” feeling is between sports and blocks.
+
+Matty, if you ever read this: you might drive me crazy, but you’re still my guy. 😂
