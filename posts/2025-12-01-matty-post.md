@@ -4,7 +4,7 @@ I originally wrote a short, funny post on my personal Facebook about how one of 
 
 If you want to read the full version, it’s here:
 
-**https://proofofmike.com/matty**
+[https://proofofmike.com/matty](https://proofofmike.com/matty)
 
 It’s a quick look at how someone who’s been betting games with me since high school suddenly fell headfirst into Bitcoin solo mining — and how similar the “sweat” feeling is between sports and blocks.
 
