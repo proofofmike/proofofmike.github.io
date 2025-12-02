@@ -16,10 +16,10 @@
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/gear/" />
 
-    <!-- Main site stylesheet -->
+    <!-- Main site stylesheet (same pattern as other landing pages) -->
     <link rel="stylesheet" href="/styles.css" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="Bitaxe &amp; NerdQaxe gear I use — plus parts recommended to me that check out" />
     <meta
       property="og:description"
@@ -39,7 +39,7 @@
     <meta name="twitter:image" content="https://proofofmike.com/gear/images/og_gr_bulldog.jpg" />
     <meta name="twitter:creator" content="@proofofmike" />
 
-    <!-- counter.dev -->
+    <!-- counter.dev analytics -->
     <script
       src="https://cdn.counter.dev/script.js"
       data-id="523ea628-7b77-4913-83d7-01cf3417b330"
@@ -81,6 +81,7 @@
         letter-spacing: 0.16em;
         color: #9ca3af;
         display: inline-flex;
+        align-items: center;
         gap: 0.35rem;
       }
 
@@ -95,6 +96,7 @@
         font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
         font-weight: 800;
         line-height: 1.1;
+        letter-spacing: -0.03em;
         margin: 0 0 0.65rem;
       }
 
@@ -110,11 +112,12 @@
         display: grid;
         grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
         gap: 1.75rem;
+        align-items: flex-start;
       }
 
       @media (max-width: 880px) {
         .pom-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
         }
       }
 
@@ -161,6 +164,7 @@
         color: #38bdf8;
         text-decoration: none;
       }
+
       .pom-card a:hover {
         text-decoration: underline;
       }
@@ -204,57 +208,360 @@
             Bitaxe &amp; NerdQaxe gear I use — plus parts recommended to me that check out
           </h1>
           <p class="pom-gear-sub">
-            These are Bitaxe / NerdQaxe miner accessories I either use myself or that have been strongly recommended and vetted: Noctua and AC Infinity fans, Mean Well power supplies, Kasa smart plugs, cables, tools, temp sensors, and a few extras that keep a small solo-mining corner quiet and stable.
+            These are Bitaxe / NerdQaxe miner accessories I either use myself or that have been strongly
+            recommended and vetted as solid options: Noctua and AC Infinity fans, Mean Well 12&nbsp;V power supplies,
+            Kasa smart plugs (for stock bricks), fuses, cables, tools, and a few extras that keep a small solo-mining
+            corner quiet and stable.
           </p>
         </section>
 
         <section class="pom-grid">
           <!-- LEFT COLUMN -->
           <div>
-            <!-- cooling, thermal, power, tools sections unchanged -->
-            <!-- ... (your full original code stays here exactly as-is) ... -->
+            <!-- COOLING & AIRFLOW -->
+            <article class="pom-card">
+              <h2>Cooling &amp; airflow</h2>
+
+              <h3>Noctua fans (quiet case fans)</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4olDoYZ" target="_blank" rel="nofollow noopener">
+                    Noctua NF-A14 PWM (140mm)
+                  </a>
+                  – great 140&nbsp;mm option when you want serious airflow on a Bitaxe or NerdQaxe++ setup without a jet
+                  engine.
+                </li>
+                <li>
+                  <a href="https://amzn.to/3KiNICW" target="_blank" rel="nofollow noopener">
+                    Noctua NF-F12 PWM (120mm)
+                  </a>
+                  – solid 120&nbsp;mm fan with good static pressure for tighter builds or front-mounted Bitaxe rigs.
+                </li>
+              </ul>
+
+              <h3>AC Infinity cabinet / spot cooling</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/3Mm38qH" target="_blank" rel="nofollow noopener">
+                    AC Infinity MULTIFAN S1 (80mm USB)
+                  </a>
+                  – single 80&nbsp;mm USB fan for small hotspots and focused airflow.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4ppYAOj" target="_blank" rel="nofollow noopener">
+                    AC Infinity MULTIFAN S3 (120mm USB)
+                  </a>
+                  – simple 120&nbsp;mm USB fan for shelves or open rack miner areas.
+                </li>
+                <li>
+                  <a href="https://amzn.to/3XLWE6W" target="_blank" rel="nofollow noopener">
+                    AC Infinity MULTIFAN S5 (dual 80mm USB)
+                  </a>
+                  – dual 80&nbsp;mm for pointing straight at VRMs or ASIC hotspots.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4ij9hji" target="_blank" rel="nofollow noopener">
+                    AC Infinity MULTIFAN S7 (dual 120mm USB)
+                  </a>
+                  – dual 120&nbsp;mm for cabinets or behind multiple Bitaxe / NerdQaxe miners.
+                </li>
+              </ul>
+            </article>
+
+            <!-- THERMAL PASTE, PADS & HEATSINKS -->
+            <article class="pom-card">
+              <h2>Thermal paste, pads &amp; heatsinks</h2>
+
+              <h3>Paste</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4odymxq" target="_blank" rel="nofollow noopener">
+                    Arctic MX-6 thermal paste
+                  </a>
+                  – easy to work with, forgiving, and plenty good for ASIC repastes.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4abV1XI" target="_blank" rel="nofollow noopener">
+                    Thermal Grizzly Kryonaut
+                  </a>
+                  – higher-end paste if you’re chasing a couple of extra °C of margin.
+                </li>
+              </ul>
+
+              <h3>Pads</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4pn9qEW" target="_blank" rel="nofollow noopener">
+                    ARCTIC TP-3 100×100×1.0&nbsp;mm pad
+                  </a>
+                  – big sheet you can cut down, stackable up to 2&nbsp;mm to bridge gaps.
+                </li>
+                <li>
+                  <a href="https://amzn.to/3JQWuIs" target="_blank" rel="nofollow noopener">
+                    Thermal Grizzly Minus Pad 8 (120×20×1.0&nbsp;mm)
+                  </a>
+                  – good for narrow VRM strips and small components.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4ojaRDk" target="_blank" rel="nofollow noopener">
+                    Gelid GP-Extreme 80×40×1.0&nbsp;mm pad
+                  </a>
+                  – 12&nbsp;W/mK pad, solid gap filler for hot components near the hash board.
+                </li>
+              </ul>
+
+              <h3>Copper heatsinks (aftermarket)</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4oazySh" target="_blank" rel="nofollow noopener">
+                    GeeekPi 18-piece pure copper heatsink kit
+                  </a>
+                  – the standard “home miner” aftermarket upgrade kit. High-quality copper sinks that perform noticeably
+                  better than cheap aluminum ones. A lot of my devices came with copper from the factory, but if you’re
+                  upgrading after the fact, this type of kit is what you’d use.
+                </li>
+              </ul>
+            </article>
+
+            <!-- POWER & SMART CONTROL -->
+            <article class="pom-card">
+              <h2>Power &amp; smart control</h2>
+
+              <h3>Mean Well PSUs (Bitaxe &amp; NerdQaxe power)</h3>
+              <p>
+                I use Mean Well PSUs at home; below are three common 12&nbsp;V models that come up a lot for
+                Bitaxe / NerdQaxe-style miners. You don’t need all of them — pick what matches your power budget and
+                number of rigs.
+              </p>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4p0pLja" target="_blank" rel="nofollow noopener">
+                    Mean Well LRS-600-12 (600&nbsp;W, 12&nbsp;V, 50&nbsp;A)
+                  </a>
+                  – beefy 12&nbsp;V supply when you’re running multiple miners off one PSU.
+                </li>
+                <li>
+                  <a href="https://amzn.to/482mARS" target="_blank" rel="nofollow noopener">
+                    Mean Well LRS-350-12 (348&nbsp;W, 12&nbsp;V, 29&nbsp;A)
+                  </a>
+                  – good middle-of-the-road Mean Well for a couple of miners with headroom.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4puo6lE" target="_blank" rel="nofollow noopener">
+                    Mean Well LRS-200-12 (200&nbsp;W, 12&nbsp;V, 17&nbsp;A)
+                  </a>
+                  – lighter-duty option when you don’t need a huge shared PSU yet.
+                </li>
+              </ul>
+              <p class="pom-note">
+                Note: Mean Well LRS supplies have a high inrush current at startup. Don’t plug them into Kasa or other
+                consumer smart strips. Keep them on a regular outlet or properly rated switch instead.
+              </p>
+
+              <h3>Smart power options (for standard power bricks)</h3>
+              <p>
+                These smart options are for miners running their standard / stock power bricks — not the Mean Well PSUs
+                above. Great for monitoring power and remotely power-cycling a couple of rigs.
+              </p>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4p4HTIA" target="_blank" rel="nofollow noopener">
+                    Kasa HS300 smart power strip
+                  </a>
+                  – six individually switchable outlets, perfect for a small Bitaxe / NerdQaxe “farm” on stock bricks.
+                </li>
+                <li>
+                  <a href="https://amzn.to/3KdxbAm" target="_blank" rel="nofollow noopener">
+                    Kasa KP115 smart plug (with energy monitoring)
+                  </a>
+                  – single-outlet plug I like to use to watch draw on individual miners.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4oStyii" target="_blank" rel="nofollow noopener">
+                    Kasa KP125M (Matter, 2-pack)
+                  </a>
+                  – newer Matter-compatible plugs if you’re all-in on that ecosystem.
+                </li>
+              </ul>
+
+              <h3>Cords &amp; adapters</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4isl6UI" target="_blank" rel="nofollow noopener">
+                    XT30 male/female pigtail set (5 pairs, 16&nbsp;AWG)
+                  </a>
+                  – XT30 pigtails for safely connecting miners to your Mean Well PSU.
+                </li>
+                <li>
+                  <a href="https://amzn.to/48kUTCV" target="_blank" rel="nofollow noopener">
+                    2.1×5.5&nbsp;mm DC barrel pigtail (1 male + 1 female, 18&nbsp;AWG)
+                  </a>
+                  – classic 12&nbsp;V barrel leads; handy for Bitaxe/Hex and side projects.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4ijIcwF" target="_blank" rel="nofollow noopener">
+                    Amazon Basics 3-prong PC power cord (6&nbsp;ft, 18&nbsp;AWG)
+                  </a>
+                  – basic IEC C13 cable for powering your Mean Well or other PSUs.
+                </li>
+              </ul>
+            </article>
+
+            <!-- CLEANING, TOOLS & MISC. -->
+            <article class="pom-card">
+              <h2>Cleaning, tools &amp; misc.</h2>
+
+              <h3>Dust &amp; board cleanup</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/4862swQ" target="_blank" rel="nofollow noopener">
+                    Dust-Off DPSXL 10&nbsp;oz canned air
+                  </a>
+                  – quick blasts outside every few months to keep fins and filters clear.
+                </li>
+                <li>
+                  <a href="https://amzn.to/48ee2WT" target="_blank" rel="nofollow noopener">
+                    Anti-static nylon brush kit (set of 8)
+                  </a>
+                  – for gently cleaning boards and fans without static drama.
+                </li>
+              </ul>
+
+              <h3>Power &amp; paste tools</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/3JW0OGl" target="_blank" rel="nofollow noopener">
+                    Plug-in watt / power meter
+                  </a>
+                  – simple wall meter to verify real-world power draw at the outlet.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4oz0MT7" target="_blank" rel="nofollow noopener">
+                    Thermal Grizzly TG spatula set (3-pack)
+                  </a>
+                  – makes spreading thermal paste way less annoying and more consistent.
+                </li>
+              </ul>
+
+              <h3>Repair &amp; cabling</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/48fQlh4" target="_blank" rel="nofollow noopener">
+                    iFixit Essential Electronics Toolkit
+                  </a>
+                  – the driver / bit kit I grab for basically every miner job.
+                </li>
+                <li>
+                  <a href="https://amzn.to/4rf6JHn" target="_blank" rel="nofollow noopener">
+                    Amazon Basics USB-C to USB-A 2.0 cable (6&nbsp;ft)
+                  </a>
+                  – easy C-to-A cable for flashing or connecting to miners and dev boards.
+                </li>
+              </ul>
+
+              <h3>Temp monitoring “canary”</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/3LWfgid" target="_blank" rel="nofollow noopener">
+                    HT1 smart temperature &amp; humidity sensor
+                  </a>
+                  – easy little “canary” sensor to sit near your rigs. If the ambient temperature around them suddenly
+                  spikes, you want to know immediately — it usually means a fan has failed, airflow changed, or a PSU is
+                  getting warmer than it should.
+                </li>
+              </ul>
+            </article>
 
             <!-- FUSES & PROTECTION (UPDATED) -->
             <article class="pom-card">
               <h2>Fuses &amp; protection</h2>
-
               <p>
-                NerdQaxe++ boards ship with an 8A Littelfuse NANO2 (2410) fast-blow fuse from the factory.
-                I don’t list the 8A version here because most people are fine just leaving the stock fuse in place.
-                This section is only for folks intentionally overclocking and looking at a higher-amp option.
+                Some NerdQaxe++ revisions shipped with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail.
+                Newer Rev&nbsp;6 boards moved protection into the PSU / XT30 path and dropped the on-board fuse entirely, so not
+                every NerdQaxe++ even has a fuse you can swap. Always take a look at your own board first.
               </p>
 
-              <h3>10A option for OC builds</h3>
+              <h3>10&nbsp;A option for OC builds</h3>
               <ul>
                 <li>
                   <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
-                    Littelfuse NANO2 10A (0451010.MR / 0451010.MRL)
+                    Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
                   </a>
-                  – the 10A NANO2 fuse people commonly use on overclocked NerdQaxe++ boards. This only raises the fuse
-                    limit — it does not mean the VRM, traces, or ASIC can safely pull 10 amps. Make small changes and
-                    keep an eye on temps and stability.
+                  – this is the 10&nbsp;A NANO2 fuse commonly used on overclocked NerdQaxe++ boards that still have the SMD fuse
+                  footprint. It only raises the fuse limit — it does not mean the VRM, traces, or ASIC can safely pull 10&nbsp;A.
+                  If you go this route, make small changes and watch temps and stability.
                 </li>
               </ul>
 
               <p class="pom-note">
-                Important: Overclock at your own risk. A bigger fuse simply stops the fuse from being the first thing to blow.
-                It doesn’t raise the actual hardware limits of the miner.
+                Important: Overclock at your own risk. A bigger fuse just stops the fuse from being the first thing to blow.
+                It doesn’t change the actual hardware limits of the miner. If your board is a fuse-free revision, this section
+                doesn’t apply — you’ll be relying on PSU-side protection instead.
               </p>
             </article>
           </div>
 
           <!-- RIGHT COLUMN -->
           <div>
-            <!-- quick starter, heads up, search note (unchanged) -->
-            <!-- ... your original code stays exactly as-is ... -->
+            <!-- QUICK STARTER / NOISE / POWER / CONTROL -->
+            <article class="pom-card">
+              <h2>Quick starter notes</h2>
+
+              <h3>Noise</h3>
+              <p>
+                If your miner is still running a loud stock fan, upgrading to a Noctua is the biggest quality-of-life
+                improvement you can make. It dramatically cuts noise while keeping temps stable. In my opinion, it’s
+                absolutely worth it.
+              </p>
+
+              <h3>Power</h3>
+              <p>
+                For one or two devices, the stock power bricks are usually fine. If you’re pushing heavy overclocks or
+                running multiple Bitaxe / NerdQaxe++ rigs, that’s when a Mean Well PSU becomes the right move. Once this
+                hobby grabs you and you start adding rigs, switching to a shared PSU setup just makes everything cleaner
+                and more efficient.
+              </p>
+
+              <h3>Control &amp; monitoring</h3>
+              <p>
+                Using smart strips and plugs with stock bricks lets you monitor power at the wall, schedule on/off
+                times, and remotely power-cycle rigs if something freezes. Just keep that industrial Mean Well supply on
+                normal outlets — don’t run those through consumer smart hardware.
+              </p>
+
+              <h3>Maintenance</h3>
+              <p>
+                This page gets updated whenever I add new miners, test new accessories, or find better gear. If something
+                here ever turns out to be trash, I’ll pull it — no fluff, no bag-holding.
+              </p>
+            </article>
+
+            <!-- HEADS UP / NOT ADVICE -->
+            <article class="pom-card">
+              <h2>Heads up (not advice)</h2>
+              <p>
+                Double-check wattage, amperage, and fuse ratings for your exact hardware. Don’t blindly copy my setup if
+                your miner expects something different. When in doubt, check the Bitaxe / NerdQaxe docs or ask the
+                community before wiring up a new PSU or fuse.
+              </p>
+            </article>
+
+            <!-- SEARCH-LANDING NOTE -->
+            <article class="pom-card">
+              <h2>For folks landing here from search</h2>
+              <p>
+                If you landed here from a search like “Bitaxe Mean Well”, “NerdQaxe Mean Well”, or “Bitaxe accessories”,
+                this page is meant to be a simple, honest parts list you can copy from without spending hours digging
+                through forums.
+              </p>
+            </article>
           </div>
         </section>
 
         <p class="pom-footnote">
-          Spot something I missed? Ping me on X at
+          Spot something I missed that you think belongs here? Feel free to ping me on X at
           <a href="https://x.com/proofofmike" target="_blank" rel="noopener">@ProofOfMike</a>.
         </p>
-
         <p class="pom-footer-links">
           <a href="https://proofofmike.com/">ProofOfMike.com</a>
         </p>
