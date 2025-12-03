@@ -471,34 +471,34 @@
                 </li>
               </ul>
             </article>
+<!-- FUSES & PROTECTION (UPDATED) -->
+<article class="pom-card">
+  <h2>Fuses &amp; protection</h2> 
+  <p>
+    Some NerdQaxe++ revisions shipped with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail.
+    This started with early Rev&nbsp;6 boards. Later Rev&nbsp;6 production runs (and newer revisions) removed the
+    on-board fuse completely after moving protection upstream into the PSU / XT30 input path.
+    Because of that mix, not every NerdQaxe++ has a fuse you can replace — check your own board to be sure.
+  </p>
 
-            <!-- FUSES & PROTECTION (UPDATED) -->
-            <article class="pom-card">
-              <h2>Fuses &amp; protection</h2>
-              <p>
-                Some NerdQaxe++ revisions shipped with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail.
-                Newer Rev&nbsp;6 boards moved protection into the PSU / XT30 path and dropped the on-board fuse entirely, so not
-                every NerdQaxe++ even has a fuse you can swap. Always take a look at your own board first.
-              </p>
-
-              <h3>10&nbsp;A option for OC builds</h3>
-              <ul>
-                <li>
-                  <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
-                    Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
-                  </a>
-                  – this is the 10&nbsp;A NANO2 fuse commonly used on overclocked NerdQaxe++ boards that still have the SMD fuse
-                  footprint. It only raises the fuse limit — it does not mean the VRM, traces, or ASIC can safely pull 10&nbsp;A.
-                  If you go this route, make small changes and watch temps and stability.
-                </li>
-              </ul>
-
-              <p class="pom-note">
-                Important: Overclock at your own risk. A bigger fuse just stops the fuse from being the first thing to blow.
-                It doesn’t change the actual hardware limits of the miner. If your board is a fuse-free revision, this section
-                doesn’t apply — you’ll be relying on PSU-side protection instead.
-              </p>
-            </article>
+  <h3>10&nbsp;A option for OC builds</h3>
+  <ul>
+    <li>
+      <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
+        Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
+      </a>
+      – this is the 10&nbsp;A NANO2 fuse commonly used on overclocked NerdQaxe++ boards that still include the SMD
+      fuse footprint. Keep in mind this only raises the fuse limit — it doesn’t mean the VRM, traces, or ASIC
+      can safely pull 10&nbsp;A. If you try it, make small changes and watch temps and stability closely.
+    </li>
+  </ul>
+          
+  <p class="pom-note">
+    Important: Overclock at your own risk. A higher-rated fuse just prevents the fuse from being the first failure
+    point. It does not increase the actual electrical limits of the miner. If your board is a fuse-free revision,
+    this section doesn’t apply — protection comes from the PSU instead.
+  </p>
+</article>
           </div>
 
           <!-- RIGHT COLUMN -->
