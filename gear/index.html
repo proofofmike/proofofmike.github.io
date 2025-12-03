@@ -471,14 +471,15 @@
                 </li>
               </ul>
             </article>
+          
 <!-- FUSES & PROTECTION (UPDATED) -->
 <article class="pom-card">
   <h2>Fuses &amp; protection</h2> 
   <p>
-    Some NerdQaxe++ revisions shipped with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail.
-    This started with early Rev&nbsp;6 boards. Later Rev&nbsp;6 production runs (and newer revisions) removed the
-    on-board fuse completely after moving protection upstream into the PSU / XT30 input path.
-    Because of that mix, not every NerdQaxe++ has a fuse you can replace — check your own board to be sure.
+    Some NerdQaxe++ builds ship with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail, while others
+    have no on-board fuse at all. If your board <em>does</em> have one, that’s the fuse it originally shipped with.
+    If it doesn’t, protection is handled upstream through the PSU and XT30 input path.
+    Because there were multiple production runs, the easiest way to know is simply to check your own board.
   </p>
 
   <h3>10&nbsp;A option for OC builds</h3>
@@ -487,18 +488,18 @@
       <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
         Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
       </a>
-      – this is the 10&nbsp;A NANO2 fuse commonly used on overclocked NerdQaxe++ boards that still include the SMD
-      fuse footprint. Keep in mind this only raises the fuse limit — it doesn’t mean the VRM, traces, or ASIC
-      can safely pull 10&nbsp;A. If you try it, make small changes and watch temps and stability closely.
+      – this is the common upgrade for boards that include the SMD fuse footprint. It only raises the fuse limit;
+      it does <strong>not</strong> increase what the VRM, traces, or ASIC can safely pull. If you try it, make small
+      changes and monitor temps and stability.
     </li>
   </ul>
-          
+
   <p class="pom-note">
-    Important: Overclock at your own risk. A higher-rated fuse just prevents the fuse from being the first failure
-    point. It does not increase the actual electrical limits of the miner. If your board is a fuse-free revision,
-    this section doesn’t apply — protection comes from the PSU instead.
+    Important: A higher-rated fuse won’t increase the miner’s real electrical limits — it only means the fuse won’t
+    be the first part to fail. Boards without a fuse rely entirely on PSU-side protection instead.
   </p>
 </article>
+
           </div>
 
           <!-- RIGHT COLUMN -->
