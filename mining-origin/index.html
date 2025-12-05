@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>How Bitcoin Pool & Solo Mining Evolved | Proof Of Mike</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="A short, readable history of Bitcoin pool and solo mining — cpuminer, Slush Pool, cgminer, CKPool — as remembered by someone who entered in 2014."
+    />
+    <meta
+      name="keywords"
+      content="bitcoin mining history, solo mining, pool mining, CKPool, Slush Pool, cgminer, cpuminer, Proof Of Mike"
+    />
+
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="canonical" href="https://proofofmike.com/mining-origins/" />
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5"
+      defer
+    ></script>
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="How Bitcoin Pool & Solo Mining Evolved — Proof Of Mike" />
+    <meta
+      property="og:description"
+      content="Personal, readable history of Bitcoin pool and solo mining from the early days through CKPool — as remembered by a miner who entered in 2014."
+    />
+    <!-- Adjust this OG image path once you have an asset for this page -->
+    <meta property="og:image" content="https://proofofmike.com/mining-origins/images/origins_og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:url" content="https://proofofmike.com/mining-origins/" />
+    <meta property="og:type" content="article" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="How Bitcoin Pool & Solo Mining Evolved — Proof Of Mike"
+    />
+    <meta
+      name="twitter:description"
+      content="A short, readable history of Bitcoin pool and solo mining — cpuminer, Slush Pool, cgminer, CKPool — from the perspective of a miner who arrived in 2014."
+    />
+    <meta
+      name="twitter:image"
+      content="https://proofofmike.com/mining-origins/images/origins_og.png"
+    />
+    <meta name="twitter:creator" content="@ProofOfMike" />
+
+    <!-- Page-specific styling -->
+    <style>
+      .origins-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+        gap: 1.4rem;
+        align-items: flex-start;
+      }
+
+      @media (max-width: 900px) {
+        .origins-hero {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .origins-hero-title {
+        font-size: clamp(1.9rem, 2.6vw + 0.4rem, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.45rem;
+      }
+
+      .origins-hero-subtitle {
+        font-size: 0.95rem;
+        max-width: 40rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .origins-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+      }
+
+      .origins-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        font-size: 0.78rem;
+      }
+
+      .origins-bulldog-card {
+        text-align: center;
+      }
+
+      .origins-bulldog {
+        width: 120px;
+        height: 120px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.6);
+        object-fit: cover;
+        margin-bottom: 0.6rem;
+      }
+
+      .origins-bulldog-card p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0.25rem 0;
+      }
+
+      .origins-article {
+        margin-top: 1.6rem;
+        font-size: 0.95rem;
+      }
+
+      .origins-article h2 {
+        font-size: 1.1rem;
+        margin-top: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .origins-article p {
+        margin-top: 0.35rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .origins-article ul {
+        padding-left: 1.2rem;
+        margin: 0.35rem 0 0.7rem;
+      }
+
+      .origins-article li {
+        margin-bottom: 0.18rem;
+      }
+
+      .section-break {
+        margin: 1.4rem 0 0.9rem;
+        opacity: 0.7;
+      }
+
+      .origins-footer-card a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      .origins-footer-card a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div id="site-nav"></div>
+
+      <main class="panel">
+        <section class="origins-hero">
+          <div>
+            <h1 class="origins-hero-title">A Short, Readable History of Pool &amp; Solo Mining</h1>
+            <p class="muted origins-hero-subtitle">
+              As I remember it, coming in during 2014 — how we got from “Generate Coins” in the original client
+              to cpuminer, Slush Pool, cgminer, and CKPool’s solo.ckpool.org.
+            </p>
+            <div class="origins-meta muted">
+              <span>Written from a 2014 miner’s perspective</span>
+              <span>cpuminer → Slush → cgminer → CK stack</span>
+              <span>For modern Bitaxe / NerdQaxe hobby miners</span>
+            </div>
+          </div>
+
+          <aside class="card origins-bulldog-card">
+            <img
+              src="/bulldog.jpeg"
+              alt="Bruiser the bulldog — Proof Of Mike mascot"
+              class="origins-bulldog"
+            />
+            <p><strong>Proof Of Mike</strong></p>
+            <p class="muted">
+              Home miner, CKPool enjoyer,<br />
+              and full-time rabbit hole resident.
+            </p>
+          </aside>
+        </section>
+
+        <article class="post origins-article">
+          <p>
+            If you’re new to Bitcoin hobby mining today, everything looks clean and obvious: point a Bitaxe at a pool
+            URL, open a dashboard, watch shares roll in.
+            <br />
+            Back when I came into the space — late 2014 — everything felt different.
+          </p>
+
+          <p>
+            The community lived on Bitcointalk.<br />
+            Code lived in long threads.<br />
+            Arguments, breakthroughs, bug fixes, trust relationships — all of it happened out in the open.
+          </p>
+
+          <p>
+            It reminded me of very early Bugtraq mixed with EFnet IRC fights and just enough brilliance to keep the whole
+            thing from collapsing.
+          </p>
+
+          <p>
+            And although I wasn’t around for the earliest era, you couldn’t be active in 2014 without absorbing the
+            history that got us there.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>The Very Beginning — Solo or Nothing</h2>
+
+          <p>
+            In Bitcoin’s earliest days, mining literally started inside the Bitcoin client itself.
+            There was a simple UI checkbox — “Generate Coins” — and your CPU did the rest.
+          </p>
+
+          <p>
+            I wasn’t there for that era, but you’d still hear veterans tell stories about it on Bitcointalk.
+            It was a completely different universe.
+          </p>
+
+          <p>
+            As difficulty rose, people needed something better, and that’s where the first dedicated mining tools
+            appeared.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>cpuminer — The First Real Tool</h2>
+          <p><em>Created by Jeff Garzik</em></p>
+
+          <p>
+            Before specialized hardware and before the modern ecosystem, there was <strong>cpuminer</strong>.
+          </p>
+
+          <p>
+            It was simple, command-line, accessible, and you could aim it at:
+          </p>
+          <ul>
+            <li>your own local <code>bitcoind</code>, or</li>
+            <li>early pooled services once they emerged</li>
+          </ul>
+
+          <p>
+            It proved the concept: mining could happen outside Bitcoin Core, and external tools could meaningfully
+            contribute to the network.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>Slush Pool — The First Breakthrough in Pooled Mining</h2>
+          <p><em>Created by Marek Palatinus (Slush), originally mining.bitcoin.cz</em></p>
+
+          <p>
+            Before anyone could imagine today’s global mining operations, one person made a simple but revolutionary
+            leap:
+            <br />
+            <strong>What if miners didn’t have to compete alone?</strong>
+          </p>
+
+          <p>
+            Around late 2010, Slush launched the first Bitcoin mining pool — Slush Pool. Difficulty was climbing fast,
+            and miners running CPUs (and soon GPUs) were going long stretches without rewards.
+          </p>
+
+          <p>
+            His idea fundamentally changed everything:
+          </p>
+          <ul>
+            <li>miners combined hashrate</li>
+            <li>work was distributed</li>
+            <li>payouts were shared proportionally</li>
+          </ul>
+
+          <p>
+            It sounds obvious now, but back then it was groundbreaking.
+          </p>
+
+          <p>Slush introduced concepts still used today:</p>
+          <ul>
+            <li>share difficulty</li>
+            <li>share validation</li>
+            <li>predictable reward systems (precursors to PPS, PPLNS, etc.)</li>
+            <li>centralized work coordination so miners could submit partial proofs efficiently</li>
+          </ul>
+
+          <p>It turned mining from a lottery into something reliable.</p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>cgminer — A Tool That Defined Multiple Eras</h2>
+          <p><em>Created by Con Kolivas (CK)</em></p>
+
+          <p>
+            <strong>cgminer</strong> became the tool nearly everyone used through the hardware transition era.
+          </p>
+
+          <p>It supported:</p>
+          <ul>
+            <li>GPUs</li>
+            <li>FPGAs</li>
+            <li>the early waves of ASIC hardware</li>
+          </ul>
+
+          <p>
+            cgminer wasn’t pool software — it ran on your mining hardware.
+            But its stratum behavior, drivers, workload handling, monitoring, and tuning philosophies shaped how miners
+            and pools interacted for years.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>How I Entered the Scene (Late 2014)</h2>
+
+          <p>
+            By the time I arrived in late 2014, ASICs were firmly in control.
+          </p>
+
+          <p>
+            I found my way onto Bitcointalk, bought my first miner, and fell straight down the same rabbit hole everyone
+            hits:
+          </p>
+
+          <p>
+            You start with one device.<br />
+            Then another.<br />
+            Then another “just to validate my ROI math.”
+            <br />
+            Before long you’ve turned part of your home into a mini datacenter.
+          </p>
+
+          <p>My real hardware lineup eventually included:</p>
+          <ul>
+            <li>Spondoolies SP35</li>
+            <li>Spondoolies SP20E</li>
+            <li>Bitmain S5s</li>
+            <li>Bitmain C1 w/ cooling kit</li>
+            <li>Bitcrane T110-S units</li>
+            <li>Bitmain S4</li>
+            <li>an early Bitmain S9</li>
+          </ul>
+
+          <p>I didn’t run a polished operation — I ran a garage.</p>
+
+          <p>
+            It became a roaring, overheated chamber — half sauna, half airport runway.
+            Some guys had man caves with sports memorabilia.
+            I had bread racks, floor-scattered miners, ziptied cables everywhere, my central A/C hacked into the garage,
+            and a garage door permanently cracked open in winter just to manage the heat.
+            <br />
+            <strong>Beautiful chaos.</strong>
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>The CK Stack &amp; solo.ckpool.org — Evolving Together</h2>
+          <p><em>Created by Con Kolivas (CK) with contributions from others</em></p>
+
+          <p>This is the part newer miners tend to misunderstand.</p>
+
+          <p>
+            Today, people hear “CKPool” and think only of the pooled-solo endpoint.
+            But the pool was only one piece of a broader ecosystem that grew organically over years.
+          </p>
+
+          <p>The CK toolkit eventually included:</p>
+          <ul>
+            <li><strong>ckpool</strong> — efficient pool engine</li>
+            <li><strong>ckdb</strong> — high-performance backend database</li>
+            <li><strong>ckproxy</strong> — aggregation layer for huge miner counts</li>
+            <li><strong>libck</strong> — shared C utility library used across CK’s components</li>
+            <li>various monitoring, routing, and utility components</li>
+          </ul>
+
+          <p>And here’s the important part:</p>
+
+          <p>
+            These tools and the solo pool evolved together.
+          </p>
+
+          <p>
+            Some components existed in rough form before the pool launched in 2014.
+            Others were written because the pool needed them.
+            Still others matured long after, as traffic grew and hardware evolved.
+          </p>
+
+          <p>
+            It wasn’t a top-down roadmap — it was an organic evolution inside a rapidly changing ecosystem.
+          </p>
+
+          <p>
+            CK and Slush — at completely different moments and for completely different reasons — helped shape the future
+            of Bitcoin mining long before anyone realized how significant their contributions would become.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>solo.ckpool.org — Solo Mining Without Running the Stack</h2>
+
+          <p>
+            The arrival of <strong>solo.ckpool.org</strong> changed everything for solo miners.
+          </p>
+
+          <p>
+            For the first time, you could solo-mine without:
+          </p>
+          <ul>
+            <li>running your own node</li>
+            <li>maintaining a mempool</li>
+            <li>managing block templates</li>
+            <li>hosting your own stratum server</li>
+            <li>keeping infrastructure online 24/7</li>
+          </ul>
+
+          <p>
+            If you found the block, you got the full reward (minus a small fee).
+          </p>
+
+          <p>
+            It preserved the purity of solo mining while removing the operational burden — and for hobbyists and even
+            some very large farms, that combination was magic.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>The Culture of Bitcointalk (2014–2016)</h2>
+
+          <p>Back then, everything happened on Bitcointalk:</p>
+          <ul>
+            <li>firmware</li>
+            <li>hardware sales</li>
+            <li>escrow</li>
+            <li>drama</li>
+            <li>testing</li>
+            <li>arguments</li>
+            <li>voltage tables</li>
+            <li>code discussions</li>
+          </ul>
+
+          <p>
+            It was messy, brilliant, exhausting, funny, chaotic, and collaborative.
+            If you lived through it, you remember the rhythm of it all.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>Modern Solo Mining — Many Paths, Same Foundations</h2>
+
+          <p>
+            By 2025, the mining landscape is unrecognizable compared to earlier eras.
+          </p>
+
+          <ul>
+            <li>Slush Pool → Braiins Pool (still running)</li>
+            <li>solo.ckpool.org (still nearly unchanged since 2014)</li>
+            <li>other pools appearing and disappearing</li>
+            <li>hosted solutions</li>
+            <li>GUI node stacks</li>
+            <li>containers</li>
+            <li>node appliances</li>
+            <li>cloud-based pseudo-pools</li>
+            <li>scams</li>
+          </ul>
+
+          <p>
+            Too many to catalog — and not the point of this story.
+          </p>
+
+          <p>
+            If someone wants full sovereignty today, they can still run Core/Knots from source, maintain their own
+            mempool, run their own stratum, and build the entire stack.
+            That path never left.
+          </p>
+
+          <p>What has changed is simply the volume of choices.</p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>Why CKPool Still Matters</h2>
+
+          <p>
+            Not because it’s flashy.<br />
+            Not because it’s new.<br />
+            Because it’s proven.
+          </p>
+
+          <p>
+            The origins, the architecture, the history, the trust — they give it a foundation that copy-paste pools
+            simply do not have.
+          </p>
+
+          <p>
+            So when I see someone ask:
+          </p>
+
+          <p style="margin-left:1.1rem;">
+            <em>“Why does everyone keep pointing new miners to CKPool?”</em>
+          </p>
+
+          <p>
+            …I just smile.
+            <br />
+            Once you know the history, the answer becomes obvious.
+          </p>
+
+          <p class="section-break">⸻</p>
+
+          <h2>Closing</h2>
+
+          <p>
+            This isn’t the official history — it’s how I remember it, entering in late 2014 and learning from the
+            ecosystem that came before me.
+          </p>
+
+          <p>
+            If CK ever reads this, I’d genuinely welcome corrections or additions.
+          </p>
+
+          <p>
+            And for anyone just starting out with a Bitaxe or NerdQaxe today:
+          </p>
+
+          <p>
+            <strong>Welcome.</strong><br />
+            The tools are cleaner now, but the rabbit hole is just as deep as ever.
+          </p>
+        </article>
+
+        <section class="card origins-footer-card" style="margin-top:1.6rem;">
+          <h2 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:0.14em; margin:0 0 0.6rem;">
+            More from me
+          </h2>
+          <p class="muted">
+            I’m Mike (<strong>Proof Of Mike</strong>), running a small home Bitcoin mining setup and sharing the real
+            numbers — not datacenter marketing slides.
+          </p>
+          <p class="muted" style="margin-top:0.4rem;">
+            You can find more write-ups and tools at
+            <a href="https://proofofmike.com/" target="_blank" rel="noopener noreferrer">ProofOfMike.com</a>,
+            or come say hi on X:
+            <a href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer">@ProofOfMike</a>.
+          </p>
+        </section>
+      </main>
+
+      <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/assets/nav.js"></script>
+  </body>
+</html>
