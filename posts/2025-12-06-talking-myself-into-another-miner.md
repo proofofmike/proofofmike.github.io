@@ -13,6 +13,10 @@ But I keep staring at my NerdQaxe++ Remastered Copper.
 
 I already have two of them — and I swear every time I walk past my desk I think, *man, that thing just looks ridiculous*. The red PCB, the burgundy shroud, the orange fan, all that copper… My kid is sick of hearing me say, “Look how awesome that thing looks,” but he doesn’t get it. This is art.
 
+And to really drive home how far gone I am:  
+I was cooking butternut squash ravioli for lunch today — super simple, we both love it — and I told my kid, “Look, orange! It’s a sign! We need a new NerdQaxe.”  
+He was not even slightly amused, but I think I’m hysterical.
+
 So now I’m in that internal battle:
 
 Do I actually need more hashrate?  
