@@ -122,6 +122,27 @@ header,
   text-align: center;
 }
 
+.chip-green {
+  background: rgba(0, 255, 135, 0.12);
+  border: 1px solid rgba(0, 255, 135, 0.25);
+  color: #7dffb5;
+  padding: 0.32rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chip-green::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #00ff87;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(0, 255, 135, 0.25);
+}
+
 .topbar-right .nav-link:hover,
 .rightlinks a:hover,
 .nav-dropdown-toggle:hover {
