@@ -148,7 +148,7 @@
 
         <div class="origin-chips muted">
           <span class="origin-chip">Written from a 2014 miner’s perspective</span>
-          <span class="origin-chip">cpuminer → Slush → cgminer → CK’s pool code</span>
+          <span class="origin-chip">cpuminer → Slush → cgminer → CK stack</span>
           <span class="origin-chip">For modern Bitaxe / NerdQaxe hobby miners</span>
         </div>
 
@@ -165,7 +165,7 @@
             <li><a href="#solo-ckpool">solo.ckpool.org — solo without running the stack</a></li>
             <li><a href="#bitcointalk">The culture of Bitcointalk</a></li>
             <li><a href="#modern-solo">Modern solo mining — many paths</a></li>
-            <li><a href="#why-this-stuff">Why this stuff still matters today</a></li>
+            <li><a href="#why-this-stuff">Why this stuff still matters</a></li>
             <li><a href="#closing">Closing</a></li>
           </ul>
         </section>
@@ -328,29 +328,27 @@
           <p>This is the part newer miners tend to misunderstand.</p>
           <p>
             Today, people hear “CKPool” and think only of the pooled-solo endpoint. But the pool
-            was always part of something a bit broader: a focused pool engine and a solo deployment
-            that evolved together over time.
+            was only one piece of a broader effort that grew organically over years.
           </p>
           <p>
-            CK’s codebase centers on <strong>ckpool</strong> (the pool engine) and
-            <strong>libckpool</strong> (the internal helper library it uses. There have been other
-            pieces around it over the years, but they were either experimental, short-lived, or
-            ultimately removed when they no longer matched CK’s direction.
+            CK’s pool engine (<code>ckpool</code> + <code>libckpool</code>) showed what a lean,
+            efficient Bitcoin pool could look like without a massive corporate footprint. It was a
+            focused codebase and an operational model for running a minimal-trust pool in the real
+            world. You can still see echoes of that philosophy in how modern solo setups and
+            lightweight pools are designed today.
           </p>
-          <p class="muted">
+          <p>
+            Over time, CK also built and refined <strong>solo.ckpool.org</strong> itself — the
+            pooled-solo endpoint most people know today. The pool logic, payout behavior, and
+            operational model evolved alongside the code, shaped by real-world traffic, hardware
+            changes, and lessons learned from keeping a pool online for more than a decade.
+          </p>
+          <p>
             There was, for example, a separate database project (<code>ckdb</code>) written by a
             different developer. It was used for a time, but CK later removed it entirely and does
-            not maintain or support it today.
-          </p>
-          <p>
-            What matters is that CK’s pool code and <strong>solo.ckpool.org</strong> evolved
-            together. Some parts existed in rough form before the solo pool launched in 2014;
-            others were written because the pool needed them. Still others were refined over the
-            years as traffic grew and hardware changed.
-          </p>
-          <p>
-            It wasn’t a top-down product roadmap — it was an organic evolution inside a rapidly
-            changing ecosystem.
+            not maintain or support it today. The long-lived core is <code>ckpool</code>,
+            <code>libckpool</code>, and the solo endpoint — not a big external “toolkit,” but a
+            tight pool engine and an operational philosophy that’s stood the test of time.
           </p>
           <p>
             CK and Slush — at completely different moments and for completely different reasons —
@@ -402,8 +400,7 @@
 
         <section class="card origin-card" id="modern-solo">
           <h2 class="origin-section-title">Modern solo mining — many paths, same foundations</h2>
-
-          <p>
+          <p class="muted">
             By 2025, solo mining barely resembles the world of 2010–2015. The hardware evolved,
             the software stacks exploded, and the menu of “how to solo mine” options is wider
             than ever — but nearly all of it still rests on foundations built in the early eras.
@@ -417,7 +414,7 @@
           </p>
 
           <p>
-            <strong>CK’s pool code and solo.ckpool.org</strong> continued to evolve quietly and
+            <strong>CKPool and CK’s solo endpoint</strong> continued to evolve quietly and
             efficiently. The architecture, the philosophy, and the “minimal trust surface” model
             remain familiar, but the backend has seen years of improvements: better infrastructure,
             refined code, performance tuning, and long-term operational hardening that only comes
@@ -441,7 +438,7 @@
             and running their own stratum server — the path is still there, unchanged in principle.
           </p>
 
-          <p>
+          <p class="muted">
             What has changed isn’t the philosophy — it’s the number of choices layered on top of it.
           </p>
         </section>
@@ -449,7 +446,7 @@
         <section class="card origin-card" id="why-this-stuff">
           <h2 class="origin-section-title">Why this stuff still matters today</h2>
 
-          <p>
+          <p class="muted">
             This isn’t nostalgia for old software — the early tools shaped the mining world we still
             live in. Every modern pool, every solo-mining setup, every Stratum implementation carries
             pieces of this lineage.
@@ -470,25 +467,21 @@
           </p>
 
           <p>
-            <strong>CK’s pool engine (ckpool + libckpool)</strong> showed what a lean, efficient Bitcoin
-            pool could look like without a massive corporate footprint. It was a focused codebase and an
-            operational model for running a minimal-trust pool in the real world. You can still see echoes
-            of that philosophy in how modern solo setups and lightweight pools are designed today.
+            <strong>CK’s pool engine</strong> showed what a lean, efficient Bitcoin pool could look like
+            without a massive corporate footprint. It was a focused codebase and an operational model
+            for running a minimal-trust pool in the real world. You can still see echoes of that
+            philosophy in how modern solo setups and lightweight pools are designed today.
+          </p>
+
+          <p>
+            And then there’s <strong>solo.ckpool.org</strong> — the first real pooled-solo setup (as
+            most of us think of it today). It removed the operational burden for solo miners while
+            preserving the purity of receiving the entire block reward directly. Hundreds of blocks,
+            thousands of BTC paid out, and more than a decade of uptime have built a level of trust
+            that simply can’t be forked or recreated.
           </p>
 
           <p class="muted">
-            Some smaller or private pools have historically used ckpool or derivatives of it, although
-            most operators do not publicly disclose their backend infrastructure.
-          </p>
-
-          <p>
-            And then there’s <strong>solo.ckpool.org</strong> — one of the first widely used pooled-solo
-            setups. It removed the operational burden for solo miners while preserving the purity of
-            receiving the entire block reward directly. Hundreds of blocks, thousands of BTC paid out,
-            and more than a decade of uptime built a level of trust that simply can’t be forked or recreated.
-          </p>
-
-          <p>
             That’s why these names still matter. That’s why people still recommend CKPool. That’s why
             Braiins Pool still has loyal miners. The foundation wasn’t marketing — it was engineering,
             history, and reliability earned over years.
