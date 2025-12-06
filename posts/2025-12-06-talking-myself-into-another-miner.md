@@ -20,8 +20,8 @@ No.
 Is that going to stop me?  
 Probably not.
 
-If I end up grabbing another one, it’s going to be the same model I already reviewed here:
+If I end up grabbing another one, it’s going to be the same model I already reviewed — you can see that write-up here:
 
-👉 **https://proofofmike.com/nerdqaxe-copper/**
+👉 **<https://proofofmike.com/nerdqaxe-copper/>**
 
 It just fits my setup perfectly. And let’s be honest — if I’m writing this, the decision is already 90% made.
