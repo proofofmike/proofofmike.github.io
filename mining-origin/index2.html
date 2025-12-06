@@ -356,14 +356,8 @@
   <p>
     Over time, CK also evolved how that code was actually run in production — tightening the
     architecture, tuning performance, and hardening infrastructure as hardware changed and
-    hashrate moved around. The long-lived core is <code>ckpool</code>, <code>libckpool</code>, and
-    the solo endpoint that sits on top of them.
-  </p>
-  <p>
-    There was, for example, a separate database project (<code>ckdb</code>) written by a different
-    developer. It was used for a while, but CK later removed it entirely and does not maintain or
-    support it today. What survived isn’t a big external “toolkit,” but a tight pool engine and an
-    operational philosophy that’s stood the test of time.
+    hashrate moved around. The long-lived core is <code>ckpool</code> and <code>libckpool</code> —
+    the same codebase that powers the <code>solo.ckpool.org</code> deployment.
   </p>
   <p>
     CK and Slush — at completely different moments and for completely different reasons — helped
