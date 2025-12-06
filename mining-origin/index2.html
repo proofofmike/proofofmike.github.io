@@ -335,66 +335,67 @@
           </p>
         </section>
 
-        <section class="card origin-card" id="ck-stack">
-          <h2 class="origin-section-title">
-            CK’s pool code &amp; solo.ckpool.org — evolving together
-          </h2>
-          <p class="muted">
-            <span class="origin-meta-label">Created by:</span> Con Kolivas (CK)
-          </p>
-          <p>This is the part newer miners tend to misunderstand.</p>
-          <p>
-            Today, people hear “CKPool” and think only of the pooled-solo endpoint. But the pool
-            was only one piece of a broader effort that grew organically over years.
-          </p>
-          <p>
-            CK’s pool engine (<code>ckpool</code> + <code>libckpool</code>) showed what a lean,
-            efficient Bitcoin pool could look like without a massive corporate footprint. It was a
-            focused codebase and an operational model for running a minimal-trust pool in the real
-            world. You can still see echoes of that philosophy in how modern solo setups and
-            lightweight pools are designed today.
-          </p>
-          <p>
-            Over time, CK also built and refined <strong>solo.ckpool.org</strong> itself — the
-            pooled-solo endpoint most people know today. The pool logic, payout behavior, and
-            operational model evolved alongside the code, shaped by real-world traffic, hardware
-            changes, and lessons learned from keeping a pool online for more than a decade.
-          </p>
-          <p>
-            There was, for example, a separate database project (<code>ckdb</code>) written by a
-            different developer. It was used for a time, but CK later removed it entirely and does
-            not maintain or support it today. The long-lived core is <code>ckpool</code>,
-            <code>libckpool</code>, and the solo endpoint — not a big external “toolkit,” but a
-            tight pool engine and an operational philosophy that’s stood the test of time.
-          </p>
-          <p>
-            CK and Slush — at completely different moments and for completely different reasons —
-            helped shape the future of Bitcoin mining long before anyone realized how significant
-            their contributions would become.
-          </p>
-        </section>
+<section class="card origin-card" id="ck-stack">
+  <h2 class="origin-section-title">
+    CK’s pool code — the engine behind CKPool
+  </h2>
+  <p class="muted">
+    <span class="origin-meta-label">Created by:</span> Con Kolivas (CK)
+  </p>
+  <p>This is the part newer miners tend to misunderstand.</p>
+  <p>
+    Today, people hear “CKPool” and think only of the pooled-solo endpoint. But behind that URL
+    is a lean pool engine CK built and refined over years of real traffic and real miners.
+  </p>
+  <p>
+    CK’s pool code (<code>ckpool</code> + <code>libckpool</code>) showed what an efficient Bitcoin
+    pool could look like without a massive corporate footprint. It was a focused codebase and an
+    operational model for running a minimal-trust pool in the real world. You can still see echoes
+    of that philosophy in how modern solo setups and lightweight pools are designed today.
+  </p>
+  <p>
+    Over time, CK also evolved how that code was actually run in production — tightening the
+    architecture, tuning performance, and hardening infrastructure as hardware changed and
+    hashrate moved around. The long-lived core is <code>ckpool</code>, <code>libckpool</code>, and
+    the solo endpoint that sits on top of them.
+  </p>
+  <p>
+    There was, for example, a separate database project (<code>ckdb</code>) written by a different
+    developer. It was used for a while, but CK later removed it entirely and does not maintain or
+    support it today. What survived isn’t a big external “toolkit,” but a tight pool engine and an
+    operational philosophy that’s stood the test of time.
+  </p>
+  <p>
+    CK and Slush — at completely different moments and for completely different reasons — helped
+    shape the future of Bitcoin mining long before anyone realized how significant their
+    contributions would become.
+  </p>
+</section>
 
-        <section class="card origin-card" id="solo-ckpool">
-          <h2 class="origin-section-title">
-            solo.ckpool.org — solo mining without running the stack
-          </h2>
-          <p>
-            The arrival of <strong>solo.ckpool.org</strong> changed everything for solo miners.
-          </p>
-          <p>For the first time, you could solo-mine without:</p>
-          <ul>
-            <li>running your own node</li>
-            <li>maintaining a mempool</li>
-            <li>managing block templates</li>
-            <li>hosting your own stratum server</li>
-            <li>keeping infrastructure online 24/7</li>
-          </ul>
-          <p>If you found the block, you got the full reward (minus a small fee).</p>
-          <p>
-            It preserved the purity of solo mining while removing the operational burden — and for
-            hobbyists and even some very large farms, that combination was magic.
-          </p>
-        </section>
+<section class="card origin-card" id="solo-ckpool">
+  <h2 class="origin-section-title">
+    solo.ckpool.org — solo mining without running the stack
+  </h2>
+  <p>
+    The arrival of <strong>solo.ckpool.org</strong> changed everything for solo miners.
+  </p>
+  <p>
+    If CK’s pool code was the engine, solo.ckpool.org was the on-ramp that made it accessible.
+    For the first time, you could solo-mine without:
+  </p>
+  <ul>
+    <li>running your own node</li>
+    <li>maintaining a mempool</li>
+    <li>managing block templates</li>
+    <li>hosting your own stratum server</li>
+    <li>keeping infrastructure online 24/7</li>
+  </ul>
+  <p>If you found the block, you got the full reward (minus a small fee).</p>
+  <p>
+    It preserved the purity of solo mining while removing the operational burden — and for
+    hobbyists and even some very large farms, that combination was magic.
+  </p>
+</section>
 
         <section class="card origin-card" id="bitcointalk">
           <h2 class="origin-section-title">The culture of Bitcointalk (2014–2016)</h2>
