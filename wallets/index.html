@@ -40,7 +40,6 @@
     />
     <meta property="og:url" content="https://proofofmike.com/wallets/" />
     <meta property="og:type" content="article" />
-    <!-- Swap this to an actual image later if you want -->
     <meta property="og:image" content="https://proofofmike.com/wallets/images/og_wall.png" />
 
     <!-- Twitter Card -->
@@ -60,7 +59,7 @@
       /* Wallet-page specific layout that sits on top of /styles.css */
 
       .wallet-intro {
-        max-width: 780px;
+        max-width: none; /* allow full width inside the panel card */
       }
 
       .wallet-intro-eyebrow {
@@ -73,7 +72,7 @@
       }
 
       .wallet-intro-title {
-        margin: 0;
+        margin: 0 0 0.75rem;
       }
 
       .wallet-tldr {
@@ -218,27 +217,17 @@
   </head>
 
   <body>
-    <div class="wrap">
-      <!-- Top bar with avatar -->
-      <div class="topbar">
-        <header>
-          <img
-            src="/images/bulldog.jpeg"
-            alt="Proof of Mike bulldog avatar"
-            class="avatar"
-          />
-          <div>
-            <div class="logo-text">ProofOfMike · Bitcoin · Mining · Wallets</div>
-            <h1 class="wallet-intro-title">
-              Best Bitcoin Wallets for Real People (Not Crypto Degens)
-            </h1>
-          </div>
-        </header>
-      </div>
+    <!-- Site-wide nav -->
+    <div id="site-nav"></div>
 
-      <!-- Intro / “Which one should you get?” panel -->
+    <div class="wrap">
+      <!-- Intro / “Which one should you get?” panel as top card -->
       <section class="panel">
         <div class="wallet-intro">
+          <h1 class="wallet-intro-title">
+            Best Bitcoin Wallets for Real People (Not Crypto Degens)
+          </h1>
+
           <div class="wallet-intro-eyebrow">Which one should you get?</div>
           <p>
             I’ve been around Bitcoin since 2014 and I want simple wallets that actually work and don’t
@@ -452,6 +441,8 @@
         Made by Mike (@ProofOfMike) between mining shares, football games, and bulldog snoring sessions.
       </div>
     </div>
+
+    <!-- Site nav JS -->
+    <script src="/assets/nav.js"></script>
   </body>
 </html>
-
