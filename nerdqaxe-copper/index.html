@@ -13,23 +13,41 @@
       content="NerdQaxe, NerdQaxe++, Bitaxe, Bitaxe Hex, TinyChipHub, proof of mike, ProofOfMike, home bitcoin mining, solo mining, ckpool, desk miner, copper nerdqaxe, quiet bitcoin miner"
     />
     <link rel="icon" type="image/png" href="/favicon.ico" />
-    <link rel="canonical" href="https://proofofmike.com/nerdqaxe-copper/">
+    <link rel="canonical" href="https://proofofmike.com/nerdqaxe-copper/" />
 
     <link rel="stylesheet" href="/styles.css" />
 
     <!-- Open Graph / Social Preview -->
-    <meta property="og:title" content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup">
-    <meta property="og:description" content="Real-world review of the NerdQaxe++ Remastered Full Copper — hashrate, noise, temps, tuning, and day-to-day solo mining on a home desk.">
-    <meta property="og:image" content="https://proofofmike.com/nerdqaxe-copper/images/og_nerdqaxe_preview.jpg">
-    <meta property="og:url" content="https://proofofmike.com/nerdqaxe-copper/">
-    <meta property="og:type" content="article">
+    <meta
+      property="og:title"
+      content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup"
+    />
+    <meta
+      property="og:description"
+      content="Real-world review of the NerdQaxe++ Remastered Full Copper — hashrate, noise, temps, tuning, and day-to-day solo mining on a home desk."
+    />
+    <meta
+      property="og:image"
+      content="https://proofofmike.com/nerdqaxe-copper/images/og_nerdqaxe_preview.jpg"
+    />
+    <meta property="og:url" content="https://proofofmike.com/nerdqaxe-copper/" />
+    <meta property="og:type" content="article" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup">
-    <meta name="twitter:description" content="Real-world solo mining review of the NerdQaxe++ Remastered Full Copper — tuning, hashrate, temps, noise and reliability.">
-    <meta name="twitter:image" content="https://proofofmike.com/nerdqaxe-copper/images/og_nerdqaxe_preview.jpg">
-    <meta name="twitter:creator" content="@proofofmike">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup"
+    />
+    <meta
+      name="twitter:description"
+      content="Real-world solo mining review of the NerdQaxe++ Remastered Full Copper — tuning, hashrate, temps, noise and reliability."
+    />
+    <meta
+      name="twitter:image"
+      content="https://proofofmike.com/nerdqaxe-copper/images/og_nerdqaxe_preview.jpg"
+    />
+    <meta name="twitter:creator" content="@proofofmike" />
 
     <style>
       .pom-container {
@@ -50,21 +68,6 @@
         margin-bottom: 2.5rem;
       }
 
-      .pom-hero-header {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1.6rem;
-      }
-
-      .pom-hero-header img {
-        width: 40px;
-        height: 40px;
-        border-radius: 999px;
-        object-fit: cover;
-        border: 1px solid rgba(148, 163, 255, 0.6);
-      }
-
       .pom-hero-title {
         font-size: clamp(2.25rem, 3vw + 1rem, 3.25rem);
         font-weight: 800;
@@ -76,32 +79,9 @@
       .pom-hero-subtitle {
         font-size: 1.05rem;
         line-height: 1.6;
-        max-width: none; /* let it use the whole card */
+        max-width: none; /* full width in card */
         color: #cbd5f5;
         margin: 0 0 1.6rem;
-      }
-
-      .pom-pill {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: #9ca3af;
-        margin-bottom: 0.25rem;
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      .pom-pill span.dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 999px;
-        background: #f97316;
-      }
-
-      .pom-hero-tagline {
-        font-size: 0.8rem;
-        color: #6b7280;
       }
 
       .pom-cta {
@@ -134,14 +114,14 @@
         margin-top: 0.8rem;
         font-size: 0.86rem;
         color: #9ca3af;
-        max-width: none; /* full width like hero text */
+        max-width: none; /* full width in card */
       }
 
       .pom-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
         gap: 2.5rem;
-        margin-top: 0; /* hero card already gives spacing */
+        margin-top: 0;
         align-items: flex-start;
       }
 
@@ -153,7 +133,8 @@
 
       .pom-card {
         border-radius: 1.25rem;
-        background: radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 52%),
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 52%),
           radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.12), transparent 55%),
           #020617;
         border: 1px solid rgba(148, 163, 255, 0.35);
@@ -279,24 +260,8 @@
 
       <main>
         <div class="pom-container">
-          <!-- HERO CARD -->
+          <!-- HERO CARD (no avatar/duplicate heading) -->
           <section class="pom-hero-card">
-            <div class="pom-hero-header">
-              <img
-                src="/images/bulldog.jpeg"
-                alt="Proof of Mike bulldog avatar"
-              />
-              <div>
-                <div class="pom-pill">
-                  <span class="dot"></span>
-                  <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
-                </div>
-                <div class="pom-hero-tagline">
-                  Running Bitaxe &amp; NerdQaxe gear on a quiet home desk setup.
-                </div>
-              </div>
-            </div>
-
             <h1 class="pom-hero-title">
               Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup
             </h1>
@@ -339,9 +304,9 @@
               </p>
 
               <p>
-               Noise and heat matter a lot to me — I like a quiet house, and I don’t want my office to feel like a tiny
-               datacenter. That’s a big reason I went with the <strong>full copper remaster</strong> instead of the
-               flimsy bare-board open-PCB styles you see floating around.
+                Noise and heat matter a lot to me — I like a quiet house, and I don’t want my office to feel like a tiny
+                datacenter. That’s a big reason I went with the <strong>full copper remaster</strong> instead of the
+                flimsy bare-board open-PCB styles you see floating around.
               </p>
 
               <h3>How I’m running the NerdQaxe++</h3>
@@ -362,7 +327,7 @@
                 </div>
               </div>
 
-              <h2 style="margin-top:1.8rem;">Hashrate, efficiency &amp; stability</h2>
+              <h2 style="margin-top: 1.8rem;">Hashrate, efficiency &amp; stability</h2>
 
               <h3>What I actually see day-to-day</h3>
               <p>
@@ -394,7 +359,7 @@
                 </div>
               </div>
 
-              <p style="margin-top:0.9rem;">
+              <p style="margin-top: 0.9rem;">
                 In plain English: <strong>it runs cool and quiet</strong>. I can’t really hear it unless I’m standing
                 right next to the rig. I’ve got four miners on the desk and the NerdQaxe++ Copper units are not the noisy ones.
               </p>
@@ -406,7 +371,7 @@
                 them with quick blasts of compressed air. Five minutes later they’re back online. It’s been smooth so far.
               </p>
 
-              <h2 style="margin-top:1.8rem;">Why I picked the full copper remaster</h2>
+              <h2 style="margin-top: 1.8rem;">Why I picked the full copper remaster</h2>
 
               <h3>The look (yes, it matters)</h3>
               <p>
@@ -447,7 +412,7 @@
                 all solo mining.
               </div>
 
-              <div style="height:1.3rem;"></div>
+              <div style="height: 1.3rem;"></div>
 
               <div class="pom-img-frame">
                 <img
@@ -460,7 +425,7 @@
                 sits around the low 6&nbsp;TH/s range at 750&nbsp;MHz / 1.225&nbsp;V.
               </div>
 
-              <div style="height:1.3rem;"></div>
+              <div style="height: 1.3rem;"></div>
 
               <div class="pom-img-frame">
                 <img
@@ -473,7 +438,7 @@
                 6&nbsp;TH/s over time.
               </div>
 
-              <div style="height:1.3rem;"></div>
+              <div style="height: 1.3rem;"></div>
 
               <div class="pom-img-frame">
                 <img
@@ -495,17 +460,18 @@
               to try a NerdQaxe++ Remastered Full Copper yourself, you can grab one from TinyChipHub here:
             </p>
 
-            <p style="margin-top:0.7rem;">
+            <p style="margin-top: 0.7rem;">
               <a
                 href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&amp;slt=sales_plugin_af&amp;referral_code=DV5E0IRIUVHM"
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                style="color:#f97316;text-decoration:none;font-weight:600;"
-                >NerdQaxe++ Remastered Full Copper at TinyChipHub</a
+                style="color: #f97316; text-decoration: none; font-weight: 600;"
               >
+                NerdQaxe++ Remastered Full Copper at TinyChipHub
+              </a>
             </p>
 
-            <p style="margin-top:0.5rem;">
+            <p style="margin-top: 0.5rem;">
               You can use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any miner on their
               site. You save a few bucks, and it helps me keep tinkering with home mining rigs and posting more real stats.
             </p>
@@ -528,12 +494,12 @@
       if (y) y.textContent = new Date().getFullYear();
     </script>
 
-    <!-- counter.dev analytics -->
+    <!-- Counter.dev analytics -->
     <script
       src="https://cdn.counter.dev/script.js"
       data-id="523ea628-7b77-4913-83d7-01cf3417b330"
-      data-utcoffset="-5">
-    </script>
+      data-utcoffset="-5"
+    ></script>
 
     <!-- Site nav -->
     <script src="/assets/nav.js"></script>
