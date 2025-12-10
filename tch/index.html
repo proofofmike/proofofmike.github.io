@@ -246,9 +246,7 @@
           {
             "@type": "Question",
             "name": "Which products does the code work on?",
-         
-
-          "acceptedAnswer": {
+            "acceptedAnswer": {
               "@type": "Answer",
               "text": "The code applies to miners such as Bitaxe (Gamma, Hex, Supra, Ultra), NerdQaxe++ Remastered, and Zyber 8G/8S. It does not apply to parts and cooling."
             }
@@ -271,7 +269,30 @@
     .pom-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 1.25rem 1.5rem 4rem; /* smaller top padding */
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Big hero card like solo-mining page */
+    .pom-hero-card {
+      border-radius: 2.2rem;
+      padding: 2.4rem 2.3rem 2.3rem;
+      border: 1px solid rgba(148, 163, 255, 0.5);
+      background:
+        radial-gradient(circle at top left, rgba(148, 163, 255, 0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.18), transparent 55%),
+        #020617;
+    }
+
+    .pom-hero-title {
+      font-size: clamp(2.3rem, 3.4vw + 1rem, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.75rem;
+    }
+
+    .pom-hero-meta {
+      margin: 0 0 1.1rem;
     }
 
     .pom-pill {
@@ -291,27 +312,19 @@
       background: #f97316;
     }
 
-    .pom-hero-title {
-      font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.7rem;
-    }
-
     .pom-hero-subtitle {
       font-size: 1rem;
       line-height: 1.6;
       max-width: 46rem;
       color: #cbd5f5;
+      margin: 0 0 1.5rem;
     }
 
     .pom-cta {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.85rem 1.7rem;
-      margin-top: 1.5rem;
+      padding: 0.95rem 1.9rem;
       border-radius: 999px;
       border: none;
       background: linear-gradient(135deg, #f97316, #ea580c);
@@ -333,17 +346,17 @@
     }
 
     .pom-note {
-      margin-top: 0.6rem;
-      font-size: 0.82rem;
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
       color: #9ca3af;
-      max-width: 34rem;
+      max-width: 36rem;
     }
 
     .pom-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1rem;
-      margin-top: 2.25rem;
+      margin-top: 2.4rem;
     }
 
     .pom-card {
@@ -473,61 +486,6 @@
     .pom-footer-links a:hover {
       text-decoration: underline;
     }
-
-    /* --- PAGE-SPECIFIC NAV/SPACING FIXES --- */
-
-    /* Get rid of any global top padding that pushes content down */
-    .wrap {
-      padding-top: 0;
-    }
-
-    .wrap main {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    /* Make sure the nav placeholder itself isn't adding a gap */
-    #site-nav {
-      margin-bottom: 0;
-    }
-
-    /* Ensure the first section doesn't secretly add extra top margin */
-    .pom-container > section:first-of-type {
-      margin-top: 0;
-    }
-/* --- TCH page spacing overrides --- */
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-.wrap {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-main {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-#site-nav {
-  margin-bottom: 0 !important;
-}
-
-.pom-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.75rem 1.5rem 4rem !important; /* bring everything up */
-}
-
-.pom-container > section:first-of-type {
-  margin-top: 0 !important;
-}
-
-.pom-hero-title {
-  margin: 0 0 0.7rem !important;  /* kill any big top margin on h1 */
-}
   </style>
 </head>
 <body>
@@ -537,14 +495,16 @@ main {
 
     <main>
       <div class="pom-container">
-        <!-- Hero / intro -->
-        <section>
-          <div class="pom-pill">
-            <span class="pom-pill-dot"></span>
-            <span>TinyChipHub · Bitcoin desk miners</span>
-          </div>
-
+        <!-- Hero / intro card -->
+        <section class="pom-hero-card">
           <h1 class="pom-hero-title">TinyChipHub promo code &amp; miner lineup</h1>
+
+          <div class="pom-hero-meta">
+            <span class="pom-pill">
+              <span class="pom-pill-dot"></span>
+              <span>TinyChipHub · Bitcoin desk miners</span>
+            </span>
+          </div>
 
           <p class="pom-hero-subtitle">
             Real-world home mining notes with Bitaxe, NerdQaxe++, and Zyber miners from TinyChipHub — plus the
