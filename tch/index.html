@@ -246,7 +246,9 @@
           {
             "@type": "Question",
             "name": "Which products does the code work on?",
-            "acceptedAnswer": {
+         
+
+          "acceptedAnswer": {
               "@type": "Answer",
               "text": "The code applies to miners such as Bitaxe (Gamma, Hex, Supra, Ultra), NerdQaxe++ Remastered, and Zyber 8G/8S. It does not apply to parts and cooling."
             }
@@ -269,13 +271,7 @@
     .pom-container {
       max-width: 1100px;
       margin: 0 auto;
-      /* tightened top padding to bring hero closer to nav */
-      padding: 1.5rem 1.5rem 4rem;
-    }
-
-    /* remove default top margin on first section so it doesn't add extra gap */
-    .pom-container > section:first-of-type {
-      margin-top: 0;
+      padding: 1.25rem 1.5rem 4rem; /* smaller top padding */
     }
 
     .pom-pill {
@@ -476,6 +472,28 @@
 
     .pom-footer-links a:hover {
       text-decoration: underline;
+    }
+
+    /* --- PAGE-SPECIFIC NAV/SPACING FIXES --- */
+
+    /* Get rid of any global top padding that pushes content down */
+    .wrap {
+      padding-top: 0;
+    }
+
+    .wrap main {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    /* Make sure the nav placeholder itself isn't adding a gap */
+    #site-nav {
+      margin-bottom: 0;
+    }
+
+    /* Ensure the first section doesn't secretly add extra top margin */
+    .pom-container > section:first-of-type {
+      margin-top: 0;
     }
   </style>
 </head>
