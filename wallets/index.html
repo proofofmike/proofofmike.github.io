@@ -56,13 +56,14 @@
     <meta name="twitter:image" content="https://proofofmike.com/wallets/images/og_wall.png" />
 
     <style>
-      /* Wallet-page specific layout that sits on top of /styles.css */
-
-      /* Pull nav brand + buttons together on this page only */
-      .wallets-page .topbar {
-        justify-content: flex-start;
-        gap: 1.5rem;
+      /* Make the injected nav match the main content width on this page */
+      #site-nav {
+        max-width: 1120px;
+        margin: 32px auto 24px;
+        padding: 0 20px;
       }
+
+      /* Wallet-page specific layout that sits on top of /styles.css */
 
       .wallet-intro {
         max-width: none; /* let the panel card span the full wrap width */
@@ -222,7 +223,7 @@
     </style>
   </head>
 
-  <body class="wallets-page">
+  <body>
     <!-- Shared site nav -->
     <div id="site-nav"></div>
 
