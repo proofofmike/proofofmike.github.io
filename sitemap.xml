@@ -4,17 +4,17 @@
   <!-- Core pages -->
   <url>
     <loc>https://proofofmike.com/</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/posts/</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/tch/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
@@ -24,27 +24,27 @@
 
   <url>
     <loc>https://proofofmike.com/nerdqaxe-copper/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/zyber-8g/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/hex/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/gear/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/wallets/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-10</lastmod>
   </url>
 
   <!-- NEW / evergreen pages -->
@@ -102,27 +102,6 @@
   <url>
     <loc>https://proofofmike.com/posts/2025-11-12-nerdqaxe-plus-plus-first-notes.html</loc>
     <lastmod>2025-11-11</lastmod>
-  </url>
-
-  <!-- Tag pages -->
-  <url>
-    <loc>https://proofofmike.com/tags/bitaxe.html</loc>
-    <lastmod>2025-11-12</lastmod>
-  </url>
-
-  <url>
-    <loc>https://proofofmike.com/tags/nerdqaxeplusplus.html</loc>
-    <lastmod>2025-11-12</lastmod>
-  </url>
-
-  <url>
-    <loc>https://proofofmike.com/tags/reviews.html</loc>
-    <lastmod>2025-11-12</lastmod>
-  </url>
-
-  <url>
-    <loc>https://proofofmike.com/tags/solo-mining.html</loc>
-    <lastmod>2025-11-12</lastmod>
   </url>
 
 </urlset>
