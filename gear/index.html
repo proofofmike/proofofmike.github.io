@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/gear/" />
 
-    <!-- Main site stylesheet (same pattern as other landing pages) -->
+    <!-- Main site stylesheet -->
     <link rel="stylesheet" href="/styles.css" />
 
     <!-- Open Graph / Social Preview -->
@@ -60,36 +60,18 @@
         padding: 2.5rem 1.5rem 4rem;
       }
 
-      .pom-gear-header {
-        display: flex;
-        align-items: center;
-        gap: 0.9rem;
-        margin-bottom: 1.75rem;
-      }
-
-      .pom-gear-header img {
-        width: 44px;
-        height: 44px;
-        border-radius: 999px;
-        object-fit: cover;
-        border: 1px solid rgba(148, 163, 255, 0.6);
-      }
-
-      .pom-pill {
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: #9ca3af;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      .pom-pill span.dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 999px;
-        background: #f97316;
+      /* New top hero card */
+      .pom-gear-hero-card {
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 2.2rem;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        padding: 1.9rem 1.8rem 1.9rem;
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.22), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.18), transparent 55%),
+          #020617;
+        box-shadow: 0 22px 55px rgba(15, 23, 42, 0.75);
       }
 
       h1.pom-gear-title {
@@ -97,14 +79,14 @@
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -0.03em;
-        margin: 0 0 0.65rem;
+        margin: 0 0 0.75rem;
       }
 
       .pom-gear-sub {
         font-size: 0.98rem;
         line-height: 1.7;
         color: #cbd5f5;
-        max-width: 48rem;
+        max-width: none; /* use full width inside hero card */
       }
 
       .pom-grid {
@@ -184,26 +166,32 @@
       .pom-footnote a {
         color: #38bdf8;
       }
+
+      .pom-footer-links {
+        font-size: 0.86rem;
+        color: #9ca3af;
+        margin-top: 0.4rem;
+      }
+
+      .pom-footer-links a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      .pom-footer-links a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
 
   <body>
     <main>
       <div class="pom-gear-wrap">
-        <header class="pom-gear-header">
-          <img src="/images/bulldog.jpeg" alt="Proof Of Mike bulldog avatar" />
-          <div>
-            <div class="pom-pill">
-              <span class="dot"></span>
-              <span>Proof Of Mike · home bitcoin solo-mining</span>
-            </div>
-            <div style="font-size:0.8rem;color:#6b7280;margin-top:0.1rem;">
-              Bitaxe &amp; NerdQaxe rigs on a quiet home desk.
-            </div>
-          </div>
-        </header>
+        <!-- Site-wide nav -->
+        <div id="site-nav"></div>
 
-        <section>
+        <!-- Top hero card -->
+        <section class="pom-gear-hero-card">
           <h1 class="pom-gear-title">
             Bitaxe &amp; NerdQaxe gear I use — plus parts recommended to me that check out
           </h1>
@@ -471,35 +459,34 @@
                 </li>
               </ul>
             </article>
-          
-<!-- FUSES & PROTECTION (UPDATED) -->
-<article class="pom-card">
-  <h2>Fuses &amp; protection</h2> 
-  <p>
-    Some NerdQaxe++ builds ship with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail, while others
-    have no on-board fuse at all. If your board <em>does</em> have one, that’s the fuse it originally shipped with.
-    If it doesn’t, protection is handled upstream through the PSU and XT30 input path.
-    Because there were multiple production runs, the easiest way to know is simply to check your own board.
-  </p>
 
-  <h3>10&nbsp;A option for OC builds</h3>
-  <ul>
-    <li>
-      <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
-        Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
-      </a>
-      – this is the common upgrade for boards that include the SMD fuse footprint. It only raises the fuse limit;
-      it does <strong>not</strong> increase what the VRM, traces, or ASIC can safely pull. If you try it, make small
-      changes and monitor temps and stability.
-    </li>
-  </ul>
+            <!-- FUSES & PROTECTION (UPDATED) -->
+            <article class="pom-card">
+              <h2>Fuses &amp; protection</h2>
+              <p>
+                Some NerdQaxe++ builds ship with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail, while others
+                have no on-board fuse at all. If your board <em>does</em> have one, that’s the fuse it originally shipped with.
+                If it doesn’t, protection is handled upstream through the PSU and XT30 input path.
+                Because there were multiple production runs, the easiest way to know is simply to check your own board.
+              </p>
 
-  <p class="pom-note">
-    Important: A higher-rated fuse won’t increase the miner’s real electrical limits — it only means the fuse won’t
-    be the first part to fail. Boards without a fuse rely entirely on PSU-side protection instead.
-  </p>
-</article>
+              <h3>10&nbsp;A option for OC builds</h3>
+              <ul>
+                <li>
+                  <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
+                    Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
+                  </a>
+                  – this is the common upgrade for boards that include the SMD fuse footprint. It only raises the fuse limit;
+                  it does <strong>not</strong> increase what the VRM, traces, or ASIC can safely pull. If you try it, make small
+                  changes and monitor temps and stability.
+                </li>
+              </ul>
 
+              <p class="pom-note">
+                Important: A higher-rated fuse won’t increase the miner’s real electrical limits — it only means the fuse won’t
+                be the first part to fail. Boards without a fuse rely entirely on PSU-side protection instead.
+              </p>
+            </article>
           </div>
 
           <!-- RIGHT COLUMN -->
@@ -568,5 +555,8 @@
         </p>
       </div>
     </main>
+
+    <!-- Site nav JS -->
+    <script src="/assets/nav.js"></script>
   </body>
 </html>
