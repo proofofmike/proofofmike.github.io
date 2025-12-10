@@ -269,7 +269,13 @@
     .pom-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
+      /* tightened top padding to bring hero closer to nav */
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    /* remove default top margin on first section so it doesn't add extra gap */
+    .pom-container > section:first-of-type {
+      margin-top: 0;
     }
 
     .pom-pill {
