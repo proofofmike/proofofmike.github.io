@@ -18,14 +18,6 @@
     <!-- Main site stylesheet -->
     <link rel="stylesheet" href="/styles.css" />
 
-    <!-- counter.dev analytics -->
-    <script
-      src="https://cdn.counter.dev/script.js"
-      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
-      data-utcoffset="-5"
-      defer
-    ></script>
-
     <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="Running the Bitaxe Hex — Real Hashrate, Real Setup" />
     <meta
@@ -47,12 +39,22 @@
     <meta name="twitter:creator" content="@proofofmike" />
 
     <style>
-      /* Same layout style as nerdqaxe-copper */
-
       .pom-container {
-        max-width: 960px;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 2.5rem 1.5rem 4rem;
+        padding: 1.25rem 1.5rem 4rem;
+      }
+
+      /* Big hero card like /tch and nerdqaxe-copper */
+      .pom-hero-card {
+        border-radius: 2.2rem;
+        padding: 2.4rem 2.3rem 2.3rem;
+        border: 1px solid rgba(148, 163, 255, 0.5);
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.25), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.18), transparent 55%),
+          #020617;
+        margin-bottom: 2.5rem;
       }
 
       .pom-hero-title {
@@ -60,32 +62,15 @@
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -0.03em;
-        margin-bottom: 1.25rem;
+        margin: 0 0 1rem;
       }
 
       .pom-hero-subtitle {
         font-size: 1.05rem;
         line-height: 1.6;
-        max-width: 46rem;
+        max-width: none; /* full card width */
         color: #cbd5f5;
-      }
-
-      .pom-pill {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: #9ca3af;
-        margin-bottom: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      .pom-pill span.dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 999px;
-        background: #f97316;
+        margin: 0 0 1.6rem;
       }
 
       .pom-cta {
@@ -93,7 +78,7 @@
         align-items: center;
         gap: 0.5rem;
         padding: 0.85rem 1.7rem;
-        margin-top: 1.75rem;
+        margin-top: 0.5rem;
         border-radius: 999px;
         border: none;
         background: linear-gradient(135deg, #f97316, #ea580c);
@@ -115,17 +100,17 @@
       }
 
       .pom-note {
-        margin-top: 0.6rem;
-        font-size: 0.82rem;
+        margin-top: 0.8rem;
+        font-size: 0.86rem;
         color: #9ca3af;
-        max-width: 32rem;
+        max-width: none; /* full card width */
       }
 
       .pom-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
         gap: 2.5rem;
-        margin-top: 3rem;
+        margin-top: 0;
         align-items: flex-start;
       }
 
@@ -137,11 +122,8 @@
 
       .pom-card {
         border-radius: 1.25rem;
-        background: radial-gradient(
-            circle at top left,
-            rgba(148, 163, 255, 0.16),
-            transparent 52%
-          ),
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 52%),
           radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.12), transparent 55%),
           #020617;
         border: 1px solid rgba(148, 163, 255, 0.35);
@@ -244,11 +226,8 @@
         padding: 1.5rem 1.6rem 1.7rem;
         border-radius: 1.2rem;
         border: 1px dashed rgba(148, 163, 255, 0.5);
-        background: radial-gradient(
-            circle at top left,
-            rgba(56, 189, 248, 0.16),
-            transparent 55%
-          ),
+        background:
+          radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%),
           #020617;
         font-size: 0.9rem;
         color: #e5e7eb;
@@ -271,348 +250,341 @@
       .pom-footer-links a:hover {
         text-decoration: underline;
       }
-
-      body {
-        background: radial-gradient(circle at top left, #020617 0, #020617 45%, #020617 100%);
-        color: #e5e7eb;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      }
     </style>
   </head>
 
   <body>
-    <main>
-      <div class="pom-container">
-        <!-- Simple top line with avatar + breadcrumb -->
-        <header style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
-          <img
-            src="images/bulldog.jpeg"
-            alt="Proof of Mike bulldog avatar"
-            style="width:40px;height:40px;border-radius:999px;object-fit:cover;border:1px solid rgba(148,163,255,0.6);"
-          />
-          <div>
-            <div class="pom-pill">
-              <span class="dot"></span>
-              <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
-            </div>
-            <div style="font-size:0.8rem;color:#6b7280;">
-              Running Bitaxe &amp; NerdQaxe gear on a quiet home desk setup — including hardware from Tiny Chip Hub.
-            </div>
-          </div>
-        </header>
+    <div class="wrap">
+      <!-- Site-wide nav injected by /assets/nav.js -->
+      <div id="site-nav"></div>
 
-        <!-- HERO -->
-        <section>
-          <h1 class="pom-hero-title">
-            Running the Bitaxe Hex — Real Hashrate, Real Setup &amp; Why It’s the Perfect Middle Step
-          </h1>
+      <main>
+        <div class="pom-container">
+          <!-- HERO CARD -->
+          <section class="pom-hero-card">
+            <h1 class="pom-hero-title">
+              Running the Bitaxe Hex — Real Hashrate, Real Setup &amp; Why It’s the Perfect Middle Step
+            </h1>
 
-          <p class="pom-hero-subtitle">
-            I’m Mike (“Proof of Mike”), running a small home Bitcoin mining setup with Bitaxe and NerdQaxe
-            gear. This is my real-world review of the <strong>Bitaxe Hex</strong> — the first
-            <strong>multi-chip Bitaxe</strong> ever released. Six BM1366 chips, quiet fans, and a compact stand
-            that actually belongs on a desk instead of in a garage.
-          </p>
-
-          <a
-            class="pom-cta"
-            href="https://tinychiphub.com/products/16070228613592061558063445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="icon">⚡</span>
-            <span>View Bitaxe Hex at TinyChipHub</span>
-          </a>
-
-          <p class="pom-note">
-            I run Tiny Chip Hub hardware myself. If you use my promo code
-            <strong>PROOFOFMIKE</strong>, you'll get <strong>5% off</strong> any miner they sell — and they’ll kick back a
-            small affiliate share that helps me keep solo-mining and posting real stats.
-          </p>
-        </section>
-
-        <!-- MAIN LAYOUT -->
-        <section class="pom-layout">
-          <!-- LEFT: TEXT / REVIEW -->
-          <article class="pom-card">
-            <h2>Real-world setup</h2>
-
-            <h3>My Bitaxe Hex on the desk</h3>
-            <p>
-              The Hex lives on the same desk as my Bitaxe Gamma 601 and NerdQaxe++ Remastered units, all solo mining
-              off a quiet corner in my home office. Room temp is usually around <strong>71°F</strong> — heat in the
-              winter, AC set to 70°F in the summer.
+            <p class="pom-hero-subtitle">
+              I’m Mike (“Proof of Mike”), running a small home Bitcoin mining setup with Bitaxe and NerdQaxe gear.
+              This is my real-world review of the <strong>Bitaxe Hex</strong> — the first
+              <strong>multi-chip Bitaxe</strong> ever released. Six BM1366 chips, quiet fans, and a compact stand that
+              actually belongs on a desk instead of in a garage.
             </p>
 
-            <p>
-              I care way more about <strong>comfort and stability</strong> than raw numbers. If something screams,
-              runs hot, or turns the office into a sauna, it doesn’t last. The Bitaxe Hex passes the “can I live with
-              this 24/7?” test easily.
-            </p>
-
-            <h3>How I’m running the Hex</h3>
-            <p>For this write-up, I’m running completely on stock settings:</p>
-
-            <div class="pom-metrics">
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Frequency</span>
-                <span class="pom-metric-value">550&nbsp;MHz (stock)</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Core voltage</span>
-                <span class="pom-metric-value">1.15&nbsp;V (stock)</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Fan mode</span>
-                <span class="pom-metric-value">Auto · ~25% most of the time — lots of headroom to overclock later</span>
-              </div>
-            </div>
-
-            <h2 style="margin-top:1.8rem;">Hashrate, efficiency &amp; stability</h2>
-
-            <h3>What I actually see day-to-day</h3>
-            <p>
-              With those stock settings, my Hex sits right around
-              <strong>~3.1&nbsp;TH/s sustained</strong> once it’s warmed up and settled. Short-term readings will bounce a
-              bit on the LCD, but over time the graph flattens out nicely.
-            </p>
-
-            <div class="pom-metrics">
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Hashrate</span>
-                <span class="pom-metric-value">≈3.1&nbsp;TH/s</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Power</span>
-                <span class="pom-metric-value">≈52&nbsp;W</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Efficiency</span>
-                <span class="pom-metric-value">≈17&nbsp;W/TH</span>
-              </div>
-            </div>
-
-            <p style="margin-top:0.9rem;">
-              That’s actually <strong>better than the published spec</strong>, which targets roughly 19–21&nbsp;W/TH.
-              Silicon lottery obviously plays a role, but my unit landed on the good side.
-            </p>
-
-            <h3>Thermals, fan, and comfort</h3>
-            <p>
-              Auto fan control keeps things conservative. At these settings, the fan barely spins up — it hangs around
-              the mid-20% range most of the time, which puts noise in the “small desk fan” category instead of
-              “leaf blower in a closet.”
-            </p>
-
-            <p>
-              On my Hex, the dashboard screenshot here shows
-              <strong>ASIC temps around 47&nbsp;°C</strong> and <strong>VR temps around 60&nbsp;°C</strong> at stock.
-              In plain English: <strong>cool silicon, no drama</strong>, and a fan curve that doesn’t need babysitting.
-            </p>
-
-            <p>
-              The dashboard snapshots I’ve grabbed show cool temps, low RPM, and very relaxed thermals. There’s plenty
-              of headroom here if you want to overclock in the future — I’m just keeping mine stock for now while I
-              finish other tests.
-            </p>
-
-            <h3>Maintenance and real life</h3>
-            <p>
-              This is a real house — I’ve got a kid, a bulldog, and the usual dust and pet hair that comes with both.
-              The Hex sits on the same desk I work at every day, and it just quietly does its thing.
-            </p>
-
-            <p>
-              Every few months I shut everything down, let the rigs cool off for 10–15 minutes, bring them outside, and
-              hit them with a quick blast of compressed air. That’s been more than enough to keep the Hex happy so far.
-              No clogged fans, no weird temp spikes — it just shrugs off normal life.
-            </p>
-
-            <h2 style="margin-top:1.8rem;">Why Hex is the perfect middle step</h2>
-
-            <h3>More than tiny single-chip miners, less than a big rig</h3>
-            <p>
-              Most people looking for “just a bit more hashrate” end up stuck between
-              <strong>cute little single-chip miners</strong> and <strong>serious rigs</strong>:
-            </p>
-
-            <ul>
-              <li>
-                Single-chip Bitaxe models like the Gamma and Ultra live in the ~1&nbsp;TH/s
-                class. The Hex jumps you into the 3+&nbsp;TH/s class with six BM1366 chips
-                working together.
-              </li>
-              <li>
-                NerdQaxe++ Remastered and Zyber-series rigs jump you into the
-                <strong>6+&nbsp;TH/s and 10+&nbsp;TH/s classes, respectively</strong>, very quickly.
-              </li>
-            </ul>
-
-            <p>
-              The Hex cuts a clean middle lane:
-            </p>
-            <ul>
-              <li><strong>Six BM1366 chips</strong> on one board — no shelf full of small units.</li>
-              <li><strong>3+&nbsp;TH/s</strong> at very solid efficiency, even stock.</li>
-              <li>Stays within a <strong>small PSU / normal outlet</strong> budget.</li>
-              <li>Noise profile that’s totally <strong>desk-rig acceptable</strong>.</li>
-              <li>Keeps you in the <strong>open-source Bitaxe ecosystem</strong>.</li>
-            </ul>
-
-            <p>
-              If you want more hashrate than the small single-chip miners can deliver, the Hex is the ideal middle step —
-              real power without jumping all the way up to a
-              <a href="https://proofofmike.com/nerdqaxe-copper/">NerdQaxe Remastered</a> or a
-              <a href="https://proofofmike.com/zyber-8g/">Zyber-series rig</a>.
-            </p>
-
-            <h2 style="margin-top:1.8rem;">Build quality &amp; TinyChipHub support</h2>
-
-            <h3>Hardware that feels like it’ll last</h3>
-            <p>
-              The Hex uses an <strong>ENIG (immersion gold) PCB</strong>, verified brand-new ASICs, and TinyChipHub’s
-              dual-acrylic stand with dual fans. It feels more like a small finished product than a loose dev board with
-              a fan zip-tied to it.
-            </p>
-
-            <p>
-              Firmware comes <strong>pre-tuned and tested</strong>. I recommend running what they ship unless you really
-              know what you’re doing — their builds have been stable for me across multiple miners.
-            </p>
-
-            <h3>My experience with TCH so far</h3>
-            <p>
-              Shipping, support, and communication from Tiny Chip Hub have all been solid. I’ve consistently
-              gotten <strong>replies within about a day</strong>, and every order I’ve placed has shown up
-              in roughly a week door-to-door.
-            </p>
-
-            <p>
-              One important detail: <strong>TinyChipHub uses verified brand-new ASIC chips</strong>, and in this hobby
-              that is <em>not</em> a universal standard. Some vendors rely on mixed or reclaimed batches depending on
-              availability, but TCH consistently ships new BM1366 silicon — and it shows in both stability and thermals.
-            </p>
-
-            <p>
-              I’m already running multiple TCH-built units and haven’t had a single DOA or early-life failure. I tried
-              a couple vendors before finding TCH, and the experiences were mixed. With them, I know exactly what I’m
-              getting every time: clean hardware, clean silicon, and predictable performance.
-            </p>
-          </article>
-
-          <!-- RIGHT: IMAGES & METRICS PANELS -->
-          <aside>
-            <!-- Main hero-ish desk shot -->
-            <div class="pom-img-frame">
-              <img
-                src="images/hex-main.jpeg"
-                alt="Bitaxe Hex running on Mike's desk alongside other home mining gear."
-              />
-            </div>
-            <div class="pom-caption">
-              My Bitaxe Hex on the desk — stock settings, clean airflow, and part of the same solo-mining corner as my
-              NerdQaxe++ and Gamma.
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <!-- Desk rig context shot -->
-            <div class="pom-img-frame">
-              <img
-                src="images/hex-desk-rig.jpeg"
-                alt="Bitaxe Hex running alongside two NerdQaxe++ Remastered units and a Bitaxe Gamma on Mike's desk."
-              />
-            </div>
-            <div class="pom-caption">
-              The Hex in context — sitting between two NerdQaxe++ Remastered units and a Bitaxe Gamma 601.
-              It fits the aesthetic, doesn’t dominate the noise, and adds a solid 3&nbsp;TH/s boost to the desk rig.  
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <!-- Hashrate screenshot -->
-            <div class="pom-img-frame">
-              <img
-                src="images/hex-hash.png"
-                alt="Dashboard hashrate view for the Bitaxe Hex showing around 3.1 TH/s."
-              />
-            </div>
-            <div class="pom-caption">
-              Local dashboard snapshot: warmed up and holding around 3.1&nbsp;TH/s with plenty of headroom left.
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <!-- Power + heat side by side -->
-            <div class="pom-img-grid">
-              <div class="pom-img-frame">
-                <img
-                  src="images/hex-power.png"
-                  alt="Bitaxe Hex power reading showing efficient watt draw."
-                />
-              </div>
-              <div class="pom-img-frame">
-                <img
-                  src="images/hex-heat.png"
-                  alt="Bitaxe Hex temperature and thermal view showing cool chip temps."
-                />
-              </div>
-            </div>
-            <div class="pom-caption">
-              Power and heat panels from the local dashboard — low wattage, cool silicon, and a relaxed fan curve.
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <!-- Top-down shot -->
-            <div class="pom-img-frame">
-              <img
-                src="images/hex-top.jpeg"
-                alt="Top-down view of the Bitaxe Hex showing the six-chip layout."
-              />
-            </div>
-            <div class="pom-caption">
-              Top-down look at the Hex’s dual-fan setup and acrylic stand. Clean airflow, compact footprint,
-              and the same distinctive Bitaxe layout — just in its first-ever multi-chip form.
-            </div>
-          </aside>
-        </section>
-
-        <!-- FOOTER / LINKS -->
-        <section class="pom-footer-box">
-          <p>
-            <strong>Thinking about picking one up?</strong> If you like this kind of honest, real-setup review and want
-            to try a Bitaxe Hex yourself, you can grab one from TinyChipHub:
-          </p>
-
-          <p style="margin-top:0.7rem;">
             <a
-              href="https://tinychiphub.com/products/16070228613592061558063445?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
+              class="pom-cta"
+              href="https://tinychiphub.com/products/16070228613592061558063445?source_type=sales_plugin_af&amp;slt=sales_plugin_af&amp;referral_code=DV5E0IRIUVHM"
               target="_blank"
-              rel="noopener noreferrer"
-              style="color:#f97316;text-decoration:none;font-weight:600;"
-              >Bitaxe Hex at TinyChipHub</a
+              rel="noopener noreferrer sponsored"
             >
-          </p>
+              <span class="icon">⚡</span>
+              <span>View Bitaxe Hex at TinyChipHub</span>
+            </a>
 
-          <p style="margin-top:0.5rem;">
-            Use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any miner on their
-            site. You save a few bucks, and it helps me keep tinkering with home mining rigs and posting more real stats.
-          </p>
+            <p class="pom-note">
+              I run Tiny Chip Hub hardware myself. If you use my promo code
+              <strong>PROOFOFMIKE</strong>, you'll get <strong>5% off</strong> any miner they sell — and they’ll kick back
+              a small affiliate share that helps me keep solo-mining and posting real stats.
+            </p>
+          </section>
 
-          <p style="margin-top:0.7rem;font-size:0.86rem;">
-            If you found this review helpful or want me to put another miner through its paces, feel free to ping me on X
-            at <a href="https://x.com/ProofOfMike" style="color:#38bdf8;text-decoration:none;">@ProofOfMike</a>.
-          </p>
+          <!-- MAIN LAYOUT -->
+          <section class="pom-layout">
+            <!-- LEFT: TEXT / REVIEW -->
+            <article class="pom-card">
+              <h2>Real-world setup</h2>
 
-          <div class="pom-footer-links">
-            More from me:
-            <a href="https://proofofmike.com/">ProofOfMike.com</a>
-            ·
-            <a href="https://proofofmike.com/tch/">TinyChipHub rigs overview</a>
-          </div>
-        </section>
-      </div>
-    </main>
+              <h3>My Bitaxe Hex on the desk</h3>
+              <p>
+                The Hex lives on the same desk as my Bitaxe Gamma 601 and NerdQaxe++ Remastered units, all solo mining
+                off a quiet corner in my home office. Room temp is usually around <strong>71°F</strong> — heat in the
+                winter, AC set to 70°F in the summer.
+              </p>
+
+              <p>
+                I care way more about <strong>comfort and stability</strong> than raw numbers. If something screams,
+                runs hot, or turns the office into a sauna, it doesn’t last. The Bitaxe Hex passes the “can I live with
+                this 24/7?” test easily.
+              </p>
+
+              <h3>How I’m running the Hex</h3>
+              <p>For this write-up, I’m running completely on stock settings:</p>
+
+              <div class="pom-metrics">
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Frequency</span>
+                  <span class="pom-metric-value">550&nbsp;MHz (stock)</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Core voltage</span>
+                  <span class="pom-metric-value">1.15&nbsp;V (stock)</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Fan mode</span>
+                  <span class="pom-metric-value">
+                    Auto · ~25% most of the time — lots of headroom to overclock later
+                  </span>
+                </div>
+              </div>
+
+              <h2 style="margin-top: 1.8rem;">Hashrate, efficiency &amp; stability</h2>
+
+              <h3>What I actually see day-to-day</h3>
+              <p>
+                With those stock settings, my Hex sits right around
+                <strong>~3.1&nbsp;TH/s sustained</strong> once it’s warmed up and settled. Short-term readings will bounce
+                a bit on the LCD, but over time the graph flattens out nicely.
+              </p>
+
+              <div class="pom-metrics">
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Hashrate</span>
+                  <span class="pom-metric-value">≈3.1&nbsp;TH/s</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Power</span>
+                  <span class="pom-metric-value">≈52&nbsp;W</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Efficiency</span>
+                  <span class="pom-metric-value">≈17&nbsp;W/TH</span>
+                </div>
+              </div>
+
+              <p style="margin-top: 0.9rem;">
+                That’s actually <strong>better than the published spec</strong>, which targets roughly 19–21&nbsp;W/TH.
+                Silicon lottery obviously plays a role, but my unit landed on the good side.
+              </p>
+
+              <h3>Thermals, fan, and comfort</h3>
+              <p>
+                Auto fan control keeps things conservative. At these settings, the fan barely spins up — it hangs around
+                the mid-20% range most of the time, which puts noise in the “small desk fan” category instead of
+                “leaf blower in a closet.”
+              </p>
+
+              <p>
+                On my Hex, the dashboard screenshot here shows
+                <strong>ASIC temps around 47&nbsp;°C</strong> and <strong>VR temps around 60&nbsp;°C</strong> at stock.
+                In plain English: <strong>cool silicon, no drama</strong>, and a fan curve that doesn’t need babysitting.
+              </p>
+
+              <p>
+                The dashboard snapshots I’ve grabbed show cool temps, low RPM, and very relaxed thermals. There’s plenty
+                of headroom here if you want to overclock in the future — I’m just keeping mine stock for now while I
+                finish other tests.
+              </p>
+
+              <h3>Maintenance and real life</h3>
+              <p>
+                This is a real house — I’ve got a kid, a bulldog, and the usual dust and pet hair that comes with both.
+                The Hex sits on the same desk I work at every day, and it just quietly does its thing.
+              </p>
+
+              <p>
+                Every few months I shut everything down, let the rigs cool off for 10–15 minutes, bring them outside, and
+                hit them with a quick blast of compressed air. That’s been more than enough to keep the Hex happy so far.
+                No clogged fans, no weird temp spikes — it just shrugs off normal life.
+              </p>
+
+              <h2 style="margin-top: 1.8rem;">Why Hex is the perfect middle step</h2>
+
+              <h3>More than tiny single-chip miners, less than a big rig</h3>
+              <p>
+                Most people looking for “just a bit more hashrate” end up stuck between
+                <strong>cute little single-chip miners</strong> and <strong>serious rigs</strong>:
+              </p>
+
+              <ul>
+                <li>
+                  Single-chip Bitaxe models like the Gamma and Ultra live in the ~1&nbsp;TH/s class. The Hex jumps you
+                  into the 3+&nbsp;TH/s class with six BM1366 chips working together.
+                </li>
+                <li>
+                  NerdQaxe++ Remastered and Zyber-series rigs jump you into the
+                  <strong>6+&nbsp;TH/s and 10+&nbsp;TH/s classes, respectively</strong>, very quickly.
+                </li>
+              </ul>
+
+              <p>The Hex cuts a clean middle lane:</p>
+              <ul>
+                <li><strong>Six BM1366 chips</strong> on one board — no shelf full of small units.</li>
+                <li><strong>3+&nbsp;TH/s</strong> at very solid efficiency, even stock.</li>
+                <li>Stays within a <strong>small PSU / normal outlet</strong> budget.</li>
+                <li>Noise profile that’s totally <strong>desk-rig acceptable</strong>.</li>
+                <li>Keeps you in the <strong>open-source Bitaxe ecosystem</strong>.</li>
+              </ul>
+
+              <p>
+                If you want more hashrate than the small single-chip miners can deliver, the Hex is the ideal middle step —
+                real power without jumping all the way up to a
+                <a href="https://proofofmike.com/nerdqaxe-copper/">NerdQaxe Remastered</a> or a
+                <a href="https://proofofmike.com/zyber-8g/">Zyber-series rig</a>.
+              </p>
+
+              <h2 style="margin-top: 1.8rem;">Build quality &amp; TinyChipHub support</h2>
+
+              <h3>Hardware that feels like it’ll last</h3>
+              <p>
+                The Hex uses an <strong>ENIG (immersion gold) PCB</strong>, verified brand-new ASICs, and TinyChipHub’s
+                dual-acrylic stand with dual fans. It feels more like a small finished product than a loose dev board with
+                a fan zip-tied to it.
+              </p>
+
+              <p>
+                Firmware comes <strong>pre-tuned and tested</strong>. I recommend running what they ship unless you really
+                know what you’re doing — their builds have been stable for me across multiple miners.
+              </p>
+
+              <h3>My experience with TCH so far</h3>
+              <p>
+                Shipping, support, and communication from Tiny Chip Hub have all been solid. I’ve consistently
+                gotten <strong>replies within about a day</strong>, and every order I’ve placed has shown up
+                in roughly a week door-to-door.
+              </p>
+
+              <p>
+                One important detail: <strong>TinyChipHub uses verified brand-new ASIC chips</strong>, and in this hobby
+                that is <em>not</em> a universal standard. Some vendors rely on mixed or reclaimed batches depending on
+                availability, but TCH consistently ships new BM1366 silicon — and it shows in both stability and thermals.
+              </p>
+
+              <p>
+                I’m already running multiple TCH-built units and haven’t had a single DOA or early-life failure. I tried
+                a couple vendors before finding TCH, and the experiences were mixed. With them, I know exactly what I’m
+                getting every time: clean hardware, clean silicon, and predictable performance.
+              </p>
+            </article>
+
+            <!-- RIGHT: IMAGES & METRICS PANELS -->
+            <aside>
+              <div class="pom-img-frame">
+                <img
+                  src="images/hex-main.jpeg"
+                  alt="Bitaxe Hex running on Mike's desk alongside other home mining gear."
+                />
+              </div>
+              <div class="pom-caption">
+                My Bitaxe Hex on the desk — stock settings, clean airflow, and part of the same solo-mining corner as my
+                NerdQaxe++ and Gamma.
+              </div>
+
+              <div style="height: 1.3rem;"></div>
+
+              <div class="pom-img-frame">
+                <img
+                  src="images/hex-desk-rig.jpeg"
+                  alt="Bitaxe Hex running alongside two NerdQaxe++ Remastered units and a Bitaxe Gamma on Mike's desk."
+                />
+              </div>
+              <div class="pom-caption">
+                The Hex in context — sitting between two NerdQaxe++ Remastered units and a Bitaxe Gamma 601.
+                It fits the aesthetic, doesn’t dominate the noise, and adds a solid 3&nbsp;TH/s boost to the desk rig.
+              </div>
+
+              <div style="height: 1.3rem;"></div>
+
+              <div class="pom-img-frame">
+                <img
+                  src="images/hex-hash.png"
+                  alt="Dashboard hashrate view for the Bitaxe Hex showing around 3.1 TH/s."
+                />
+              </div>
+              <div class="pom-caption">
+                Local dashboard snapshot: warmed up and holding around 3.1&nbsp;TH/s with plenty of headroom left.
+              </div>
+
+              <div style="height: 1.3rem;"></div>
+
+              <div class="pom-img-grid">
+                <div class="pom-img-frame">
+                  <img
+                    src="images/hex-power.png"
+                    alt="Bitaxe Hex power reading showing efficient watt draw."
+                  />
+                </div>
+                <div class="pom-img-frame">
+                  <img
+                    src="images/hex-heat.png"
+                    alt="Bitaxe Hex temperature and thermal view showing cool chip temps."
+                  />
+                </div>
+              </div>
+              <div class="pom-caption">
+                Power and heat panels from the local dashboard — low wattage, cool silicon, and a relaxed fan curve.
+              </div>
+
+              <div style="height: 1.3rem;"></div>
+
+              <div class="pom-img-frame">
+                <img
+                  src="images/hex-top.jpeg"
+                  alt="Top-down view of the Bitaxe Hex showing the six-chip layout."
+                />
+              </div>
+              <div class="pom-caption">
+                Top-down look at the Hex’s dual-fan setup and acrylic stand. Clean airflow, compact footprint,
+                and the same distinctive Bitaxe layout — just in its first-ever multi-chip form.
+              </div>
+            </aside>
+          </section>
+
+          <!-- FOOTER / LINKS -->
+          <section class="pom-footer-box">
+            <p>
+              <strong>Thinking about picking one up?</strong> If you like this kind of honest, real-setup review and want
+              to try a Bitaxe Hex yourself, you can grab one from TinyChipHub:
+            </p>
+
+            <p style="margin-top: 0.7rem;">
+              <a
+                href="https://tinychiphub.com/products/16070228613592061558063445?source_type=sales_plugin_af&amp;slt=sales_plugin_af&amp;referral_code=DV5E0IRIUVHM"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                style="color: #f97316; text-decoration: none; font-weight: 600;"
+              >
+                Bitaxe Hex at TinyChipHub
+              </a>
+            </p>
+
+            <p style="margin-top: 0.5rem;">
+              Use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any miner on their
+              site. You save a few bucks, and it helps me keep tinkering with home mining rigs and posting more real stats.
+            </p>
+
+            <p style="margin-top: 0.7rem; font-size: 0.86rem;">
+              If you found this review helpful or want me to put another miner through its paces, feel free to ping me on X
+              at <a href="https://x.com/ProofOfMike" style="color: #38bdf8; text-decoration: none;">@ProofOfMike</a>.
+            </p>
+
+            <div class="pom-footer-links">
+              More from me:
+              <a href="https://proofofmike.com/">ProofOfMike.com</a>
+              ·
+              <a href="https://proofofmike.com/tch/">TinyChipHub rigs overview</a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+    </div>
+
+    <script>
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    </script>
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5"
+    ></script>
+
+    <!-- Site nav -->
+    <script src="/assets/nav.js"></script>
   </body>
 </html>
