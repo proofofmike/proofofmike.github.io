@@ -15,16 +15,7 @@
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/nerdqaxe-copper/">
 
-    <!-- Assume your main site stylesheet is at /styles.css; if it’s different, keep whatever your other pages use -->
     <link rel="stylesheet" href="/styles.css" />
-
-    <!-- counter.dev analytics -->
-    <script
-      src="https://cdn.counter.dev/script.js"
-      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
-      data-utcoffset="-5"
-      defer
-    ></script>
 
     <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup">
@@ -41,12 +32,37 @@
     <meta name="twitter:creator" content="@proofofmike">
 
     <style>
-      /* Tiny page-specific tweaks so it feels like the rest of your site but still works if classes differ slightly */
-
       .pom-container {
-        max-width: 960px;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 2.5rem 1.5rem 4rem;
+        padding: 1.25rem 1.5rem 4rem;
+      }
+
+      /* Big hero card similar to /tch/ */
+      .pom-hero-card {
+        border-radius: 2.2rem;
+        padding: 2.4rem 2.3rem 2.3rem;
+        border: 1px solid rgba(148, 163, 255, 0.5);
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.25), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.18), transparent 55%),
+          #020617;
+        margin-bottom: 2.5rem;
+      }
+
+      .pom-hero-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .pom-hero-header img {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid rgba(148, 163, 255, 0.6);
       }
 
       .pom-hero-title {
@@ -54,14 +70,15 @@
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -0.03em;
-        margin-bottom: 1.25rem;
+        margin: 0 0 1rem;
       }
 
       .pom-hero-subtitle {
         font-size: 1.05rem;
         line-height: 1.6;
-        max-width: 46rem;
+        max-width: none; /* let it use the whole card */
         color: #cbd5f5;
+        margin: 0 0 1.6rem;
       }
 
       .pom-pill {
@@ -69,7 +86,7 @@
         text-transform: uppercase;
         letter-spacing: 0.14em;
         color: #9ca3af;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.25rem;
         display: flex;
         align-items: center;
         gap: 0.35rem;
@@ -82,12 +99,17 @@
         background: #f97316;
       }
 
+      .pom-hero-tagline {
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+
       .pom-cta {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         padding: 0.85rem 1.7rem;
-        margin-top: 1.75rem;
+        margin-top: 0.5rem;
         border-radius: 999px;
         border: none;
         background: linear-gradient(135deg, #f97316, #ea580c);
@@ -109,17 +131,17 @@
       }
 
       .pom-note {
-        margin-top: 0.6rem;
-        font-size: 0.82rem;
+        margin-top: 0.8rem;
+        font-size: 0.86rem;
         color: #9ca3af;
-        max-width: 32rem;
+        max-width: none; /* full width like hero text */
       }
 
       .pom-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
         gap: 2.5rem;
-        margin-top: 3rem;
+        margin-top: 0; /* hero card already gives spacing */
         align-items: flex-start;
       }
 
@@ -247,260 +269,273 @@
       .pom-footer-links a:hover {
         text-decoration: underline;
       }
-
-      body {
-        background: radial-gradient(circle at top left, #020617 0, #020617 45%, #020617 100%);
-        color: #e5e7eb;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      }
     </style>
   </head>
 
   <body>
-    <main>
-      <div class="pom-container">
-        <!-- Simple top line with avatar + breadcrumb -->
-        <header style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
-          <img
-            src="images/bulldog.jpeg"
-            alt="Proof of Mike bulldog avatar"
-            style="width:40px;height:40px;border-radius:999px;object-fit:cover;border:1px solid rgba(148,163,255,0.6);"
-          />
-          <div>
-            <div class="pom-pill">
-              <span class="dot"></span>
-              <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
-            </div>
-            <div style="font-size:0.8rem;color:#6b7280;">
-              Running Bitaxe &amp; NerdQaxe gear on a quiet home desk setup.
-            </div>
-          </div>
-        </header>
+    <div class="wrap">
+      <!-- Site-wide nav injected by /assets/nav.js -->
+      <div id="site-nav"></div>
 
-        <!-- HERO -->
-        <section>
-          <h1 class="pom-hero-title">
-            Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup
-          </h1>
-
-          <p class="pom-hero-subtitle">
-            I’m Mike (“Proof of Mike”), running a small home Bitcoin mining setup with  Bitaxe and NerdQaxe
-            gear. This is my real-world review of the
-            <strong>NerdQaxe++ Remastered Full Copper</strong> from TinyChipHub — the actual hashrate, noise, temps,
-            and what it’s like to solo mine with it on a desk.
-          </p>
-
-          <a
-            class="pom-cta"
-            href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="icon">⚡</span>
-            <span>View NerdQaxe++ Remastered Full Copper at TinyChipHub</span>
-          </a>
-
-          <p class="pom-note">
-            I bought my TinyChipHub miners myself. If you use this link or my promo code
-            PROOFOFMIKE, you'll get 5% off any miner they sell — and they’ll kick back a
-            small affiliate share that helps me keep tinkering with home mining experiments.
-          </p>
-        </section>
-
-        <!-- MAIN LAYOUT -->
-        <section class="pom-layout">
-          <!-- LEFT: TEXT / REVIEW -->
-          <article class="pom-card">
-            <h2>Real-world setup</h2>
-
-            <h3>My home mining corner</h3>
-            <p>
-              I’m running <strong>two NerdQaxe++ Remastered Full Copper units</strong> plus a Bitaxe Hex and a Bitaxe
-              Gamma 601, all on a desk in my home office. Room temp is about <strong>71°F</strong> (heat in the winter,
-              AC at 70°F in the summer).
-            </p>
-
-            <p>
-             Noise and heat matter a lot to me — I like a quiet house, and I don’t want my office to feel like a tiny
-             datacenter. That’s a big reason I went with the <strong>full copper remaster</strong> instead of the
-             flimsy bare-board open-PCB styles you see floating around.
-            </p>
-
-            <h3>How I’m running the NerdQaxe++</h3>
-            <p>For this write-up, I'll detail how my original unit is configured:</p>
-
-            <div class="pom-metrics">
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Frequency</span>
-                <span class="pom-metric-value">750&nbsp;MHz</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Core voltage</span>
-                <span class="pom-metric-value">1.225&nbsp;V (set)</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Fan mode</span>
-                <span class="pom-metric-value">Experimental PID · ~40–48%</span>
-              </div>
-            </div>
-
-
-            <h2 style="margin-top:1.8rem;">Hashrate, efficiency &amp; stability</h2>
-
-            <h3>What I actually see day-to-day</h3>
-            <p>
-              With those settings, I’m getting right around
-              <strong>~6.2&nbsp;TH/s sustained over time</strong> on this NerdQaxe++ Remastered Copper unit.
-            </p>
-
-            <p>
-              The short-term readings bounce higher (you’ll see the LCD showing 6.4–6.8&nbsp;TH/s at times), but when
-              you zoom out and look at the local 10-minute and 1-hour averages, it settles in the low 6&nbsp;TH/s range
-              with a <strong>very flat, stable graph</strong>.
-            </p>
-
-            <h3>Thermals, fan, and comfort</h3>
-            <p>At these settings, my local dashboard usually shows roughly:</p>
-
-            <div class="pom-metrics">
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">ASIC temp</span>
-                <span class="pom-metric-value">~58&nbsp;°C</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">VR temp</span>
-                <span class="pom-metric-value">~53&nbsp;°C</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Fan</span>
-                <span class="pom-metric-value">~46% (≈2,600 RPM)</span>
-              </div>
-            </div>
-
-            <p style="margin-top:0.9rem;">
-              In plain English: <strong>it runs cool and quiet</strong>. I can’t really hear it unless I’m standing
-              right next to the rig. I’ve got four miners on the desk and the NerdQaxe++ Copper units are not the noisy ones.
-            </p>
-
-            <h3>Maintenance / dust / real life</h3>
-            <p>
-              Real house, real dust, real life: I’ve got a bulldog that sheds and a tween kid that does what tween kids
-              do. Every few months I shut the miners down, carry them outside, let them cool for 10–15 minutes, and hit
-              them with quick blasts of compressed air. Five minutes later they’re back online. It’s been smooth so far.
-            </p>
-
-            <h2 style="margin-top:1.8rem;">Why I picked the full copper remaster</h2>
-
-            <h3>The look (yes, it matters)</h3>
-            <p>
-              I’m not going to pretend the aesthetics didn’t matter. The
-              <strong>red PCB, orange fan, and deep burgundy shroud</strong> on top of the exposed copper just looks
-              badass on a desk.
-            </p>
-
-            <p>
-              I don’t have a ton of people walking through my office, but when someone does, the first thing they notice
-              are the copper NerdQaxe++ units. They're a legitimate conversation starter.
-            </p>
-
-            <h3>Build quality &amp; TinyChipHub support</h3>
-            <p>
-              From the moment you pick it up, it’s obvious this thing is
-              <strong>built from better materials</strong>. It feels heavier, more solid, and clearly engineered around
-              that copper for heat dissipation.
-            </p>
-
-            <p>
-              On the support side, TinyChipHub has been great to deal with. I’ve had
-              <strong>responses within 24 hours</strong> on anything I’ve emailed about, and even with overseas
-              shipping, every unit I’ve ordered so far has landed <strong>within 7 days door-to-door</strong>.
-            </p>
-          </article>
-
-          <!-- RIGHT: IMAGES & METRICS PANELS -->
-          <aside>
-            <div class="pom-img-frame">
+      <main>
+        <div class="pom-container">
+          <!-- HERO CARD -->
+          <section class="pom-hero-card">
+            <div class="pom-hero-header">
               <img
-                src="images/nerdqaxe-desk-rig.jpg"
-                alt="Two NerdQaxe++ Remastered Full Copper miners, Bitaxe Hex, and Bitaxe Gamma 601 on Mike's home mining desk."
+                src="/images/bulldog.jpeg"
+                alt="Proof of Mike bulldog avatar"
               />
-            </div>
-            <div class="pom-caption">
-              My current desk setup: two NerdQaxe++ Remastered Full Coppers, a Bitaxe Hex, and a Bitaxe Gamma 601,
-              all solo mining.
-            </div>
-
-            <div style="height:1.3rem;"></div>
-
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-close-648-ghs.jpg"
-                alt="Close-up of NerdQaxe++ LCD showing around 6.48 TH/s with temps and voltage."
-              />
-            </div>
-            <div class="pom-caption">
-              Close-up of the NerdQaxe++ copper LCD while warmed up. Short-term hashrate floats higher, long-term average
-              sits around the low 6&nbsp;TH/s range at 750&nbsp;MHz / 1.225&nbsp;V.
+              <div>
+                <div class="pom-pill">
+                  <span class="dot"></span>
+                  <span>PROOFOFMIKE · HOME BITCOIN SOLO MINING</span>
+                </div>
+                <div class="pom-hero-tagline">
+                  Running Bitaxe &amp; NerdQaxe gear on a quiet home desk setup.
+                </div>
+              </div>
             </div>
 
-            <div style="height:1.3rem;"></div>
+            <h1 class="pom-hero-title">
+              Running the NerdQaxe++ Remastered Full Copper — Real Feedback, Real Results, Real Setup
+            </h1>
 
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-hashrate-chart-750-1225.png"
-                alt="Local hashrate chart at 750 MHz and 1.225 V showing a stable line around 6 TH/s."
-              />
-            </div>
-            <div class="pom-caption">
-              Local 10-minute and 1-hour hashrate chart at 750&nbsp;MHz / 1.225&nbsp;V — nice and flat, right around
-              6&nbsp;TH/s over time.
-            </div>
+            <p class="pom-hero-subtitle">
+              I’m Mike (“Proof of Mike”), running a small home Bitcoin mining setup with Bitaxe and NerdQaxe
+              gear. This is my real-world review of the
+              <strong>NerdQaxe++ Remastered Full Copper</strong> from TinyChipHub — the actual hashrate, noise, temps,
+              and what it’s like to solo mine with it on a desk.
+            </p>
 
-            <div style="height:1.3rem;"></div>
-
-            <div class="pom-img-frame">
-              <img
-                src="images/nerdqaxe-power-heat-performance-750-1225.png"
-                alt="Power, heat, and performance gauges for the NerdQaxe++ Remastered Full Copper at 750 MHz."
-              />
-            </div>
-            <div class="pom-caption">
-              Power, heat, and performance snapshot from the local dashboard at these settings — cool silicon, reasonable
-              power draw, and a fan that doesn’t scream.
-            </div>
-          </aside>
-        </section>
-
-        <!-- FOOTER / LINKS -->
-        <section class="pom-footer-box">
-          <p>
-            <strong>Thinking about picking one up?</strong> If you like this kind of honest, real-setup review and want
-            to try a NerdQaxe++ Remastered Full Copper yourself, you can grab one from TinyChipHub here:
-          </p>
-
-          <p style="margin-top:0.7rem;">
             <a
-              href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&slt=sales_plugin_af&referral_code=DV5E0IRIUVHM"
+              class="pom-cta"
+              href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&amp;slt=sales_plugin_af&amp;referral_code=DV5E0IRIUVHM"
               target="_blank"
-              rel="noopener noreferrer"
-              style="color:#f97316;text-decoration:none;font-weight:600;"
-              >NerdQaxe++ Remastered Full Copper at TinyChipHub</a
+              rel="noopener noreferrer sponsored"
             >
-          </p>
+              <span class="icon">⚡</span>
+              <span>View NerdQaxe++ Remastered Full Copper at TinyChipHub</span>
+            </a>
 
-          <p style="margin-top:0.5rem;">
-            You can use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any miner on their
-            site. You save a few bucks, and it helps me keep tinkering with home mining rigs and posting more real stats.
-          </p>
+            <p class="pom-note">
+              I bought my TinyChipHub miners myself. If you use this link or my promo code
+              <strong>PROOFOFMIKE</strong>, you'll get 5% off any miner they sell — and they’ll kick back a
+              small affiliate share that helps me keep tinkering with home mining experiments.
+            </p>
+          </section>
 
-          <div class="pom-footer-links">
-            More from me:
-            <a href="https://proofofmike.com/">ProofOfMike.com</a>
-            ·
-            <a href="https://proofofmike.com/tch/">TinyChipHub rigs overview</a>
-          </div>
-        </section>
-      </div>
-    </main>
+          <!-- MAIN LAYOUT -->
+          <section class="pom-layout">
+            <!-- LEFT: TEXT / REVIEW -->
+            <article class="pom-card">
+              <h2>Real-world setup</h2>
+
+              <h3>My home mining corner</h3>
+              <p>
+                I’m running <strong>two NerdQaxe++ Remastered Full Copper units</strong> plus a Bitaxe Hex and a Bitaxe
+                Gamma 601, all on a desk in my home office. Room temp is about <strong>71°F</strong> (heat in the winter,
+                AC at 70°F in the summer).
+              </p>
+
+              <p>
+               Noise and heat matter a lot to me — I like a quiet house, and I don’t want my office to feel like a tiny
+               datacenter. That’s a big reason I went with the <strong>full copper remaster</strong> instead of the
+               flimsy bare-board open-PCB styles you see floating around.
+              </p>
+
+              <h3>How I’m running the NerdQaxe++</h3>
+              <p>For this write-up, I'll detail how my original unit is configured:</p>
+
+              <div class="pom-metrics">
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Frequency</span>
+                  <span class="pom-metric-value">750&nbsp;MHz</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Core voltage</span>
+                  <span class="pom-metric-value">1.225&nbsp;V (set)</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Fan mode</span>
+                  <span class="pom-metric-value">Experimental PID · ~40–48%</span>
+                </div>
+              </div>
+
+              <h2 style="margin-top:1.8rem;">Hashrate, efficiency &amp; stability</h2>
+
+              <h3>What I actually see day-to-day</h3>
+              <p>
+                With those settings, I’m getting right around
+                <strong>~6.2&nbsp;TH/s sustained over time</strong> on this NerdQaxe++ Remastered Copper unit.
+              </p>
+
+              <p>
+                The short-term readings bounce higher (you’ll see the LCD showing 6.4–6.8&nbsp;TH/s at times), but when
+                you zoom out and look at the local 10-minute and 1-hour averages, it settles in the low 6&nbsp;TH/s range
+                with a <strong>very flat, stable graph</strong>.
+              </p>
+
+              <h3>Thermals, fan, and comfort</h3>
+              <p>At these settings, my local dashboard usually shows roughly:</p>
+
+              <div class="pom-metrics">
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">ASIC temp</span>
+                  <span class="pom-metric-value">~58&nbsp;°C</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">VR temp</span>
+                  <span class="pom-metric-value">~53&nbsp;°C</span>
+                </div>
+                <div class="pom-metric-pill">
+                  <span class="pom-metric-label">Fan</span>
+                  <span class="pom-metric-value">~46% (≈2,600 RPM)</span>
+                </div>
+              </div>
+
+              <p style="margin-top:0.9rem;">
+                In plain English: <strong>it runs cool and quiet</strong>. I can’t really hear it unless I’m standing
+                right next to the rig. I’ve got four miners on the desk and the NerdQaxe++ Copper units are not the noisy ones.
+              </p>
+
+              <h3>Maintenance / dust / real life</h3>
+              <p>
+                Real house, real dust, real life: I’ve got a bulldog that sheds and a tween kid that does what tween kids
+                do. Every few months I shut the miners down, carry them outside, let them cool for 10–15 minutes, and hit
+                them with quick blasts of compressed air. Five minutes later they’re back online. It’s been smooth so far.
+              </p>
+
+              <h2 style="margin-top:1.8rem;">Why I picked the full copper remaster</h2>
+
+              <h3>The look (yes, it matters)</h3>
+              <p>
+                I’m not going to pretend the aesthetics didn’t matter. The
+                <strong>red PCB, orange fan, and deep burgundy shroud</strong> on top of the exposed copper just looks
+                badass on a desk.
+              </p>
+
+              <p>
+                I don’t have a ton of people walking through my office, but when someone does, the first thing they notice
+                are the copper NerdQaxe++ units. They're a legitimate conversation starter.
+              </p>
+
+              <h3>Build quality &amp; TinyChipHub support</h3>
+              <p>
+                From the moment you pick it up, it’s obvious this thing is
+                <strong>built from better materials</strong>. It feels heavier, more solid, and clearly engineered around
+                that copper for heat dissipation.
+              </p>
+
+              <p>
+                On the support side, TinyChipHub has been great to deal with. I’ve had
+                <strong>responses within 24 hours</strong> on anything I’ve emailed about, and even with overseas
+                shipping, every unit I’ve ordered so far has landed <strong>within 7 days door-to-door</strong>.
+              </p>
+            </article>
+
+            <!-- RIGHT: IMAGES & METRICS PANELS -->
+            <aside>
+              <div class="pom-img-frame">
+                <img
+                  src="images/nerdqaxe-desk-rig.jpg"
+                  alt="Two NerdQaxe++ Remastered Full Copper miners, Bitaxe Hex, and Bitaxe Gamma 601 on Mike's home mining desk."
+                />
+              </div>
+              <div class="pom-caption">
+                My current desk setup: two NerdQaxe++ Remastered Full Coppers, a Bitaxe Hex, and a Bitaxe Gamma 601,
+                all solo mining.
+              </div>
+
+              <div style="height:1.3rem;"></div>
+
+              <div class="pom-img-frame">
+                <img
+                  src="images/nerdqaxe-close-648-ghs.jpg"
+                  alt="Close-up of NerdQaxe++ LCD showing around 6.48 TH/s with temps and voltage."
+                />
+              </div>
+              <div class="pom-caption">
+                Close-up of the NerdQaxe++ copper LCD while warmed up. Short-term hashrate floats higher, long-term average
+                sits around the low 6&nbsp;TH/s range at 750&nbsp;MHz / 1.225&nbsp;V.
+              </div>
+
+              <div style="height:1.3rem;"></div>
+
+              <div class="pom-img-frame">
+                <img
+                  src="images/nerdqaxe-hashrate-chart-750-1225.png"
+                  alt="Local hashrate chart at 750 MHz and 1.225 V showing a stable line around 6 TH/s."
+                />
+              </div>
+              <div class="pom-caption">
+                Local 10-minute and 1-hour hashrate chart at 750&nbsp;MHz / 1.225&nbsp;V — nice and flat, right around
+                6&nbsp;TH/s over time.
+              </div>
+
+              <div style="height:1.3rem;"></div>
+
+              <div class="pom-img-frame">
+                <img
+                  src="images/nerdqaxe-power-heat-performance-750-1225.png"
+                  alt="Power, heat, and performance gauges for the NerdQaxe++ Remastered Full Copper at 750 MHz."
+                />
+              </div>
+              <div class="pom-caption">
+                Power, heat, and performance snapshot from the local dashboard at these settings — cool silicon, reasonable
+                power draw, and a fan that doesn’t scream.
+              </div>
+            </aside>
+          </section>
+
+          <!-- FOOTER / LINKS -->
+          <section class="pom-footer-box">
+            <p>
+              <strong>Thinking about picking one up?</strong> If you like this kind of honest, real-setup review and want
+              to try a NerdQaxe++ Remastered Full Copper yourself, you can grab one from TinyChipHub here:
+            </p>
+
+            <p style="margin-top:0.7rem;">
+              <a
+                href="https://tinychiphub.com/products/nerdqaxe-remastered-edition?source_type=sales_plugin_af&amp;slt=sales_plugin_af&amp;referral_code=DV5E0IRIUVHM"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                style="color:#f97316;text-decoration:none;font-weight:600;"
+                >NerdQaxe++ Remastered Full Copper at TinyChipHub</a
+              >
+            </p>
+
+            <p style="margin-top:0.5rem;">
+              You can use code <strong>PROOFOFMIKE</strong> at checkout for <strong>5% off</strong> any miner on their
+              site. You save a few bucks, and it helps me keep tinkering with home mining rigs and posting more real stats.
+            </p>
+
+            <div class="pom-footer-links">
+              More from me:
+              <a href="https://proofofmike.com/">ProofOfMike.com</a>
+              ·
+              <a href="https://proofofmike.com/tch/">TinyChipHub rigs overview</a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+    </div>
+
+    <script>
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    </script>
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5">
+    </script>
+
+    <!-- Site nav -->
+    <script src="/assets/nav.js"></script>
   </body>
 </html>
