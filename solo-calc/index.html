@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Solo Bitcoin mining odds calculator — plug in your hashrate to estimate average time-to-block, probability over time, and expected value at current network difficulty."
+      content="Solo Bitcoin mining odds calculator — plug in your hashrate to estimate average time-to-block, probability over time, and expected value at current network conditions."
     />
     <meta
       name="keywords"
@@ -206,7 +206,7 @@
   <body>
     <div class="wrap">
       <div id="site-nav"></div>
-      <!-- keep the rest of the page content that used to come after .topbar -->
+
       <main class="panel">
         <h1 class="calc-hero-title">Solo Bitcoin Mining Odds Calculator</h1>
         <p class="muted calc-hero-subtitle">
@@ -216,7 +216,7 @@
         </p>
 
         <div class="calc-meta muted">
-          <span><span class="calc-dot"></span> Uses live network data (mempool.space + CoinGecko)</span>
+          <span><span class="calc-dot"></span> Uses live network data (mempool.space)</span>
           <span>Assumes constant difficulty and block reward</span>
           <span>Solo pools only (no PPS, no merged mining)</span>
         </div>
@@ -242,14 +242,14 @@
               <div class="calc-field">
                 <label for="pool">Solo pool / fee</label>
                 <select id="pool">
-                  <option value="0">I'm running my own node · 0% fee</option>
-                  <option value="0.02">Solo CKPool · 2% fee</option>
-                  <option value="0.02">Ocean · 2% fee</option>
-                  <option value="0.01">Ocean + Datum · 1% fee</option>
-                  <option value="0.01">ViaBTC Solo · 1% fee</option>
+                  <option value="0">0% — My own node</option>
+                  <option value="0.01">1% — Ocean + Datum, ViaBTC Solo</option>
+                  <option value="0.02">2% — Solo CKPool, Ocean</option>
                   <option value="custom">Custom fee…</option>
                 </select>
-                <div class="calc-helper">Fee only affects expected value, not the underlying odds.</div>
+                <div class="calc-helper">
+                  Pool fee only affects expected value, not the underlying odds.
+                </div>
               </div>
 
               <div class="calc-field" id="custom-fee-wrap" style="display:none;">
@@ -339,12 +339,27 @@
           This is a toy model for estimating solo-mining odds — not financial advice, not a guarantee, and not a
           promise that your luck will behave. Bitcoin doesn’t care about our spreadsheets.
         </div>
-        <div class="pom-footer" style="margin-top:1rem;">
-          If you're thinking of adding another home miner, I keep a full updated list of 
-          Bitaxe, NerdQaxe++, and Zyber models in my 
-          <a href="/tch/" style="color:#f97316;font-weight:600;">TinyChipHub guide</a>
-          — includes a <strong>5% off code (PROOFOFMIKE)</strong> that works once per person.
-        </div>
+
+        <!-- More from Mike card -->
+        <section style="margin-top:1.5rem;">
+          <article class="card calc-card">
+            <h2>More from me</h2>
+            <p class="muted" style="margin-bottom:0.6rem;">
+              I'm Mike (<strong>Proof Of Mike</strong>), running a small home Bitcoin mining setup and sharing the real
+              numbers — good luck streaks, dry spells, and everything in between.
+            </p>
+            <p class="muted" style="margin-bottom:0.6rem;">
+              If you're thinking of adding another home miner, I keep a running list of Bitaxe, NerdQaxe++, and Zyber
+              models in my
+              <a href="/tch/" style="color:#f97316;font-weight:600;">TinyChipHub guide</a>. It also explains the
+              maximum currently available discount code: <strong>PROOFOFMIKE</strong>.
+            </p>
+            <p class="muted">
+              You can find more write-ups and tools at <strong>ProofOfMike.com</strong>, or come say hi on X:
+              <a href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer" style="color:#f97316;font-weight:600;">@ProofOfMike</a>.
+            </p>
+          </article>
+        </section>
       </main>
 
       <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
@@ -404,10 +419,10 @@
       const customFeeWrap = document.getElementById("custom-fee-wrap");
       const customFeeInput = document.getElementById("customFee");
 
-      // Fetch network hashrate, block reward, and BTC price
+      // Fetch network hashrate, block reward, and BTC price (all from mempool.space)
       async function fetchNetworkData() {
         try {
-          // 1) Network hashrate from mempool.space (current estimate)
+          // 1) Network hashrate (current estimate)
           const hashRes = await fetch("https://mempool.space/api/v1/mining/hashrate/3d");
           if (!hashRes.ok) throw new Error("Hashrate fetch failed");
           const hashJson = await hashRes.json();
@@ -431,15 +446,13 @@
             // Ignore and keep default
           }
 
-          // 3) BTC price (CoinGecko simple API)
+          // 3) BTC price via mempool.space
           try {
-            const priceRes = await fetch(
-              "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-            );
+            const priceRes = await fetch("https://mempool.space/api/v1/prices");
             if (priceRes.ok) {
               const priceJson = await priceRes.json();
-              if (priceJson.bitcoin && typeof priceJson.bitcoin.usd === "number") {
-                btcPriceUsd = priceJson.bitcoin.usd;
+              if (priceJson.USD && typeof priceJson.USD === "number") {
+                btcPriceUsd = priceJson.USD;
               }
             }
           } catch (e) {
@@ -489,8 +502,7 @@
           const netBtc = blockRewardBtc * (1 - fee);
           netRewardBtcEl.textContent = netBtc.toFixed(3) + " BTC";
           if (btcPriceUsd != null) {
-            netRewardUsdEl.textContent =
-              "$" + formatNumber(netBtc * btcPriceUsd, 0);
+            netRewardUsdEl.textContent = "$" + formatNumber(netBtc * btcPriceUsd, 0);
           } else {
             netRewardUsdEl.textContent = "–";
           }
@@ -499,6 +511,7 @@
 
         // Per-block success probability p
         const p = userTH / networkHashrateTH;
+
         // Expected blocks per day: 144
         const blocksPerDay = 144;
         const lambdaDay = p * blocksPerDay;
@@ -519,8 +532,7 @@
         const netBtc = blockRewardBtc * (1 - fee);
         netRewardBtcEl.textContent = netBtc.toFixed(3) + " BTC";
         if (btcPriceUsd != null) {
-          netRewardUsdEl.textContent =
-            "$" + formatNumber(netBtc * btcPriceUsd, 0);
+          netRewardUsdEl.textContent = "$" + formatNumber(netBtc * btcPriceUsd, 0);
         } else {
           netRewardUsdEl.textContent = "–";
         }
