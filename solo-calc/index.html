@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Solo Bitcoin mining odds calculator — plug in your hashrate to estimate average time-to-block, probability over time, and expected value at current network conditions."
+      content="Solo Bitcoin mining odds calculator — plug in your hashrate to estimate average time-to-block, probability, and expected value at current network conditions."
     />
     <meta
       name="keywords"
@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/solo-calc/" />
 
-    <!-- Use the same global stylesheet as the rest of the site -->
+    <!-- Global stylesheet -->
     <link rel="stylesheet" href="/assets/styles.css" />
 
     <!-- counter.dev analytics -->
@@ -26,21 +26,20 @@
       defer
     ></script>
 
-    <!-- Small, local styles just for calculator layout -->
+    <!-- Page-local styles -->
     <style>
       .calc-hero-title {
         font-size: clamp(1.9rem, 2.6vw + 0.4rem, 2.5rem);
         font-weight: 800;
         letter-spacing: -0.03em;
         margin: 0 0 0.65rem;
-        text-align: center;
+        text-align: left;
       }
 
       .calc-hero-subtitle {
         font-size: 0.95rem;
-        max-width: 40rem;
-        margin: 0 auto 1.4rem;
-        text-align: center;
+        margin: 0 0 1.4rem;
+        text-align: left;
       }
 
       .calc-meta {
@@ -49,8 +48,7 @@
         gap: 0.5rem;
         font-size: 0.8rem;
         margin-top: 0.4rem;
-        justify-content: center;
-        text-align: center;
+        justify-content: left;
       }
 
       .calc-meta span {
@@ -59,26 +57,26 @@
         gap: 0.35rem;
         padding: 0.2rem 0.55rem;
         border-radius: 999px;
-        border: 1px solid rgba(148, 163, 255, 0.35);
+        border: 1px solid rgba(148,163,255,0.35);
         font-size: 0.78rem;
       }
 
       .calc-layout {
         display: grid;
-        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+        grid-template-columns: minmax(0,1.4fr) minmax(0,1.1fr);
         gap: 1.25rem;
         margin-top: 1.4rem;
       }
 
       @media (max-width: 900px) {
         .calc-layout {
-          grid-template-columns: minmax(0, 1fr);
+          grid-template-columns: minmax(0,1fr);
         }
       }
 
       .calc-card {
         border-radius: 12px;
-        border: 1px solid rgba(148, 163, 255, 0.35);
+        border: 1px solid rgba(148,163,255,0.35);
         padding: 1.1rem 1.1rem 1.3rem;
       }
 
@@ -96,7 +94,7 @@
 
       .calc-field-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
         gap: 0.9rem;
         margin-top: 0.4rem;
       }
@@ -108,25 +106,13 @@
         font-size: 0.86rem;
       }
 
-      .calc-field label {
-        font-weight: 500;
-      }
-
       .calc-field input,
       .calc-field select {
         border-radius: 0.5rem;
-        border: 1px solid rgba(148, 163, 255, 0.6);
+        border: 1px solid rgba(148,163,255,0.6);
         background: #020617;
         color: #e5e7eb;
         padding: 0.45rem 0.6rem;
-        font-size: 0.9rem;
-      }
-
-      .calc-field input:focus,
-      .calc-field select:focus {
-        outline: none;
-        border-color: #f97316;
-        box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.35);
       }
 
       .calc-helper {
@@ -139,20 +125,20 @@
         font-size: 0.8rem;
         color: #9ca3af;
         border-radius: 0.75rem;
-        border: 1px dashed rgba(148, 163, 255, 0.4);
+        border: 1px dashed rgba(148,163,255,0.4);
         padding: 0.75rem 0.85rem;
       }
 
       .calc-results-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
         gap: 0.75rem;
         margin-top: 0.8rem;
       }
 
       .calc-pill {
         border-radius: 0.8rem;
-        border: 1px solid rgba(148, 163, 255, 0.35);
+        border: 1px solid rgba(148,163,255,0.35);
         padding: 0.7rem 0.8rem;
         font-size: 0.85rem;
       }
@@ -170,32 +156,25 @@
         font-size: 0.96rem;
       }
 
-      .calc-small {
-        font-size: 0.78rem;
-        color: #9ca3af;
-        margin-top: 0.7rem;
-      }
-
       .calc-live {
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
         font-size: 0.8rem;
-        margin-top: 0.2rem;
       }
 
       .calc-dot {
         width: 7px;
         height: 7px;
         border-radius: 999px;
-        background: #22c55e;
-        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+        background:#22c55e;
+        box-shadow:0 0 0 4px rgba(34,197,94,0.25);
       }
 
       .calc-footer {
-        font-size: 0.8rem;
-        color: #9ca3af;
-        margin-top: 1.4rem;
+        font-size:0.8rem;
+        color:#9ca3af;
+        margin-top:1.4rem;
       }
     </style>
 
@@ -214,9 +193,10 @@
       <main class="panel">
         <h1 class="calc-hero-title">Solo Bitcoin Mining Odds Calculator</h1>
         <p class="muted calc-hero-subtitle">
-          Plug in your hashrate and pool choice to get rough estimates for how long it might take to find a block solo —
-          plus the probability of finding at least one block over different time windows. This is just math on top of
-          the current network snapshot, not a guarantee of anything.
+          Plug in your hashrate and pool choice to get rough estimates for how long it might
+          take to find a block solo — plus the probability of finding at least one block over
+          different time windows. This is just math on top of the current network snapshot,
+          not a guarantee of anything.
         </p>
 
         <div class="calc-meta muted">
@@ -226,20 +206,14 @@
         </div>
 
         <section class="calc-layout">
-          <!-- LEFT: Inputs -->
+          <!-- LEFT COLUMN -->
           <article class="card calc-card">
             <h2>Inputs</h2>
 
             <div class="calc-field-grid">
               <div class="calc-field">
                 <label for="hashrate">Your hashrate</label>
-                <input
-                  id="hashrate"
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  placeholder="e.g. 16"
-                />
+                <input id="hashrate" type="number" min="0" step="0.01" placeholder="e.g. 16" />
                 <div class="calc-helper">In TH/s (terahashes per second).</div>
               </div>
 
@@ -251,32 +225,22 @@
                   <option value="0.02">2% — Solo CKPool</option>
                   <option value="custom">Custom fee…</option>
                 </select>
-                <div class="calc-helper">
-                  Pool fee only affects expected value, not the underlying odds.
-                </div>
+                <div class="calc-helper">Pool fee only affects expected value.</div>
               </div>
 
               <div class="calc-field" id="custom-fee-wrap" style="display:none;">
                 <label for="customFee">Custom pool fee</label>
-                <input
-                  id="customFee"
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="0.1"
-                  placeholder="e.g. 1.5"
-                />
-                <div class="calc-helper">Percentage of block reward taken as fee (0–100).</div>
+                <input id="customFee" type="number" min="0" max="100" step="0.1" placeholder="e.g. 1.5" />
+                <div class="calc-helper">Percentage of block reward (0–100%).</div>
               </div>
             </div>
 
             <div class="calc-note-box">
-              <strong>Tip:</strong> Leave hashrate empty to just see the live network stats on the right. Once you add
-              your TH/s, the calculator will fill in your odds and estimated timelines.
+              <strong>Tip:</strong> Leave hashrate empty to just see live network stats on the right.
             </div>
           </article>
 
-          <!-- RIGHT: Results + live data -->
+          <!-- RIGHT COLUMN -->
           <article class="card calc-card">
             <h2>Network snapshot &amp; odds</h2>
 
@@ -332,40 +296,41 @@
               This calculator assumes:
               <ul style="padding-left:1.1rem;margin:0.4rem 0 0;">
                 <li>Constant difficulty and block reward.</li>
-                <li>Standard ~10-minute average block time.</li>
-                <li>No transaction fees included (those are too volatile).</li>
+                <li>~10-minute block average.</li>
+                <li>No transaction fees included.</li>
               </ul>
             </div>
           </article>
         </section>
 
-        <!-- Important note card -->
+        <!-- Important Note -->
         <section style="margin-top:1.5rem;">
           <article class="card calc-card">
             <h2>Important note</h2>
             <p class="muted">
-              This is a toy model for estimating solo-mining odds — not financial advice, not a guarantee, and not a
-              promise that your luck will behave. Bitcoin doesn’t care about our spreadsheets.
+              This is a toy model for estimating solo-mining odds — not financial advice, not a guarantee,
+              and not a promise that your luck will behave. Bitcoin doesn’t care about our spreadsheets.
             </p>
           </article>
         </section>
 
-        <!-- More from Mike card -->
+        <!-- More from Mike -->
         <section style="margin-top:1.5rem;">
           <article class="card calc-card">
             <h2>More from me</h2>
             <p class="muted" style="margin-bottom:0.6rem;">
-              I'm Mike (<strong>Proof Of Mike</strong>), running a small home Bitcoin mining setup and sharing the real
-              numbers — good luck streaks, dry spells, and everything in between.
+              I'm Mike (<strong>Proof Of Mike</strong>), running a small home Bitcoin mining setup and
+              sharing the real numbers — good luck streaks, dry spells, and everything in between.
             </p>
             <p class="muted" style="margin-bottom:0.6rem;">
-              If you're thinking of adding another home miner, I keep a running list of Bitaxe, NerdQaxe++, and Zyber
-              models in my
-              <a href="/tch/" style="color:#f97316;font-weight:600;">TinyChipHub guide</a>. It also explains the
-              maximum currently available discount code: <strong>PROOFOFMIKE</strong>.
+              If you're thinking of adding another home miner, I keep a running list of Bitaxe,
+              NerdQaxe++, and Zyber models in my
+              <a href="/tch/" style="color:#f97316;font-weight:600;">TinyChipHub guide</a>.  
+              It also explains the maximum available discount code:
+              <strong>PROOFOFMIKE</strong>.
             </p>
             <p class="muted">
-              You can find more write-ups and tools at <strong>ProofOfMike.com</strong>, or come say hi on X:
+              Find more tools at <strong>ProofOfMike.com</strong>, or say hi on X:
               <a href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer" style="color:#f97316;font-weight:600;">@ProofOfMike</a>.
             </p>
           </article>
@@ -378,189 +343,125 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Simple helpers
       function formatNumber(num, decimals) {
-        if (num === null || num === undefined || isNaN(num)) return "–";
-        return Number(num).toLocaleString(undefined, {
-          maximumFractionDigits: decimals,
-          minimumFractionDigits: 0
+        if (!num || isNaN(num)) return "–";
+        return Number(num).toLocaleString(undefined,{
+          maximumFractionDigits: decimals
         });
       }
 
-      function formatPercent(p, decimals) {
-        if (p === null || p === undefined || isNaN(p)) return "–";
-        return (p * 100).toFixed(decimals) + "%";
+      function formatPercent(p,decimals){
+        if(!p || isNaN(p)) return "–";
+        return (p*100).toFixed(decimals)+"%";
       }
 
-      function formatDuration(days) {
-        if (!isFinite(days) || days <= 0) return "–";
-        if (days < 1) {
-          const hours = days * 24;
-          if (hours < 1) {
-            const mins = hours * 60;
-            return mins.toFixed(1) + " minutes";
-          }
-          return hours.toFixed(1) + " hours";
+      function formatDuration(days){
+        if(!isFinite(days)||days<=0) return "–";
+        if(days<1){
+          const h=days*24;
+          if(h<1) return (h*60).toFixed(1)+" minutes";
+          return h.toFixed(1)+" hours";
         }
-        if (days < 365) {
-          return days.toFixed(1) + " days";
-        }
-        const years = days / 365;
-        return years.toFixed(2) + " years";
+        if(days<365) return days.toFixed(1)+" days";
+        return (days/365).toFixed(2)+" years";
       }
 
-      // State for network snapshot
-      let networkHashrateTH = null; // TH/s
-      let blockRewardBtc = 3.125; // default; will be overwritten if API gives it
-      let btcPriceUsd = null;
+      let networkHashrateTH=null;
+      let blockRewardBtc=3.125;
+      let btcPriceUsd=null;
 
-      const networkHashrateEl = document.getElementById("networkHashrate");
-      const blockRewardEl = document.getElementById("blockReward");
-      const btcPriceEl = document.getElementById("btcPrice");
-      const probDayEl = document.getElementById("probDay");
-      const probYearEl = document.getElementById("probYear");
-      const timeToBlockEl = document.getElementById("timeToBlock");
-      const netRewardBtcEl = document.getElementById("netRewardBtc");
-      const netRewardUsdEl = document.getElementById("netRewardUsd");
-      const liveStatusEl = document.getElementById("liveStatus");
+      const networkHashrateEl=document.getElementById("networkHashrate");
+      const blockRewardEl=document.getElementById("blockReward");
+      const btcPriceEl=document.getElementById("btcPrice");
+      const probDayEl=document.getElementById("probDay");
+      const probYearEl=document.getElementById("probYear");
+      const timeToBlockEl=document.getElementById("timeToBlock");
+      const netRewardBtcEl=document.getElementById("netRewardBtc");
+      const netRewardUsdEl=document.getElementById("netRewardUsd");
+      const liveStatusEl=document.getElementById("liveStatus");
 
-      const hashrateInput = document.getElementById("hashrate");
-      const poolSelect = document.getElementById("pool");
-      const customFeeWrap = document.getElementById("custom-fee-wrap");
-      const customFeeInput = document.getElementById("customFee");
+      const hashrateInput=document.getElementById("hashrate");
+      const poolSelect=document.getElementById("pool");
+      const customFeeWrap=document.getElementById("custom-fee-wrap");
+      const customFeeInput=document.getElementById("customFee");
 
-      // Fetch network hashrate, block reward, and BTC price (all from mempool.space)
-      async function fetchNetworkData() {
-        try {
-          // 1) Network hashrate (current estimate)
-          const hashRes = await fetch("https://mempool.space/api/v1/mining/hashrate/3d");
-          if (!hashRes.ok) throw new Error("Hashrate fetch failed");
-          const hashJson = await hashRes.json();
+      async function fetchNetworkData(){
+        try{
+          const hashRes=await fetch("https://mempool.space/api/v1/mining/hashrate/3d");
+          const hashJson=await hashRes.json();
+          networkHashrateTH=hashJson.currentHashrate/1e12;
 
-          if (hashJson && typeof hashJson.currentHashrate === "number") {
-            // currentHashrate is in hashes per second -> convert to TH/s
-            networkHashrateTH = hashJson.currentHashrate / 1e12;
-          }
+          const rewardRes=await fetch("https://mempool.space/api/v1/blockchain/reward-stats");
+          const rewardJson=await rewardRes.json();
+          blockRewardBtc=rewardJson.blockReward/1e8;
 
-          // 2) Block reward via mempool API (subsidy only, in sats)
-          try {
-            const rewardRes = await fetch("https://mempool.space/api/v1/blockchain/reward-stats");
-            if (rewardRes.ok) {
-              const rewardJson = await rewardRes.json();
-              if (rewardJson && typeof rewardJson.blockReward === "number") {
-                // blockReward is in sats
-                blockRewardBtc = rewardJson.blockReward / 1e8;
-              }
-            }
-          } catch (e) {
-            // Ignore and keep default
-          }
+          const priceRes=await fetch("https://mempool.space/api/v1/prices");
+          const priceJson=await priceRes.json();
+          btcPriceUsd=priceJson.USD;
 
-          // 3) BTC price via mempool.space
-          try {
-            const priceRes = await fetch("https://mempool.space/api/v1/prices");
-            if (priceRes.ok) {
-              const priceJson = await priceRes.json();
-              if (priceJson.USD && typeof priceJson.USD === "number") {
-                btcPriceUsd = priceJson.USD;
-              }
-            }
-          } catch (e) {
-            // ignore
-          }
+          networkHashrateEl.textContent=formatNumber(networkHashrateTH,2)+" TH/s";
+          blockRewardEl.textContent=blockRewardBtc.toFixed(3)+" BTC";
+          btcPriceEl.textContent="$"+formatNumber(btcPriceUsd,0)+" / BTC";
 
-          // Update UI
-          networkHashrateEl.textContent = formatNumber(networkHashrateTH, 2) + " TH/s";
-          blockRewardEl.textContent = blockRewardBtc.toFixed(3) + " BTC";
-          btcPriceEl.textContent =
-            btcPriceUsd != null ? "$" + formatNumber(btcPriceUsd, 0) + " / BTC" : "–";
-
-          liveStatusEl.innerHTML =
-            '<span class="calc-dot"></span><span class="muted">Live data loaded (mempool.space)</span>';
+          liveStatusEl.innerHTML='<span class="calc-dot"></span><span class="muted">Live data loaded (mempool.space)</span>';
 
           recompute();
-        } catch (err) {
-          liveStatusEl.innerHTML =
-            '<span class="calc-dot" style="background:#f97316;box-shadow:0 0 0 4px rgba(248,113,113,0.35);"></span>' +
-            '<span class="muted">Could not fetch live data. Using defaults.</span>';
-          // Keep defaults and still allow manual calc
+        }catch(e){
+          liveStatusEl.innerHTML='<span class="calc-dot" style="background:#f97316;box-shadow:0 0 0 4px rgba(248,113,113,0.35);"></span><span class="muted">Could not fetch live data.</span>';
           recompute();
         }
       }
 
       function getEffectiveFee() {
-        const poolValue = poolSelect.value;
-        if (poolValue === "custom") {
-          const v = parseFloat(customFeeInput.value);
-          if (!isNaN(v) && v >= 0 && v <= 100) {
-            return v / 100;
-          }
-          return 0;
+        if(poolSelect.value==="custom"){
+          const v=parseFloat(customFeeInput.value);
+          return (!isNaN(v)&&v>=0&&v<=100)?v/100:0;
         }
-        const f = parseFloat(poolValue);
-        return isNaN(f) ? 0 : f;
+        const f=parseFloat(poolSelect.value);
+        return isNaN(f)?0:f;
       }
 
-      function recompute() {
-        const userTH = parseFloat(hashrateInput.value);
-        if (isNaN(userTH) || userTH <= 0 || !networkHashrateTH || !isFinite(networkHashrateTH)) {
-          probDayEl.textContent = "–";
-          probYearEl.textContent = "–";
-          timeToBlockEl.textContent = "–";
+      function recompute(){
+        const userTH=parseFloat(hashrateInput.value);
+        if(isNaN(userTH)||userTH<=0||!networkHashrateTH){
+          probDayEl.textContent="–";
+          probYearEl.textContent="–";
+          timeToBlockEl.textContent="–";
 
-          const fee = getEffectiveFee();
-          const netBtc = blockRewardBtc * (1 - fee);
-          netRewardBtcEl.textContent = netBtc.toFixed(3) + " BTC";
-          if (btcPriceUsd != null) {
-            netRewardUsdEl.textContent = "$" + formatNumber(netBtc * btcPriceUsd, 0);
-          } else {
-            netRewardUsdEl.textContent = "–";
-          }
+          const fee=getEffectiveFee();
+          const net=blockRewardBtc*(1-fee);
+          netRewardBtcEl.textContent=net.toFixed(3)+" BTC";
+          netRewardUsdEl.textContent=btcPriceUsd?"$"+formatNumber(net*btcPriceUsd,0):"–";
+
           return;
         }
 
-        // Per-block success probability p
-        const p = userTH / networkHashrateTH;
+        const p=userTH/networkHashrateTH;
+        const lambdaDay=p*144;
+        const lambdaYear=lambdaDay*365;
 
-        // Expected blocks per day: 144
-        const blocksPerDay = 144;
-        const lambdaDay = p * blocksPerDay;
-        const lambdaYear = p * blocksPerDay * 365;
+        probDayEl.textContent=formatPercent(1-Math.exp(-lambdaDay),4);
+        probYearEl.textContent=formatPercent(1-Math.exp(-lambdaYear),2);
 
-        const probAtLeastOneDay = 1 - Math.exp(-lambdaDay);
-        const probAtLeastOneYear = 1 - Math.exp(-lambdaYear);
+        const expectedDays=lambdaDay>0?1/lambdaDay:Infinity;
+        timeToBlockEl.textContent=formatDuration(expectedDays);
 
-        const expectedBlocksPerDay = lambdaDay;
-        const expectedDaysPerBlock =
-          expectedBlocksPerDay > 0 ? 1 / expectedBlocksPerDay : Infinity;
-
-        probDayEl.textContent = formatPercent(probAtLeastOneDay, 4);
-        probYearEl.textContent = formatPercent(probAtLeastOneYear, 2);
-        timeToBlockEl.textContent = formatDuration(expectedDaysPerBlock);
-
-        const fee = getEffectiveFee();
-        const netBtc = blockRewardBtc * (1 - fee);
-        netRewardBtcEl.textContent = netBtc.toFixed(3) + " BTC";
-        if (btcPriceUsd != null) {
-          netRewardUsdEl.textContent = "$" + formatNumber(netBtc * btcPriceUsd, 0);
-        } else {
-          netRewardUsdEl.textContent = "–";
-        }
+        const fee=getEffectiveFee();
+        const net=blockRewardBtc*(1-fee);
+        netRewardBtcEl.textContent=net.toFixed(3)+" BTC";
+        netRewardUsdEl.textContent=btcPriceUsd?"$"+formatNumber(net*btcPriceUsd,0):"–";
       }
 
-      hashrateInput.addEventListener("input", recompute);
-      poolSelect.addEventListener("change", () => {
-        if (poolSelect.value === "custom") {
-          customFeeWrap.style.display = "flex";
-        } else {
-          customFeeWrap.style.display = "none";
-        }
+      hashrateInput.addEventListener("input",recompute);
+      poolSelect.addEventListener("change",()=>{
+        customFeeWrap.style.display=poolSelect.value==="custom"?"flex":"none";
         recompute();
       });
-      customFeeInput.addEventListener("input", recompute);
+      customFeeInput.addEventListener("input",recompute);
 
       fetchNetworkData();
     </script>
+
     <script src="/assets/nav.js"></script>
   </body>
 </html>
