@@ -1,65 +1,42 @@
 # ProofOfMike.github.io
 
-This repository hosts the full **Proof Of Mike** website, including Bitcoin solo-mining tools, Bitaxe/NerdQaxe tuning pages, and vendor partner pages.
+This repository hosts the full **Proof Of Mike** website — Bitcoin solo-mining notes, hardware tuning guides, vendor pages, and personal projects.
 
-The site is built for home miners who want real-world tuning notes, solo-mining math, and practical hardware setups — all from someone actually running these rigs on a desk every day.
-
----
-
-## TinyChipHub – Recommended Bitaxe & NerdQaxe Miners
-
-If you're building a home Bitcoin mining desk-rig, **TinyChipHub** is the easiest and most reliable source for:
-
-- Bitaxe (HEX, Supra, Ultra)
-- NerdQaxe++ Remastered Copper
-- Zyber 8G and future units
-
-Use coupon code:
-
-### PROOFOFMIKE
-
-This provides the **full available discount** on all Bitaxe, NerdQaxe, and Zyber miners.
-
-Your official TCH link:  
-<https://proofofmike.com/tch>
-
-(This ensures your referral is always tracked correctly.)
-
-I collaborate with TinyChipHub on miner testing, return workflows, and tuning documentation — the pages in this repo are updated frequently as new hardware, PCBs, and firmware are released.
+Visit the live site:  
+https://proofofmike.com
 
 ---
 
-## Site Structure
+## 📁 Site Structure
 
-The site uses clean folder-based routing for <https://proofofmike.com>:
+The repo contains the complete static site:
 
-### Core Pages
+- `/` — Homepage
+- `/posts/` — Blog index + JSON-driven post loader
+- `/posts/<slug>.html` — Individual blog posts
+- `/tch/` — TinyChipHub partner page (5% off with PROOFOFMIKE)
+- `/solo-calc/` — Solo-mining odds calculator
+- `/nerdqaxe-copper/` — NerdQaxe++ Remastered Copper tuning notes
+- `/zyber-8g/` — Zyber 8G notes
+- `/hex/` — Bitaxe Hex tuning notes
+- `/gear/` — Recommended mining gear
+- `/wallets/` — Wallet and cold-storage guide
+- `/solo-mining/` — Guide to CKPool vs Ocean vs self-hosted node
+- `/matty/` — Story of my buddy jumping into mining
+- `/mining-origin/` — My 2014–2015 original garage rig history
+- `/vendor-name/` — Additional vendor pages go here
+- `/assets/` — JS, CSS, images
+- `/posts/posts.json` — Index used by blog.js
 
-- `/` — Homepage  
-- `/gear/` — Recommended mining hardware, PSUs, fans, cables  
-- `/solo-calc/` — Solo mining odds calculator  
-- `/solo-mining/` — Compare CKPool, OCEAN+DATUM, Umbrel solo, and full-node setups  
-- `/mining-origin/` — My original Bitcoin mining history and early rigs
-
-### Miner Tuning Pages
-
-- `/nerdqaxe-copper/` — NerdQaxe++ Copper real-world tuning & overclock notes  
-- `/hex/` — Bitaxe HEX tuning, airflow, and diff-share behavior  
-- `/zyber-8g/` — Zyber 8G tuning (ongoing updates)
-
-### Vendor Pages
-
-- `/tch/` — TinyChipHub partner page linked from <https://proofofmike.com/tch>
+All files are plain **HTML / CSS / JS**, deployed using **GitHub Pages**.
 
 ---
 
-## Local Development
+## 🛒 TinyChipHub Partner Page (Full Discount)
 
-This site is fully static (HTML/CSS/JS). No build step required.
+Looking for **Bitaxe**, **NerdQaxe++**, or **Zyber** miners?
 
-Deploying via GitHub Pages:
+Visit:  
+**[https://proofofmike.com/tch](https://proofofmike.com/tch)**
 
-```bash
-git add .
-git commit -m "update site"
-git push origin main
+Use code **PROOFOFMIKE** for the **full available TinyChipHub discount**.
