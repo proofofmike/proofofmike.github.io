@@ -10,7 +10,7 @@
     />
     <meta
       name="keywords"
-      content="solo mining calculator, Bitcoin solo mining odds, CKPool, Ocean, Bitcoin mining probability, Proof Of Mike"
+      content="solo mining calculator, Bitcoin solo mining odds, CKPool, Ocean, Ocean+DATUM, Bitcoin mining probability, Proof Of Mike"
     />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/solo-calc/" />
@@ -33,12 +33,14 @@
         font-weight: 800;
         letter-spacing: -0.03em;
         margin: 0 0 0.65rem;
+        text-align: center;
       }
 
       .calc-hero-subtitle {
         font-size: 0.95rem;
         max-width: 40rem;
-        margin-bottom: 1.4rem;
+        margin: 0 auto 1.4rem;
+        text-align: center;
       }
 
       .calc-meta {
@@ -47,6 +49,8 @@
         gap: 0.5rem;
         font-size: 0.8rem;
         margin-top: 0.4rem;
+        justify-content: center;
+        text-align: center;
       }
 
       .calc-meta span {
@@ -217,8 +221,8 @@
 
         <div class="calc-meta muted">
           <span><span class="calc-dot"></span> Uses live network data (mempool.space)</span>
-          <span>Assumes constant difficulty and block reward</span>
-          <span>Solo pools only (no PPS, no merged mining)</span>
+          <span><span class="calc-dot"></span> Assumes constant difficulty and block reward</span>
+          <span><span class="calc-dot"></span> Solo pools only (no PPS, no merged mining)</span>
         </div>
 
         <section class="calc-layout">
@@ -335,10 +339,16 @@
           </article>
         </section>
 
-        <div class="calc-footer">
-          This is a toy model for estimating solo-mining odds — not financial advice, not a guarantee, and not a
-          promise that your luck will behave. Bitcoin doesn’t care about our spreadsheets.
-        </div>
+        <!-- Important note card -->
+        <section style="margin-top:1.5rem;">
+          <article class="card calc-card">
+            <h2>Important note</h2>
+            <p class="muted">
+              This is a toy model for estimating solo-mining odds — not financial advice, not a guarantee, and not a
+              promise that your luck will behave. Bitcoin doesn’t care about our spreadsheets.
+            </p>
+          </article>
+        </section>
 
         <!-- More from Mike card -->
         <section style="margin-top:1.5rem;">
