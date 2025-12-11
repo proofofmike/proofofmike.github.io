@@ -195,19 +195,18 @@
       }
     </style>
 
-<meta property="og:title" content="Solo Bitcoin Mining Odds Calculator — Proof Of Mike">
-<meta property="og:description" content="Estimate your solo mining odds with live network data — time-to-block, probability, and expected value.">
-<meta property="og:image" content="https://proofofmike.com/images/solo-calc-text-only.png">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://proofofmike.com/images/solo-calc-text-only.png">
-
+    <meta property="og:title" content="Solo Bitcoin Mining Odds Calculator — Proof Of Mike">
+    <meta property="og:description" content="Estimate your solo mining odds with live network data — time-to-block, probability, and expected value.">
+    <meta property="og:image" content="https://proofofmike.com/images/solo-calc-text-only.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://proofofmike.com/images/solo-calc-text-only.png">
   </head>
 
   <body>
     <div class="wrap">
       <div id="site-nav"></div>
-  <!-- keep the rest of the page content that used to come after .topbar -->
+      <!-- keep the rest of the page content that used to come after .topbar -->
       <main class="panel">
         <h1 class="calc-hero-title">Solo Bitcoin Mining Odds Calculator</h1>
         <p class="muted calc-hero-subtitle">
@@ -217,7 +216,7 @@
         </p>
 
         <div class="calc-meta muted">
-          <span><span class="calc-dot"></span> Uses live network data where available</span>
+          <span><span class="calc-dot"></span> Uses live network data (mempool.space + CoinGecko)</span>
           <span>Assumes constant difficulty and block reward</span>
           <span>Solo pools only (no PPS, no merged mining)</span>
         </div>
@@ -405,20 +404,20 @@
       const customFeeWrap = document.getElementById("custom-fee-wrap");
       const customFeeInput = document.getElementById("customFee");
 
-      // Fetch network hashrate & block reward (difficulty-based approximation)
+      // Fetch network hashrate, block reward, and BTC price
       async function fetchNetworkData() {
         try {
-          // Difficulty from Blockchain.com API
-          const diffRes = await fetch("https://blockchain.info/q/getdifficulty?cors=true");
-          const difficulty = parseFloat(await diffRes.text());
+          // 1) Network hashrate from mempool.space (current estimate)
+          const hashRes = await fetch("https://mempool.space/api/v1/mining/hashrate/3d");
+          if (!hashRes.ok) throw new Error("Hashrate fetch failed");
+          const hashJson = await hashRes.json();
 
-          // Difficulty to network hashrate:
-          // H = difficulty * 2^32 / 600  (hashes per second)
-          const two32 = Math.pow(2, 32);
-          const hashesPerSec = (difficulty * two32) / 600;
-          networkHashrateTH = hashesPerSec / 1e12;
+          if (hashJson && typeof hashJson.currentHashrate === "number") {
+            // currentHashrate is in hashes per second -> convert to TH/s
+            networkHashrateTH = hashJson.currentHashrate / 1e12;
+          }
 
-          // Block reward via mempool API (subsidy only)
+          // 2) Block reward via mempool API (subsidy only, in sats)
           try {
             const rewardRes = await fetch("https://mempool.space/api/v1/blockchain/reward-stats");
             if (rewardRes.ok) {
@@ -432,7 +431,7 @@
             // Ignore and keep default
           }
 
-          // BTC price (CoinGecko simple API)
+          // 3) BTC price (CoinGecko simple API)
           try {
             const priceRes = await fetch(
               "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
@@ -454,7 +453,7 @@
             btcPriceUsd != null ? "$" + formatNumber(btcPriceUsd, 0) + " / BTC" : "–";
 
           liveStatusEl.innerHTML =
-            '<span class="calc-dot"></span><span class="muted">Live data loaded</span>';
+            '<span class="calc-dot"></span><span class="muted">Live data loaded (mempool.space)</span>';
 
           recompute();
         } catch (err) {
@@ -540,6 +539,6 @@
 
       fetchNetworkData();
     </script>
-   <script src="/assets/nav.js"></script>
+    <script src="/assets/nav.js"></script>
   </body>
 </html>
