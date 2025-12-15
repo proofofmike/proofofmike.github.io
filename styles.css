@@ -242,41 +242,49 @@ header,
   font-size: 13px;
 }
 
-/* ---------- ICON CHIPS (FIXED) ---------- */
+/* ---------- ORIGIN-STYLE ICON CHIPS (GLOBAL SOURCE OF TRUTH) ---------- */
+
+.origin-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  margin-bottom: 1.4rem;
+}
 
 .origin-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.35rem 0.9rem;
+  padding: 0.2rem 0.7rem;
   border-radius: 999px;
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(148, 163, 255, 0.35);
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
+  border: 1px solid rgba(148, 163, 255, 0.4);
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
   color: #e5e7eb;
+  background: transparent;
 }
 
 /* DEFAULT = GREEN */
 .origin-chip .chip-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
   background: #22c55e;
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
 }
 
 /* ORANGE */
 .origin-chip .chip-dot.orange {
   background: #f97316;
-  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
 }
 
 /* BLUE */
 .origin-chip .chip-dot.blue {
   background: #38bdf8;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
 }
 
 /* Links */
