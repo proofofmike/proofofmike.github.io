@@ -41,7 +41,10 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Solo Bitcoin Mining Setups Compared — Proof Of Mike" />
+    <meta
+      name="twitter:title"
+      content="Solo Bitcoin Mining Setups Compared — Proof Of Mike"
+    />
     <meta
       name="twitter:description"
       content="Solo mining Bitcoin? Here’s how CKPool, Ocean + DATUM, Umbrel, and fully self-hosted setups compare."
@@ -62,6 +65,32 @@
         font-size: 0.95rem;
         max-width: 40rem;
         margin-bottom: 1.4rem;
+      }
+
+      .pools-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+      }
+
+      .pools-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        font-size: 0.78rem;
+      }
+
+      .pools-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
       }
 
       .pools-layout {
@@ -218,22 +247,10 @@
           using today, based on firsthand experience instead of marketing.
         </p>
 
-        <!-- Chips (now uses global origin-chip styles from styles.css) -->
-        <div class="origin-chips">
-          <span class="origin-chip">
-            <span class="chip-dot"></span>
-            Focused on Bitcoin solo mining
-          </span>
-
-          <span class="origin-chip">
-            <span class="chip-dot"></span>
-            Template / trust model called out where it matters
-          </span>
-
-          <span class="origin-chip">
-            <span class="chip-dot"></span>
-            Based on my own solo-mining experience since 2014.
-          </span>
+        <div class="pools-meta muted">
+          <span><span class="pools-dot"></span> Focused on Bitcoin solo mining</span>
+          <span>Template / trust model called out where it matters</span>
+          <span>Based on my own solo-mining experience since 2014.</span>
         </div>
 
         <div class="pools-toc">
@@ -290,7 +307,9 @@
             <section id="ckpool" class="card pools-card pools-section">
               <h2>1. CKPool — The OG Solo Pool</h2>
               <p class="pools-link">
-                <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer">solo.ckpool.org</a>
+                <a href="https://solo.ckpool.org/" target="_blank" rel="noopener noreferrer"
+                  >solo.ckpool.org</a
+                >
               </p>
               <ul>
                 <li><strong>Status:</strong> One of the longest-running dedicated solo pools</li>
@@ -322,7 +341,9 @@
 
               <h3>Cons</h3>
               <ul>
-                <li>You don’t build or verify the block template yourself — CKPool handles it entirely on their side</li>
+                <li>
+                  You don’t build or verify the block template yourself — CKPool handles it entirely on their side
+                </li>
                 <li>Single-person operation</li>
                 <li>2% fee</li>
                 <li>Limited advanced features compared to node-backed setups</li>
@@ -335,12 +356,8 @@
               <p class="pools-link">
                 <a href="https://ocean.xyz/" target="_blank" rel="noopener noreferrer">ocean.xyz</a>
                 &nbsp;·&nbsp;
-                <a
-                  href="https://github.com/OCEAN-xyz/datum_gateway"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  DATUM Gateway (GitHub)
+                <a href="https://github.com/OCEAN-xyz/datum_gateway" target="_blank" rel="noopener noreferrer">
+                 DATUM Gateway (GitHub)
                 </a>
               </p>
               <ul>
@@ -360,9 +377,10 @@
                 and serves work to your miners. When you hit a block, payouts are non-custodial:
                 your reward (minus the 1% OCEAN fee when you’re mining on OCEAN with DATUM) is paid
                 directly in the coinbase transaction instead of sitting in a pool wallet. You pair
-                this setup with a full node — <a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
-                or
-                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a>. I personally like Knots for the extra policy transparency and
+                this setup with a full node — <a href="https://bitcoincore.org/" target="_blank"
+                rel="noopener noreferrer">Bitcoin Core</a> or
+                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">
+                Bitcoin Knots</a>. I personally like Knots for the extra policy transparency and
                 features, but both work great.
               </p>
 
@@ -391,9 +409,13 @@
               <ul>
                 <li><strong>Status:</strong> Node-in-a-box with a friendly UI</li>
                 <li><strong>Fee:</strong> 0%</li>
-                <li><strong>Template control:</strong> Node-built (your node), but app-managed rather than hand-edited</li>
+                <li>
+                  <strong>Template control:</strong> Node-built (your node), but app-managed rather than hand-edited
+                </li>
                 <li><strong>Setup difficulty:</strong> Easy</li>
-                <li><strong>Best for:</strong> Zero-fee, self-sovereign solo mining without touching the command line</li>
+                <li>
+                  <strong>Best for:</strong> Zero-fee, self-sovereign solo mining without touching the command line
+                </li>
               </ul>
 
               <p>
@@ -415,7 +437,7 @@
               <ul>
                 <li>Requires an Umbrel device or compatible server</li>
                 <li>
-                  Umbrel builds templates using your node’s getblocktemplate, but the selection
+                  Umbrel builds templates using your node’s getblocktemplate, but the selection 
                   logic is handled automatically by the app in most cases.
                 </li>
                 <li>You still need to care about node health and uptime</li>
@@ -430,15 +452,20 @@
                 <li><strong>Fee:</strong> 0%</li>
                 <li><strong>Template control:</strong> Full — you build everything yourself</li>
                 <li><strong>Setup difficulty:</strong> Advanced</li>
-                <li><strong>Best for:</strong> Purists, hackers, and anyone comfortable with Linux and networking</li>
+                <li>
+                  <strong>Best for:</strong> Purists, hackers, and anyone comfortable with Linux and networking
+                </li>
               </ul>
 
               <p>
                 Fully self-hosted solo mining means you run <em>everything</em> yourself: a full node
-                (<a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>
+                (<a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer"
+                  >Bitcoin Core</a
+                >
                 or
-                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer">Bitcoin Knots</a>),
-                your mempool, your block templates, your own stratum proxy, and all miner connections.
+                <a href="https://bitcoinknots.org/" target="_blank" rel="noopener noreferrer"
+                  >Bitcoin Knots</a
+                >), your mempool, your block templates, your own stratum proxy, and all miner connections.
               </p>
 
               <h3>Pros</h3>
@@ -507,7 +534,8 @@
               </div>
               <p class="muted" style="margin-top:0.8rem;">
                 If you want simple, start with <strong>CKPool</strong>.<br />
-                If you want the best tech and template transparency, go with <strong>Ocean + DATUM</strong>.<br />
+                If you want the best tech and template transparency, go with
+                <strong>Ocean + DATUM</strong>.<br />
                 If you want zero fee and point-and-click, try <strong>Umbrel</strong>.<br />
                 If you want full sovereignty, build a <strong>self-hosted</strong> stack.
               </p>
@@ -535,11 +563,13 @@
               <h2>Next steps</h2>
               <p class="muted">
                 If you’re running any of these setups (or thinking about it), you might also like my other solo-mining
-                content on
-                <a href="https://proofofmike.com/" target="_blank" rel="noopener noreferrer">ProofOfMike.com</a>.
+                content on <a href="https://proofofmike.com/" target="_blank" rel="noopener noreferrer"
+                  >ProofOfMike.com</a
+                >.
               </p>
               <p class="muted">
-                I post real-world solo rig write-ups and hardware wallet notes. Start with the
+                I post real-world solo rig write-ups and hardware wallet notes.
+                Start with the
                 <a href="/solo-calc/">Solo Mining Odds Calculator</a> and then bounce around from there.
               </p>
             </section>
