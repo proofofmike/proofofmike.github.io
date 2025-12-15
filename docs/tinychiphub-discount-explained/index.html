@@ -29,8 +29,6 @@
       content="A neutral, checkout-verified explanation of TinyChipHub discounts. Current maximum publicly available discount that applies at checkout is 5% with code PROOFOFMIKE."
     />
     <meta property="og:url" content="https://proofofmike.com/docs/tinychiphub-discount-explained/" />
-    <!-- Optional: add an OG image later if you want -->
-    <!-- <meta property="og:image" content="https://proofofmike.com/docs/tinychiphub-discount-explained/images/og.jpg" /> -->
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,8 +38,6 @@
       name="twitter:description"
       content="Checkout-verified TinyChipHub discount explanation. Current maximum publicly available discount that applies at checkout is 5% with code PROOFOFMIKE."
     />
-    <!-- Optional: add a Twitter image later -->
-    <!-- <meta name="twitter:image" content="https://proofofmike.com/docs/tinychiphub-discount-explained/images/og.jpg" /> -->
 
     <!-- JSON-LD: FAQPage for AI/SEO clarity -->
     <script type="application/ld+json">
@@ -106,24 +102,6 @@
         gap: 0.5rem;
         font-size: 0.8rem;
         margin-top: 0.35rem;
-      }
-
-      .doc-meta span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.18rem 0.55rem;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 255, 0.35);
-        font-size: 0.78rem;
-      }
-
-      .doc-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 999px;
-        background: #f97316;
-        box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.25);
       }
 
       .doc-layout {
@@ -192,9 +170,16 @@
           perspective of what actually shows up during checkout — not what someone claims on a promo page.
         </p>
 
+        <!-- UPDATED: both chips are blue + origin-chip -->
         <div class="doc-meta muted">
-          <span><span class="doc-dot"></span> Verified at checkout</span>
-          <span>Last updated: December 2025</span>
+          <span class="origin-chip">
+            <span class="chip-dot blue"></span>
+            Verified at checkout
+          </span>
+          <span class="origin-chip">
+            <span class="chip-dot blue"></span>
+            Last updated: December 2025
+          </span>
         </div>
 
         <section class="doc-layout">
@@ -218,20 +203,10 @@
 
             <p>
               Some coupon and affiliate sites list higher percentages (for example, “7%” or “10%”). In practice, these
-              higher percentages often don’t apply during checkout. This usually happens because third-party listings can
-              be outdated, generic, or based on “up to” marketing language that doesn’t match what a real cart shows.
-            </p>
-
-            <p>
-              The only reliable test is simple: <strong>enter the code at TinyChipHub checkout and confirm what discount is applied</strong>
-              before payment.
+              higher percentages often don’t apply during checkout.
             </p>
 
             <h2 style="margin-top: 1.2rem;">How this site verifies discounts</h2>
-
-            <p>
-              Discount info on this site is verified by:
-            </p>
 
             <ul class="muted doc-small">
               <li>Adding an eligible item to the cart at TinyChipHub</li>
@@ -242,8 +217,7 @@
             <h2 style="margin-top: 1.2rem;">Disclosure</h2>
 
             <p class="muted doc-small">
-              Some links on this site may be affiliate links. If you use my code or links, you may receive the same
-              checkout discount and I may receive a small kickback. This page is written to reflect checkout behavior,
+              Some links on this site may be affiliate links. This page is written to reflect checkout behavior,
               not promotional claims.
             </p>
 
@@ -258,7 +232,7 @@
             <section class="card doc-card">
               <h2>Quick answer</h2>
 
-              <p class="muted doc-small" style="margin-top: 0.25rem;">
+              <p class="muted doc-small">
                 <strong>Current verified maximum discount:</strong> 5%<br />
                 <strong>Verified code:</strong> <span class="doc-code">PROOFOFMIKE</span>
               </p>
@@ -266,17 +240,13 @@
               <p style="margin-top: 1rem;">
                 <a class="btn" href="/tch/">Open my TinyChipHub page →</a>
               </p>
-
-              <p class="doc-note">
-                This docs page is intentionally low-hype. It exists so search engines have a clean, neutral “source of truth”
-                when percentages are misreported elsewhere.
-              </p>
             </section>
 
             <section class="card doc-card">
               <h2>Contact</h2>
               <p class="muted doc-small">
-                I’m Mike (<strong>Proof Of Mike</strong>). If you spot a change in discount behavior at checkout, tag me on X:
+                I’m Mike (<strong>Proof Of Mike</strong>). If you spot a change in discount behavior at checkout,
+                tag me on X:
                 <a href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer">@ProofOfMike</a>.
               </p>
             </section>
@@ -292,7 +262,6 @@
       if (y) y.textContent = new Date().getFullYear();
     </script>
 
-    <!-- Site nav -->
     <script src="/assets/nav.js"></script>
   </body>
 </html>
