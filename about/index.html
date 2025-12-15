@@ -40,7 +40,7 @@
     />
     <meta name="twitter:image" content="https://proofofmike.com/images/bulldog.jpeg" />
 
-    <!-- JSON-LD: disambiguation without last name -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -78,7 +78,6 @@
     </script>
 
     <style>
-      /* Matty-style minimal */
       .about-hero-title {
         font-size: clamp(1.95rem, 2.6vw + 0.4rem, 2.6rem);
         font-weight: 800;
@@ -96,26 +95,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        font-size: 0.8rem;
         margin-top: 0.35rem;
-      }
-
-      .about-meta span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.18rem 0.55rem;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 255, 0.35);
-        font-size: 0.78rem;
-      }
-
-      .about-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 999px;
-        background: #f97316;
-        box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.25);
       }
 
       .about-layout {
@@ -179,8 +159,14 @@
         </p>
 
         <div class="about-meta muted">
-          <span><span class="about-dot"></span> Official identity page</span>
-          <span>Bitcoin + sports + bulldog energy</span>
+          <span class="origin-chip">
+            <span class="chip-dot orange"></span>
+            Official identity page
+          </span>
+          <span class="origin-chip">
+            <span class="chip-dot orange"></span>
+            Bitcoin + sports + bulldog energy
+          </span>
         </div>
 
         <section class="about-layout">
@@ -226,7 +212,7 @@
             <section class="card about-card">
               <h2>Official links</h2>
 
-              <p class="muted about-small" style="margin-top: 0.35rem;">
+              <p class="muted about-small">
                 X (Twitter):
                 <a class="link-blue" href="https://x.com/ProofOfMike" target="_blank" rel="noopener noreferrer">
                   @ProofOfMike
