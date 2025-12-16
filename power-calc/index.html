@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mining Power & Electricity Cost Calculator | Proof Of Mike</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Bitcoin mining power and electricity cost calculator — estimate watts, kWh/day, and cost/day-month-year from hashrate and efficiency (J/TH). Includes optional Ohm's law electrical calculator."
+    />
+    <meta
+      name="keywords"
+      content="mining power calculator, electricity cost calculator, J/TH calculator, watts, kWh, Bitaxe, NerdQaxe, Zyber, Proof Of Mike"
+    />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="canonical" href="https://proofofmike.com/power-calc/" />
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- counter.dev analytics -->
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="523ea628-7b77-4913-83d7-01cf3417b330"
+      data-utcoffset="-5"
+      defer
+    ></script>
+
+    <meta property="og:title" content="Mining Power & Electricity Cost Calculator — Proof Of Mike" />
+    <meta property="og:description" content="Estimate watts, kWh/day, and cost/day-month-year from hashrate and efficiency (J/TH)." />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mining Power & Electricity Cost Calculator — Proof Of Mike" />
+    <meta name="twitter:description" content="Estimate watts, kWh/day, and cost/day-month-year from hashrate and efficiency (J/TH)." />
+
+    <style>
+      .calc-hero-title {
+        font-size: clamp(1.9rem, 2.6vw + 0.4rem, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.65rem;
+        text-align: left;
+      }
+
+      .calc-hero-subtitle {
+        font-size: 0.95rem;
+        margin: 0 0 1.4rem;
+        text-align: left;
+      }
+
+      .calc-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+        justify-content: left;
+      }
+
+      .calc-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        font-size: 0.78rem;
+      }
+
+      .calc-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+        gap: 1.25rem;
+        margin-top: 1.4rem;
+      }
+
+      @media (max-width: 900px) {
+        .calc-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .calc-card {
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        padding: 1.1rem 1.1rem 1.3rem;
+      }
+
+      .calc-card h2 {
+        font-size: 0.9rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin: 0 0 0.75rem;
+      }
+
+      .calc-card h3 {
+        font-size: 1rem;
+        margin: 1.1rem 0 0.4rem;
+      }
+
+      .calc-field-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.9rem;
+        margin-top: 0.4rem;
+      }
+
+      .calc-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.86rem;
+      }
+
+      .calc-field input,
+      .calc-field select {
+        border-radius: 0.5rem;
+        border: 1px solid rgba(148, 163, 255, 0.6);
+        background: #020617;
+        color: #e5e7eb;
+        padding: 0.45rem 0.6rem;
+      }
+
+      .calc-helper {
+        font-size: 0.78rem;
+        color: #9ca3af;
+      }
+
+      .calc-note-box {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: #9ca3af;
+        border-radius: 0.75rem;
+        border: 1px dashed rgba(148, 163, 255, 0.4);
+        padding: 0.75rem 0.85rem;
+      }
+
+      .calc-results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 0.75rem;
+        margin-top: 0.8rem;
+      }
+
+      .calc-pill {
+        border-radius: 0.8rem;
+        border: 1px solid rgba(148, 163, 255, 0.35);
+        padding: 0.7rem 0.8rem;
+        font-size: 0.85rem;
+      }
+
+      .calc-pill-label {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.68rem;
+        color: #9ca3af;
+        margin-bottom: 0.15rem;
+      }
+
+      .calc-pill-value {
+        font-weight: 600;
+        font-size: 0.96rem;
+      }
+
+      .calc-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+      }
+
+      .calc-footer {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-top: 1.4rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div id="site-nav"></div>
+
+      <main class="panel">
+        <h1 class="calc-hero-title">Mining Power & Electricity Cost Calculator</h1>
+        <p class="muted calc-hero-subtitle">
+          Quick math for hobby miners: convert hashrate + efficiency (J/TH) into watts, kWh/day, and cost per day / month / year.
+          Optional: basic Ohm’s law calculator.
+        </p>
+
+        <div class="calc-meta muted">
+          <span><span class="calc-dot"></span> Power: W = TH/s × (J/TH)</span>
+          <span><span class="calc-dot"></span> Energy: kWh/day = (W ÷ 1000) × 24</span>
+          <span><span class="calc-dot"></span> Cost: $/day = kWh/day × $/kWh</span>
+        </div>
+
+        <section class="calc-layout">
+          <!-- LEFT COLUMN -->
+          <article class="card calc-card">
+            <h2>Inputs</h2>
+
+            <div class="calc-field-grid">
+              <div class="calc-field">
+                <label for="hashrate">Hashrate</label>
+                <input id="hashrate" type="number" min="0" step="0.01" placeholder="e.g. 16" />
+                <div class="calc-helper">Enter your hashrate.</div>
+              </div>
+
+              <div class="calc-field">
+                <label for="unit">Unit</label>
+                <select id="unit">
+                  <option value="TH" selected>Terahash/s (TH/s)</option>
+                  <option value="GH">Gigahash/s (GH/s)</option>
+                  <option value="PH">Petahash/s (PH/s)</option>
+                </select>
+                <div class="calc-helper">We convert everything to TH/s.</div>
+              </div>
+
+              <div class="calc-field">
+                <label for="efficiency">Efficiency (J/TH)</label>
+                <input id="efficiency" type="number" min="0" step="0.1" placeholder="e.g. 20" />
+                <div class="calc-helper">Lower is better. Example: 20 J/TH.</div>
+              </div>
+
+              <div class="calc-field">
+                <label for="kwhCost">Electricity cost ($/kWh)</label>
+                <input id="kwhCost" type="number" min="0" step="0.001" placeholder="e.g. 0.22" />
+                <div class="calc-helper">Example: $0.22/kWh.</div>
+              </div>
+            </div>
+
+            <div class="calc-note-box">
+              <strong>Notes:</strong>
+              <ul style="padding-left: 1.1rem; margin: 0.5rem 0 0;">
+                <li>Efficiency is a *device* number — use your real measured J/TH if you have it.</li>
+                <li>This does not include PSUs that are wildly off spec or power-factor weirdness.</li>
+              </ul>
+            </div>
+
+            <h3 style="margin-top: 1.2rem;">Electrical calculations (optional)</h3>
+            <div class="calc-field-grid">
+              <div class="calc-field">
+                <label for="voltage">Voltage (V)</label>
+                <input id="voltage" type="number" min="0" step="0.1" placeholder="e.g. 120" />
+                <div class="calc-helper">Typical US: 120V (or 240V).</div>
+              </div>
+
+              <div class="calc-field">
+                <label for="current">Current (A)</label>
+                <input id="current" type="number" min="0" step="0.01" placeholder="e.g. 1.25" />
+                <div class="calc-helper">Amps.</div>
+              </div>
+
+              <div class="calc-field">
+                <label for="resistance">Resistance (Ω)</label>
+                <input id="resistance" type="number" min="0" step="0.01" placeholder="e.g. 96" />
+                <div class="calc-helper">Ohms.</div>
+              </div>
+            </div>
+
+            <p class="calc-footer">
+              Tip: In the Ohm’s law section, fill in any two fields and we’ll solve the third.
+            </p>
+          </article>
+
+          <!-- RIGHT COLUMN -->
+          <article class="card calc-card">
+            <h2>Results</h2>
+
+            <div class="calc-results-grid">
+              <div class="calc-pill">
+                <div class="calc-pill-label">Hashrate (TH/s)</div>
+                <div class="calc-pill-value" id="hashrateTH">–</div>
+              </div>
+              <div class="calc-pill">
+                <div class="calc-pill-label">Estimated power</div>
+                <div class="calc-pill-value" id="powerW">–</div>
+              </div>
+              <div class="calc-pill">
+                <div class="calc-pill-label">Energy / day</div>
+                <div class="calc-pill-value" id="kwhDay">–</div>
+              </div>
+            </div>
+
+            <h3>Electricity cost</h3>
+            <div class="calc-results-grid">
+              <div class="calc-pill">
+                <div class="calc-pill-label">Cost / day</div>
+                <div class="calc-pill-value" id="costDay">–</div>
+              </div>
+              <div class="calc-pill">
+                <div class="calc-pill-label">Cost / month</div>
+                <div class="calc-pill-value" id="costMonth">–</div>
+              </div>
+              <div class="calc-pill">
+                <div class="calc-pill-label">Cost / year</div>
+                <div class="calc-pill-value" id="costYear">–</div>
+              </div>
+            </div>
+
+            <h3>Ohm’s law</h3>
+            <div class="calc-results-grid">
+              <div class="calc-pill">
+                <div class="calc-pill-label">Computed voltage (V)</div>
+                <div class="calc-pill-value" id="ohmV">–</div>
+              </div>
+              <div class="calc-pill">
+                <div class="calc-pill-label">Computed current (A)</div>
+                <div class="calc-pill-value" id="ohmI">–</div>
+              </div>
+              <div class="calc-pill">
+                <div class="calc-pill-label">Computed resistance (Ω)</div>
+                <div class="calc-pill-value" id="ohmR">–</div>
+              </div>
+            </div>
+
+            <div class="calc-note-box" style="margin-top: 1rem;">
+              <strong>Sanity check:</strong> If you know your measured watts at the wall, you can back-calc J/TH:
+              <div style="margin-top: 0.5rem;">
+                <code>J/TH ≈ Watts ÷ TH/s</code>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- More from Mike -->
+        <section style="margin-top: 1.5rem;">
+          <article class="card calc-card">
+            <h2>More from me</h2>
+            <p class="muted" style="margin-bottom: 0.6rem;">
+              I’m Mike (<strong>Proof Of Mike</strong>). If you’re tuning Bitaxe / NerdQaxe / Zyber rigs, power draw is half the game.
+              Hashrate is fun — but watts decide whether you actually want to run it 24/7.
+            </p>
+            <p class="muted">
+              Check out <a href="/solo-calc/" class="link-blue">Solo Calc</a> and <a href="/solo-mining/" class="link-blue">Solo Mining</a>.
+            </p>
+          </article>
+        </section>
+      </main>
+
+      <p class="foot">© <span id="year"></span> Proof Of Mike.</p>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const $ = (id) => document.getElementById(id);
+
+      const hashrateEl = $("hashrate");
+      const unitEl = $("unit");
+      const efficiencyEl = $("efficiency");
+      const kwhCostEl = $("kwhCost");
+
+      const voltageEl = $("voltage");
+      const currentEl = $("current");
+      const resistanceEl = $("resistance");
+
+      const outHashrateTH = $("hashrateTH");
+      const outPowerW = $("powerW");
+      const outKwhDay = $("kwhDay");
+
+      const outCostDay = $("costDay");
+      const outCostMonth = $("costMonth");
+      const outCostYear = $("costYear");
+
+      const outOhmV = $("ohmV");
+      const outOhmI = $("ohmI");
+      const outOhmR = $("ohmR");
+
+      function num(v) {
+        const x = parseFloat(v);
+        return Number.isFinite(x) ? x : null;
+      }
+
+      function fmt(n, decimals = 2) {
+        if (n === null || !Number.isFinite(n)) return "–";
+        return n.toLocaleString(undefined, { maximumFractionDigits: decimals });
+      }
+
+      function money(n, decimals = 2) {
+        if (n === null || !Number.isFinite(n)) return "–";
+        return "$" + n.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      }
+
+      function toTH(value, unit) {
+        if (value === null) return null;
+        if (unit === "TH") return value;
+        if (unit === "GH") return value / 1000;
+        if (unit === "PH") return value * 1000;
+        return value;
+      }
+
+      function recomputePower() {
+        const h = num(hashrateEl.value);
+        const e = num(efficiencyEl.value);
+        const c = num(kwhCostEl.value);
+        const unit = unitEl.value;
+
+        const th = toTH(h, unit);
+        outHashrateTH.textContent = th ? fmt(th, 3) + " TH/s" : "–";
+
+        if (!th || !e || th <= 0 || e <= 0) {
+          outPowerW.textContent = "–";
+          outKwhDay.textContent = "–";
+          outCostDay.textContent = "–";
+          outCostMonth.textContent = "–";
+          outCostYear.textContent = "–";
+          return;
+        }
+
+        // J/TH × TH/s = J/s = Watts
+        const watts = th * e;
+        const kw = watts / 1000;
+        const kwhDay = kw * 24;
+
+        outPowerW.textContent = fmt(watts, 1) + " W";
+        outKwhDay.textContent = fmt(kwhDay, 3) + " kWh/day";
+
+        if (!c || c < 0) {
+          outCostDay.textContent = "–";
+          outCostMonth.textContent = "–";
+          outCostYear.textContent = "–";
+          return;
+        }
+
+        const day = kwhDay * c;
+        const month = day * 30.4375; // avg month
+        const year = day * 365;
+
+        outCostDay.textContent = money(day, 2);
+        outCostMonth.textContent = money(month, 2);
+        outCostYear.textContent = money(year, 2);
+      }
+
+      function recomputeOhms() {
+        const V = num(voltageEl.value);
+        const I = num(currentEl.value);
+        const R = num(resistanceEl.value);
+
+        let v = V, i = I, r = R;
+
+        const filled = [v !== null, i !== null, r !== null].filter(Boolean).length;
+
+        // Solve only when exactly 2 values are provided and positive
+        if (filled === 2) {
+          if (v === null) {
+            // V = I * R
+            if (i !== null && r !== null && i > 0 && r > 0) v = i * r;
+          } else if (i === null) {
+            // I = V / R
+            if (v !== null && r !== null && v > 0 && r > 0) i = v / r;
+          } else if (r === null) {
+            // R = V / I
+            if (v !== null && i !== null && v > 0 && i > 0) r = v / i;
+          }
+        }
+
+        outOhmV.textContent = v ? fmt(v, 3) + " V" : "–";
+        outOhmI.textContent = i ? fmt(i, 3) + " A" : "–";
+        outOhmR.textContent = r ? fmt(r, 3) + " Ω" : "–";
+      }
+
+      function recomputeAll() {
+        recomputePower();
+        recomputeOhms();
+      }
+
+      ["input", "change"].forEach((evt) => {
+        hashrateEl.addEventListener(evt, recomputeAll);
+        unitEl.addEventListener(evt, recomputeAll);
+        efficiencyEl.addEventListener(evt, recomputeAll);
+        kwhCostEl.addEventListener(evt, recomputeAll);
+
+        voltageEl.addEventListener(evt, recomputeAll);
+        currentEl.addEventListener(evt, recomputeAll);
+        resistanceEl.addEventListener(evt, recomputeAll);
+      });
+
+      // initial
+      recomputeAll();
+    </script>
+
+    <script src="/assets/nav.js"></script>
+  </body>
+</html>
