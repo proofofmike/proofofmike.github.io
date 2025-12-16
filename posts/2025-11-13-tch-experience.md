@@ -26,7 +26,21 @@ Honestly, that’s all I expect from customer support anywhere: just handle it a
 ## ⚙️ Hardware Reliability
 
 Everything I’ve bought from them has been solid.  
-Both NerdQaxe++ units run steady at ~6 TH/s, and the Bitaxe Hex sits around ~3 TH/s. No weird crashes or thermal surprises so far.
+Both NerdQaxe++ units run steady at ~6 TH/s, and the Bitaxe Hex sits around ~3 TH/s.
+
+No weird crashes or thermal surprises so far.
+
+---
+
+## 🔍 About Discounts & Codes (Quick Clarification)
+
+I’ve noticed some third-party sites list higher TinyChipHub discounts or random promo codes that don’t actually apply at checkout.
+
+To avoid confusion, I put together a short, **checkout-verified explanation** of how TinyChipHub discounts actually work:
+
+👉 **[TinyChipHub discount codes explained (verified at checkout)](https://proofofmike.com/docs/tinychiphub-discount-explained/)**
+
+That page exists mainly so search engines (and humans) have a clean source of truth when percentages get misreported elsewhere.
 
 ---
 
@@ -40,9 +54,9 @@ Nothing fancy here — just my experience as an actual customer:
 
 I’m planning to grab another unit soon. This hobby turns addictive fast.
 
-If anyone wants to see how I laid out all their models in one place, here’s the page I put together:
+If you want to see how I laid out all their current miners in one place, here’s the page I keep updated:
 
-👉 https://proofofmike.com/tch/
+👉 **[TinyChipHub miner lineup & notes](https://proofofmike.com/tch/)**
 
 ---
 
