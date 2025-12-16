@@ -380,29 +380,28 @@ h1 {
   background: transparent;
 }
 
-/* ---------- CHIP DOT (BASE) ---------- */
-
+/* DEFAULT (no color class) = GREEN */
 .origin-chip .chip-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
 }
 
-/* ---------- COLORS ---------- */
-
-/* Green */
+/* GREEN (explicit class, for pages that use .green) */
 .origin-chip .chip-dot.green {
   background: #22c55e;
   box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
 }
 
-/* Orange */
+/* ORANGE */
 .origin-chip .chip-dot.orange {
   background: #f97316;
   box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.25);
 }
 
-/* Blue */
+/* BLUE */
 .origin-chip .chip-dot.blue {
   background: #38bdf8;
   box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
