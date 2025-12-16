@@ -385,33 +385,78 @@
       const customFeeWrap=document.getElementById("custom-fee-wrap");
       const customFeeInput=document.getElementById("customFee");
 
-      async function fetchNetworkData(){
-        try{
-          const hashRes=await fetch("https://mempool.space/api/v1/mining/hashrate/3d");
-          const hashJson=await hashRes.json();
-          networkHashrateTH=hashJson.currentHashrate/1e12;
+async function fetchNetworkData() {
+  // Hardcode subsidy (no API call for reward)
+  blockRewardBtc = 3.125;
+  blockRewardEl.textContent = blockRewardBtc.toFixed(3) + " BTC";
 
-          const rewardRes=await fetch("https://mempool.space/api/v1/blockchain/reward-stats");
-          const rewardJson=await rewardRes.json();
-          blockRewardBtc=rewardJson.blockReward/1e8;
+  // Show loading status
+  liveStatusEl.innerHTML =
+    '<span class="calc-dot"></span><span class="muted">Fetching latest network data…</span>';
 
-          const priceRes=await fetch("https://mempool.space/api/v1/prices");
-          const priceJson=await priceRes.json();
-          btcPriceUsd=priceJson.USD;
+  // helper
+  async function fetchJson(url) {
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+    return r.json();
+  }
 
-          networkHashrateEl.textContent=formatNumber(networkHashrateTH,2)+" TH/s";
-          blockRewardEl.textContent=blockRewardBtc.toFixed(3)+" BTC";
-          btcPriceEl.textContent="$"+formatNumber(btcPriceUsd,0)+" / BTC";
+  let hashrateOk = false;
+  let priceOk = false;
+  let errMsg = "";
 
-          liveStatusEl.innerHTML='<span class="calc-dot"></span><span class="muted">Live data loaded (mempool.space)</span>';
+  // 1) Network hashrate
+  try {
+    const hashJson = await fetchJson("https://mempool.space/api/v1/mining/hashrate/3d");
 
-          recompute();
-        }catch(e){
-          liveStatusEl.innerHTML='<span class="calc-dot" style="background:#f97316;box-shadow:0 0 0 4px rgba(248,113,113,0.35);"></span><span class="muted">Could not fetch live data.</span>';
-          recompute();
-        }
-      }
+    // Support a few possible response shapes
+    const raw =
+      hashJson.currentHashrate ??
+      hashJson.hashrate ??
+      (Array.isArray(hashJson?.hashrates) ? hashJson.hashrates.at(-1)?.avgHashrate : null) ??
+      (Array.isArray(hashJson) ? hashJson.at(-1)?.avgHashrate : null);
 
+    if (raw && isFinite(raw)) {
+      networkHashrateTH = raw / 1e12;
+      networkHashrateEl.textContent = formatNumber(networkHashrateTH, 2) + " TH/s";
+      hashrateOk = true;
+    } else {
+      errMsg = "Hashrate data shape changed.";
+    }
+  } catch (e) {
+    errMsg = "Could not fetch hashrate.";
+  }
+
+  // 2) BTC price
+  try {
+    const priceJson = await fetchJson("https://mempool.space/api/v1/prices");
+    const usd = priceJson?.USD ?? priceJson?.usd ?? null;
+
+    if (usd && isFinite(usd)) {
+      btcPriceUsd = usd;
+      btcPriceEl.textContent = "$" + formatNumber(btcPriceUsd, 0) + " / BTC";
+      priceOk = true;
+    } else {
+      errMsg = errMsg || "Price data shape changed.";
+    }
+  } catch (e) {
+    errMsg = errMsg || "Could not fetch BTC price.";
+  }
+
+  // Update status line
+  if (hashrateOk || priceOk) {
+    const note = (!hashrateOk || !priceOk) ? " (partial)" : "";
+    liveStatusEl.innerHTML =
+      '<span class="calc-dot"></span><span class="muted">Live data loaded (mempool.space)' + note + "</span>";
+  } else {
+    liveStatusEl.innerHTML =
+      '<span class="calc-dot" style="background:#f97316;box-shadow:0 0 0 4px rgba(248,113,113,0.35);"></span>' +
+      '<span class="muted">Could not fetch live data. ' + (errMsg || "") + "</span>";
+  }
+
+  // Recompute with whatever we have
+  recompute();
+}
       function getEffectiveFee() {
         if(poolSelect.value==="custom"){
           const v=parseFloat(customFeeInput.value);
