@@ -20,7 +20,8 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
+    sans-serif;
 }
 
 a {
@@ -46,17 +47,18 @@ a {
   margin-bottom: 16px;
 }
 
-/* Injected nav */
+/* The injected nav container at the top of the page */
 #site-nav {
-  margin-bottom: 24px;
+  margin-bottom: 24px; /* <<< NEW: space between nav and "Hey, I'm Mike" card */
 }
 
-/* Left side */
+/* Left side (avatar + brand) */
 header,
 .topbar-left {
   display: flex;
   gap: 14px;
   align-items: center;
+  margin-bottom: 0;
 }
 
 .brand {
@@ -86,9 +88,11 @@ header,
   font-size: 0.8rem;
   color: var(--muted);
   opacity: 0.85;
+  margin-top: 2px;
 }
 
-/* Right side nav */
+
+/* Right side nav container */
 .topbar-right,
 .rightlinks {
   display: flex;
@@ -97,6 +101,7 @@ header,
   flex-wrap: wrap;
 }
 
+/* Shared pill style (anchors + Mining button) */
 .topbar-right .nav-link,
 .rightlinks a,
 .nav-dropdown-toggle {
@@ -111,9 +116,12 @@ header,
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.18rem;
   cursor: pointer;
-  min-width: 120px;
+  min-width: 120px;   /* makes all pills visually similar on desktop */
+  text-align: center;
 }
+
 
 .topbar-right .nav-link:hover,
 .rightlinks a:hover,
@@ -122,10 +130,24 @@ header,
   border-color: rgba(248, 113, 113, 0.7);
 }
 
+/* Remove default button chrome for dropdown toggle */
+.nav-dropdown-toggle {
+  font: inherit;
+  background: transparent;
+  border-radius: 999px;
+}
+
+/* Caret */
+.nav-caret {
+  font-size: 0.75em;
+}
+
+/* Dropdown wrapper */
 .nav-dropdown {
   position: relative;
 }
 
+/* Dropdown menu */
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 0.4rem);
@@ -148,41 +170,61 @@ header,
   display: block;
   padding: 0.4rem 0.8rem;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .nav-dropdown-menu a:hover {
   background: rgba(148, 163, 184, 0.16);
 }
 
-/* ---------- MOBILE NAV ---------- */
+/* ---------- MOBILE NAV (REPLACES OLD 640px BLOCK) ---------- */
+/* 2×2 grid, Mining/Wallets same width, dropdown centered */
+
 @media (max-width: 768px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
   .topbar-right,
   .rightlinks {
     width: 100%;
     justify-content: center;
   }
 
+  /* Home, Blog, Mining (dropdown), Wallets = two per row */
   .topbar-right > .nav-link,
   .topbar-right > .nav-dropdown {
     flex: 0 0 calc(50% - 0.75rem);
   }
 
+  /* Pills fill their slot; ignore desktop min-width */
   .topbar-right .nav-link,
   .nav-dropdown-toggle {
     width: 100%;
     min-width: 0;
     padding: 10px 12px;
+    font-size: 0.85rem;
   }
 
+  /* Center dropdown under Mining and keep it on-screen */
   .nav-dropdown-menu {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
+    max-width: calc(100vw - 2rem);
   }
 }
 
-/* ---------- PANELS / CARDS ---------- */
+/* ---------- HEADINGS ---------- */
 
+h1 {
+  font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
+  margin: 0 8px 0 0;
+}
+
+/* ---------- MAIN PANELS / CARDS ---------- */
+
+/* Main intro panel */
 .panel {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 255, 0.16), transparent 55%),
@@ -190,10 +232,30 @@ header,
     var(--panel);
   border: 1px solid var(--ring);
   border-radius: var(--radius);
-  padding: 22px 20px;
+  padding: 22px 20px 20px;
   margin-bottom: 18px;
 }
 
+.panel p {
+  margin-top: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+/* Card grid (Latest on X + Latest blog) */
+.cards {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Generic card block */
 .card {
   background:
     radial-gradient(circle at top left, rgba(148, 163, 255, 0.12), transparent 55%),
@@ -201,7 +263,7 @@ header,
     var(--card);
   border: 1px solid var(--ring);
   border-radius: 16px;
-  padding: 16px;
+  padding: 16px 16px 18px;
 }
 
 .card h2 {
@@ -209,9 +271,10 @@ header,
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--muted);
+  margin: 0 0 8px;
 }
 
-/* Buttons */
+/* Button style – match CTA from NerdQaxe page */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -231,8 +294,43 @@ header,
   box-shadow: 0 20px 45px rgba(248, 113, 113, 0.35);
 }
 
+/* Muted text + post block */
 .muted {
   color: var(--muted);
+}
+
+.post {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--ring);
+  border-radius: var(--radius);
+  padding: 14px 14px 16px;
+}
+
+.post h1,
+.post h2,
+.post h3 {
+  margin-top: 1.1em;
+}
+
+/* Tag / post-list (used on /posts) */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  color: #ffd8c7;
+  background: rgba(239, 106, 58, 0.12);
+  border: 1px solid rgba(239, 106, 58, 0.3);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 6px;
+}
+
+.post-list .item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ring);
+}
+
+.post-list .item:last-child {
+  border-bottom: none;
 }
 
 /* Footer */
@@ -240,9 +338,25 @@ header,
   margin-top: 20px;
   color: var(--muted);
   font-size: 13px;
+  text-align: left;
 }
 
-/* ---------- ICON CHIPS (FIXED) ---------- */
+/* Contact form (used on old pages – kept so nothing breaks) */
+.contact-form {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #020617;
+  border: 1px solid var(--ring);
+  color: #e6e9ef;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* ---------- Green icon chips (same style as solo-mining page) ---------- */
 
 .origin-chip {
   display: inline-flex;
@@ -250,41 +364,38 @@ header,
   gap: 0.45rem;
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
-  background: rgba(56, 189, 248, 0.08);
+  background: rgba(56, 189, 248, 0.08); /* subtle blue tint, not green */
   border: 1px solid rgba(148, 163, 255, 0.35);
   font-size: 0.74rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #e5e7eb;
+  color: #e5e7eb; /* keeps the text normal color */
 }
 
-/* DEFAULT = GREEN */
+/* Only the icon becomes green — not the text */
 .origin-chip .chip-dot {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: #22c55e;
+  background: #22c55e; /* green */
   box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
 }
 
-/* ORANGE */
+/* ---------- Orange icon chip (identity / brand / sports) ---------- */
+
 .origin-chip .chip-dot.orange {
-  background: #f97316;
+  background: #f97316; /* orange */
   box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.25);
 }
 
-/* BLUE */
-.origin-chip .chip-dot.blue {
-  background: #38bdf8;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
-}
-
-/* Links */
+/* Use this on any page to force links into brand-blue */
 .link-blue {
   color: #38bdf8 !important;
+  text-decoration: none;
   font-weight: 500;
 }
 
 .link-blue:hover {
   text-decoration: underline;
 }
+
