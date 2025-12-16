@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core pages -->
+  <!-- Core / top-level hub pages (highest priority for discovery) -->
   <url>
     <loc>https://proofofmike.com/</loc>
     <lastmod>2025-12-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/about/</loc>
+    <lastmod>2025-12-15</lastmod>
   </url>
 
   <url>
@@ -12,16 +17,29 @@
     <lastmod>2025-12-10</lastmod>
   </url>
 
-  <url>
-    <loc>https://proofofmike.com/tch/</loc>
-    <lastmod>2025-12-10</lastmod>
-  </url>
-
+  <!-- Tools / calculators (evergreen utility pages) -->
   <url>
     <loc>https://proofofmike.com/solo-calc/</loc>
     <lastmod>2025-11-30</lastmod>
   </url>
 
+  <url>
+    <loc>https://proofofmike.com/power-calc/</loc>
+    <lastmod>2025-12-16</lastmod>
+  </url>
+
+  <!-- Mining guides / comparison pages (evergreen content) -->
+  <url>
+    <loc>https://proofofmike.com/solo-mining/</loc>
+    <lastmod>2025-11-30</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/mining-origin/</loc>
+    <lastmod>2025-12-06</lastmod>
+  </url>
+
+  <!-- Hardware / rig pages (product-style evergreen pages) -->
   <url>
     <loc>https://proofofmike.com/nerdqaxe-copper/</loc>
     <lastmod>2025-12-10</lastmod>
@@ -37,6 +55,12 @@
     <lastmod>2025-12-10</lastmod>
   </url>
 
+  <!-- Buying / gear / affiliate hub pages -->
+  <url>
+    <loc>https://proofofmike.com/tch/</loc>
+    <lastmod>2025-12-10</lastmod>
+  </url>
+
   <url>
     <loc>https://proofofmike.com/gear/</loc>
     <lastmod>2025-12-10</lastmod>
@@ -46,33 +70,20 @@
     <loc>https://proofofmike.com/wallets/</loc>
     <lastmod>2025-12-10</lastmod>
   </url>
-  
-  <url>
-    <loc>https://proofofmike.com/about/</loc>
-    <lastmod>2025-12-15</lastmod>
-  </url>
 
+  <!-- Docs (supporting “source of truth” pages for search engines) -->
   <url>
     <loc>https://proofofmike.com/docs/tinychiphub-discount-explained/</loc>
     <lastmod>2025-12-15</lastmod>
   </url>
 
-  <url>
-    <loc>https://proofofmike.com/solo-mining/</loc>
-    <lastmod>2025-11-30</lastmod>
-  </url>
-
+  <!-- Misc evergreen -->
   <url>
     <loc>https://proofofmike.com/matty/</loc>
     <lastmod>2025-11-30</lastmod>
   </url>
 
-  <url>
-    <loc>https://proofofmike.com/mining-origin/</loc>
-    <lastmod>2025-12-06</lastmod>
-  </url>
-
-  <!-- Individual posts -->
+  <!-- Individual posts (reverse-chronological is easiest to maintain) -->
   <url>
     <loc>https://proofofmike.com/posts/2025-12-06-talking-myself-into-another-miner.html</loc>
     <lastmod>2025-12-06</lastmod>
