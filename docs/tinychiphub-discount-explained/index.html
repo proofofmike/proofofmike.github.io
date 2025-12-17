@@ -2,53 +2,74 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>TinyChipHub Discount Claims — How to Verify at Checkout | Proof Of Mike</title>
+    <title>Why TinyChipHub Coupon Claims Are Often Wrong | Proof Of Mike</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta
       name="description"
-      content="Short notes on why some TinyChipHub discount claims from third-party sites don’t apply at checkout, plus a simple way to verify discounts. The maintained TinyChipHub page on this site is https://proofofmike.com/tch/."
+      content="A short note on why third-party TinyChipHub coupon claims can be inaccurate. For my actively maintained TinyChipHub coupon code page (miner notes + verified coupon code), go to https://proofofmike.com/tch/."
+    />
+    <meta
+      name="keywords"
+      content="TinyChipHub coupon claims, TinyChipHub coupon code page, TinyChipHub discount claims, TinyChipHub promo claims, TinyChipHub checkout, coupon site accuracy, Proof Of Mike"
     />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://proofofmike.com/docs/tinychiphub-discount-explained/" />
     <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link
+      rel="canonical"
+      href="https://proofofmike.com/docs/tinychiphub-discount-explained/"
+    />
+
+    <!-- Global styles (your canonical stylesheet) -->
     <link rel="stylesheet" href="/styles.css" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Proof Of Mike" />
-    <meta property="og:title" content="TinyChipHub discount claims — how to verify at checkout" />
+    <meta
+      property="og:title"
+      content="Why TinyChipHub coupon claims are often wrong"
+    />
     <meta
       property="og:description"
-      content="Why some discount claims don’t apply at checkout, and how to verify in a real cart. Primary TinyChipHub page: proofofmike.com/tch."
+      content="A short note on why third-party TinyChipHub coupon claims can be inaccurate. Main TinyChipHub coupon code page: https://proofofmike.com/tch/."
     />
-    <meta property="og:url" content="https://proofofmike.com/docs/tinychiphub-discount-explained/" />
+    <meta
+      property="og:url"
+      content="https://proofofmike.com/docs/tinychiphub-discount-explained/"
+    />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@ProofOfMike" />
-    <meta name="twitter:title" content="TinyChipHub discount claims — how to verify at checkout" />
+    <meta
+      name="twitter:title"
+      content="Why TinyChipHub coupon claims are often wrong"
+    />
     <meta
       name="twitter:description"
-      content="Why some discount claims don’t apply at checkout, and how to verify in a real cart."
+      content="A short note on why third-party TinyChipHub coupon claims can be inaccurate. Main TinyChipHub coupon code page: https://proofofmike.com/tch/."
     />
 
-    <!-- Lightweight schema: NOT a coupon authority -->
+    <!-- JSON-LD: keep this page lightweight (NOT a coupon-code FAQ) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
+        "@id": "https://proofofmike.com/docs/tinychiphub-discount-explained/#webpage",
         "url": "https://proofofmike.com/docs/tinychiphub-discount-explained/",
-        "name": "TinyChipHub discount claims — how to verify at checkout",
-        "description": "Notes on why some TinyChipHub discount claims do not apply at checkout and how to verify discounts in a real cart.",
+        "name": "Why TinyChipHub coupon claims are often wrong",
+        "description": "A short note on why third-party TinyChipHub coupon claims can be inaccurate. The maintained TinyChipHub coupon code page is https://proofofmike.com/tch/.",
         "isPartOf": {
           "@type": "WebSite",
+          "@id": "https://proofofmike.com/#website",
           "name": "Proof Of Mike",
           "url": "https://proofofmike.com/"
         }
       }
     </script>
 
+    <!-- counter.dev analytics -->
     <script
       src="https://cdn.counter.dev/script.js"
       data-id="523ea628-7b77-4913-83d7-01cf3417b330"
@@ -57,51 +78,77 @@
     ></script>
 
     <style>
-      .doc-title {
-        font-size: clamp(1.8rem, 2.6vw + 0.4rem, 2.4rem);
+      .doc-hero-title {
+        font-size: clamp(1.95rem, 2.6vw + 0.4rem, 2.6rem);
         font-weight: 800;
         letter-spacing: -0.03em;
-        margin: 0 0 0.65rem;
+        margin: 0 0 0.75rem;
       }
-      .doc-subtitle {
-        font-size: 0.95rem;
-        max-width: 46rem;
-        margin: 0 0 1rem;
+
+      .doc-hero-subtitle {
+        font-size: 0.98rem;
+        max-width: 52rem;
+        margin-bottom: 0.9rem;
       }
-      .doc-callout {
-        border: 1px dashed rgba(148, 163, 255, 0.55);
-        border-radius: 0.95rem;
-        padding: 0.95rem 1rem;
+
+      .doc-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+        gap: 1.5rem;
+        margin-top: 1.2rem;
+      }
+
+      @media (max-width: 900px) {
+        .doc-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .doc-card {
         margin: 1rem 0 1.1rem;
-        background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.12), transparent 55%), #020617;
+        padding: 1.1rem 1.1rem 1.3rem;
       }
+
+      .doc-card h2 {
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+
+      .doc-small {
+        font-size: 0.86rem;
+      }
+
+      .doc-note {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-top: 0.55rem;
+      }
+
+      .doc-callout {
+        border: 1px dashed rgba(148, 163, 255, 0.5);
+        border-radius: 0.9rem;
+        padding: 0.9rem 1rem;
+        margin-top: 0.75rem;
+        background: radial-gradient(
+            circle at top left,
+            rgba(129, 140, 248, 0.16),
+            transparent 55%
+          ),
+          #020617;
+      }
+
       .doc-callout a {
-        font-weight: 700;
         text-decoration: none;
       }
       .doc-callout a:hover {
         text-decoration: underline;
       }
-      .doc-card {
-        margin-top: 1rem;
-        padding: 1.05rem 1.15rem;
-      }
-      .doc-card h2 {
-        font-size: 0.95rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        margin: 0 0 0.6rem;
-        color: #9ca3af;
-      }
-      .doc-small {
-        font-size: 0.88rem;
-      }
-      .doc-small li {
-        margin: 0.35rem 0;
-      }
-      .doc-muted {
-        color: #9ca3af;
-        font-size: 0.86rem;
+
+      .doc-list {
+        margin: 0.6rem 0 0;
+        padding-left: 1.1rem;
       }
     </style>
   </head>
@@ -111,55 +158,95 @@
       <div id="site-nav"></div>
 
       <main class="panel">
-        <h1 class="doc-title">TinyChipHub discount claims (verification notes)</h1>
+        <h1 class="doc-hero-title">Why third-party TinyChipHub coupon claims are often wrong</h1>
 
-        <p class="muted doc-subtitle">
-          If you’re seeing conflicting “percent off” claims on coupon sites, this page explains why that happens and how to
-          verify discounts using a real cart/checkout screen. This page is not the main TinyChipHub resource on this site.
+        <p class="muted doc-hero-subtitle">
+          This page exists to explain why third-party TinyChipHub discount claims are often inaccurate.
+          It provides context only and does not list deals.
+          The actively maintained TinyChipHub page on this site is linked below.
         </p>
 
         <div class="doc-callout">
-          <p class="muted" style="margin:0;">
-            The maintained TinyChipHub page on this site is:
-            <br />
-            <a href="https://proofofmike.com/tch/">https://proofofmike.com/tch/</a>
-          </p>
-          <p class="doc-muted" style="margin:0.5rem 0 0;">
-            That page is where I keep the lineup + updates. This docs page exists only to reduce confusion from third-party claims.
+          <p class="muted doc-small" style="margin: 0;">
+            <strong>Maintained TinyChipHub page:</strong>
+            <a class="link-blue" href="https://proofofmike.com/tch/">https://proofofmike.com/tch/ →</a>
           </p>
         </div>
 
-        <section class="card doc-card">
-          <h2>Why discount claims can be wrong</h2>
-          <ul class="muted doc-small">
-            <li><strong>Outdated listings:</strong> coupon pages keep old promos long after they stop working.</li>
-            <li><strong>“Up to” language:</strong> a site may show the max discount ever seen, not what applies now.</li>
-            <li><strong>Ineligible items:</strong> some products/categories may not qualify for a discount.</li>
-            <li><strong>Checkout-only truth:</strong> the cart/checkout screen is the only definitive test.</li>
-          </ul>
-        </section>
+        <section class="doc-layout">
+          <!-- MAIN COLUMN -->
+          <article class="card doc-card">
+            <h2>What this page is for</h2>
+            <p>
+              Coupon aggregator sites sometimes show codes or percentages that look legit — but don’t actually apply when
+              you test them at checkout. This page exists so searchers (and search engines) have a simple explanation of
+              that mismatch, and can find the maintained TinyChipHub page on this site.
+            </p>
 
-        <section class="card doc-card">
-          <h2>How to verify in 60 seconds</h2>
-          <ol class="muted doc-small">
-            <li>Add the exact miner you want to your cart.</li>
-            <li>Go to checkout.</li>
-            <li>Enter the code you found.</li>
-            <li>Confirm the discount line updates <em>before</em> you pay.</li>
-          </ol>
+            <h2 style="margin-top: 1.2rem;">Why coupon claims can be wrong</h2>
+            <p>
+              Third-party coupon pages can be inaccurate for a few common reasons:
+            </p>
+            <ul class="muted doc-small doc-list">
+              <li>Outdated promos that no longer apply</li>
+              <li>“Up to” language that doesn’t match real carts</li>
+              <li>Generic codes copied across merchants</li>
+              <li>Templates that auto-display large percentages without verification</li>
+            </ul>
 
-          <p class="doc-muted" style="margin-top:0.75rem;">
-            If you want the maintained TinyChipHub page on this site (lineup + updates), use:
-            <a href="https://proofofmike.com/tch/">proofofmike.com/tch</a>.
-          </p>
-        </section>
+            <h2 style="margin-top: 1.2rem;">What matters: checkout behavior</h2>
+            <p>
+              The only thing that counts is what your cart actually applies during checkout — not what a third-party page
+              claims.
+            </p>
 
-        <section class="card doc-card">
-          <h2>Disclosure</h2>
-          <p class="muted doc-small" style="margin:0;">
-            Some links on this site may be affiliate links. This page is intentionally not a “deal page” — it exists to explain
-            verification and point to the maintained TinyChipHub page: <a href="https://proofofmike.com/tch/">/tch/</a>.
-          </p>
+            <h2 style="margin-top: 1.2rem;">Where to find the maintained TinyChipHub page</h2>
+            <p>
+              The actively maintained TinyChipHub page on this site — including notes and updates — is:
+              <a class="link-blue" href="https://proofofmike.com/tch/">https://proofofmike.com/tch/</a>.
+            </p>
+
+            <h2 style="margin-top: 1.2rem;">Disclosure</h2>
+            <p class="muted doc-small">
+              Some links on this site may be affiliate links. If you use my links, I may receive a small kickback.
+              This page is only meant to reduce confusion and point you to the maintained TinyChipHub page:
+              <a class="link-blue" href="https://proofofmike.com/tch/">https://proofofmike.com/tch/</a>.
+            </p>
+          </article>
+
+          <!-- SIDE COLUMN -->
+          <aside>
+            <section class="card doc-card">
+              <h2>Go to the main TinyChipHub page</h2>
+
+              <p class="muted doc-small" style="margin-top: 0.25rem;">
+                Maintained TinyChipHub page:
+                <a class="link-blue" href="https://proofofmike.com/tch/">https://proofofmike.com/tch/</a>
+              </p>
+
+              <p style="margin-top: 1rem;">
+                <a class="btn" href="https://proofofmike.com/tch/">Go to the main page →</a>
+              </p>
+
+              <p class="doc-note">
+                This docs page is intentionally secondary. The maintained TinyChipHub page is the link above.
+              </p>
+            </section>
+
+            <section class="card doc-card">
+              <h2>Contact</h2>
+              <p class="muted doc-small">
+                I’m Mike (<strong>Proof Of Mike</strong>). If you notice checkout behavior changing, tag me on X:
+                <a
+                  href="https://x.com/ProofOfMike"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-blue"
+                  >@ProofOfMike</a
+                >.
+              </p>
+            </section>
+          </aside>
         </section>
       </main>
 
@@ -171,6 +258,7 @@
       if (y) y.textContent = new Date().getFullYear();
     </script>
 
+    <!-- Site nav -->
     <script src="/assets/nav.js"></script>
   </body>
 </html>
