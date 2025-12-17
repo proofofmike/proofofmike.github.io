@@ -32,17 +32,6 @@ No weird crashes or thermal surprises so far.
 
 ---
 
-## 🔍 About Discounts & Codes (Quick Clarification)
-
-I’ve noticed some third-party sites list higher TinyChipHub discounts or random promo codes that don’t actually apply at checkout.
-
-To avoid confusion, I put together a short, **checkout-verified explanation** of how TinyChipHub discounts actually work:
-
-👉 **[TinyChipHub discount codes explained (verified at checkout)](https://proofofmike.com/docs/tinychiphub-discount-explained/)**
-
-That page exists mainly so search engines (and humans) have a clean source of truth when percentages get misreported elsewhere.
-
----
 
 ## 👍 Final Thoughts
 
