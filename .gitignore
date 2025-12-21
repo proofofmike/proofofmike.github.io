@@ -1,2 +1,7 @@
 tch/index.html.old
 .DS_Store
+*.bak
+*.old
+*-old.html
+index-backup.html
+index.html.old

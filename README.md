@@ -1,6 +1,6 @@
 # ProofOfMike.github.io
 
-This repository hosts the full **Proof Of Mike** website — Bitcoin solo-mining notes, hardware tuning guides, vendor pages, and personal projects.
+This repository hosts the full **ProofOfMike** website — Bitcoin solo-mining notes, hardware tuning guides, vendor pages, and personal projects.
 
 Visit the live site:  
 https://proofofmike.com
