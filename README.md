@@ -39,4 +39,4 @@ Looking for **Bitaxe**, **NerdQaxe++**, or **Zyber** miners?
 Visit:  
 **[https://proofofmike.com/tch](https://proofofmike.com/tch)**
 
-Use code **PROOFOFMIKE** for the **full available TinyChipHub discount**.
+Use code **PROOFOFMIKE** for the **5% off eligible miners**.

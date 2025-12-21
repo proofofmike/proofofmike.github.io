@@ -4,55 +4,55 @@
   <!-- Core / top-level hub pages (highest priority for discovery) -->
   <url>
     <loc>https://proofofmike.com/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/about/</loc>
-    <lastmod>2025-12-15</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/posts/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <!-- Tools / calculators (evergreen utility pages) -->
   <url>
     <loc>https://proofofmike.com/solo-calc/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/power-calc/</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <!-- Mining guides / comparison pages (evergreen content) -->
   <url>
     <loc>https://proofofmike.com/solo-mining/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/mining-origin/</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <!-- Hardware / rig pages (product-style evergreen pages) -->
   <url>
     <loc>https://proofofmike.com/nerdqaxe-copper/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/zyber-8g/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/hex/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <!-- Buying / gear / affiliate hub pages -->
@@ -63,18 +63,18 @@
 
   <url>
     <loc>https://proofofmike.com/gear/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <url>
     <loc>https://proofofmike.com/wallets/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <!-- Misc evergreen -->
   <url>
     <loc>https://proofofmike.com/matty/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2025-12-21</lastmod>
   </url>
 
   <!-- Individual posts (reverse-chronological is easiest to maintain) -->
