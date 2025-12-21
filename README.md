@@ -16,6 +16,7 @@ The repo contains the complete static site:
 - `/posts/<slug>.html` — Individual blog posts
 - `/tch/` — TinyChipHub partner page (5% off with PROOFOFMIKE)
 - `/solo-calc/` — Solo-mining odds calculator
+- `/power-calc/` — Mining power & electricity cost calculator
 - `/nerdqaxe-copper/` — NerdQaxe++ Remastered Copper tuning notes
 - `/zyber-8g/` — Zyber 8G notes
 - `/hex/` — Bitaxe Hex tuning notes
