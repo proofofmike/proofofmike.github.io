@@ -33,15 +33,12 @@ I’ll keep it updated anytime I change something or try a new tuning profile.
 
 ## If You're Shopping for One of These Miners
 
-Both of my miners came from **TinyChipHub** (sometimes written as *Tiny Chip Hub*).  
-If you're thinking about picking one up:
+Both of my miners came from **TinyChipHub** (sometimes written as *Tiny Chip Hub*).
 
-You can use my code:
+If you’re comparing Bitaxe, NerdQaxe++, or Zyber models, I keep a single page with
+current lineup details and notes here:
 
-> **PROOFOFMIKE** = **5% off** eligible Bitaxe, NerdQaxe++, and Zyber miners.
-
-Full breakdown of their lineup is here:  
-👉 **[TinyChipHub promo code & lineup](https://proofofmike.com/tch/)**
+👉 **[TinyChipHub lineup overview](https://proofofmike.com/tch/)**
 
 ---
 
