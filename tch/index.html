@@ -281,7 +281,16 @@
         radial-gradient(circle at top left, rgba(148, 163, 255, 0.25), transparent 55%),
         radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.18), transparent 55%),
         #020617;
+      box-sizing: border-box;
+      overflow: hidden;
     }
+   
+     .pom-hero-title,
+     .pom-hero-subtitle {
+       overflow-wrap: break-word;
+       word-wrap: break-word;
+       word-break: normal;
+}
 
     .pom-hero-title {
       font-size: clamp(2.3rem, 3.4vw + 1rem, 3.2rem);
