@@ -68,7 +68,7 @@
 
   <url>
     <loc>https://proofofmike.com/wallets/</loc>
-    <lastmod>2025-12-21</lastmod>
+    <lastmod>2026-01-02</lastmod>
   </url>
 
   <!-- Misc evergreen -->
@@ -121,6 +121,11 @@
   <url>
     <loc>https://proofofmike.com/posts/2025-11-12-nerdqaxe-plus-plus-first-notes.html</loc>
     <lastmod>2025-11-11</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://proofofmike.com/posts/2026-01-02-tangem-note.html</loc>
+    <lastmod>2026-01-02</lastmod>
   </url>
 
 </urlset>
