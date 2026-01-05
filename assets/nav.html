@@ -1,5 +1,4 @@
 <div class="topbar">
-  <!-- Left side: bulldog + brand text -->
   <header class="topbar-left">
     <a href="/" class="brand">
       <img
@@ -14,13 +13,12 @@
     </a>
   </header>
 
-  <!-- Right side: nav pills -->
   <nav class="topbar-right" aria-label="Main navigation">
     <a class="nav-link" href="/">Home</a>
     <a class="nav-link" href="/about/">About</a>
     <a class="nav-link" href="/posts/">Blog</a>
 
-    <!-- Mining dropdown -->
+    <!-- Mining (guides / tools) -->
     <div class="nav-dropdown">
       <button
         class="nav-link nav-dropdown-toggle"
@@ -33,18 +31,50 @@
       </button>
 
       <div class="nav-dropdown-menu" role="menu">
+        <a href="/mining-origin/" role="menuitem">Mining Origin</a>
+        <a href="/solo-mining/" role="menuitem">Solo Mining</a>
+        <a href="/mining-supply-chains/" role="menuitem">Supply Chains &amp; Pricing</a>
+        <a href="/solo-calc/" role="menuitem">Solo Calc</a>
+        <a href="/power-calc/" role="menuitem">Power Calc</a>
+      </div>
+    </div>
+
+    <!-- Rigs (hardware pages) -->
+    <div class="nav-dropdown">
+      <button
+        class="nav-link nav-dropdown-toggle"
+        type="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="nav-label">Rigs</span>
+        <span class="nav-caret" aria-hidden="true">▾</span>
+      </button>
+
+      <div class="nav-dropdown-menu" role="menu">
         <a href="/nerdqaxe-copper/" role="menuitem">NerdQaxe++ Copper</a>
         <a href="/hex/" role="menuitem">Bitaxe Hex</a>
         <a href="/zyber-8g/" role="menuitem">Zyber 8G</a>
-        <a href="/tch/" role="menuitem">TinyChipHub Rigs</a>
+      </div>
+    </div>
+
+    <!-- TinyChipHub stays its own top-level item -->
+    <a class="nav-link" href="/tch/">TinyChipHub</a>
+
+    <!-- Resources bucket -->
+    <div class="nav-dropdown">
+      <button
+        class="nav-link nav-dropdown-toggle"
+        type="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="nav-label">Resources</span>
+        <span class="nav-caret" aria-hidden="true">▾</span>
+      </button>
+
+      <div class="nav-dropdown-menu" role="menu">
         <a href="/gear/" role="menuitem">Gear &amp; accessories</a>
-
-        <!-- NEW — Mining Origin article -->
-        <a href="/mining-origin/" role="menuitem">Mining Origin</a>
-
-        <a href="/solo-mining/" role="menuitem">Solo Mining</a>
-        <a href="/solo-calc/" role="menuitem">Solo Calc</a>
-        <a href="/power-calc/" role="menuitem">Power Calc</a>
       </div>
     </div>
 
