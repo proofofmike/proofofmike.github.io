@@ -2,8 +2,11 @@
 
 function formatDate(dateStr) {
   // dateStr is "YYYY-MM-DD"
-  const d = new Date(dateStr);
-  if (Number.isNaN(d.getTime())) return dateStr; // fallback
+  const parts = dateStr.split("-").map(Number);
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return dateStr;
+
+  // Construct as LOCAL date to avoid UTC shifting to the prior day
+  const d = new Date(parts[0], parts[1] - 1, parts[2]);
 
   const opts = { year: "numeric", month: "short", day: "numeric" };
   return d.toLocaleDateString(undefined, opts); // browser locale
