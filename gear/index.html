@@ -391,7 +391,7 @@
               </ul>
             </article>
 
-            <!-- CLEANING, TOOLS & MISC. -->
+            <!-- CLEANING, TOOLS, FUSES & MISC. -->
             <article class="pom-card">
               <h2>Cleaning, tools &amp; misc.</h2>
 
@@ -454,33 +454,20 @@
                   getting warmer than it should.
                 </li>
               </ul>
-            </article>
 
-            <!-- FUSES & PROTECTION (UPDATED) -->
-            <article class="pom-card">
-              <h2>Fuses &amp; protection</h2>
-              <p>
-                Some NerdQaxe++ builds ship with an 8&nbsp;A Littelfuse NANO2 (2410) fast-blow fuse on the 12&nbsp;V rail, while others
-                have no on-board fuse at all. If your board <em>does</em> have one, that’s the fuse it originally shipped with.
-                If it doesn’t, protection is handled upstream through the PSU and XT30 input path.
-                Because there were multiple production runs, the easiest way to know is simply to check your own board.
-              </p>
-
-              <h3>10&nbsp;A option for OC builds</h3>
+              <h3>Fuses</h3>
               <ul>
                 <li>
                   <a href="https://amzn.to/3K7Quex" target="_blank" rel="nofollow noopener">
                     Littelfuse NANO2 10&nbsp;A (0451010.MR / 0451010.MRL)
                   </a>
-                  – this is the common upgrade for boards that include the SMD fuse footprint. It only raises the fuse limit;
-                  it does <strong>not</strong> increase what the VRM, traces, or ASIC can safely pull. If you try it, make small
-                  changes and monitor temps and stability.
+                  – common option people use for OC builds on boards that include an on-board SMD fuse footprint.
+                  This only raises the fuse limit; it does <strong>not</strong> increase what the VRM, traces, connectors, or ASIC can safely pull.
                 </li>
               </ul>
-
               <p class="pom-note">
-                Important: A higher-rated fuse won’t increase the miner’s real electrical limits — it only means the fuse won’t
-                be the first part to fail. Boards without a fuse rely entirely on PSU-side protection instead.
+                NerdQaxe++ fuse / input protection varies by production run and board revision. Check your specific board,
+                and if you change anything, make small steps and watch temps + stability.
               </p>
             </article>
           </div>
