@@ -4,7 +4,7 @@
   <!-- Core / top-level hub pages (highest priority for discovery) -->
   <url>
     <loc>https://proofofmike.com/</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-27</lastmod>
   </url>
 
   <url>
@@ -14,7 +14,7 @@
 
   <url>
     <loc>https://proofofmike.com/posts/</loc>
-    <lastmod>2025-12-21</lastmod>
+    <lastmod>2026-01-27</lastmod>
   </url>
 
   <!-- Tools / calculators (evergreen utility pages) -->
@@ -84,6 +84,26 @@
 
   <!-- Individual posts (reverse-chronological is easiest to maintain) -->
   <url>
+    <loc>https://proofofmike.com/posts/2026-01-27-sovereignty-isnt-a-wizard.html</loc>
+    <lastmod>2026-01-27</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/posts/2026-01-17-not-me-tangem-reddit-post.html</loc>
+    <lastmod>2026-01-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/posts/2026-01-14-clean-your-miners.html</loc>
+    <lastmod>2026-01-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://proofofmike.com/posts/2026-01-02-tangem-note.html</loc>
+    <lastmod>2026-01-02</lastmod>
+  </url>
+
+  <url>
     <loc>https://proofofmike.com/posts/2025-12-26-pricing-confusion.html</loc>
     <lastmod>2025-12-26</lastmod>
   </url>
@@ -126,21 +146,6 @@
   <url>
     <loc>https://proofofmike.com/posts/2025-11-12-nerdqaxe-plus-plus-first-notes.html</loc>
     <lastmod>2025-11-11</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://proofofmike.com/posts/2026-01-02-tangem-note.html</loc>
-    <lastmod>2026-01-02</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://proofofmike.com/posts/2026-01-14-clean-your-miners.html</loc>
-    <lastmod>2026-01-14</lastmod>
-  </url>
-
-  <url>
-    <loc>https://proofofmike.com/posts/2026-01-17-not-me-tangem-reddit-post.html</loc>
-    <lastmod>2026-01-17</lastmod>
   </url>
 
 </urlset>
