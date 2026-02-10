@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Zyber 8G Desk Test: Real 10 TH/s, Efficient, Stable, Desk-Friendly | ProofOfMike</title>
+    <title>Zyber 8G desk test: real 10 TH/s, efficient, stable, desk-friendly | ProofOfMike</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta
       name="description"
-      content="ProofOfMike desk test of the Zyber 8G Premium from TinyChipHub: real 10 TH/s 1-day average, ~137 W, 13.21 J/TH observed, temps, noise, and buyer clarity."
+      content="ProofOfMike desk test of the Zyber 8G Premium from TinyChipHub: real 10 TH/s 1-day average, ~137 W, 13.21 J/TH observed, temps, noise, and a quick solo-mining odds reality check."
     />
     <meta
       name="keywords"
@@ -20,10 +20,10 @@
 
     <!-- Open Graph / Social Preview -->
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Zyber 8G desk test: real 10 TH/s, efficient, stable, desk-friendly" />
+    <meta property="og:title" content="Zyber 8G desk test: a real 10 TH/s, efficient, stable, desk-friendly" />
     <meta
       property="og:description"
-      content="Real desk test of the Zyber 8G Premium from TinyChipHub: 10 TH/s 1-day average, ~137 W, 13.21 J/TH observed, temps, noise, and buyer clarity."
+      content="Real desk test of the Zyber 8G Premium from TinyChipHub: 10 TH/s 1-day average, ~137 W, 13.21 J/TH observed, temps, noise, and a solo-mining odds reality check."
     />
     <meta property="og:url" content="https://proofofmike.com/zyber-8g/" />
     <meta property="og:image" content="https://proofofmike.com/zyber-8g/images/zyber8g_prem.webp" />
@@ -31,16 +31,16 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zyber 8G desk test: real 10 TH/s, efficient, stable, desk-friendly" />
+    <meta name="twitter:title" content="Zyber 8G desk test: a real 10 TH/s, efficient, stable, desk-friendly" />
     <meta
       name="twitter:description"
-      content="ProofOfMike ran a Zyber 8G Premium at stock settings for 48 hours. Real hashrate, watts, temps, noise notes, and buyer clarity."
+      content="I ran a Zyber 8G Premium at stock settings for 48 hours. Real hashrate, real watts, real temps. No hype."
     />
     <meta name="twitter:image" content="https://proofofmike.com/zyber-8g/images/zyber8g_prem.webp" />
     <meta name="twitter:creator" content="@proofofmike" />
 
     <style>
-      /* Page-specific layout only. Colors come from /styles.css variables. */
+      /* Page-specific layout only. Base palette/typography from /styles.css */
 
       .pom-container {
         max-width: 1100px;
@@ -48,9 +48,10 @@
         padding: 1.25rem 0 3.5rem;
       }
 
+      /* Hero card (matches NerdQaxe vibe) */
       .pom-hero-card {
         border-radius: 2.2rem;
-        padding: 2.2rem 2.1rem 2.0rem;
+        padding: 2.35rem 2.2rem 2.1rem;
         border: 1px solid var(--ring);
         background:
           radial-gradient(circle at top left, rgba(148, 163, 255, 0.22), transparent 55%),
@@ -60,7 +61,7 @@
       }
 
       .pom-hero-title {
-        font-size: clamp(2.1rem, 3vw + 0.9rem, 3.1rem);
+        font-size: clamp(2.1rem, 3vw + 0.9rem, 3.15rem);
         font-weight: 800;
         line-height: 1.12;
         letter-spacing: -0.03em;
@@ -71,15 +72,23 @@
         font-size: 1.05rem;
         line-height: 1.65;
         color: #cbd5f5;
-        margin: 0 0 1.15rem;
+        margin: 0 0 0.9rem;
+        max-width: none;
+      }
+
+      .pom-hero-intro {
+        font-size: 1.02rem;
+        line-height: 1.65;
+        color: var(--text);
+        margin: 0 0 1.2rem;
         max-width: none;
       }
 
       .pom-cta {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.85rem 1.7rem;
+        gap: 0.55rem;
+        padding: 0.9rem 1.8rem;
         border-radius: 999px;
         border: none;
         background: linear-gradient(135deg, #f97316, #ea580c);
@@ -97,12 +106,64 @@
       }
 
       .pom-note {
-        margin-top: 0.85rem;
+        margin-top: 0.9rem;
         font-size: 0.88rem;
         color: var(--muted);
         max-width: none;
       }
 
+      .pom-link {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .pom-link:hover {
+        text-decoration: underline;
+      }
+
+      .pom-hr {
+        height: 1px;
+        background: rgba(148, 163, 255, 0.22);
+        border: none;
+        margin: 1.2rem 0 1.05rem;
+      }
+
+      /* Stat pills */
+      .pom-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.85rem;
+        margin: 1rem 0 0.1rem;
+      }
+
+      .pom-metric-pill {
+        border-radius: 999px;
+        padding: 0.65rem 1.05rem;
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid var(--ring);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.9rem;
+        min-height: 56px;
+      }
+
+      .pom-metric-label {
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.68rem;
+        white-space: nowrap;
+      }
+
+      .pom-metric-value {
+        font-weight: 700;
+        color: var(--text);
+        text-align: right;
+      }
+
+      /* Main layout */
       .pom-layout {
         display: grid;
         grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
@@ -143,12 +204,12 @@
       .pom-card p,
       .pom-card li {
         font-size: 0.96rem;
-        line-height: 1.7;
+        line-height: 1.72;
         color: var(--text);
       }
 
       .pom-card p {
-        margin: 0.5rem 0 0.9rem;
+        margin: 0.55rem 0 0.95rem;
       }
 
       .pom-card ul {
@@ -158,46 +219,15 @@
 
       .pom-card li {
         margin-bottom: 0.2rem;
-        color: var(--text);
       }
 
-      .pom-metrics {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        gap: 0.75rem;
-        margin: 0.9rem 0 0.6rem;
-      }
-
-      .pom-metric-pill {
-        border-radius: 999px;
-        padding: 0.55rem 0.95rem;
-        font-size: 0.88rem;
-        background: rgba(15, 23, 42, 0.85);
-        border: 1px solid var(--ring);
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 0.75rem;
-      }
-
-      .pom-metric-label {
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        font-size: 0.68rem;
-      }
-
-      .pom-metric-value {
-        font-weight: 650;
-        color: var(--text);
-      }
-
+      /* Images */
       .pom-img-frame {
         border-radius: 1.1rem;
         overflow: hidden;
         border: 1px solid var(--ring);
         background: radial-gradient(circle at top, rgba(148, 163, 255, 0.18), transparent 60%), #020617;
-        margin-bottom: 1.0rem;
+        margin-bottom: 0.85rem;
       }
 
       .pom-img-frame img {
@@ -212,6 +242,30 @@
         margin: 0.25rem 0 1.25rem;
       }
 
+      .pom-wide-shot a {
+        display: block;
+        cursor: zoom-in;
+      }
+
+      /* Odds box */
+      .pom-callout {
+        border-radius: 1.1rem;
+        border: 1px dashed rgba(148, 163, 255, 0.55);
+        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%), #020617;
+        padding: 1.2rem 1.2rem 1.1rem;
+        margin: 1.1rem 0 1.25rem;
+      }
+
+      .pom-callout p {
+        margin: 0.45rem 0;
+      }
+
+      .pom-callout .pom-mini {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      /* Footer CTA */
       .pom-footer-box {
         margin-top: 2.2rem;
         padding: 1.5rem 1.6rem 1.6rem;
@@ -227,44 +281,32 @@
         line-height: 1.7;
       }
 
-      .pom-link {
-        color: #38bdf8;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .pom-link:hover {
-        text-decoration: underline;
-      }
-
       .pom-mini {
         color: var(--muted);
         font-size: 0.88rem;
-      }
-
-      .pom-hr {
-        height: 1px;
-        background: rgba(148, 163, 255, 0.22);
-        border: none;
-        margin: 1.2rem 0 1.1rem;
       }
     </style>
   </head>
 
   <body>
     <div class="wrap">
+      <!-- Site-wide nav injected by /assets/nav.js -->
       <div id="site-nav"></div>
 
       <main>
         <div class="pom-container">
           <!-- HERO -->
           <section class="pom-hero-card">
-            <h1 class="pom-hero-title">
-              Zyber 8G desk test: a real 10 TH/s, efficient, stable, desk-friendly
-            </h1>
+            <h1 class="pom-hero-title">Zyber 8G desk test: a real 10 TH/s, efficient, stable, desk-friendly</h1>
 
             <p class="pom-hero-subtitle">
               I ran a Zyber 8G Premium at stock settings for 48 hours. Real hashrate, real watts, real temps. No hype.
+            </p>
+
+            <p class="pom-hero-intro">
+              I’m Mike (“ProofOfMike”), running a small home Bitcoin mining setup. This is my real-world review of the Zyber
+              8G Premium from TinyChipHub, the actual hashrate, noise, temps, and how it actually ran on the desk in my home
+              office.
             </p>
 
             <a
@@ -279,7 +321,9 @@
 
             <p class="pom-note">
               Use code <strong>PROOFOFMIKE</strong> for <strong>5% off all miners</strong>.
-              I earn a very modest affiliate fee that helps support my research, testing, and ongoing mining experiments and reviews.
+              If you use my link, it supports the site at no extra cost to you and I earn a very modest affiliate fee that
+              helps support my testing, research, and ongoing mining experiments and reviews. Code details live here:
+              <a class="pom-link" href="https://proofofmike.com/tch/" rel="nofollow">proofofmike.com/tch</a>.
             </p>
 
             <hr class="pom-hr" />
@@ -298,45 +342,68 @@
                 <span class="pom-metric-value">13.21 J/TH</span>
               </div>
               <div class="pom-metric-pill">
-                <span class="pom-metric-label">Temps</span>
-                <span class="pom-metric-value">ASIC 51°C · VR 63°C</span>
+                <span class="pom-metric-label">Temps + room</span>
+                <span class="pom-metric-value">ASIC 51°C · VR 63°C · 73°F</span>
               </div>
               <div class="pom-metric-pill">
                 <span class="pom-metric-label">Fans</span>
                 <span class="pom-metric-value">55% · 61%</span>
-              </div>
-              <div class="pom-metric-pill">
-                <span class="pom-metric-label">Room temp</span>
-                <span class="pom-metric-value">73°F</span>
               </div>
             </div>
           </section>
 
           <!-- MAIN LAYOUT -->
           <section class="pom-layout">
-            <!-- LEFT: COPY -->
+            <!-- LEFT: COPY + SCREENSHOTS -->
             <article class="pom-card">
               <h2>Real results from my desk</h2>
 
               <p>
                 This Zyber 8G Premium was run at stock settings and allowed to settle. The important part is not peak spikes.
-                It is how flat and boring the line looks once everything warms up.
+                It’s how flat and boring the line looks once everything warms up.
               </p>
 
               <p>
-                Across a full day: 10 TH/s average, about 137 W, 13.21 J/TH observed, and stable thermals.
-                No fan hunting and no weird behavior.
+                Across a full day: <strong>10 TH/s average</strong>, about <strong>137 W</strong>, <strong>13.21 J/TH observed</strong>,
+                and stable thermals. No fan hunting and no weird behavior.
               </p>
 
-              <h3>Efficiency that actually stands out</h3>
+              <div class="pom-wide-shot">
+                <div class="pom-img-frame">
+                  <a href="/zyber-8g/images/zyber-8gp-power-heat.png" target="_blank" rel="noopener">
+                    <img
+                      src="/zyber-8g/images/zyber-8gp-power-heat.png"
+                      alt="Zyber 8G power and thermals dashboard screenshot"
+                    />
+                  </a>
+                </div>
+                <div class="pom-caption">Power and thermals snapshot during the stock run. Click to zoom.</div>
+
+                <div class="pom-img-frame">
+                  <a href="/zyber-8g/images/zyber-8gp-hashrate.png" target="_blank" rel="noopener">
+                    <img
+                      src="/zyber-8g/images/zyber-8gp-hashrate.png"
+                      alt="Zyber 8G hashrate and efficiency dashboard screenshot"
+                    />
+                  </a>
+                </div>
+                <div class="pom-caption">Hashrate and efficiency view showing the 1-day averages. Click to zoom.</div>
+
+                <div class="pom-img-frame">
+                  <a href="/zyber-8g/images/zyber-8gp-ckpool.png" target="_blank" rel="noopener">
+                    <img
+                      src="/zyber-8g/images/zyber-8gp-ckpool.png"
+                      alt="Zyber 8G pool-side view screenshot"
+                    />
+                  </a>
+                </div>
+                <div class="pom-caption">Pool-side view (CKPool) during the run. Click to zoom.</div>
+              </div>
+
+              <h3>Efficiency that stands out</h3>
               <p>
-                At 13.21 J/TH observed, the Zyber 8G is operating in a very efficient zone for a home miner at this hashrate level.
+                At <strong>13.21 J/TH observed</strong>, Zyber 8G is operating in a very efficient zone for a home miner at this hashrate level.
                 For context, this is meaningfully more efficient than the NerdQaxe++ units I run on my desk.
-              </p>
-
-              <p>
-                They are different classes of hardware, but it highlights what Zyber is optimized for:
-                delivering more hashrate per watt without pushing fans or thermals hard.
               </p>
 
               <h2 style="margin-top: 1.8rem;">Noise and daily comfort</h2>
@@ -350,38 +417,72 @@
                 Honestly, I would not even have an issue running this in a bedroom.
               </p>
 
-              <h2 style="margin-top: 1.8rem;">Why Zyber 8G exists</h2>
+              <h2 style="margin-top: 1.8rem;">A quick reality check on home mining odds</h2>
+
+              <div class="pom-callout">
+                <p>
+                  I’m seeing a lot of people jump into home mining lately, so I want to briefly cover what you can expect from devices in this class.
+                </p>
+
+                <p class="pom-mini">
+                  At time of writing (Feb 09, 2026), Bitcoin difficulty is about <strong>125.86T</strong> and estimated network hashrate is about
+                  <strong>~1.02 ZH/s</strong>. These odds are based on <strong>stock hashrates</strong> and current network difficulty.
+                  Source links:
+                  <a class="pom-link" href="https://ycharts.com/indicators/bitcoin_average_difficulty" target="_blank" rel="noopener">difficulty</a>
+                  and
+                  <a class="pom-link" href="https://ycharts.com/indicators/bitcoin_network_hash_rate" target="_blank" rel="noopener">hashrate</a>.
+                </p>
+
+                <p>
+                  Here is what the annual odds look like in plain English. This is the chance of finding <strong>at least one</strong> Bitcoin block in a year:
+                </p>
+
+                <ul>
+                  <li><strong>Zyber 8G (10 TH/s):</strong> about <strong>1 in 1,715 per year</strong></li>
+                  <li><strong>NerdQaxe++ (6.1 TH/s):</strong> about <strong>1 in 2,811 per year</strong></li>
+                  <li><strong>Bitaxe Gamma 601 (1.2 TH/s):</strong> about <strong>1 in 14,285 per year</strong></li>
+                </ul>
+
+                <p>
+                  A lot of the “lottery miners” you see advertised are <strong>1000 kH/s or less</strong>. That is roughly <strong>1 MH/s</strong>,
+                  which works out to about <strong>1 in 17.1 billion per year</strong> at this difficulty. That is why I focus on real TH/s-class home miners.
+                </p>
+              </div>
+
               <p>
-                There is a gap in home mining. Smaller open-source desk miners are quiet but limited.
-                Full-size ASICs bring noise, heat, and power complexity.
+                These miners are designed for <strong>solo mining</strong>. Yes, you technically can join a pool, but with miners this small the payouts are usually minimal.
+                You are talking pennies a day if that, and that is before factoring in your electrical cost.
               </p>
 
               <p>
-                Zyber 8G sits in the middle: multi-ASIC performance with power delivery and thermals designed to make sense
-                in a room where people live.
+                People do find blocks with these. It happens. They use the same class of ASIC chips industrial miners use.
+                The difference is scale. Industrial farms run hundreds of thousands of chips. A Zyber 8G runs <strong>8</strong>.
+              </p>
+
+              <p>
+                You can also mine other SHA-256 coins (BCH, DGB, etc.). I do not mine those and I do not cover them here.
+              </p>
+
+              <h2 style="margin-top: 1.8rem;">Why Zyber 8G exists</h2>
+              <p>
+                There is a gap in home mining. Smaller open-source desk miners are quiet but limited. Full-size ASICs bring noise, heat, and power complexity.
+                Zyber 8G sits in the middle: multi-ASIC performance with power delivery and thermals designed to make sense in a room where people live.
               </p>
 
               <h2 style="margin-top: 1.8rem;">Built and maintained by TinyChipHub</h2>
               <p>
-                This is not a random rebrand. TinyChipHub developed the Zyber line in-house, including the board design,
-                power delivery, and cooling approach.
-              </p>
-
-              <p>
-                They also maintain their own firmware fork and publish it openly on their site.
-                There is an active Discord and a real user base behind this hardware.
+                This is not a random rebrand. TinyChipHub developed the Zyber line in-house, including the board design, power delivery, and cooling approach.
+                They also maintain their own firmware fork and publish it openly on their site. There is an active Discord and a real user base behind this hardware.
               </p>
 
               <h2 style="margin-top: 1.8rem;">Stock baseline vs headroom</h2>
               <p>
-                This page reflects stock performance only. That said, I have seen videos and community runs showing Zyber 8G units
-                pushed into the 14 TH/s range, and I have heard of higher attempts depending on cooling and silicon variance.
+                This page reflects stock performance only. That said, I have seen videos and community runs showing Zyber 8G units pushed into the 14 TH/s range,
+                and I have heard of higher attempts depending on cooling and silicon variance.
               </p>
 
               <h2 style="margin-top: 1.8rem;">Version and pricing clarity</h2>
-              <p>
-                The unit shown and tested here is the Zyber 8G Premium.
-              </p>
+              <p>This page and the numbers above are for the <strong>Zyber 8G Premium</strong>.</p>
 
               <ul>
                 <li><strong>Zyber 8G Standard:</strong> $799</li>
@@ -398,54 +499,17 @@
               <h2 style="margin-top: 1.8rem;">Bottom line</h2>
               <p>
                 Zyber 8G delivers real 10 TH/s class performance without turning your house into a datacenter.
-                It is efficient, stable, and clearly designed to be lived with.
-              </p>
-
-              <p>
-                If you are looking to make a meaningful jump in home hashrate without the usual downsides, this one deserves a serious look.
+                It is efficient, stable, and designed to be lived with.
               </p>
             </article>
 
-            <!-- RIGHT: IMAGES -->
+            <!-- RIGHT: PRODUCT IMAGE -->
             <aside>
               <div class="pom-img-frame">
-                <img
-                  src="/zyber-8g/images/zyber8g_prem.webp"
-                  alt="Zyber 8G Premium cooling configuration"
-                />
+                <img src="/zyber-8g/images/zyber8g_prem.webp" alt="Zyber 8G Premium cooling configuration" />
               </div>
               <div class="pom-caption">
-                Zyber 8G Premium (stock image for now). I’ll add daylight photos of the actual unit soon.
-              </div>
-
-              <div class="pom-img-frame">
-                <img
-                  src="/zyber-8g/images/zyber-8gp-power-heat.png"
-                  alt="Zyber 8G power and thermals dashboard screenshot"
-                />
-              </div>
-              <div class="pom-caption">
-                Power and thermals snapshot during the stock run.
-              </div>
-
-              <div class="pom-img-frame">
-                <img
-                  src="/zyber-8g/images/zyber-8gp-hashrate.png"
-                  alt="Zyber 8G hashrate and efficiency dashboard screenshot"
-                />
-              </div>
-              <div class="pom-caption">
-                Hashrate and efficiency view showing the 1-day averages.
-              </div>
-
-              <div class="pom-img-frame">
-                <img
-                  src="/zyber-8g/images/zyber-8gp-ckpool.png"
-                  alt="Zyber 8G CKPool screenshot"
-                />
-              </div>
-              <div class="pom-caption">
-                Pool-side view (CKPool) during the run.
+                Zyber 8G Premium (stock image for now). Swap this for daylight photos of your unit later.
               </div>
             </aside>
           </section>
@@ -466,17 +530,9 @@
             </p>
 
             <p class="pom-mini">
-              Use code <strong>PROOFOFMIKE</strong> for <strong>5% off all miners</strong>.
-              I earn a very modest affiliate fee that helps support my research, testing, and ongoing mining experiments and reviews.
-            </p>
-
-            <p class="pom-mini" style="margin-top: 0.6rem;">
-              More from me:
-              <a class="pom-link" href="https://proofofmike.com/">ProofOfMike.com</a>
-              ·
-              <a class="pom-link" href="https://proofofmike.com/posts/">Blog</a>
-              ·
-              <a class="pom-link" href="https://proofofmike.com/tch/" rel="nofollow">TinyChipHub codes</a>
+              Use code <strong>PROOFOFMIKE</strong> for <strong>5% off all miners</strong>. If you use my link, it supports the site at no extra cost to you
+              and helps fund my testing and reviews. Code details live here:
+              <a class="pom-link" href="https://proofofmike.com/tch/" rel="nofollow">proofofmike.com/tch</a>.
             </p>
           </section>
         </div>
