@@ -83,6 +83,12 @@
   </url>
 
   <!-- Individual posts (reverse-chronological is easiest to maintain) -->
+
+  <url>
+    <loc>https://proofofmike.com/posts/2026-02-12-own-node-is-not-a-solo-pool.html</loc>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
   <url>
     <loc>https://proofofmike.com/posts/2026-02-10-zyber-8g-on-the-desk.html</loc>
     <lastmod>2026-02-10</lastmod>
