@@ -14,7 +14,7 @@
 
   <url>
     <loc>https://proofofmike.com/posts/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-03-09</lastmod>
   </url>
 
   <!-- Tools / calculators (evergreen utility pages) -->
@@ -83,6 +83,11 @@
   </url>
 
   <!-- Individual posts (reverse-chronological is easiest to maintain) -->
+
+  <url>
+    <loc>https://proofofmike.com/posts/2026-03-09-why-i-ran-a-bitcoin-miner-giveaway.html</loc>
+    <lastmod>2026-03-09</lastmod>
+  </url>
 
   <url>
     <loc>https://proofofmike.com/posts/2026-02-12-own-node-is-not-a-solo-pool.html</loc>
