@@ -43,10 +43,10 @@ And if this giveaway helps even a few more people get involved in the space, the
 ---
 
 If you’re curious about the hardware being given away, you can read my original review here:  
-**proofofmike.com/nerdqaxe-copper**
+[My NerdQaxe Copper review](https://proofofmike.com/nerdqaxe-copper/)
 
 Or if you want to see the miner directly:  
-**tinyurl.com/nerdqaxe**
+[View the NerdQaxe on TinyChipHub](https://tinyurl.com/nerdqaxe)
 
 ---
 
