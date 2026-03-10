@@ -18,8 +18,10 @@
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="canonical" href="https://proofofmike.com/wallets/" />
 
+    <!-- Global site styles -->
     <link rel="stylesheet" href="/styles.css" />
 
+    <!-- counter.dev analytics -->
     <script
       src="https://cdn.counter.dev/script.js"
       data-id="523ea628-7b77-4913-83d7-01cf3417b330"
@@ -27,15 +29,44 @@
       defer
     ></script>
 
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Bitcoin Wallets I Actually Use: Trezor and Tangem | ProofOfMike"
+    />
+    <meta
+      property="og:description"
+      content="Why I use Trezor for longer-term cold storage and Tangem for convenience — and why I move coins off exchanges when they’re not in play."
+    />
+    <meta property="og:url" content="https://proofofmike.com/wallets/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://proofofmike.com/wallets/images/og_wall.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Bitcoin Wallets I Actually Use: Trezor and Tangem"
+    />
+    <meta
+      name="twitter:description"
+      content="Why I use Trezor for longer-term cold storage and Tangem for convenience — and why I move coins off exchanges when they’re not in play."
+    />
+    <meta name="twitter:creator" content="@ProofOfMike" />
+    <meta name="twitter:image" content="https://proofofmike.com/wallets/images/og_wall.png" />
+
     <style>
+      /* Make the injected nav match the main content width on this page */
       #site-nav {
         max-width: 1120px;
         margin: 32px auto 24px;
         padding: 0 20px;
       }
 
-      .wallet-intro-title {
-        margin: 0 0 0.75rem;
+      /* Wallet-page specific layout that sits on top of /styles.css */
+
+      .wallet-intro {
+        max-width: none;
       }
 
       .wallet-intro-eyebrow {
@@ -45,6 +76,10 @@
         color: var(--muted);
         margin-bottom: 0.4rem;
         font-weight: 600;
+      }
+
+      .wallet-intro-title {
+        margin: 0 0 0.75rem;
       }
 
       .wallet-tldr {
@@ -77,6 +112,7 @@
         padding: 8px 10px;
         border-bottom: 1px solid var(--ring);
         text-align: left;
+        vertical-align: top;
       }
 
       .wallet-table th {
@@ -84,6 +120,11 @@
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .wallet-table thead tr:first-child th {
+        border-bottom: 2px solid var(--ring);
       }
 
       .wallet-grid {
@@ -105,21 +146,30 @@
         padding: 14px 18px 18px;
         display: flex;
         flex-direction: column;
+        gap: 8px;
         height: 100%;
       }
 
       .wallet-img {
-        height: 300px;
+        height: 190px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 10px 0 18px;
+        margin: 8px 0 14px;
       }
 
       .wallet-img img {
-        max-width: 100%;
-        max-height: 280px;
+        display: block;
+        max-width: 260px;
+        max-height: 170px;
+        width: auto;
+        height: auto;
         object-fit: contain;
+      }
+
+      .wallet-card h2 {
+        font-size: 1rem;
+        margin: 0 0 2px;
       }
 
       .wallet-card h3 {
@@ -127,15 +177,22 @@
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: var(--muted);
+        margin: 0 0 4px;
       }
 
       .wallet-card p {
         font-size: 0.9rem;
+        margin: 0 0 4px;
       }
 
       .wallet-card ul {
-        margin: 6px 0 0 1.1rem;
+        margin: 4px 0 0 1.1rem;
+        padding: 0;
         font-size: 0.88rem;
+      }
+
+      .wallet-card li {
+        margin-bottom: 3px;
       }
 
       .wallet-cta {
@@ -143,28 +200,46 @@
         padding-top: 10px;
       }
 
-      .wallet-footnote-inline {
-        margin-bottom: 10px;
-        font-size: 0.85rem;
-        color: var(--muted);
+      .wallet-cta .btn {
+        font-size: 0.9rem;
+        padding-inline: 14px;
       }
 
+      .wallet-footnote {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.75rem;
+      }
+
+      /* Footer-style panel for cross-links */
       .wallet-footer-panel {
         margin-top: 2.6rem;
         padding: 16px 18px 18px;
         border-radius: var(--radius);
         border: 1px dashed var(--ring);
-        background: #020617;
+        background:
+          radial-gradient(circle at top left, rgba(148, 163, 255, 0.12), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.12), transparent 60%),
+          #020617;
         font-size: 0.9rem;
+      }
+
+      .wallet-footer-panel a {
+        color: #38bdf8;
+      }
+
+      .wallet-footer-panel a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
 
   <body>
+    <!-- Shared site nav -->
     <div id="site-nav"></div>
 
     <div class="wrap">
-
+      <!-- Intro / top card -->
       <section class="panel">
         <div class="wallet-intro">
           <h1 class="wallet-intro-title">
@@ -172,54 +247,118 @@
           </h1>
 
           <div class="wallet-intro-eyebrow">Self custody matters</div>
-
           <p>
-            Whether you’re mining, buying, holding, or occasionally trading,
-            I think self custody matters.
-          </p>
-
-          <p>
+            Whether you’re mining, buying, holding, or occasionally trading, I think self custody matters.
             Exchanges are useful. I use them too. But I do not believe in leaving coins sitting on an exchange
             any longer than they need to be there.
           </p>
-
+          <p>
+            If I’m actively using funds, that’s one thing. But when they’re not in play, I want them back under
+            my control. That applies whether the Bitcoin came from mining, buying, or moving funds off a trading platform.
+          </p>
           <p class="wallet-tldr">
             <strong>My personal setup:</strong><br />
-            • <strong>Trezor</strong> for longer-term cold storage<br />
-            • <strong>Tangem</strong> for convenience and mobile access
+            • <strong>Trezor</strong> for longer-term cold storage and balances I care more about protecting.<br />
+            • <strong>Tangem</strong> for convenience, mobile access, and smaller balances.<br />
+            • <strong>Main idea:</strong> use exchanges when needed, but don’t treat them like permanent custody.
           </p>
         </div>
       </section>
 
+      <!-- Main comparison + detailed breakdown -->
       <main class="post">
+        <h2>Why self custody matters</h2>
+        <p>
+          No matter how you’re involved in Bitcoin, the question is the same: who controls the keys?
+        </p>
+        <p>
+          Maybe you’re buying and holding. Maybe you’re solo mining and stacking sats. Maybe you move funds onto
+          an exchange once in a while to trade and then move them back off. Whatever the path is, I think coins
+          that are not actively being used should be in a wallet you control.
+        </p>
+        <p>
+          Self custody means:
+        </p>
+        <ul>
+          <li>you control the private keys</li>
+          <li>an exchange cannot freeze your funds</li>
+          <li>you are not relying on a third party for long-term storage</li>
+          <li>your Bitcoin is not sitting somewhere just because it is convenient</li>
+        </ul>
+        <p>
+          Exchanges have a purpose. Liquidity has a purpose. Trading has a purpose. I’m not pretending otherwise.
+          I’m just saying that when funds are no longer in play, I want them back in my custody.
+        </p>
+
+        <h2>Side-by-side comparison</h2>
+
+        <div class="wallet-table-wrapper">
+          <table class="wallet-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Trezor</th>
+                <th>Tangem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Best for</td>
+                <td>Longer-term cold storage and more serious balances</td>
+                <td>Convenience, mobile access, and smaller balances</td>
+              </tr>
+              <tr>
+                <td>How it feels</td>
+                <td>Traditional hardware wallet with dedicated device confirmation</td>
+                <td>Tap-to-use NFC card flow with phone app</td>
+              </tr>
+              <tr>
+                <td>Seed phrase</td>
+                <td>Classic seed phrase backup model</td>
+                <td>Can be used with a seed phrase or seedless flow depending on preference</td>
+              </tr>
+              <tr>
+                <td>Signing style</td>
+                <td>Transaction is confirmed on the wallet device</td>
+                <td>Transaction is approved by tapping card to phone</td>
+              </tr>
+              <tr>
+                <td>Best fit</td>
+                <td>Long-term storage and more serious cold-storage use</td>
+                <td>Convenience, mobile access, and smaller active balances</td>
+              </tr>
+              <tr>
+                <td>Who should not use it</td>
+                <td>People who never want to deal with seed backups</td>
+                <td>People who want the most traditional cold-storage experience possible</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2>My actual recommendations</h2>
 
         <div class="wallet-grid">
-
-          <!-- TREZOR -->
-
+          <!-- Trezor -->
           <article class="wallet-card">
-
             <h3>Cold storage pick</h3>
             <h2>Trezor</h2>
-
             <div class="wallet-img">
-              <img src="images/wallet-trezor-safe7.png" alt="Trezor hardware wallet">
+              <img
+                src="images/wallet-trezor-safe7.png"
+                alt="Trezor Bitcoin hardware wallet"
+              />
             </div>
-
             <p>
-              Trezor is what I like for longer-term storage. If it’s Bitcoin I’m not actively moving,
-              trading, or spending, this is the wallet I want holding the more serious balance.
+              Trezor is what I like for longer-term storage. If it’s Bitcoin I’m not actively moving, trading,
+              or spending, this is the kind of wallet I want holding the more serious balance.
             </p>
-
             <ul>
-              <li>Good fit for long-term self custody</li>
-              <li>Dedicated hardware signing device</li>
-              <li>Better for coins you are not actively using</li>
-              <li>Ideal for a proper cold storage setup</li>
+              <li>Good fit for long-term self custody.</li>
+              <li>Dedicated hardware wallet flow for signing transactions.</li>
+              <li>Better choice for coins you are not actively using.</li>
+              <li>Makes sense for the more serious “store it properly” balance.</li>
             </ul>
-
             <div class="wallet-cta">
               <a
                 href="https://affil.trezor.io/SHxI"
@@ -230,39 +369,29 @@
                 ⚡ Check Trezor
               </a>
             </div>
-
           </article>
 
-
-          <!-- TANGEM -->
-
+          <!-- Tangem -->
           <article class="wallet-card">
-
             <h3>Simplest pick</h3>
             <h2>Tangem</h2>
-
             <div class="wallet-img">
-              <img src="images/wallet-tangem-card2.png" alt="Tangem wallet cards">
+              <img
+                src="images/wallet-tangem-card.png"
+                alt="Tangem Bitcoin hardware wallet card"
+              />
             </div>
-
             <p>
-              Tangem is the easy one. It’s simple, fast, and feels familiar.
-              I like it for smaller balances and mobile access.
+              Tangem is the easy one. It’s simple, fast, and feels familiar. I like it for smaller balances,
+              mobile access, and situations where I want self custody without adding friction.
             </p>
-
             <ul>
-              <li>Very easy onboarding</li>
-              <li>Great for mobile access</li>
-              <li>No cables or tiny buttons</li>
-              <li>Self custody without making it a project</li>
+              <li>Very easy onboarding.</li>
+              <li>Great for mobile access and smaller balances.</li>
+              <li>No cables, no tiny buttons, no unnecessary drama.</li>
+              <li>Good fit if you want self custody without making it a project.</li>
             </ul>
-
             <div class="wallet-cta">
-
-              <div class="wallet-footnote-inline">
-                Use code <strong>PROOFOFMIKE</strong> on Tangem for a discount
-              </div>
-
               <a
                 href="https://tangem.com/pricing/?promocode=PROOFOFMIKE"
                 target="_blank"
@@ -271,44 +400,88 @@
               >
                 ⚡ Check Tangem
               </a>
-
+              <div class="wallet-footnote">
+                Use code <strong>PROOFOFMIKE</strong> on Tangem for a discount.
+              </div>
             </div>
-
           </article>
-
         </div>
 
+        <h2 style="margin-top: 2rem;">Why I use both</h2>
+        <p>
+          For me, these two wallets do different jobs.
+        </p>
+        <p>
+          <strong>Trezor</strong> is for Bitcoin I want tucked away properly. The longer-term balance. The part
+          I’m not trying to keep easily accessible just because it’s convenient.
+        </p>
+        <p>
+          <strong>Tangem</strong> is for the more flexible side. Smaller balances, easier access, and a smoother
+          mobile experience.
+        </p>
+        <p>
+          Even when I move funds onto an exchange for a reason, whether that’s to sell, trade, or do something
+          specific, I don’t want them sitting there afterward just because I got lazy. When they’re no longer
+          in play, I move them back to cold storage.
+        </p>
+
+        <h2>One mistake I would avoid</h2>
+        <p>
+          I would not get too comfortable leaving Bitcoin on an exchange just because it feels easier.
+        </p>
+        <p>
+          Use exchanges for what they’re good at: buying, selling, trading, or converting. But once the activity
+          is over, I think the default move should be getting coins back under your control.
+        </p>
+        <p>
+          I’m not anti-exchange. I’m anti-forgetting that the exchange is holding your coins.
+        </p>
+        <p>
+          Convenience is great right up until it isn’t.
+        </p>
+
+        <h2>Security is not just about hackers on the internet</h2>
+        <p>
+          A lot of people think about wallet security only in terms of remote attacks, but part of the point of a hardware
+          wallet is separating your keys from the everyday device you browse, click, download, and live on.
+        </p>
+        <p>
+          Your laptop or phone may be fine. It also may not be as clean as you think.
+          Self custody done properly is about reducing trust and reducing attack surface.
+        </p>
+        <p>
+          That’s one of the big reasons I like using dedicated wallet hardware in the first place.
+        </p>
+
+        <p class="wallet-footnote">
+          None of this is financial advice. It’s just what I personally use and what I’d tell a friend who asked me how
+          to secure Bitcoin without overcomplicating it.
+        </p>
+
+        <!-- Bottom cross-link / “More from me” panel -->
         <section class="wallet-footer-panel">
           <p>
-            Self custody is a mindset as much as a tool choice.
+            <strong>Self custody is a mindset as much as a tool choice.</strong>
+            Whether your Bitcoin came from mining, buying, or trading, I think there’s a big difference between
+            using an exchange and depending on one.
           </p>
-
-          <p>
-            Whether your Bitcoin came from mining, buying, or trading,
-            there’s a big difference between using an exchange and depending on one.
+          <p style="margin-top: 0.6rem;">
+            I write about Bitcoin, solo mining, wallet security, and the practical side of holding your own keys
+            over on <a href="https://proofofmike.com/">ProofOfMike.com</a>.
           </p>
-
-          <p>
-            I write about Bitcoin, solo mining, wallet security, and the practical side
-            of holding your own keys over on
-            <a href="https://proofofmike.com/">ProofOfMike.com</a>.
-          </p>
-
-          <p>
-            Feel free to ping me anytime on X
-            <a href="https://x.com/ProofOfMike">@ProofOfMike</a>.
+          <p style="margin-top: 0.6rem;">
+            Feel free to ping me on X anytime at
+            <a href="https://x.com/ProofOfMike" target="_blank">@ProofOfMike</a>.
           </p>
         </section>
-
       </main>
 
       <div class="foot">
         Made by Mike (@ProofOfMike) between mining shares, football games, and bulldog snoring sessions.
       </div>
-
     </div>
 
+    <!-- Shared site nav JS -->
     <script src="/assets/nav.js"></script>
-
   </body>
 </html>
