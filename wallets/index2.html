@@ -143,18 +143,28 @@
         background: rgba(15, 23, 42, 0.95);
         border-radius: var(--radius);
         border: 1px solid var(--ring);
-        padding: 14px 14px 16px;
+        padding: 14px 18px 18px;
         display: flex;
         flex-direction: column;
         gap: 8px;
+        height: 100%;
       }
 
-      .wallet-card img {
+      .wallet-img {
+        height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 8px 0 14px;
+      }
+
+      .wallet-img img {
         display: block;
-        max-width: 210px;
-        width: 100%;
-        margin: 4px auto 10px;
+        max-width: 260px;
+        max-height: 170px;
+        width: auto;
         height: auto;
+        object-fit: contain;
       }
 
       .wallet-card h2 {
@@ -186,7 +196,8 @@
       }
 
       .wallet-cta {
-        margin-top: 8px;
+        margin-top: auto;
+        padding-top: 10px;
       }
 
       .wallet-cta .btn {
@@ -332,10 +343,12 @@
           <article class="wallet-card">
             <h3>Cold storage pick</h3>
             <h2>Trezor</h2>
-            <img
-              src="images/wallet-trezor-safe7.png"
-              alt="Trezor Bitcoin hardware wallet"
-            />
+            <div class="wallet-img">
+              <img
+                src="images/wallet-trezor-safe7.png"
+                alt="Trezor Bitcoin hardware wallet"
+              />
+            </div>
             <p>
               Trezor is what I like for longer-term storage. If it’s Bitcoin I’m not actively moving, trading,
               or spending, this is the kind of wallet I want holding the more serious balance.
@@ -362,10 +375,12 @@
           <article class="wallet-card">
             <h3>Simplest pick</h3>
             <h2>Tangem</h2>
-            <img
-              src="images/wallet-tangem-card2.png"
-              alt="Tangem Bitcoin hardware wallet card"
-            />
+            <div class="wallet-img">
+              <img
+                src="images/wallet-tangem-card2.png"
+                alt="Tangem Bitcoin hardware wallet card"
+              />
+            </div>
             <p>
               Tangem is the easy one. It’s simple, fast, and feels familiar. I like it for smaller balances,
               mobile access, and situations where I want self custody without adding friction.
@@ -385,9 +400,9 @@
               >
                 ⚡ Check Tangem
               </a>
-            </div>
-            <div class="wallet-footnote">
-              Use code <strong>PROOFOFMIKE</strong> on Tangem for a discount.
+              <div class="wallet-footnote">
+                Use code <strong>PROOFOFMIKE</strong> on Tangem for a discount.
+              </div>
             </div>
           </article>
         </div>
@@ -453,10 +468,6 @@
           <p style="margin-top: 0.6rem;">
             I write about Bitcoin, solo mining, wallet security, and the practical side of holding your own keys
             over on <a href="https://proofofmike.com/">ProofOfMike.com</a>.
-          </p>
-          <p style="margin-top: 0.6rem;">
-            I’ll also be posting a separate write-up on why physical access still matters and how that ties into
-            self custody and dedicated signing devices.
           </p>
           <p style="margin-top: 0.6rem;">
             Feel free to ping me on X anytime at
